@@ -1,6 +1,6 @@
 # Phase 1 — Design Principles
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete
 
 ## Goal
 
@@ -11,30 +11,33 @@ but full guidance contributors and government teams can apply directly.
 
 ## Deliverables
 
-For each of the following principles, produce: **Description**,
-**Rationale**, **Examples**, **Anti-patterns**, and **Implementation
-Guidance**:
+Each principle is documented with **Description**, **Rationale**,
+**Examples**, **Anti-patterns**, and **Implementation Guidance** under
+[`docs/design-principles/`](../design-principles/):
 
-- Citizen-Centered Design
-- Multilingual Design
-- Accessibility
-- Mobile First
-- Low Bandwidth
-- Security
-- Reuse
-- Open Source
+1. [Start with Citizen Needs](../design-principles/01-start-with-citizen-needs.md)
+2. [Multilingual by Default](../design-principles/02-multilingual-by-default.md)
+3. [Mobile First](../design-principles/03-mobile-first.md)
+4. [Accessibility by Default](../design-principles/04-accessibility-by-default.md)
+5. [Simple Before Powerful](../design-principles/05-simple-before-powerful.md)
+6. [Design for Low Bandwidth](../design-principles/06-design-for-low-bandwidth.md)
+7. [Reuse Before Building](../design-principles/07-reuse-before-building.md)
+8. [Security and Privacy by Design](../design-principles/08-security-and-privacy-by-design.md)
+9. [Consistent Government Experience](../design-principles/09-consistent-government-experience.md)
+10. [Open by Default](../design-principles/10-open-by-default.md)
 
-(The full ten-principle list, including Simple Before Powerful and
-Consistent Government Experience, is in
-[`docs/foundation/design-philosophy.md`](../foundation/design-philosophy.md);
-this phase expands each into full documentation.)
+Plus an index/overview at
+[`docs/design-principles/README.md`](../design-principles/README.md). All
+ten principles are documented (the original guide enumerated eight in
+prose; this phase covers the full canonical ten from
+[`design-philosophy.md`](../foundation/design-philosophy.md)).
 
 ## Output Location
 
-`packages/ethds-docs/` (published as part of the documentation platform
-once [Phase 4](phase-4-documentation-platform.md) exists), authored as
-source markdown likely under a new `docs/design-principles/` content
-directory.
+[`docs/design-principles/`](../design-principles/). When the documentation
+platform is built in [Phase 4](phase-4-documentation-platform.md), this
+content is published from there; it lives in `docs/` now so it is usable
+immediately.
 
 ## Dependencies
 
