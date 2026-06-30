@@ -1,0 +1,48 @@
+/**
+ * ETHDS docs theme — binds Docusaurus (Infima) to the ETHDS design tokens,
+ * so the documentation site visibly uses the design system it documents.
+ */
+
+/* The generated ETHDS design tokens (CSS custom properties). */
+@import '@ethds/tokens/css';
+
+:root {
+  /* Primary = Ethiopian Star Blue, from @ethds/tokens. */
+  --ifm-color-primary: var(--ethds-blue-600);
+  --ifm-color-primary-dark: var(--ethds-blue-700);
+  --ifm-color-primary-darker: var(--ethds-blue-700);
+  --ifm-color-primary-darkest: var(--ethds-blue-900);
+  --ifm-color-primary-light: var(--ethds-blue-500);
+  --ifm-color-primary-lighter: var(--ethds-blue-400);
+  --ifm-color-primary-lightest: var(--ethds-blue-300);
+
+  --ifm-font-family-base: var(--ethds-font-sans);
+  --ifm-font-family-monospace: var(--ethds-font-mono);
+  --ifm-link-color: var(--ethds-color-interactive);
+  --ifm-code-font-size: 95%;
+
+  --ifm-color-success: var(--ethds-green-600);
+  --ifm-color-warning: var(--ethds-yellow-400);
+  --ifm-color-danger: var(--ethds-red-600);
+}
+
+/* Dark mode: lift the primary toward the lighter blues for contrast. */
+[data-theme='dark'] {
+  --ifm-color-primary: var(--ethds-blue-300);
+  --ifm-color-primary-dark: var(--ethds-blue-400);
+  --ifm-color-primary-darker: var(--ethds-blue-500);
+  --ifm-color-primary-darkest: var(--ethds-blue-600);
+  --ifm-color-primary-light: var(--ethds-blue-200);
+  --ifm-color-primary-lighter: var(--ethds-blue-100);
+  --ifm-color-primary-lightest: var(--ethds-blue-50);
+}
+
+/* A small swatch used in the brand docs. */
+.ethds-swatch {
+  display: inline-block;
+  width: var(--ethds-space-6);
+  height: var(--ethds-space-6);
+  border-radius: var(--ethds-radius-md);
+  border: 1px solid var(--ethds-color-border);
+  vertical-align: middle;
+}
