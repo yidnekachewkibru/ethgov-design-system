@@ -1,11 +1,14 @@
 /*
  * ETHDS Brand — CSS Custom Properties
- * Canonical reference implementation of the ETHDS brand system.
- * Values documented in docs/brand/. In Phase 3 these are generated from
- * the @ethds/tokens JSON source; until then this file is directly usable.
+ * Human-readable reference for the ETHDS brand system.
  *
- * All colour pairings used for text/UI are verified WCAG 2.2 AA — see
- * docs/brand/accessibility-analysis.md.
+ * As of Phase 3, @ethds/tokens is the canonical generator of this output:
+ * `npm run build -w @ethds/tokens` produces dist/tokens.css with the same
+ * variable names. Import "@ethds/tokens/css" in apps; this file documents
+ * the same values for reading.
+ *
+ * Values documented in docs/brand/. All colour pairings used for text/UI
+ * are verified WCAG 2.2 AA — see docs/brand/accessibility-analysis.md.
  */
 
 :root {

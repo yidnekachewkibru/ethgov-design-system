@@ -1,0 +1,49 @@
+{
+  "color": {
+    "blue": {
+      "50":  { "$type": "color", "$value": "#EAF1FB" },
+      "100": { "$type": "color", "$value": "#CFE0F6" },
+      "200": { "$type": "color", "$value": "#A6C6EE" },
+      "300": { "$type": "color", "$value": "#6F9FE0" },
+      "400": { "$type": "color", "$value": "#3E78CF" },
+      "500": { "$type": "color", "$value": "#1F5CB8" },
+      "600": { "$type": "color", "$value": "#194B9C", "$description": "Ethiopian Star Blue — primary" },
+      "700": { "$type": "color", "$value": "#153D80" },
+      "800": { "$type": "color", "$value": "#102E60" },
+      "900": { "$type": "color", "$value": "#0B1F40" }
+    },
+    "green": {
+      "50":  { "$type": "color", "$value": "#E9F5EC" },
+      "500": { "$type": "color", "$value": "#1E8E3E" },
+      "600": { "$type": "color", "$value": "#177D34" },
+      "700": { "$type": "color", "$value": "#0F5F27" }
+    },
+    "yellow": {
+      "50":  { "$type": "color", "$value": "#FEF7E0" },
+      "400": { "$type": "color", "$value": "#F2C200", "$description": "Warning fill — dark text only" },
+      "500": { "$type": "color", "$value": "#D9A400" },
+      "700": { "$type": "color", "$value": "#8A6500" }
+    },
+    "red": {
+      "50":  { "$type": "color", "$value": "#FDECEC" },
+      "500": { "$type": "color", "$value": "#D32F2F" },
+      "600": { "$type": "color", "$value": "#C1121F" },
+      "700": { "$type": "color", "$value": "#9B0F18" }
+    },
+    "gray": {
+      "50":  { "$type": "color", "$value": "#F6F7F8" },
+      "100": { "$type": "color", "$value": "#ECEEF1" },
+      "200": { "$type": "color", "$value": "#D9DDE2" },
+      "300": { "$type": "color", "$value": "#BEC4CC" },
+      "400": { "$type": "color", "$value": "#98A0AB" },
+      "500": { "$type": "color", "$value": "#6B7280", "$description": "Minimum for functional borders (4.83:1 on white)" },
+      "600": { "$type": "color", "$value": "#4B515A" },
+      "700": { "$type": "color", "$value": "#363B42" },
+      "800": { "$type": "color", "$value": "#23272C" },
+      "900": { "$type": "color", "$value": "#15181C" }
+    },
+    "white": { "$type": "color", "$value": "#FFFFFF" },
+    "ink":   { "$type": "color", "$value": "#1A1D21", "$description": "Default body text colour (16.91:1 on white)" },
+    "black": { "$type": "color", "$value": "#0A0C0E" }
+  }
+}

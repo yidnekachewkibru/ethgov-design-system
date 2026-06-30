@@ -1,7 +1,7 @@
 # ETHDS — Ethiopian Government Design System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Phase](https://img.shields.io/badge/phase-2%20brand%20system-blue.svg)](docs/foundation/roadmap.md)
+[![Phase](https://img.shields.io/badge/phase-3%20design%20tokens-blue.svg)](docs/foundation/roadmap.md)
 
 An open-source design system for Ethiopian government digital services —
 inspired by the [GOV.UK Design System](https://design-system.service.gov.uk/),
@@ -92,12 +92,16 @@ accessibility are requirements, not stretch goals. See
 git clone https://github.com/yidnekachewkibru/ethgov-design-system.git
 cd ethgov-design-system
 npm install
+
+# Build the design tokens (@ethds/tokens → CSS / TS / Tailwind)
+npm run build -w @ethds/tokens
+npm run test  -w @ethds/tokens
 ```
 
-There is no usable component or token library yet — this clones the
-governance/documentation foundation and the empty workspace skeleton.
-Watch the [roadmap](docs/foundation/roadmap.md) for when packages become
-usable.
+The first usable package is [`@ethds/tokens`](packages/ethds-tokens/) — the
+design-token source of truth, built to CSS variables, a typed module, and
+a Tailwind preset. Components, patterns, and templates follow in later
+phases — watch the [roadmap](docs/foundation/roadmap.md).
 
 ## Contributing
 
