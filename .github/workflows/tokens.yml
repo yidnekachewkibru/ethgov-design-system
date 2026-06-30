@@ -1,0 +1,28 @@
+name: tokens
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "packages/ethds-tokens/**"
+      - ".github/workflows/tokens.yml"
+  pull_request:
+    paths:
+      - "packages/ethds-tokens/**"
+      - ".github/workflows/tokens.yml"
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install
+        run: npm ci
+      - name: Build tokens
+        run: npm run build -w @ethds/tokens
+      - name: Test tokens
+        run: npm run test -w @ethds/tokens
