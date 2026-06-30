@@ -1,0 +1,6 @@
+{
+  "name": "@ethds/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "description": "ETHDS design tokens — built in Phase 3 (see README.md)"
+}
