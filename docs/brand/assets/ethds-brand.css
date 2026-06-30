@@ -1,0 +1,151 @@
+/*
+ * ETHDS Brand — CSS Custom Properties
+ * Canonical reference implementation of the ETHDS brand system.
+ * Values documented in docs/brand/. In Phase 3 these are generated from
+ * the @ethds/tokens JSON source; until then this file is directly usable.
+ *
+ * All colour pairings used for text/UI are verified WCAG 2.2 AA — see
+ * docs/brand/accessibility-analysis.md.
+ */
+
+:root {
+  /* ---- Primary: Ethiopian Star Blue ---- */
+  --ethds-blue-50:  #EAF1FB;
+  --ethds-blue-100: #CFE0F6;
+  --ethds-blue-200: #A6C6EE;
+  --ethds-blue-300: #6F9FE0;
+  --ethds-blue-400: #3E78CF;
+  --ethds-blue-500: #1F5CB8;
+  --ethds-blue-600: #194B9C; /* Star Blue — primary */
+  --ethds-blue-700: #153D80;
+  --ethds-blue-800: #102E60;
+  --ethds-blue-900: #0B1F40;
+
+  /* ---- Green (success) ---- */
+  --ethds-green-50:  #E9F5EC;
+  --ethds-green-500: #1E8E3E;
+  --ethds-green-600: #177D34;
+  --ethds-green-700: #0F5F27;
+
+  /* ---- Yellow (warning) — dark-text fill ---- */
+  --ethds-yellow-50:  #FEF7E0;
+  --ethds-yellow-400: #F2C200;
+  --ethds-yellow-500: #D9A400;
+  --ethds-yellow-700: #8A6500;
+
+  /* ---- Red (error/danger) ---- */
+  --ethds-red-50:  #FDECEC;
+  --ethds-red-500: #D32F2F;
+  --ethds-red-600: #C1121F;
+  --ethds-red-700: #9B0F18;
+
+  /* ---- Neutrals ---- */
+  --ethds-white:    #FFFFFF;
+  --ethds-gray-50:  #F6F7F8;
+  --ethds-gray-100: #ECEEF1;
+  --ethds-gray-200: #D9DDE2;
+  --ethds-gray-300: #BEC4CC;
+  --ethds-gray-400: #98A0AB;
+  --ethds-gray-500: #6B7280;
+  --ethds-gray-600: #4B515A;
+  --ethds-gray-700: #363B42;
+  --ethds-gray-800: #23272C;
+  --ethds-gray-900: #15181C;
+  --ethds-ink:      #1A1D21;
+  --ethds-black:    #0A0C0E;
+
+  /* ---- Semantic roles ---- */
+  --ethds-color-text:             var(--ethds-ink);
+  --ethds-color-text-secondary:   var(--ethds-gray-600);
+  --ethds-color-text-disabled:    var(--ethds-gray-400);
+  --ethds-color-interactive:      var(--ethds-blue-500);
+  --ethds-color-interactive-hover:var(--ethds-blue-700);
+  --ethds-color-primary:          var(--ethds-blue-600);
+  --ethds-color-focus:            var(--ethds-blue-600);
+  --ethds-color-border:           var(--ethds-gray-500);
+  --ethds-color-divider:          var(--ethds-gray-200);
+  --ethds-color-success:          var(--ethds-green-600);
+  --ethds-color-warning:          var(--ethds-yellow-400);
+  --ethds-color-error:            var(--ethds-red-600);
+  --ethds-color-info:             var(--ethds-blue-600);
+
+  /* ---- Typography ---- */
+  --ethds-font-sans: "Noto Sans", "Noto Sans Ethiopic", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --ethds-font-ethiopic: "Noto Sans Ethiopic", "Abyssinica SIL", "Noto Sans", system-ui, sans-serif;
+  --ethds-font-mono: ui-monospace, "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+
+  --ethds-text-xs:   0.75rem;
+  --ethds-text-sm:   0.875rem;
+  --ethds-text-base: 1rem;
+  --ethds-text-lg:   1.125rem;
+  --ethds-text-xl:   1.375rem;
+  --ethds-text-2xl:  1.75rem;
+  --ethds-text-3xl:  2.25rem;
+  --ethds-text-4xl:  3rem;
+
+  --ethds-leading-tight:   1.2;
+  --ethds-leading-snug:    1.3;
+  --ethds-leading-normal:  1.5;
+  --ethds-leading-relaxed: 1.6;
+
+  --ethds-font-regular: 400;
+  --ethds-font-medium:  500;
+  --ethds-font-bold:    700;
+
+  /* ---- Spacing (4px base) ---- */
+  --ethds-space-0:  0;
+  --ethds-space-1:  0.25rem;
+  --ethds-space-2:  0.5rem;
+  --ethds-space-3:  0.75rem;
+  --ethds-space-4:  1rem;
+  --ethds-space-5:  1.25rem;
+  --ethds-space-6:  1.5rem;
+  --ethds-space-8:  2rem;
+  --ethds-space-10: 2.5rem;
+  --ethds-space-12: 3rem;
+  --ethds-space-16: 4rem;
+  --ethds-space-20: 5rem;
+  --ethds-space-24: 6rem;
+
+  /* ---- Radius ---- */
+  --ethds-radius-none: 0;
+  --ethds-radius-sm:   0.125rem;
+  --ethds-radius-md:   0.25rem;
+  --ethds-radius-lg:   0.5rem;
+  --ethds-radius-xl:   0.75rem;
+  --ethds-radius-full: 9999px;
+
+  /* ---- Elevation ---- */
+  --ethds-elevation-0: none;
+  --ethds-elevation-1: 0 1px 2px rgba(10,12,14,0.08), 0 1px 1px rgba(10,12,14,0.04);
+  --ethds-elevation-2: 0 2px 4px rgba(10,12,14,0.10), 0 1px 2px rgba(10,12,14,0.06);
+  --ethds-elevation-3: 0 6px 12px rgba(10,12,14,0.12), 0 2px 4px rgba(10,12,14,0.08);
+  --ethds-elevation-4: 0 12px 24px rgba(10,12,14,0.16), 0 4px 8px rgba(10,12,14,0.10);
+
+  /* ---- Motion ---- */
+  --ethds-motion-instant: 50ms;
+  --ethds-motion-fast:    100ms;
+  --ethds-motion-base:    200ms;
+  --ethds-motion-slow:    300ms;
+  --ethds-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ethds-ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --ethds-ease-out:      cubic-bezier(0, 0, 0.2, 1);
+
+  /* ---- Icon sizes ---- */
+  --ethds-icon-sm: 16px;
+  --ethds-icon-md: 20px;
+  --ethds-icon-lg: 24px;
+  --ethds-icon-xl: 32px;
+}
+
+/* Honour the citizen's reduced-motion preference (required). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

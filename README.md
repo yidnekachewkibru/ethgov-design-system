@@ -1,7 +1,7 @@
 # ETHDS — Ethiopian Government Design System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Phase](https://img.shields.io/badge/phase-1%20design%20principles-blue.svg)](docs/foundation/roadmap.md)
+[![Phase](https://img.shields.io/badge/phase-2%20brand%20system-blue.svg)](docs/foundation/roadmap.md)
 
 An open-source design system for Ethiopian government digital services —
 inspired by the [GOV.UK Design System](https://design-system.service.gov.uk/),

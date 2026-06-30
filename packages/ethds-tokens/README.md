@@ -14,7 +14,12 @@ TypeScript types.
 
 - [Phase 2 — Brand System](../../docs/phases/phase-2-brand-system.md) for
   the source palette, type scale, and spacing/elevation/radius/motion
-  decisions this package encodes as tokens.
+  decisions this package encodes as tokens. Those values are decided and
+  documented under [`docs/brand/`](../../docs/brand/), with a reference
+  [CSS variables](../../docs/brand/assets/ethds-brand.css) file and
+  [Tailwind theme](../../docs/brand/assets/tailwind.brand.cjs) — Phase 3
+  restructures them into a JSON-source build that generates these and
+  other formats automatically.
 
 ## Consumed By
 
