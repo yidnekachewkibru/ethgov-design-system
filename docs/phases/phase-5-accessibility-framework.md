@@ -1,6 +1,6 @@
 # Phase 5 — Accessibility Framework
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete
 
 ## Goal
 
@@ -11,17 +11,23 @@ process.
 
 ## Deliverables
 
-- Accessibility Policy
-- WCAG Mapping (which WCAG 2.2 success criteria apply to which ETHDS
-  component/pattern categories)
-- Keyboard Navigation Standards
-- Screen Reader Standards
-- Focus Management Standards
-- Contrast Requirements
-- Motion Standards (including reduced-motion support)
-- Testing Framework (automated + manual testing process, tooling choice)
-- Accessibility Checklist (used in PR review, per
-  [`CONTRIBUTING.md`](../../CONTRIBUTING.md#accessibility-and-localization))
+All delivered under [`docs/accessibility/`](../accessibility/):
+
+- Accessibility Policy — [accessibility-policy.md](../accessibility/accessibility-policy.md)
+- WCAG 2.2 Mapping — [wcag-2.2-mapping.md](../accessibility/wcag-2.2-mapping.md)
+  (incl. the six new-in-2.2 criteria and which package owns each)
+- Keyboard Navigation Standards — [keyboard-navigation.md](../accessibility/keyboard-navigation.md)
+- Screen Reader Standards — [screen-readers.md](../accessibility/screen-readers.md)
+- Focus Management Standards — [focus-management.md](../accessibility/focus-management.md)
+- Contrast Requirements — [contrast-requirements.md](../accessibility/contrast-requirements.md)
+  (backed by the measured [brand analysis](../brand/accessibility-analysis.md)
+  and the `@ethds/tokens` contrast tests)
+- Motion Standards — [motion.md](../accessibility/motion.md)
+- Testing Framework — [testing-framework.md](../accessibility/testing-framework.md)
+  (eslint-jsx-a11y, axe-core/vitest-axe, Playwright + @axe-core/playwright,
+  Storybook a11y, manual screen-reader passes)
+- Accessibility Checklist — [checklist.md](../accessibility/checklist.md)
+  (the PR/review merge gate)
 
 ## Output Location
 
