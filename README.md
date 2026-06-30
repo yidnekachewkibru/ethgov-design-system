@@ -1,7 +1,7 @@
 # ETHDS — Ethiopian Government Design System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Phase](https://img.shields.io/badge/phase-3%20design%20tokens-blue.svg)](docs/foundation/roadmap.md)
+[![Phase](https://img.shields.io/badge/phase-4%20documentation%20platform-blue.svg)](docs/foundation/roadmap.md)
 
 An open-source design system for Ethiopian government digital services —
 inspired by the [GOV.UK Design System](https://design-system.service.gov.uk/),
@@ -96,12 +96,21 @@ npm install
 # Build the design tokens (@ethds/tokens → CSS / TS / Tailwind)
 npm run build -w @ethds/tokens
 npm run test  -w @ethds/tokens
+
+# Run the documentation site locally (builds tokens first)
+npm run start -w ethds-docs
 ```
 
-The first usable package is [`@ethds/tokens`](packages/ethds-tokens/) — the
-design-token source of truth, built to CSS variables, a typed module, and
-a Tailwind preset. Components, patterns, and templates follow in later
-phases — watch the [roadmap](docs/foundation/roadmap.md).
+Usable now:
+
+- [`@ethds/tokens`](packages/ethds-tokens/) — the design-token source of
+  truth, built to CSS variables, a typed module, and a Tailwind preset.
+- [`ethds-docs`](packages/ethds-docs/) — the Docusaurus documentation
+  site (principles, brand, accessibility), multilingual and themed from
+  `@ethds/tokens`, deployable to GitHub Pages.
+
+Components, patterns, and templates follow in later phases — watch the
+[roadmap](docs/foundation/roadmap.md).
 
 ## Contributing
 
