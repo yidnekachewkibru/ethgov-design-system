@@ -1,7 +1,7 @@
 # ETHDS — Ethiopian Government Design System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Phase](https://img.shields.io/badge/phase-0%20foundation-blue.svg)](docs/foundation/roadmap.md)
+[![Phase](https://img.shields.io/badge/phase-1%20design%20principles-blue.svg)](docs/foundation/roadmap.md)
 
 An open-source design system for Ethiopian government digital services —
 inspired by the [GOV.UK Design System](https://design-system.service.gov.uk/),
@@ -63,21 +63,20 @@ ethgov-design-system/
 
 ## Core Principles
 
-1. Start with Citizen Needs
-2. Multilingual by Default
-3. Mobile First
-4. Accessibility by Default
-5. Simple Before Powerful
-6. Design for Low Bandwidth
-7. Reuse Before Building
-8. Security and Privacy by Design
-9. Consistent Government Experience
-10. Open by Default
+1. [Start with Citizen Needs](docs/design-principles/01-start-with-citizen-needs.md)
+2. [Multilingual by Default](docs/design-principles/02-multilingual-by-default.md)
+3. [Mobile First](docs/design-principles/03-mobile-first.md)
+4. [Accessibility by Default](docs/design-principles/04-accessibility-by-default.md)
+5. [Simple Before Powerful](docs/design-principles/05-simple-before-powerful.md)
+6. [Design for Low Bandwidth](docs/design-principles/06-design-for-low-bandwidth.md)
+7. [Reuse Before Building](docs/design-principles/07-reuse-before-building.md)
+8. [Security and Privacy by Design](docs/design-principles/08-security-and-privacy-by-design.md)
+9. [Consistent Government Experience](docs/design-principles/09-consistent-government-experience.md)
+10. [Open by Default](docs/design-principles/10-open-by-default.md)
 
-Full rationale and implementation guidance:
-[`docs/foundation/design-philosophy.md`](docs/foundation/design-philosophy.md)
-(detailed per-principle documentation lands in
-[Phase 1](docs/phases/phase-1-design-principles.md)).
+Each principle is documented in full — rationale, examples, anti-patterns,
+and implementation guidance — under
+[`docs/design-principles/`](docs/design-principles/).
 
 ## Accessibility
 

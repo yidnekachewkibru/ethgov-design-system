@@ -11,7 +11,7 @@ phase file) are complete.
 | Phase | Name | Status | Scope |
 |---|---|---|---|
 | 0 | Foundation | ✅ Complete | [phase-0-foundation.md](../phases/phase-0-foundation.md) |
-| 1 | Design Principles | 📋 Planned | [phase-1-design-principles.md](../phases/phase-1-design-principles.md) |
+| 1 | Design Principles | ✅ Complete | [phase-1-design-principles.md](../phases/phase-1-design-principles.md) |
 | 2 | Brand System | 📋 Planned | [phase-2-brand-system.md](../phases/phase-2-brand-system.md) |
 | 3 | Design Tokens | 📋 Planned | [phase-3-design-tokens.md](../phases/phase-3-design-tokens.md) |
 | 4 | Documentation Platform | 📋 Planned | [phase-4-documentation-platform.md](../phases/phase-4-documentation-platform.md) |
