@@ -1,7 +1,7 @@
 # ETHDS — Ethiopian Government Design System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Phase](https://img.shields.io/badge/phase-4%20documentation%20platform-blue.svg)](docs/foundation/roadmap.md)
+[![Phase](https://img.shields.io/badge/phase-5%20accessibility%20framework-blue.svg)](docs/foundation/roadmap.md)
 
 An open-source design system for Ethiopian government digital services —
 inspired by the [GOV.UK Design System](https://design-system.service.gov.uk/),
@@ -83,8 +83,9 @@ and implementation guidance — under
 ETHDS targets **WCAG 2.2 AA** as a minimum across every component,
 pattern, and template — keyboard navigation, screen reader support,
 focus management, contrast compliance, reduced motion, and touch
-accessibility are requirements, not stretch goals. See
-[Phase 5 — Accessibility Framework](docs/phases/phase-5-accessibility-framework.md).
+accessibility are requirements, not stretch goals. The enforceable
+standards, WCAG 2.2 mapping, testing framework, and per-change checklist
+live in [`docs/accessibility/`](docs/accessibility/).
 
 ## Getting Started
 
