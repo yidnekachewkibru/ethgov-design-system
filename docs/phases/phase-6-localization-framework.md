@@ -1,6 +1,6 @@
 # Phase 6 — Localization Framework
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete
 
 ## Goal
 
@@ -11,29 +11,32 @@ is a concrete, reusable system rather than a per-component afterthought.
 
 ## Deliverables
 
-- Localization Strategy
-- Language Architecture (covering English, Amharic, Afaan Oromo,
-  Tigrinya, Somali, and Afar — including script/direction handling for
-  Ge'ez-script languages)
-- Translation Structure (file format, key structure, tooling)
-- Date Formatting Standards
-- Number Formatting Standards
-- Currency Formatting Standards (Ethiopian Birr and any cross-border
-  context)
-- Address Standards (Ethiopian administrative regions/zones/woredas)
-- Language Switcher Standard (the UX/behavior spec for the
-  `LanguageSwitcher` component built in
-  [Phase 7](phase-7-core-components.md))
-- Translation Workflow
-- Contributor Localization Guide
+All delivered under [`docs/localization/`](../localization/), with real
+`Intl`/i18n implementation examples:
 
-Generated with implementation examples (not just standards prose).
+- Localization Strategy — [localization-strategy.md](../localization/localization-strategy.md)
+- Language Architecture — [language-architecture.md](../localization/language-architecture.md)
+  (six locales, Ge'ez/Latin scripts, `lang`/`dir`, fonts, resolution order)
+- Translation Structure — [translation-structure.md](../localization/translation-structure.md)
+  (ICU MessageFormat JSON catalogues, key naming, `react-intl` examples)
+- Date & Time Formatting — [date-formatting.md](../localization/date-formatting.md)
+  (Ethiopian + Gregorian calendars via `Intl` Ethiopic, EAT/Ethiopian time)
+- Number Formatting — [number-formatting.md](../localization/number-formatting.md)
+  (digits, separators, +251 phone/E.164, IDs)
+- Currency Formatting — [currency-formatting.md](../localization/currency-formatting.md)
+  (Ethiopian Birr / ETB, santim, minor-unit storage)
+- Address Standards — [address-standards.md](../localization/address-standards.md)
+  (Region→Zone/Sub-city→Woreda→Kebele; the given-name/father's-name convention)
+- Language Switcher Standard — [language-switcher.md](../localization/language-switcher.md)
+- Translation Workflow — [translation-workflow.md](../localization/translation-workflow.md)
+- Contributor Localization Guide — [contributor-guide.md](../localization/contributor-guide.md)
 
 ## Output Location
 
-Documentation under `docs/localization/`; implementation lands in
-`packages/ethds-react/` ([Phase 7](phase-7-core-components.md)) as the
-i18n infrastructure components are built against.
+[`docs/localization/`](../localization/). The i18n runtime, formatting
+utilities, and `LanguageSwitcher` component land in
+`packages/ethds-react/` ([Phase 7](phase-7-core-components.md)), built
+against these standards.
 
 ## Dependencies
 

@@ -16,7 +16,7 @@ phase file) are complete.
 | 3 | Design Tokens | ✅ Complete | [phase-3-design-tokens.md](../phases/phase-3-design-tokens.md) |
 | 4 | Documentation Platform | ✅ Complete | [phase-4-documentation-platform.md](../phases/phase-4-documentation-platform.md) |
 | 5 | Accessibility Framework | ✅ Complete | [phase-5-accessibility-framework.md](../phases/phase-5-accessibility-framework.md) |
-| 6 | Localization Framework | 📋 Planned | [phase-6-localization-framework.md](../phases/phase-6-localization-framework.md) |
+| 6 | Localization Framework | ✅ Complete | [phase-6-localization-framework.md](../phases/phase-6-localization-framework.md) |
 | 7 | Core Components | 📋 Planned | [phase-7-core-components.md](../phases/phase-7-core-components.md) |
 | 8 | Government Service Patterns | 📋 Planned | [phase-8-government-service-patterns.md](../phases/phase-8-government-service-patterns.md) |
 | 9 | Website Templates | 📋 Planned | [phase-9-website-templates.md](../phases/phase-9-website-templates.md) |

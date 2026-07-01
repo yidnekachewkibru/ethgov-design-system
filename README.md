@@ -1,7 +1,7 @@
 # ETHDS — Ethiopian Government Design System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Phase](https://img.shields.io/badge/phase-5%20accessibility%20framework-blue.svg)](docs/foundation/roadmap.md)
+[![Phase](https://img.shields.io/badge/phase-6%20localization%20framework-blue.svg)](docs/foundation/roadmap.md)
 
 An open-source design system for Ethiopian government digital services —
 inspired by the [GOV.UK Design System](https://design-system.service.gov.uk/),
@@ -20,11 +20,11 @@ for the full vision.
 
 ## Status
 
-ETHDS is in **Phase 0 — Foundation**. The governance, contribution
-process, and repository structure are in place; design tokens,
-components, patterns, and templates have not been built yet. See the
-[roadmap](docs/foundation/roadmap.md) for what's planned and in what
-order.
+Phases 0–6 are complete: foundation and governance, the ten design
+principles, the brand system, the `@ethds/tokens` package, the
+documentation site, and the accessibility and localization frameworks.
+Components, patterns, and templates are next. See the
+[roadmap](docs/foundation/roadmap.md) for status and what's planned.
 
 ## Language Support
 
@@ -37,6 +37,11 @@ component, pattern, and template is built to support:
 - Tigrinya (ትግርኛ)
 - Somali
 - Afar
+
+The localization framework — language architecture, translation
+structure, and Ethiopia-specific date (Ethiopian calendar), number,
+currency (Birr), address, and name standards — is in
+[`docs/localization/`](docs/localization/).
 
 ## Repository Structure
 
