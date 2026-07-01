@@ -1,0 +1,70 @@
+.nav {
+  font-family: var(--ethds-font-sans);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ethds-space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.control,
+.page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ethds-space-1);
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--ethds-space-2) var(--ethds-space-3);
+  font-family: inherit;
+  font-size: var(--ethds-text-base);
+  color: var(--ethds-color-interactive);
+  background: var(--ethds-white);
+  border: 1px solid var(--ethds-gray-200);
+  border-radius: var(--ethds-radius-md);
+  cursor: pointer;
+}
+
+.control:hover:not(:disabled),
+.page:hover:not(.current) {
+  background: var(--ethds-blue-50);
+}
+
+.control:focus-visible,
+.page:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}
+
+.control:disabled {
+  color: var(--ethds-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.current {
+  background: var(--ethds-color-primary);
+  border-color: var(--ethds-color-primary);
+  color: var(--ethds-white);
+  font-weight: var(--ethds-font-medium);
+  cursor: default;
+}
+
+.gap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--ethds-color-text-secondary);
+}
+
+/* The prev control reuses the chevron icon, flipped. */
+.prevIcon {
+  display: inline-flex;
+  transform: scaleX(-1);
+}

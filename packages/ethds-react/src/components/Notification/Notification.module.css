@@ -1,0 +1,76 @@
+.notification {
+  display: flex;
+  gap: var(--ethds-space-3);
+  align-items: flex-start;
+  padding: var(--ethds-space-3) var(--ethds-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--ethds-radius-md);
+  box-shadow: var(--ethds-elevation-2);
+  font-family: var(--ethds-font-sans);
+  font-size: var(--ethds-text-base);
+  color: var(--ethds-color-text);
+  background: var(--ethds-white);
+}
+
+.icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  padding-top: 2px;
+}
+
+.body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ethds-space-1);
+}
+
+.title {
+  margin: 0;
+  font-weight: var(--ethds-font-bold);
+}
+
+.content {
+  margin: 0;
+}
+
+.dismiss {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: -4px -4px 0 0;
+  padding: 0;
+  font-size: var(--ethds-text-xl);
+  line-height: 1;
+  color: var(--ethds-color-text-secondary);
+  background: transparent;
+  border: 0;
+  border-radius: var(--ethds-radius-sm);
+  cursor: pointer;
+}
+
+.dismiss:hover {
+  color: var(--ethds-color-text);
+}
+
+.dismiss:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}
+
+/* Left accent per semantic variant (colour is reinforcement, not the only cue). */
+.info {
+  border-left: 4px solid var(--ethds-color-info);
+}
+.success {
+  border-left: 4px solid var(--ethds-color-success);
+}
+.warning {
+  border-left: 4px solid var(--ethds-color-warning);
+}
+.error {
+  border-left: 4px solid var(--ethds-color-error);
+}

@@ -1,0 +1,28 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ethds-space-2);
+  font-family: var(--ethds-font-sans);
+}
+
+.label {
+  font-size: var(--ethds-text-sm);
+  color: inherit;
+}
+
+.select {
+  min-height: 40px;
+  padding: var(--ethds-space-1) var(--ethds-space-3);
+  font-family: inherit;
+  font-size: var(--ethds-text-base);
+  color: var(--ethds-color-text);
+  background: var(--ethds-white);
+  border: 1px solid var(--ethds-color-border);
+  border-radius: var(--ethds-radius-md);
+  cursor: pointer;
+}
+
+.select:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}

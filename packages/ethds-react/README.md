@@ -5,9 +5,8 @@ components, built on [`@ethds/tokens`](../ethds-tokens/) and to the
 [accessibility](../../docs/accessibility/) and
 [localization](../../docs/localization/) standards.
 
-> **Status:** foundation batch (Phase 7). 8 of the 18 planned components
-> ship today; the rest are tracked in
-> [`src/components/_scaffold`](src/components/_scaffold/README.md).
+> **Status:** Phase 7 complete — all 18 core components ship, each with
+> types, tests (Testing Library + `vitest-axe`), and a Storybook story.
 
 ## Install
 
@@ -44,7 +43,7 @@ function Example() {
 All visible text is passed in as props/children, so it can be translated
 by the consumer — no user-facing strings are baked into the components.
 
-## Components (this batch)
+## Components
 
 | Component | Notes |
 |---|---|
@@ -54,11 +53,18 @@ by the consumer — no user-facing strings are baked into the components.
 | `Icon` | 24×24 SVG; decorative (hidden) vs `label` (announced) |
 | `TextInput` | label + hint + error wired via aria-describedby / aria-invalid |
 | `TextArea` | multi-line, same field a11y wiring |
+| `Checkbox` | labelled native checkbox; hint + error |
+| `RadioGroup` | fieldset/legend; native radios (arrow-key roving) |
+| `Select` | native-first labelled select; placeholder + error |
+| `Search` | `role="search"` form; labelled field + submit |
 | `Alert` | info / success / warning / error; role=alert/status; icon + text |
+| `Notification` | dismissible, live-region message |
 | `Breadcrumb` | nav landmark; `aria-current="page"` on the last item |
-
-Planned next: Header, Footer, LanguageSwitcher, Search, Select, Checkbox,
-Radio, Notification, Table, Pagination.
+| `Pagination` | nav landmark; prev/next + truncated page list; translatable labels |
+| `Table` | semantic `<table>` with caption + `scope="col"` headers |
+| `Header` | government identity (home link) + primary nav + actions slot |
+| `Footer` | grouped link navs + copyright |
+| `LanguageSwitcher` | autonym options, per-option `lang`; per the localization spec |
 
 ## Accessibility
 

@@ -1,0 +1,51 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ethds-space-1);
+  font-family: var(--ethds-font-sans);
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ethds-space-2);
+}
+
+.input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: var(--ethds-color-primary);
+  cursor: pointer;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.label {
+  font-size: var(--ethds-text-base);
+  color: var(--ethds-color-text);
+  cursor: pointer;
+  /* Larger clickable area keeps the effective target comfortable. */
+  padding-top: 1px;
+}
+
+.hint {
+  font-size: var(--ethds-text-sm);
+  color: var(--ethds-color-text-secondary);
+  padding-left: calc(20px + var(--ethds-space-2));
+}
+
+.error {
+  font-size: var(--ethds-text-sm);
+  font-weight: var(--ethds-font-medium);
+  color: var(--ethds-red-700);
+  padding-left: calc(20px + var(--ethds-space-2));
+}
