@@ -1,0 +1,48 @@
+.h1,
+.h2,
+.h3,
+.h4 {
+  margin: 0;
+  font-family: var(--ethds-font-sans);
+  font-weight: var(--ethds-font-bold);
+  color: var(--ethds-color-text);
+}
+
+.h1 {
+  font-size: var(--ethds-text-4xl);
+  line-height: var(--ethds-leading-tight);
+}
+.h2 {
+  font-size: var(--ethds-text-3xl);
+  line-height: var(--ethds-leading-snug);
+}
+.h3 {
+  font-size: var(--ethds-text-2xl);
+  line-height: var(--ethds-leading-snug);
+}
+.h4 {
+  font-size: var(--ethds-text-xl);
+  line-height: var(--ethds-leading-normal);
+}
+
+.text {
+  margin: 0;
+  font-family: var(--ethds-font-sans);
+  font-weight: var(--ethds-font-regular);
+  line-height: var(--ethds-leading-relaxed);
+  color: var(--ethds-color-text);
+}
+
+.sm {
+  font-size: var(--ethds-text-sm);
+}
+.base {
+  font-size: var(--ethds-text-base);
+}
+.lg {
+  font-size: var(--ethds-text-lg);
+}
+
+.secondary {
+  color: var(--ethds-color-text-secondary);
+}

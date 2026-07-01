@@ -1,0 +1,23 @@
+.link {
+  color: var(--ethds-color-interactive);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  border-radius: var(--ethds-radius-sm);
+}
+
+.link:hover {
+  color: var(--ethds-color-interactive-hover);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}
+
+.subtle {
+  color: var(--ethds-color-text);
+  text-decoration: none;
+}
+.subtle:hover {
+  text-decoration: underline;
+}
