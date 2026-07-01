@@ -1,0 +1,53 @@
+.alert {
+  display: flex;
+  gap: var(--ethds-space-3);
+  padding: var(--ethds-space-3) var(--ethds-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--ethds-radius-md);
+  font-family: var(--ethds-font-sans);
+  font-size: var(--ethds-text-base);
+  color: var(--ethds-color-text);
+}
+
+.icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  padding-top: 2px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ethds-space-1);
+}
+
+.title {
+  margin: 0;
+  font-weight: var(--ethds-font-bold);
+}
+
+.content {
+  margin: 0;
+}
+
+/* Semantic surfaces — tint background + darker text/icon (all verified AA). */
+.info {
+  background: var(--ethds-blue-50);
+  border-color: var(--ethds-blue-200);
+  color: var(--ethds-blue-700);
+}
+.success {
+  background: var(--ethds-green-50);
+  border-color: var(--ethds-green-600);
+  color: var(--ethds-green-700);
+}
+.warning {
+  background: var(--ethds-yellow-50);
+  border-color: var(--ethds-yellow-400);
+  color: var(--ethds-yellow-700);
+}
+.error {
+  background: var(--ethds-red-50);
+  border-color: var(--ethds-red-600);
+  color: var(--ethds-red-700);
+}

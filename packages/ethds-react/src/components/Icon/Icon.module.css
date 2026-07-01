@@ -1,0 +1,23 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.sm {
+  width: var(--ethds-icon-sm);
+  height: var(--ethds-icon-sm);
+}
+.md {
+  width: var(--ethds-icon-md);
+  height: var(--ethds-icon-md);
+}
+.lg {
+  width: var(--ethds-icon-lg);
+  height: var(--ethds-icon-lg);
+}
+.xl {
+  width: var(--ethds-icon-xl);
+  height: var(--ethds-icon-xl);
+}

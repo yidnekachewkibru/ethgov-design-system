@@ -1,29 +1,93 @@
 # @ethds/react
 
-**Status:** Planned — built in
-[Phase 7 — Core Components](../../docs/phases/phase-7-core-components.md).
+The ETHDS React component library — accessible, multilingual government UI
+components, built on [`@ethds/tokens`](../ethds-tokens/) and to the
+[accessibility](../../docs/accessibility/) and
+[localization](../../docs/localization/) standards.
 
-## Purpose
+> **Status:** foundation batch (Phase 7). 8 of the 18 planned components
+> ship today; the rest are tracked in
+> [`src/components/_scaffold`](src/components/_scaffold/README.md).
 
-The React + TypeScript component library implementing ETHDS: Button, Link,
-Typography, Icon, Header, Footer, Breadcrumb, Language Switcher, Search,
-Text Input, Text Area, Select, Checkbox, Radio, Alert, Notification,
-Table, Pagination, and more — each built to WCAG 2.2 AA and documented in
-Storybook.
+## Install
 
-## Depends On
+```bash
+npm install @ethds/react @ethds/tokens react react-dom
+```
 
-- [Phase 3 — Design Tokens](../../docs/phases/phase-3-design-tokens.md)
-  (`@ethds/tokens`) for all visual values
-- [Phase 5 — Accessibility Framework](../../docs/phases/phase-5-accessibility-framework.md)
-  for the standards every component must meet
-- [Phase 6 — Localization Framework](../../docs/phases/phase-6-localization-framework.md)
-  for multilingual support
+## Usage
 
-## Consumed By
+Import the token CSS (once, at your app root) and the component styles,
+then use components:
 
-- `@ethds/patterns`, `@ethds/templates`, `ethds-examples`, and any
-  government service built on ETHDS
+```tsx
+import '@ethds/tokens/css';     // design tokens (CSS custom properties)
+import '@ethds/react/styles.css'; // component styles
 
-No code lives here yet — this README is a placeholder so the package
-exists as an npm workspace ahead of implementation.
+import { Button, TextInput, Alert } from '@ethds/react';
+
+function Example() {
+  return (
+    <form>
+      <TextInput label="Given name" required />
+      <Alert variant="success" iconLabel="Success">
+        Application submitted.
+      </Alert>
+      <Button variant="primary" type="submit">
+        Continue
+      </Button>
+    </form>
+  );
+}
+```
+
+All visible text is passed in as props/children, so it can be translated
+by the consumer — no user-facing strings are baked into the components.
+
+## Components (this batch)
+
+| Component | Notes |
+|---|---|
+| `Button` | primary / secondary / ghost / danger; sm / md / lg |
+| `Link` | native anchor; external-link safety |
+| `Heading`, `Text` | semantic type scale; `visualLevel` decoupling |
+| `Icon` | 24×24 SVG; decorative (hidden) vs `label` (announced) |
+| `TextInput` | label + hint + error wired via aria-describedby / aria-invalid |
+| `TextArea` | multi-line, same field a11y wiring |
+| `Alert` | info / success / warning / error; role=alert/status; icon + text |
+| `Breadcrumb` | nav landmark; `aria-current="page"` on the last item |
+
+Planned next: Header, Footer, LanguageSwitcher, Search, Select, Checkbox,
+Radio, Notification, Table, Pagination.
+
+## Accessibility
+
+Every component targets **WCAG 2.2 AA**: semantic HTML, keyboard
+operability, visible focus (`--ethds-color-focus`), correct name/role/state,
+and no colour-only signalling. Components are tested with
+`@testing-library/react` + `vitest-axe`. See
+[`docs/accessibility/`](../../docs/accessibility/).
+
+## Development
+
+```bash
+npm install
+npm run build -w @ethds/tokens     # tokens are a dependency
+npm run test  -w @ethds/react      # Vitest + Testing Library + axe
+npm run typecheck -w @ethds/react
+npm run build -w @ethds/react      # Vite library build → dist/
+npm run storybook -w @ethds/react  # component workshop
+```
+
+### Structure
+
+```
+src/
+  components/<Name>/    Component.tsx + .module.css + .test.tsx + .stories.tsx + index.ts
+  utils/               cx() classname helper
+  test/                vitest setup + axe helper
+  index.ts             public barrel export
+```
+
+Styling is CSS Modules referencing the ETHDS token CSS custom properties
+(`var(--ethds-*)`) — no hardcoded design values, no Tailwind dependency.

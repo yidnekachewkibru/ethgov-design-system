@@ -1,11 +1,28 @@
 # Phase 7 — Core Components
 
-**Status:** 📋 Planned
+**Status:** 🚧 In Progress — foundation batch shipped (8 of 18 components)
 
 ## Goal
 
 Build the `@ethds/react` component library — the foundational building
 blocks every government service pattern and template is composed from.
+
+## Progress
+
+The `@ethds/react` package is live in
+[`packages/ethds-react/`](../../packages/ethds-react/) with a full tooling
+setup (Vite library build, Vitest + Testing Library + `vitest-axe`,
+Storybook, `eslint-plugin-jsx-a11y`) consuming `@ethds/tokens`. CI:
+[`.github/workflows/react.yml`](../../.github/workflows/react.yml).
+
+**Shipped (8):** Button, Link, Typography (Heading/Text), Icon, TextInput,
+TextArea, Alert, Breadcrumb — each with TypeScript types, CSS-module
+styling from tokens, tests (render + interaction + axe), and a Storybook
+story. 36 tests passing.
+
+**Remaining (10, tracked):** Header, Footer, Language Switcher, Search,
+Select, Checkbox, Radio, Notification, Table, Pagination — see
+[`_scaffold`](../../packages/ethds-react/src/components/_scaffold/README.md).
 
 ## Components
 
