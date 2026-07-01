@@ -114,9 +114,11 @@ Usable now:
 - [`ethds-docs`](packages/ethds-docs/) — the Docusaurus documentation
   site (principles, brand, accessibility), multilingual and themed from
   `@ethds/tokens`, deployable to GitHub Pages.
-- [`@ethds/react`](packages/ethds-react/) — the React component library
-  (foundation batch: Button, Link, Typography, Icon, TextInput, TextArea,
-  Alert, Breadcrumb), accessible (WCAG 2.2 AA, axe-tested) and token-driven.
+- [`@ethds/react`](packages/ethds-react/) — the React component library:
+  all 18 core components (Button, Link, Typography, Icon, form inputs,
+  Alert/Notification, Breadcrumb, Pagination, Table, Header, Footer,
+  LanguageSwitcher, …), accessible (WCAG 2.2 AA, axe-tested) and
+  token-driven.
 
 Components, patterns, and templates follow in later phases — watch the
 [roadmap](docs/foundation/roadmap.md).

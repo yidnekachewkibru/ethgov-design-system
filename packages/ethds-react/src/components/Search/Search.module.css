@@ -1,0 +1,61 @@
+.form {
+  display: flex;
+  gap: var(--ethds-space-2);
+  font-family: var(--ethds-font-sans);
+}
+
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 44px;
+  padding: var(--ethds-space-2) var(--ethds-space-3);
+  font-family: inherit;
+  font-size: var(--ethds-text-base);
+  color: var(--ethds-color-text);
+  background: var(--ethds-white);
+  border: 1px solid var(--ethds-color-border);
+  border-radius: var(--ethds-radius-md);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 1px;
+  border-color: var(--ethds-color-focus);
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ethds-space-2);
+  min-height: 44px;
+  padding: var(--ethds-space-2) var(--ethds-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--ethds-radius-md);
+  background: var(--ethds-color-primary);
+  color: var(--ethds-white);
+  font-family: inherit;
+  font-size: var(--ethds-text-base);
+  font-weight: var(--ethds-font-medium);
+  cursor: pointer;
+}
+
+.submit:hover {
+  background: var(--ethds-blue-700);
+}
+
+.submit:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
