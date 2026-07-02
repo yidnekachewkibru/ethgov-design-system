@@ -1,11 +1,34 @@
 # Phase 10 — Reference Implementations
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete — all 4 reference portals documented
 
 ## Goal
 
 Prove ETHDS works end-to-end by building real, full reference
 applications with it — not just isolated components in Storybook.
+
+## Delivered
+
+Four reference implementations in
+[`packages/ethds-examples/`](../../packages/ethds-examples/), each with
+Architecture, Key Screens (mapped to templates/patterns), a React
+Implementation composition, an Accessibility Review, a Localization
+Review, and a Deployment Guide:
+
+- [Immigration Service Portal](../../packages/ethds-examples/immigration-service-portal.md)
+  — passports/visas: apply, pay, appointment, status
+- [Revenue Service Portal](../../packages/ethds-examples/revenue-service-portal.md)
+  — authenticated dashboard, filing, payment, receipts (Birr/santim)
+- [Education Verification Portal](../../packages/ethds-examples/education-verification-portal.md)
+  — public credential lookup + institution back-office
+- [Municipal Permit Portal](../../packages/ethds-examples/municipal-permit-portal.md)
+  — permits, region→woreda→kebele address cascade, appointments, complaints
+
+Each composes the shipped [tokens](../../packages/ethds-tokens/),
+[components](../../packages/ethds-react/),
+[patterns](../../packages/ethds-patterns/), and
+[templates](../../packages/ethds-templates/), and applies the
+accessibility and localization frameworks end-to-end.
 
 ## Projects
 
