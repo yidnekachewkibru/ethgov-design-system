@@ -1,6 +1,6 @@
 # Phase 8 — Government Service Patterns
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete — all 10 patterns documented
 
 ## Goal
 
@@ -8,11 +8,30 @@ Build reusable, end-to-end government service flows so teams don't
 redesign the same citizen interactions (login, payment, status tracking)
 from scratch for every service.
 
-## Patterns
+## Delivered
 
-Login, Registration, OTP Verification, Password Reset, Application
-Submission, Status Tracking, Appointment Booking, Complaint Submission,
-Payment Flow, Receipt Flow.
+All 10 patterns are documented in
+[`packages/ethds-patterns/patterns/`](../../packages/ethds-patterns/patterns/),
+each with the full deliverable set (User Journey, UX Flow, Wireframe,
+Validation Rules, Error Handling, Accessibility Guidance, Localization,
+and a **React Example** composing the real `@ethds/react` components):
+
+- [Login](../../packages/ethds-patterns/patterns/login.md)
+- [Registration](../../packages/ethds-patterns/patterns/registration.md)
+- [OTP Verification](../../packages/ethds-patterns/patterns/otp-verification.md)
+- [Password Reset](../../packages/ethds-patterns/patterns/password-reset.md)
+- [Application Submission](../../packages/ethds-patterns/patterns/application-submission.md)
+- [Status Tracking](../../packages/ethds-patterns/patterns/status-tracking.md)
+- [Appointment Booking](../../packages/ethds-patterns/patterns/appointment-booking.md)
+- [Complaint Submission](../../packages/ethds-patterns/patterns/complaint-submission.md)
+- [Payment Flow](../../packages/ethds-patterns/patterns/payment-flow.md)
+- [Receipt Flow](../../packages/ethds-patterns/patterns/receipt-flow.md)
+
+Every pattern is grounded in Ethiopian context (Fayda ID, +251/SMS OTP,
+Birr, kebele/woreda, Ethiopian calendar) and applies the
+[accessibility](../accessibility/) (incl. WCAG 2.2 Accessible
+Authentication, Redundant Entry, Consistent Help) and
+[localization](../localization/) standards.
 
 ## Deliverables (per pattern)
 
