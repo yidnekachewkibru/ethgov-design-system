@@ -1,19 +1,55 @@
 # ethds-examples
 
-**Status:** Planned — built in
-[Phase 10 — Reference Implementations](../../docs/phases/phase-10-reference-implementations.md).
+**Reference implementations** — worked examples of complete government
+services built with ETHDS end-to-end. They show how the pieces fit
+together: [design tokens](../ethds-tokens/) →
+[components](../ethds-react/) → [patterns](../ethds-patterns/) →
+[templates](../ethds-templates/) → a real service.
 
-## Purpose
+Reference implementations are also where gaps in the rest of the system
+get found — a pattern that works in isolation but breaks in a real
+multi-step flow. Findings feed back as fixes into earlier phases.
 
-Full reference applications demonstrating ETHDS end-to-end: an Immigration
-Service Portal, Revenue Service Portal, Education Verification Portal, and
-Municipal Permit Portal — each with real architecture, accessibility
-review, localization review, and a deployment guide.
+> **Status:** documented reference implementations — architecture,
+> screens, composition code, accessibility/localization reviews, and
+> deployment guidance
+> ([Phase 10](../../docs/phases/phase-10-reference-implementations.md)).
+> Runnable, deployed example apps are a follow-up.
 
-## Depends On
+## Portals
 
-Everything: `@ethds/tokens`, `@ethds/react`, `@ethds/icons`,
-`@ethds/patterns`, `@ethds/templates`.
+| Portal | Domain | Demonstrates |
+|---|---|---|
+| [Immigration Service Portal](immigration-service-portal.md) | Passports & visas | Application + status + payment + appointment |
+| [Revenue Service Portal](revenue-service-portal.md) | Tax & fees | Login, filing, payment, receipts, dashboard |
+| [Education Verification Portal](education-verification-portal.md) | Credentials | Public verification + institution issuance |
+| [Municipal Permit Portal](municipal-permit-portal.md) | Local permits | Region→woreda→kebele, appointments, complaints |
 
-No code lives here yet — this README is a placeholder so the package
-exists as an npm workspace ahead of implementation.
+## How each is documented
+
+Each portal page covers the deliverables from
+[Phase 10](../../docs/phases/phase-10-reference-implementations.md):
+
+1. **Overview** — what the service does
+2. **Architecture** — structure, routes, data, tech
+3. **Key Screens** — the main pages (mapped to
+   [templates](../ethds-templates/))
+4. **React Implementation** — composition, routing, i18n/theme setup
+5. **Accessibility Review** — how it meets WCAG 2.2 AA
+6. **Localization Review** — six languages + Ethiopian formatting
+7. **Deployment Guide** — build and host
+
+## Shared foundation
+
+Every reference implementation:
+
+- Imports `@ethds/tokens/css` + `@ethds/react/styles.css`; theme from
+  tokens.
+- Composes [templates](../ethds-templates/) and
+  [patterns](../ethds-patterns/) rather than re-building flows.
+- Ships all six languages via the
+  [localization framework](../../docs/localization/), with the
+  [Language Switcher](../../docs/localization/language-switcher.md) in the
+  header.
+- Meets the [accessibility framework](../../docs/accessibility/) and is
+  mobile-first / low-bandwidth.
