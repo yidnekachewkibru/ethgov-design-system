@@ -19,7 +19,7 @@ phase file) are complete.
 | 6 | Localization Framework | ✅ Complete | [phase-6-localization-framework.md](../phases/phase-6-localization-framework.md) |
 | 7 | Core Components | ✅ Complete | [phase-7-core-components.md](../phases/phase-7-core-components.md) |
 | 8 | Government Service Patterns | ✅ Complete | [phase-8-government-service-patterns.md](../phases/phase-8-government-service-patterns.md) |
-| 9 | Website Templates | 📋 Planned | [phase-9-website-templates.md](../phases/phase-9-website-templates.md) |
+| 9 | Website Templates | ✅ Complete | [phase-9-website-templates.md](../phases/phase-9-website-templates.md) |
 | 10 | Reference Implementations | 📋 Planned | [phase-10-reference-implementations.md](../phases/phase-10-reference-implementations.md) |
 | 11 | Open Source Governance | 📋 Planned | [phase-11-open-source-governance.md](../phases/phase-11-open-source-governance.md) |
 | 12 | Final Release (v1.0 Audit) | 📋 Planned | [phase-12-final-release.md](../phases/phase-12-final-release.md) |

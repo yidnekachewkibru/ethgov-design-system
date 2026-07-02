@@ -1,11 +1,36 @@
 # Phase 9 — Website Templates
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete — all 12 templates documented
 
 ## Goal
 
 Build full-page templates so a new government website doesn't start its
 page-level layout and structure from a blank canvas.
+
+## Delivered
+
+All 12 templates are documented in
+[`packages/ethds-templates/templates/`](../../packages/ethds-templates/templates/),
+each with Wireframe, Component Mapping (`@ethds/react` components +
+`@ethds/patterns` flows), Content & Behaviour, Accessibility &
+Localization, a **React Source** composition, and a Storybook story:
+
+- [National Portal Homepage](../../packages/ethds-templates/templates/national-portal-homepage.md)
+- [Ministry Homepage](../../packages/ethds-templates/templates/ministry-homepage.md)
+- [Agency Homepage](../../packages/ethds-templates/templates/agency-homepage.md)
+- [Service Landing Page](../../packages/ethds-templates/templates/service-landing-page.md)
+- [Service Application Page](../../packages/ethds-templates/templates/service-application-page.md)
+- [Citizen Dashboard](../../packages/ethds-templates/templates/citizen-dashboard.md)
+- [Search Results Page](../../packages/ethds-templates/templates/search-results-page.md)
+- [News Page](../../packages/ethds-templates/templates/news-page.md)
+- [Contact Page](../../packages/ethds-templates/templates/contact-page.md)
+- [404](../../packages/ethds-templates/templates/404-page.md) /
+  [403](../../packages/ethds-templates/templates/403-page.md) /
+  [500](../../packages/ethds-templates/templates/500-page.md) error pages
+
+Every template uses the shared Header/Footer identity, a single `<h1>` +
+landmarks + skip link, and is mobile-first, translatable, and grounded in
+Ethiopian context.
 
 ## Templates
 
