@@ -1,6 +1,6 @@
 # Phase 11 — Open Source Governance
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete
 
 ## Goal
 
@@ -9,6 +9,20 @@ Formalize the lightweight governance baseline established in
 [`docs/governance/governance-model.md`](../governance/governance-model.md))
 into the full process needed to sustain ETHDS as it grows beyond a small
 founding team.
+
+## Delivered
+
+- RFC Process — [rfc-process.md](../governance/rfc-process.md) +
+  [`packages/ethds-rfcs/`](../../packages/ethds-rfcs/) (template + worked example)
+- Component Review Process — [component-review-process.md](../governance/component-review-process.md)
+- Accessibility Review Process — [accessibility-review-process.md](../governance/accessibility-review-process.md)
+- Localization Review Process — [localization-review-process.md](../governance/localization-review-process.md)
+- Security Policy — [`SECURITY.md`](../../SECURITY.md)
+- Release Management — [release-management.md](../governance/release-management.md)
+- Maintainer Responsibilities — [maintainer-responsibilities.md](../governance/maintainer-responsibilities.md)
+- Contributor Ladder — [contributor-ladder.md](../governance/contributor-ladder.md)
+- Community Guidelines — [community-guidelines.md](../governance/community-guidelines.md)
+- Long-Term Sustainability Plan — [sustainability-plan.md](../governance/sustainability-plan.md)
 
 ## Deliverables
 

@@ -1,25 +1,36 @@
 # ethds-rfcs
 
-**Status:** Planned — process formalized in
-[Phase 11 — Open Source Governance](../../docs/phases/phase-11-open-source-governance.md),
-but used from Phase 1 onward for any significant design or architecture
-decision.
+The archive of **Requests for Comments (RFCs)** — proposals for
+significant changes to ETHDS, along with the RFC template and the record
+of decisions made.
 
-## Purpose
+The full process (when an RFC is required, its lifecycle, roles, and what
+makes a good one) is documented in
+[`docs/governance/rfc-process.md`](../../docs/governance/rfc-process.md).
 
-The archive of Requests for Comments (RFCs) proposing significant changes
-to ETHDS — new components, breaking token changes, governance changes —
-along with the RFC template and process referenced from
-[`CONTRIBUTING.md`](../../CONTRIBUTING.md#proposing-significant-changes).
-
-## Structure (once populated)
+## Structure
 
 ```
 ethds-rfcs/
-├── template.md
+├── README.md            # this file
+├── template.md          # copy this to start an RFC
 └── proposals/
-    └── 0001-example.md
+    └── 0000-example.md  # a worked example
 ```
 
-No RFCs exist yet — this README is a placeholder so the package exists as
-an npm workspace ahead of the first RFC being filed.
+## How to file an RFC
+
+1. Copy [`template.md`](template.md) to
+   `proposals/NNNN-short-title.md` (next free `NNNN`).
+2. Fill it in — problem, proposal, alternatives, accessibility &
+   localization impact, migration.
+3. Open a pull request adding the file. Discussion happens on the PR
+   (label `rfc`).
+4. After the review period and maintainer decision, the RFC is merged with
+   its status (**Accepted** / **Rejected**), and updated to
+   **Implemented** when the work ships.
+
+An RFC is required for new components/patterns/templates, breaking token
+or API changes, changes to the accessibility/localization standards, and
+governance changes. Small fixes don't need one — see
+[CONTRIBUTING.md](../../CONTRIBUTING.md#proposing-significant-changes).
