@@ -1,0 +1,83 @@
+---
+id: select
+title: Select
+sidebar_position: 9
+---
+
+import Example from '@site/src/components/Example';
+import { Select } from '@ethds/react';
+
+# Select
+
+A labelled native select for one choice from a **long** list — regions,
+zones, categories.
+
+<Example>
+  <Select
+    label="Region"
+    placeholder="Choose a region"
+    hint="Your region of residence"
+    options={[
+      { value: 'aa', label: 'Afar' },
+      { value: 'am', label: 'Amhara' },
+      { value: 'bg', label: 'Benishangul-Gumuz' },
+      { value: 'or', label: 'Oromia' },
+      { value: 'so', label: 'Somali' },
+      { value: 'ti', label: 'Tigray' },
+    ]}
+  />
+</Example>
+
+```tsx
+import { Select } from '@ethds/react';
+
+<Select
+  label="Region"
+  placeholder="Choose a region"
+  options={[{ value: 'or', label: 'Oromia' }, …]}
+/>
+```
+
+## When to use this component
+
+Use when there are too many options to show as [Radios](radios) (roughly
+7+), such as the administrative lists in the
+region → zone/sub-city → woreda address cascade.
+
+## When not to use this component
+
+Don't use for 2–6 options (radios let the citizen compare at a glance),
+and don't rely on a placeholder as the label.
+
+## Error state
+
+<Example>
+  <Select
+    label="Region"
+    placeholder="Choose a region"
+    error="Select your region"
+    options={[
+      { value: 'aa', label: 'Afar' },
+      { value: 'or', label: 'Oromia' },
+    ]}
+  />
+</Example>
+
+## Accessibility
+
+- A **native `<select>`** — fully keyboard/screen-reader accessible and
+  uses the platform picker on mobile (great on low-end devices).
+- Visible associated label; hint/error via `aria-describedby`;
+  `aria-invalid` on error; 44px minimum height.
+- In dependent cascades, a child select is `disabled` until its parent is
+  chosen — announced, not just greyed out.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `label` | `ReactNode` | required, translatable |
+| `options` | `{ value, label, disabled? }[]` | required |
+| `placeholder` | `string` | rendered as a disabled first option |
+| `hint` / `error` / `required` | | as Text input |
+| …plus all native `<select>` props | | |

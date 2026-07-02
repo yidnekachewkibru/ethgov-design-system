@@ -1,0 +1,66 @@
+---
+id: link
+title: Link
+sidebar_position: 2
+---
+
+import Example from '@site/src/components/Example';
+import { Link, Text } from '@ethds/react';
+
+# Link
+
+Use a link to take citizens to another page. Link text describes the
+destination, so it makes sense read on its own.
+
+<Example>
+  <Text>
+    Read the <Link href="#">full guidance</Link> before you apply.
+  </Text>
+</Example>
+
+```tsx
+import { Link } from '@ethds/react';
+
+<Link href="/guidance">full guidance</Link>
+```
+
+## When to use this component
+
+Use a link for **navigation** — going to another page or resource. Use
+descriptive text ("track your application"), never "click here".
+
+## When not to use this component
+
+Don't use a link styled as an action — if it *does* something (submits,
+saves, deletes), use a [Button](button).
+
+## Variants
+
+<Example>
+  <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+    <Link href="#">Default link</Link>
+    <Link href="#" variant="subtle">Subtle link</Link>
+    <Link href="https://example.gov.et" external>External link</Link>
+  </div>
+</Example>
+
+- **external** sets `target="_blank"` with safe
+  `rel="noopener noreferrer"`. Add a visually-hidden "(opens in new tab)"
+  note in the link text for screen-reader users.
+
+## Accessibility
+
+- Renders a native `<a href>` — real links work with the keyboard,
+  screen readers, and "open in new tab" for free.
+- Underlined by default so links don't rely on colour alone.
+- Link colour `--ethds-color-interactive` (6.40:1 on white); visible
+  focus ring.
+- Pass translated text as children — the text is the accessible name.
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | `'default' \| 'subtle'` | `'default'` |
+| `external` | `boolean` | `false` |
+| …plus all native `<a>` props | | |

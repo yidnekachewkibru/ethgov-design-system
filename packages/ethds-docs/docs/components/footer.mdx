@@ -1,0 +1,69 @@
+---
+id: footer
+title: Footer
+sidebar_position: 17
+---
+
+import Example from '@site/src/components/Example';
+import { Footer } from '@ethds/react';
+
+# Footer
+
+Secondary government identity and grouped links — the consistent close of
+every page.
+
+<Example>
+  <Footer
+    groups={[
+      {
+        title: 'Services',
+        links: [
+          { label: 'All services', href: '#' },
+          { label: 'Track an application', href: '#' },
+        ],
+      },
+      {
+        title: 'About',
+        links: [
+          { label: 'Contact us', href: '#' },
+          { label: 'Accessibility statement', href: '#' },
+          { label: 'Privacy', href: '#' },
+        ],
+      },
+    ]}
+    copyright="© 2026 Government of Ethiopia. Built with ETHDS."
+  />
+</Example>
+
+```tsx
+import { Footer } from '@ethds/react';
+
+<Footer
+  groups={[{ title: 'Services', links: [{ label: 'All services', href: '/services' }] }]}
+  copyright="© 2026 Government of Ethiopia."
+/>
+```
+
+## When to use this component
+
+On every page. Standard homes for the accessibility statement, privacy,
+contact, and cross-government links.
+
+## When not to use this component
+
+Don't bury primary tasks in the footer — it's for secondary links.
+
+## Accessibility
+
+- A `<footer>` contentinfo landmark; each link group is its own labelled
+  `<nav>` with a heading, so screen-reader users can navigate the footer
+  by section.
+- Link colours on the dark surface meet AA; focus rings are visible.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `groups` | `{ title, links: { label, href }[] }[]` | grouped link navs |
+| `copyright` | `ReactNode` | legal line |
+| `label` | `string` | optional landmark name |

@@ -1,0 +1,61 @@
+---
+id: pagination
+title: Pagination
+sidebar_position: 14
+---
+
+import Example from '@site/src/components/Example';
+import { PaginationDemo } from '@site/src/components/demos';
+
+# Pagination
+
+Navigate long result sets page by page — search results, application
+lists, news.
+
+<Example>
+  <PaginationDemo totalPages={20} />
+</Example>
+
+```tsx
+import { Pagination } from '@ethds/react';
+
+<Pagination
+  currentPage={page}
+  totalPages={20}
+  onPageChange={setPage}
+  labels={{
+    nav: 'Pagination',
+    previous: 'Previous',
+    next: 'Next',
+    page: (p, current) => (current ? `Page ${p}, current page` : `Go to page ${p}`),
+  }}
+/>
+```
+
+## When to use this component
+
+Use when a list is too long for one page and citizens need to move
+through it — keeping each page light for
+low-bandwidth connections.
+
+## When not to use this component
+
+Don't paginate short lists, and avoid infinite scroll for government
+content (hard to reference, hard for assistive tech).
+
+## Accessibility
+
+- A `<nav>` landmark; the current page has `aria-current="page"`; every
+  control has an accessible name from the translatable `labels`.
+- Previous/Next are disabled at the ends (announced); truncation gaps
+  ("…") are decorative and hidden.
+- All targets are at least 44×44px.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `currentPage` / `totalPages` | `number` | 1-based |
+| `onPageChange` | `(page: number) => void` | |
+| `labels` | `{ nav, previous, next, page(p, isCurrent) }` | all translatable |
+| `siblingWindow` | `number` | numbered buttons shown, default 5 |

@@ -1,0 +1,68 @@
+---
+id: alert
+title: Alert
+sidebar_position: 11
+---
+
+import Example from '@site/src/components/Example';
+import { Alert } from '@ethds/react';
+
+# Alert
+
+A prominent inline message — confirmations, warnings, errors. Meaning is
+carried by **text and a labelled icon**, never colour alone.
+
+<Example>
+  <Alert variant="success" iconLabel="Success" title="Application submitted">
+    Reference: ETH-2026-00412. Keep this number to track your application.
+  </Alert>
+</Example>
+
+```tsx
+import { Alert } from '@ethds/react';
+
+<Alert variant="success" iconLabel="Success" title="Application submitted">
+  Reference: ETH-2026-00412.
+</Alert>
+```
+
+## When to use this component
+
+Use to communicate something important in the flow of the page: a
+submission succeeded, a validation summary, a service notice.
+
+## When not to use this component
+
+Don't use for transient, dismissible messages
+([Notification](notification)) or for per-field errors (those belong
+next to the field on [Text input](text-input)).
+
+## Variants
+
+<Example>
+  <div style={{ display: 'grid', gap: '1rem' }}>
+    <Alert variant="info" iconLabel="Information">Offices close early on public holidays.</Alert>
+    <Alert variant="success" iconLabel="Success">Your changes have been saved.</Alert>
+    <Alert variant="warning" iconLabel="Warning">Your session will expire in 5 minutes.</Alert>
+    <Alert variant="error" iconLabel="Error" title="Payment failed">No amount was charged. Please try again.</Alert>
+  </div>
+</Example>
+
+## Accessibility
+
+- `error` uses `role="alert"` (announced immediately); the other variants
+  use `role="status"` (announced politely).
+- The icon is labelled (pass `iconLabel` in the active language), so the
+  severity is announced — never conveyed by colour alone.
+- All tint/text pairings are verified WCAG 2.2 AA (e.g. `green-700` on
+  `green-50` = 6.97:1).
+- For form error summaries: move focus to the Alert on submit.
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` |
+| `title` | `ReactNode` | optional bold heading line |
+| `iconLabel` | `string` | accessible name for the status icon |
+| `children` | `ReactNode` | required — the message |

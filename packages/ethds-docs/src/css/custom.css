@@ -5,6 +5,8 @@
 
 /* The generated ETHDS design tokens (CSS custom properties). */
 @import '@ethds/tokens/css';
+/* The compiled component styles, so docs pages render live components. */
+@import '@ethds/react/styles.css';
 
 :root {
   /* Primary = Ethiopian Star Blue, from @ethds/tokens. */

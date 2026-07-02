@@ -1,0 +1,61 @@
+---
+id: notification
+title: Notification
+sidebar_position: 12
+---
+
+import Example from '@site/src/components/Example';
+import { NotificationDemo } from '@site/src/components/demos';
+
+# Notification
+
+A transient, dismissible message announced when it appears — "saved",
+"action needed", connection notices.
+
+<Example>
+  <NotificationDemo />
+</Example>
+
+```tsx
+import { Notification } from '@ethds/react';
+
+<Notification
+  variant="success"
+  iconLabel="Success"
+  title="Saved"
+  dismissLabel="Dismiss"
+  onDismiss={() => …}
+>
+  Your changes have been saved.
+</Notification>
+```
+
+## When to use this component
+
+Use for messages that arrive **while the citizen is doing something
+else** — an async result, a dashboard "action needed" banner — and that
+they may dismiss.
+
+## When not to use this component
+
+Don't use for messages that are part of the page's core content
+([Alert](alert)), and never auto-dismiss a message the citizen must act
+on.
+
+## Accessibility
+
+- Wrapped in a live region: `role="alert"` for `error`, `role="status"`
+  otherwise — announced without moving focus (WCAG 4.1.3).
+- The dismiss button has an accessible name (`dismissLabel`, translated);
+  severity is carried by text + labelled icon, with the coloured edge as
+  reinforcement only.
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` |
+| `title` | `ReactNode` | optional |
+| `iconLabel` | `string` | accessible icon name |
+| `dismissLabel` | `string` | shows the dismiss button when set |
+| `onDismiss` | `() => void` | |

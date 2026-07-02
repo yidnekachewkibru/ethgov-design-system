@@ -1,0 +1,71 @@
+---
+id: typography
+title: Typography
+sidebar_position: 3
+---
+
+import Example from '@site/src/components/Example';
+import { Heading, Text } from '@ethds/react';
+
+# Typography
+
+Headings and body text on the ETHDS type scale, with fonts that cover
+both Ge'ez script (Amharic, Tigrinya) and Latin script.
+
+<Example>
+  <Heading level={1}>Apply for a passport</Heading>
+  <Text size="lg">Who this service is for and what it does.</Text>
+  <Text>
+    Standard body copy at the base size — never smaller than a 16px
+    equivalent for primary reading content.
+  </Text>
+  <Text secondary>Secondary, de-emphasised text.</Text>
+</Example>
+
+```tsx
+import { Heading, Text } from '@ethds/react';
+
+<Heading level={1}>Apply for a passport</Heading>
+<Text>Standard body copy.</Text>
+<Text secondary>Secondary text.</Text>
+```
+
+## When to use this component
+
+Use `Heading` for every page and section title, choosing `level` for the
+**document outline** (one `h1` per page, no skipped levels). Use `Text`
+for body copy.
+
+## When not to use this component
+
+Don't pick a heading level for its size — if the visual size must differ
+from the outline, keep the semantic `level` and set `visualLevel`:
+
+<Example>
+  <Heading level={3} visualLevel={1}>Looks like an h1, still an h3 for screen readers</Heading>
+</Example>
+
+## Headings
+
+<Example>
+  <Heading level={1}>Heading level 1</Heading>
+  <Heading level={2}>Heading level 2</Heading>
+  <Heading level={3}>Heading level 3</Heading>
+  <Heading level={4}>Heading level 4</Heading>
+</Example>
+
+## Accessibility
+
+- Real `h1`–`h4` elements — screen-reader users navigate by heading.
+- Sizes in `rem`, so text respects the citizen's browser font-size
+  preference and 200% zoom.
+- The font stack pairs **Noto Sans** with **Noto Sans Ethiopic**, with a
+  `system-ui` fallback so text stays legible if web fonts fail on a slow
+  connection.
+
+## Props
+
+| Component | Key props |
+|---|---|
+| `Heading` | `level: 1–4` (required), `visualLevel?: 1–4` |
+| `Text` | `size: 'sm' \| 'base' \| 'lg'`, `secondary?: boolean`, `as: 'p' \| 'span' \| 'div'` |

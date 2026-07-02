@@ -1,0 +1,70 @@
+---
+id: language-switcher
+title: Language switcher
+sidebar_position: 18
+---
+
+import Example from '@site/src/components/Example';
+import { LanguageSwitcherDemo } from '@site/src/components/demos';
+
+# Language switcher
+
+How a citizen chooses their language. Every language is listed in **its
+own name and script** (autonym), so a speaker finds theirs without
+reading the current language.
+
+<Example>
+  <LanguageSwitcherDemo />
+</Example>
+
+```tsx
+import { LanguageSwitcher } from '@ethds/react';
+
+<LanguageSwitcher
+  label="Choose language"
+  value={locale}
+  onChange={setLocale}
+  languages={[
+    { code: 'en', label: 'English' },
+    { code: 'am', label: 'አማርኛ' },
+    { code: 'om', label: 'Afaan Oromoo' },
+    { code: 'ti', label: 'ትግርኛ' },
+    { code: 'so', label: 'Soomaali' },
+    { code: 'aa', label: 'Qafar' },
+  ]}
+/>
+```
+
+## When to use this component
+
+On **every page**, in the [Header](header)'s `actions` slot — a citizen
+who can't read the current language must be able to find it immediately.
+
+## When not to use this component
+
+Don't represent languages with flags (flags are countries, not
+languages) and don't hide the switcher behind an unlabelled icon.
+
+## Behaviour rules
+
+Per the localization framework's switcher standard:
+
+1. Switching applies **immediately** to content *and* formatting, keeping
+   the citizen on the same page with their input intact.
+2. The choice **persists** across the journey and visits.
+3. The document `lang` updates so screen readers switch pronunciation.
+
+## Accessibility
+
+- A labelled native `<select>` — keyboard and screen-reader accessible,
+  platform picker on mobile.
+- Each `<option>` sets `lang` to its own locale so its autonym is
+  pronounced correctly (e.g. አማርኛ announced in Amharic).
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `label` | `string` | required — accessible name, in the active language |
+| `languages` | `{ code, label }[]` | autonym labels |
+| `value` / `onChange` | `string` / `(code) => void` | controlled |

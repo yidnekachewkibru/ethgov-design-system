@@ -1,0 +1,82 @@
+---
+id: icon
+title: Icon
+sidebar_position: 4
+---
+
+import Example from '@site/src/components/Example';
+import { Icon, CheckIcon, InfoIcon, WarningIcon, ErrorIcon, SearchIcon, ChevronRightIcon, Text } from '@ethds/react';
+
+# Icon
+
+An accessible SVG icon on a 24×24 grid. Icons support comprehension —
+they never carry meaning alone.
+
+<Example>
+  <div style={{ display: 'flex', gap: '1.5rem', color: 'var(--ethds-color-primary)' }}>
+    <Icon label="Check">{CheckIcon}</Icon>
+    <Icon label="Information">{InfoIcon}</Icon>
+    <Icon label="Warning">{WarningIcon}</Icon>
+    <Icon label="Error">{ErrorIcon}</Icon>
+    <Icon label="Search">{SearchIcon}</Icon>
+    <Icon label="Next">{ChevronRightIcon}</Icon>
+  </div>
+</Example>
+
+```tsx
+import { Icon, CheckIcon } from '@ethds/react';
+
+// Decorative (hidden from screen readers — a text label carries meaning):
+<span>Done <Icon>{CheckIcon}</Icon></span>
+
+// Meaningful (announced with an accessible name, in the active language):
+<Icon label="Success">{CheckIcon}</Icon>
+```
+
+## When to use this component
+
+Use icons **next to text** to aid recognition (status, actions,
+categories) — especially helpful across languages and literacy levels.
+
+## When not to use this component
+
+Don't use an icon as the only signal of state or the only label of a
+control. Icon-only buttons must have an `aria-label`.
+
+## Decorative vs meaningful
+
+- **No `label`** → decorative: `aria-hidden="true"`, not announced.
+- **With `label`** → meaningful: `role="img"` + `aria-label`, announced.
+  Pass the label in the citizen's active language.
+
+## Sizes
+
+<Example>
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <Icon size="sm" label="Small">{SearchIcon}</Icon>
+    <Icon size="md" label="Medium">{SearchIcon}</Icon>
+    <Icon size="lg" label="Large">{SearchIcon}</Icon>
+    <Icon size="xl" label="Extra large">{SearchIcon}</Icon>
+  </div>
+</Example>
+
+## Accessibility
+
+- Inherits `currentColor`, so icons automatically meet the same contrast
+  as the text beside them.
+- A standalone meaningful icon must meet 3:1 non-text contrast.
+- `focusable={false}` so decorative SVGs never catch keyboard focus.
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `children` | SVG content (24×24, stroke-based) | required |
+| `label` | `string` — accessible name; omit for decorative | — |
+| `size` | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` |
+
+<Text secondary>
+  A small starter set ships with the package (Check, Info, Warning,
+  Error, Search, ChevronRight); the full government icon set is tracked as
+  @ethds/icons.
+</Text>

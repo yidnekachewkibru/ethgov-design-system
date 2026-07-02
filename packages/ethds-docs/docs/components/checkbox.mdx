@@ -1,0 +1,57 @@
+---
+id: checkbox
+title: Checkbox
+sidebar_position: 7
+---
+
+import Example from '@site/src/components/Example';
+import { Checkbox } from '@ethds/react';
+
+# Checkbox
+
+A labelled checkbox for a single yes/no choice — consent, opting in,
+confirming.
+
+<Example>
+  <Checkbox label="I accept the terms of service" />
+</Example>
+
+```tsx
+import { Checkbox } from '@ethds/react';
+
+<Checkbox label="I accept the terms of service" />
+```
+
+## When to use this component
+
+Use for an independent binary choice, or several independent choices in a
+list (citizens can pick any number).
+
+## When not to use this component
+
+Don't use when only **one** option may be chosen — use
+[Radios](radios). Don't pre-tick consent boxes.
+
+## Hint and error
+
+<Example>
+  <div style={{ display: 'grid', gap: '1rem' }}>
+    <Checkbox label="Send me SMS updates" hint="You can turn this off at any time." />
+    <Checkbox label="I accept the terms" error="You must accept to continue" />
+  </div>
+</Example>
+
+## Accessibility
+
+- A native `<input type="checkbox">` with an associated label — toggles
+  with <kbd>Space</kbd>, correct role/state for screen readers.
+- Hint/error via `aria-describedby`; error sets `aria-invalid`.
+- The label is clickable, giving a large effective target.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `label` | `ReactNode` | required, translatable |
+| `hint` / `error` | `ReactNode` | optional |
+| …plus all native checkbox props (`checked`, `defaultChecked`, `onChange`, …) | | |
