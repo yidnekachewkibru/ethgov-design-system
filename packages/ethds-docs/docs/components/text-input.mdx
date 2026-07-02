@@ -1,0 +1,79 @@
+---
+id: text-input
+title: Text input
+sidebar_position: 5
+---
+
+import Example from '@site/src/components/Example';
+import { TextInput } from '@ethds/react';
+
+# Text input
+
+A labelled single-line field for short answers — names, phone numbers,
+reference codes.
+
+<Example>
+  <TextInput label="Given name" autoComplete="given-name" />
+</Example>
+
+```tsx
+import { TextInput } from '@ethds/react';
+
+<TextInput label="Given name" autoComplete="given-name" />
+```
+
+## When to use this component
+
+Use for a single line of text. Label with a clear question or field name
+in the citizen's language. For Ethiopian names, use "Given name" /
+"Father's name" — never "Surname" (see the address & name standards).
+
+## When not to use this component
+
+Don't use for multi-line answers ([Textarea](textarea)), for a fixed set
+of options ([Radios](radios) / [Select](select)), or without a visible
+label.
+
+## Hint and error
+
+<Example>
+  <div style={{ display: 'grid', gap: '1rem' }}>
+    <TextInput
+      label="Phone number"
+      type="tel"
+      inputMode="tel"
+      autoComplete="tel"
+      hint="Format: 09xx xxx xxx"
+      required
+    />
+    <TextInput
+      label="Email"
+      defaultValue="not-an-email"
+      error="Enter a valid email address"
+    />
+  </div>
+</Example>
+
+The hint explains the format **before** the citizen types; the error says
+what's wrong and how to fix it. Both are announced by screen readers.
+
+## Accessibility
+
+- The visible `label` is programmatically associated (`htmlFor`) —
+  required, not optional.
+- Hint and error are linked via `aria-describedby`; an error also sets
+  `aria-invalid="true"`.
+- 44px minimum height; the functional border uses `gray-500` (≥3:1
+  non-text contrast).
+- Use correct `autocomplete`/`inputMode` (`tel`, `email`, `numeric`) so
+  autofill and mobile keyboards work.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `label` | `ReactNode` | required, translatable |
+| `hint` | `ReactNode` | optional help text |
+| `error` | `ReactNode` | marks the field invalid |
+| `required` | `boolean` | adds a visible "(required)" marker |
+| …plus all native `<input>` props | | |

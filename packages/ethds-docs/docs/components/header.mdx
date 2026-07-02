@@ -1,0 +1,74 @@
+---
+id: header
+title: Header
+sidebar_position: 16
+---
+
+import Example from '@site/src/components/Example';
+import { Header } from '@ethds/react';
+import { LanguageSwitcherDemo } from '@site/src/components/demos';
+
+# Header
+
+The government identity and primary navigation — the consistent banner
+that tells a citizen this is an official service.
+
+<Example>
+  <Header
+    serviceName="Federal Revenue Service"
+    homeHref="#"
+    homeLabel="Federal Revenue Service — home"
+    nav={[
+      { label: 'Home', href: '#', current: true },
+      { label: 'Services', href: '#' },
+      { label: 'News', href: '#' },
+      { label: 'Contact', href: '#' },
+    ]}
+    actions={<LanguageSwitcherDemo />}
+  />
+</Example>
+
+```tsx
+import { Header, LanguageSwitcher } from '@ethds/react';
+
+<Header
+  serviceName="Federal Revenue Service"
+  homeLabel="Federal Revenue Service — home"
+  nav={[{ label: 'Home', href: '/', current: true }, …]}
+  actions={<LanguageSwitcher … />}
+/>
+```
+
+## When to use this component
+
+On **every page** of every ETHDS service. The shared identity — Star Blue
+banner, emblem slot, consistent navigation — is how citizens recognise
+official services and spot impersonation.
+
+## When not to use this component
+
+Don't rebuild a per-ministry header with its own colours or structure —
+the delivering body is named *within* the shared identity, per the
+government branding standards.
+
+## Accessibility
+
+- A `<header>` banner landmark; the identity is a home link with an
+  explicit accessible name (`homeLabel`).
+- The primary nav is a labelled `<nav>`; the current item has
+  `aria-current="page"`.
+- White-on-Star-Blue text is 8.31:1; focus rings are visible against the
+  blue.
+- Put the [Language switcher](language-switcher) in `actions` so it's on
+  every page, early in the tab order.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `serviceName` | `ReactNode` | required, translatable |
+| `homeHref` / `homeLabel` | `string` | identity link + its accessible name |
+| `logo` | `ReactNode` | emblem slot |
+| `nav` | `{ label, href, current? }[]` | primary navigation |
+| `navLabel` | `string` | nav landmark name |
+| `actions` | `ReactNode` | e.g. LanguageSwitcher, account |

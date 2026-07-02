@@ -1,7 +1,7 @@
 ---
 id: contributing
 title: Contributing
-sidebar_position: 5
+sidebar_position: 6
 slug: /contributing
 ---
 

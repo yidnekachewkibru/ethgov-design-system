@@ -1,0 +1,60 @@
+---
+id: search
+title: Search
+sidebar_position: 10
+---
+
+import Example from '@site/src/components/Example';
+import { Search } from '@ethds/react';
+
+# Search
+
+A labelled search form with a visible submit button — the front door of
+the national portal and service sites.
+
+<Example>
+  <Search
+    label="Search government services"
+    submitLabel="Search"
+    placeholder="e.g. renew driving licence"
+  />
+</Example>
+
+```tsx
+import { Search } from '@ethds/react';
+
+<Search
+  label="Search government services"
+  submitLabel="Search"
+  onSearch={(query) => …}
+/>
+```
+
+## When to use this component
+
+Use wherever citizens look for services or content by name — homepages,
+search results pages. Citizens search in the words *they* use, so index
+plain-language service names in all six languages.
+
+## When not to use this component
+
+Don't use it as a filter inside a small list, and don't replace clear
+navigation with search alone.
+
+## Accessibility
+
+- Renders a `<form role="search">` — a landmark screen-reader users can
+  jump to.
+- The field has a programmatically associated label (visually hidden);
+  the submit button has visible text, not just an icon.
+- Submits on <kbd>Enter</kbd> and via the button; `type="search"` gives
+  the right mobile keyboard.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `label` | `string` | required — accessible name of the field |
+| `submitLabel` | `string` | required — visible button text |
+| `onSearch` | `(query: string) => void` | called on submit |
+| `placeholder` / `defaultValue` / `name` | `string` | optional |

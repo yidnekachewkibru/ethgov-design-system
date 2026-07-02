@@ -1,0 +1,56 @@
+---
+id: textarea
+title: Textarea
+sidebar_position: 6
+---
+
+import Example from '@site/src/components/Example';
+import { TextArea } from '@ethds/react';
+
+# Textarea
+
+A labelled multi-line field for longer answers — descriptions,
+complaints, additional details.
+
+<Example>
+  <TextArea label="Describe what happened" hint="Up to 500 characters" rows={4} />
+</Example>
+
+```tsx
+import { TextArea } from '@ethds/react';
+
+<TextArea label="Describe what happened" hint="Up to 500 characters" rows={4} />
+```
+
+## When to use this component
+
+Use when the citizen needs to write more than one line, in their own
+words and their own language — the field supports full Unicode including
+Ge'ez script.
+
+## When not to use this component
+
+Don't use for short single-line answers ([Text input](text-input)) or
+for structured data that should be separate fields.
+
+## Error state
+
+<Example>
+  <TextArea label="Details" error="This field is required" rows={3} required />
+</Example>
+
+## Accessibility
+
+- Same wiring as [Text input](text-input): associated visible label,
+  hint/error via `aria-describedby`, `aria-invalid` on error.
+- Vertically resizable so citizens can see more of their text.
+- Generous line-height for readability, including Ge'ez script.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `label` | `ReactNode` | required, translatable |
+| `hint` / `error` | `ReactNode` | as Text input |
+| `rows` | `number` | default `4` |
+| …plus all native `<textarea>` props | | |

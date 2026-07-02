@@ -1,0 +1,102 @@
+---
+id: radios
+title: Radios
+sidebar_position: 8
+---
+
+import Example from '@site/src/components/Example';
+import { RadioGroup } from '@ethds/react';
+import { RadioGroupControlledDemo } from '@site/src/components/demos';
+
+# Radios
+
+Use radios when the citizen can select exactly **one** option from a
+short list.
+
+<Example>
+  <RadioGroup
+    legend="Where do you live?"
+    options={[
+      { value: 'aa', label: 'Addis Ababa' },
+      { value: 'or', label: 'Oromia' },
+      { value: 'am', label: 'Amhara' },
+      { value: 'ti', label: 'Tigray' },
+    ]}
+  />
+</Example>
+
+```tsx
+import { RadioGroup } from '@ethds/react';
+
+<RadioGroup
+  legend="Where do you live?"
+  options={[
+    { value: 'aa', label: 'Addis Ababa' },
+    { value: 'or', label: 'Oromia' },
+    { value: 'am', label: 'Amhara' },
+    { value: 'ti', label: 'Tigray' },
+  ]}
+  onChange={(value) => …}
+/>
+```
+
+## When to use this component
+
+Use for a single choice from up to ~6 visible options — the citizen can
+compare all options at once.
+
+## When not to use this component
+
+Don't use when multiple selections are allowed ([Checkbox](checkbox)) or
+when the list is long ([Select](select)). Never preselect an answer to a
+question the citizen must actually decide.
+
+## Hints, per-option hints, and error
+
+<Example>
+  <div style={{ display: 'grid', gap: '1.5rem' }}>
+    <RadioGroup
+      legend="Delivery method"
+      options={[
+        { value: 'pickup', label: 'Pick up', hint: 'Collect from your kebele office' },
+        { value: 'post', label: 'Post', hint: 'Delivered to your P.O. Box' },
+      ]}
+    />
+    <RadioGroup
+      legend="Preferred language"
+      error="Choose a language"
+      options={[
+        { value: 'am', label: 'Amharic (አማርኛ)' },
+        { value: 'om', label: 'Afaan Oromoo' },
+      ]}
+    />
+  </div>
+</Example>
+
+## Controlled
+
+<Example>
+  <RadioGroupControlledDemo />
+</Example>
+
+Pass `value` + `onChange` for controlled use, or `defaultValue` for
+uncontrolled.
+
+## Accessibility
+
+- A `<fieldset>` with a `<legend>` — the question is announced with the
+  options as one group.
+- Native radios: arrow keys move within the group, <kbd>Tab</kbd>
+  enters/leaves — standard roving behaviour for free.
+- Group hint/error via `aria-describedby`; error sets `aria-invalid` on
+  the group; per-option hints are individually associated.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `legend` | `ReactNode` | required — the group question |
+| `options` | `{ value, label, hint?, disabled? }[]` | required |
+| `value` / `defaultValue` | `string` | controlled / uncontrolled |
+| `onChange` | `(value: string) => void` | |
+| `hint` / `error` / `required` | | group-level |

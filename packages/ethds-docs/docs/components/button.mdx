@@ -1,0 +1,81 @@
+---
+id: button
+title: Button
+sidebar_position: 1
+---
+
+import Example from '@site/src/components/Example';
+import { Button } from '@ethds/react';
+
+# Button
+
+Use a button to help citizens carry out an action, like starting an
+application, saving progress, or submitting a form.
+
+<Example>
+  <Button variant="primary">Start now</Button>
+</Example>
+
+```tsx
+import { Button } from '@ethds/react';
+
+<Button variant="primary">Start now</Button>
+```
+
+## When to use this component
+
+Use a button for **actions** — starting a service, submitting, saving,
+cancelling. Write the label as a verb describing what happens, in the
+citizen's language ("Start now", "Submit complaint", "Pay ETB 350.00").
+
+## When not to use this component
+
+Don't use a button for **navigation** to another page — use a
+[Link](link). Don't disable buttons to communicate "not yet valid";
+prefer letting the citizen submit and showing clear errors.
+
+## Variants
+
+<Example>
+  <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+    <Button variant="primary">Primary</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="ghost">Ghost</Button>
+    <Button variant="danger">Delete</Button>
+    <Button disabled>Disabled</Button>
+  </div>
+</Example>
+
+- **primary** — the main call to action; one per screen.
+- **secondary** — alternative actions (Back, Cancel).
+- **ghost** — low-emphasis actions in dense UI.
+- **danger** — destructive actions; pair with a confirmation step.
+
+### Sizes
+
+<Example>
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+    <Button size="sm">Small</Button>
+    <Button size="md">Medium</Button>
+    <Button size="lg">Large</Button>
+  </div>
+</Example>
+
+## Accessibility
+
+- Renders a native `<button>` — keyboard operable (<kbd>Enter</kbd>/<kbd>Space</kbd>)
+  with correct semantics for free.
+- Defaults to `type="button"` so it never submits a form by accident.
+- Visible focus ring (`--ethds-color-focus`); minimum 44px height —
+  comfortably above the 24px WCAG 2.2 target minimum.
+- The accessible name is the button text — pass translated text as
+  children. Icon-only buttons must supply an `aria-label`.
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | `'primary' \| 'secondary' \| 'ghost' \| 'danger'` | `'primary'` |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` |
+| `fullWidth` | `boolean` | `false` |
+| …plus all native `<button>` props | | |

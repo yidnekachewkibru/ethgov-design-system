@@ -1,0 +1,90 @@
+---
+id: table
+title: Table
+sidebar_position: 15
+---
+
+import Example from '@site/src/components/Example';
+import { Table } from '@ethds/react';
+
+# Table
+
+A semantic data table for structured records — applications, payments,
+appointments.
+
+<Example>
+  <Table
+    caption="Your applications"
+    columns={[
+      { header: 'Reference', cell: (r) => r.id },
+      { header: 'Service', cell: (r) => r.service },
+      { header: 'Status', cell: (r) => r.status },
+      { header: 'Fee', cell: (r) => r.fee, align: 'end' },
+    ]}
+    rows={[
+      { id: 'ETH-2026-0041', service: 'Business licence renewal', status: 'Approved', fee: 'ETB 350.00' },
+      { id: 'ETH-2026-0042', service: 'Building permit', status: 'Pending', fee: 'ETB 1,200.00' },
+    ]}
+    rowKey={(r) => r.id}
+  />
+</Example>
+
+```tsx
+import { Table } from '@ethds/react';
+
+<Table
+  caption="Your applications"
+  columns={[
+    { header: 'Reference', cell: (r) => r.id },
+    { header: 'Status', cell: (r) => r.status },
+    { header: 'Fee', cell: (r) => r.fee, align: 'end' },
+  ]}
+  rows={applications}
+  rowKey={(r) => r.id}
+  emptyMessage="You have no applications yet."
+/>
+```
+
+## When to use this component
+
+Use for genuinely tabular data — rows of records with the same fields.
+Right-align money columns; format amounts as Birr with `Intl`.
+
+## When not to use this component
+
+Don't use tables for page layout, or for a label/value summary of one
+record (a description list — and, coming next, a Summary List component —
+fits better).
+
+## Empty state
+
+<Example>
+  <Table
+    caption="Your applications"
+    columns={[
+      { header: 'Reference', cell: (r) => r.id },
+      { header: 'Service', cell: (r) => r.service },
+    ]}
+    rows={[]}
+    rowKey={(r) => r.id}
+    emptyMessage="You have no applications yet."
+  />
+</Example>
+
+## Accessibility
+
+- A real `<table>` with a `<caption>` (its accessible name) and
+  `<th scope="col">` headers — the structure screen-reader users navigate
+  by.
+- On small screens the table scrolls horizontally inside its own
+  container rather than breaking the page (reflow).
+- Status text in cells is text, not colour-coded chips alone.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `caption` | `ReactNode` | required; `hideCaption` keeps it for AT only |
+| `columns` | `{ header, cell(row), align? }[]` | |
+| `rows` / `rowKey` | data + stable key | |
+| `emptyMessage` | `ReactNode` | shown when `rows` is empty |

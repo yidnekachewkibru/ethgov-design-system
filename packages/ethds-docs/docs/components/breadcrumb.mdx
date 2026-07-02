@@ -1,0 +1,60 @@
+---
+id: breadcrumb
+title: Breadcrumb
+sidebar_position: 13
+---
+
+import Example from '@site/src/components/Example';
+import { Breadcrumb } from '@ethds/react';
+
+# Breadcrumb
+
+Shows the citizen where they are in the site hierarchy and provides a way
+back up.
+
+<Example>
+  <Breadcrumb
+    items={[
+      { label: 'Home', href: '#' },
+      { label: 'Services', href: '#' },
+      { label: 'Renew licence' },
+    ]}
+  />
+</Example>
+
+```tsx
+import { Breadcrumb } from '@ethds/react';
+
+<Breadcrumb
+  items={[
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'Renew licence' },          // current page — no href
+  ]}
+/>
+```
+
+## When to use this component
+
+Use on pages more than one level deep — ministry/agency pages, service
+pages — so citizens can orient and move up a level.
+
+## When not to use this component
+
+Don't use on the homepage, or inside a multi-step application flow (the
+flow's own Back/step navigation does that job).
+
+## Accessibility
+
+- A `<nav>` landmark with an accessible name (pass `label` in the active
+  language) containing an ordered list.
+- The last item is the current page: rendered as text (not a link) with
+  `aria-current="page"`.
+- Separators are decorative icons hidden from assistive tech.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `items` | `{ label, href? }[]` | last item = current page |
+| `label` | `string` | landmark name, default "Breadcrumb" |
