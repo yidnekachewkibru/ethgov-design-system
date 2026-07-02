@@ -1,12 +1,29 @@
 # Phase 12 — Final Release (v1.0 Audit)
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete
 
 ## Goal
 
 Perform a complete audit of ETHDS before declaring v1.0, and produce the
 launch-readiness deliverables — this is a review/audit phase, not new
 build work.
+
+## Delivered
+
+The full audit lives in [`docs/release/`](../release/):
+
+- [Audit](../release/audit.md) — honest review across the nine areas
+- [Gap Analysis](../release/gap-analysis.md) — status vs the 13 v1.0 criteria
+- [Improvement Recommendations](../release/improvement-recommendations.md) — prioritized P0–P2
+- [Readiness Report](../release/readiness-report.md) — verdict: **strong
+  release candidate**, 8 Met / 4 Partial / 1 Open
+- [Launch Checklist](../release/launch-checklist.md)
+
+Honest posture: the tokens, components, docs site, and frameworks are real
+and tested; patterns/templates/examples are documented specs +
+composition code (code packages pending), and the five non-English
+translations are not yet authored — so ETHDS is a **v1.0 release
+candidate** with a documented punch-list, not a false "100% done".
 
 ## Review Scope
 
