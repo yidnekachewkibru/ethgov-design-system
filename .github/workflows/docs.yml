@@ -1,0 +1,32 @@
+name: docs
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "packages/ethds-docs/**"
+      - "packages/ethds-tokens/**"
+      - "packages/ethds-react/**"
+      - ".github/workflows/docs.yml"
+  pull_request:
+    paths:
+      - "packages/ethds-docs/**"
+      - "packages/ethds-tokens/**"
+      - "packages/ethds-react/**"
+      - ".github/workflows/docs.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck -w ethds-docs
+      - name: Build docs (all 6 locales; fails on any broken internal link)
+        run: npm run build -w ethds-docs
