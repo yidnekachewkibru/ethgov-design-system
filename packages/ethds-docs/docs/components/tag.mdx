@@ -1,0 +1,54 @@
+---
+id: tag
+title: Tag
+sidebar_position: 22
+---
+
+import Example from '@site/src/components/Example';
+import { Tag } from '@ethds/react';
+
+# Tag
+
+A small status label — "Approved", "Pending", "Rejected" — for status
+tracking, tables, and dashboards.
+
+<Example>
+  <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+    <Tag variant="neutral">Draft</Tag>
+    <Tag variant="info">In review</Tag>
+    <Tag variant="success">Approved</Tag>
+    <Tag variant="warning">Action needed</Tag>
+    <Tag variant="error">Rejected</Tag>
+  </div>
+</Example>
+
+```tsx
+import { Tag } from '@ethds/react';
+
+<Tag variant="success">Approved</Tag>
+```
+
+## When to use this component
+
+Use to show the state of a thing — an application's status in a
+[Table](table.mdx) row or on a status page. The text is the meaning; use
+plain words the citizen understands, translated.
+
+## When not to use this component
+
+Don't use tags as buttons or links, and never rely on the colour alone —
+a "Rejected" tag must say rejected, not just be red.
+
+## Accessibility
+
+- An inline `<span>` — the translated text is what screen readers
+  announce.
+- Every tint/text pairing is verified WCAG 2.2 AA (e.g. `green-700` on
+  `green-50` = 6.97:1, `red-700` on `red-50` = 7.43:1).
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | `'neutral' \| 'info' \| 'success' \| 'warning' \| 'error'` | `'neutral'` |
+| `children` | `ReactNode` | required — the status text |

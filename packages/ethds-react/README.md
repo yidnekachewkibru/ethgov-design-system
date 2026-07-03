@@ -65,6 +65,13 @@ by the consumer — no user-facing strings are baked into the components.
 | `Header` | government identity (home link) + primary nav + actions slot |
 | `Footer` | grouped link navs + copyright |
 | `LanguageSwitcher` | autonym options, per-option `lang`; per the localization spec |
+| `ErrorSummary` | focusable `role="alert"` summary of form errors, links to fields |
+| `SummaryList` | `<dl>` check-your-answers rows with accessible Change links |
+| `Panel` | confirmation banner (title + reference), white on success green |
+| `Tag` | status labels (neutral/info/success/warning/error), AA tints |
+| `SkipLink` | first tab stop; visually hidden until focused |
+| `StepIndicator` | labelled nav + `aria-current="step"` ("Step 2 of 4") |
+| `CheckboxGroup` | fieldset/legend multi-select; `tile` variant (also on `RadioGroup`) |
 
 ## Accessibility
 

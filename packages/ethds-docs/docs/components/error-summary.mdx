@@ -1,0 +1,67 @@
+---
+id: error-summary
+title: Error summary
+sidebar_position: 19
+---
+
+import Example from '@site/src/components/Example';
+import { ErrorSummary } from '@ethds/react';
+
+# Error summary
+
+The focusable summary of form errors shown at the top of the page when a
+submit fails — so keyboard and screen-reader users land directly on the
+problem.
+
+<Example>
+  <ErrorSummary
+    title="There is a problem"
+    autoFocus={false}
+    errors={[
+      { message: 'Enter your given name', href: '#given-name' },
+      { message: "Enter your father's name", href: '#fathers-name' },
+      { message: 'Choose a region', href: '#region' },
+    ]}
+  />
+</Example>
+
+```tsx
+import { ErrorSummary } from '@ethds/react';
+
+<ErrorSummary
+  title="There is a problem"
+  errors={[
+    { message: 'Enter your given name', href: '#given-name' },
+    { message: 'Choose a region', href: '#region' },
+  ]}
+/>
+```
+
+## When to use this component
+
+On every form, whenever validation fails on submit: render it above the
+form with one entry per error, each linking to its field. Keep the
+field-level errors too — the summary and inline errors work together.
+
+## When not to use this component
+
+Don't use it for a single live-validated field, and don't show it before
+the citizen has submitted.
+
+## Accessibility
+
+- `role="alert"` — announced immediately when it appears.
+- **Receives focus** on appearance (`tabIndex={-1}` + auto-focus), the
+  WCAG error-focus pattern; set `autoFocus={false}` if you manage focus
+  yourself.
+- Each error is a link to the offending field (`href="#field-id"`), so
+  the citizen can jump straight to it.
+- Renders nothing when `errors` is empty — no empty live regions.
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | `ReactNode` | required, e.g. "There is a problem" |
+| `errors` | `{ message, href? }[]` | required |
+| `autoFocus` | `boolean` | `true` |

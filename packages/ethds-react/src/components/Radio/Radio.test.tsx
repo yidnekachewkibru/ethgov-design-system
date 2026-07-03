@@ -43,4 +43,20 @@ describe('RadioGroup', () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it('renders the tile variant accessibly (semantics unchanged)', async () => {
+    const { container } = render(
+      <RadioGroup
+        legend="Select one historical figure"
+        tile
+        options={[
+          { value: 'a', label: 'Sojourner Truth' },
+          { value: 'b', label: 'Frederick Douglass', hint: 'Optional descriptive text.' },
+        ]}
+      />,
+    );
+    // Tiles are styling only — still native radios in a labelled group.
+    expect(screen.getAllByRole('radio')).toHaveLength(2);
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });

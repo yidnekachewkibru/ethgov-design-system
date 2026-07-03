@@ -1,0 +1,65 @@
+---
+id: summary-list
+title: Summary list
+sidebar_position: 20
+---
+
+import Example from '@site/src/components/Example';
+import { SummaryList } from '@ethds/react';
+
+# Summary list
+
+Label/value rows for "check your answers" pages and record summaries,
+with optional **Change** links back to each question.
+
+<Example>
+  <SummaryList
+    rows={[
+      { key: 'Given name', value: 'Abebe', action: { label: 'Change', href: '#', visuallyHiddenText: 'given name' } },
+      { key: "Father's name", value: 'Kebede', action: { label: 'Change', href: '#', visuallyHiddenText: "father's name" } },
+      { key: 'Phone', value: '0911 234 567', action: { label: 'Change', href: '#', visuallyHiddenText: 'phone' } },
+      { key: 'Region', value: 'Oromia' },
+    ]}
+  />
+</Example>
+
+```tsx
+import { SummaryList } from '@ethds/react';
+
+<SummaryList
+  rows={[
+    {
+      key: 'Given name',
+      value: 'Abebe',
+      action: { label: 'Change', href: '/apply/name', visuallyHiddenText: 'given name' },
+    },
+    { key: 'Region', value: 'Oromia' },
+  ]}
+/>
+```
+
+## When to use this component
+
+Use on the **review step** of a multi-step application (check your
+answers before submitting — also satisfies WCAG 2.2 Redundant Entry by
+showing what's already provided), and to summarise a single record.
+
+## When not to use this component
+
+Don't use for rows of *many* records with the same fields — that's a
+[Table](table.mdx).
+
+## Accessibility
+
+- A semantic `<dl>` — each label (`<dt>`) is announced with its value
+  (`<dd>`).
+- Change links carry a visually hidden suffix so screen readers hear
+  "Change given name", not five identical "Change" links.
+- Rows stack to a single column on small screens (no horizontal
+  scrolling).
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `rows` | `{ key, value, action? }[]` | `action = { label, href, visuallyHiddenText? }` |
