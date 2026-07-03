@@ -82,6 +82,29 @@ question the citizen must actually decide.
 Pass `value` + `onChange` for controlled use, or `defaultValue` for
 uncontrolled.
 
+## Tile variant
+
+Large bordered targets with optional descriptions (USWDS-style) — easier
+to tap on small screens. Semantics are unchanged: still native radios in
+a labelled group.
+
+<Example>
+  <RadioGroup
+    legend="Select one historical figure"
+    tile
+    defaultValue="truth"
+    options={[
+      { value: 'truth', label: 'Sojourner Truth' },
+      { value: 'douglass', label: 'Frederick Douglass', hint: 'This is optional text that can be used to describe the label in more detail.' },
+      { value: 'washington', label: 'Booker T. Washington' },
+    ]}
+  />
+</Example>
+
+```tsx
+<RadioGroup legend="Select one historical figure" tile options={…} />
+```
+
 ## Accessibility
 
 - A `<fieldset>` with a `<legend>` — the question is announced with the
@@ -100,3 +123,4 @@ uncontrolled.
 | `value` / `defaultValue` | `string` | controlled / uncontrolled |
 | `onChange` | `(value: string) => void` | |
 | `hint` / `error` / `required` | | group-level |
+| `tile` | `boolean` | USWDS-style tiles, default `false` |

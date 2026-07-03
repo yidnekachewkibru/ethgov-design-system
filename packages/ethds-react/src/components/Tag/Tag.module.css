@@ -1,0 +1,32 @@
+.tag {
+  display: inline-block;
+  padding: var(--ethds-space-1) var(--ethds-space-2);
+  font-family: var(--ethds-font-sans);
+  font-size: var(--ethds-text-sm);
+  font-weight: var(--ethds-font-medium);
+  line-height: 1.2;
+  border-radius: var(--ethds-radius-sm);
+  white-space: nowrap;
+}
+
+/* Tint background + dark text — every pairing verified AA. */
+.neutral {
+  background: var(--ethds-gray-100);
+  color: var(--ethds-gray-700);
+}
+.info {
+  background: var(--ethds-blue-50);
+  color: var(--ethds-blue-700);
+}
+.success {
+  background: var(--ethds-green-50);
+  color: var(--ethds-green-700);
+}
+.warning {
+  background: var(--ethds-yellow-50);
+  color: var(--ethds-yellow-700);
+}
+.error {
+  background: var(--ethds-red-50);
+  color: var(--ethds-red-700);
+}

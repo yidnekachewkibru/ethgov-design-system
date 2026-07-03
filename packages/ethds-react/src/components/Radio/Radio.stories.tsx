@@ -23,6 +23,19 @@ export const WithHint: Story = {
   args: { hint: 'This is used for all correspondence.', required: true },
 };
 export const WithError: Story = { args: { error: 'Please choose a language' } };
+export const Tile: Story = {
+  args: {
+    legend: 'Select one historical figure',
+    tile: true,
+    defaultValue: 'truth',
+    options: [
+      { value: 'truth', label: 'Sojourner Truth' },
+      { value: 'douglass', label: 'Frederick Douglass', hint: 'This is optional text that can be used to describe the label in more detail.' },
+      { value: 'washington', label: 'Booker T. Washington' },
+    ],
+  },
+};
+
 export const WithOptionHints: Story = {
   args: {
     legend: 'Delivery method',

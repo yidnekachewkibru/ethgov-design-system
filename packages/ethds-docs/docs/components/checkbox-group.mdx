@@ -1,0 +1,86 @@
+---
+id: checkbox-group
+title: Checkbox group
+sidebar_position: 25
+---
+
+import Example from '@site/src/components/Example';
+import { CheckboxGroup } from '@ethds/react';
+
+# Checkbox group
+
+A labelled set of independent choices — the citizen can pick any number.
+The grouped counterpart of a single [Checkbox](checkbox.mdx).
+
+<Example>
+  <CheckboxGroup
+    legend="How should we contact you?"
+    hint="Select all that apply."
+    options={[
+      { value: 'sms', label: 'SMS' },
+      { value: 'email', label: 'Email' },
+      { value: 'post', label: 'Post', hint: 'Delivered to your P.O. Box' },
+    ]}
+  />
+</Example>
+
+```tsx
+import { CheckboxGroup } from '@ethds/react';
+
+<CheckboxGroup
+  legend="How should we contact you?"
+  options={[
+    { value: 'sms', label: 'SMS' },
+    { value: 'email', label: 'Email' },
+  ]}
+  onChange={(values) => …}   // e.g. ['sms', 'email']
+/>
+```
+
+## When to use this component
+
+Use when a question has several options and **more than one** may apply
+(contact methods, required documents held).
+
+## When not to use this component
+
+Use [Radios](radios.mdx) when exactly one option is allowed; a single
+[Checkbox](checkbox.mdx) for one standalone yes/no.
+
+## Tile variant
+
+Large bordered targets with optional descriptions — easier to tap on
+small screens:
+
+<Example>
+  <CheckboxGroup
+    legend="Which documents do you have?"
+    tile
+    defaultValues={['id']}
+    options={[
+      { value: 'id', label: 'Fayda (national ID)', hint: 'Your national ID card or number.' },
+      { value: 'passport', label: 'Passport' },
+      { value: 'licence', label: 'Driving licence' },
+    ]}
+  />
+</Example>
+
+## Accessibility
+
+- A `<fieldset>` + `<legend>` — the question announced with the group.
+- Native checkboxes: <kbd>Space</kbd> toggles; correct role/state free.
+- Group hint/error via `aria-describedby` (+ `aria-invalid` on error);
+  per-option hints individually associated.
+- Tiles are **styling only** — the semantics are identical; the whole
+  tile highlights when selected and shows a focus outline.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `legend` | `ReactNode` | required — the group question |
+| `options` | `{ value, label, hint?, disabled? }[]` | required |
+| `values` / `defaultValues` | `string[]` | controlled / uncontrolled |
+| `onChange` | `(values: string[]) => void` | |
+| `tile` | `boolean` | USWDS-style tiles, default `false` |
+| `hint` / `error` / `required` | | group-level |

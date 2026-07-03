@@ -1,0 +1,57 @@
+---
+id: step-indicator
+title: Step indicator
+sidebar_position: 24
+---
+
+import Example from '@site/src/components/Example';
+import { StepIndicator } from '@ethds/react';
+
+# Step indicator
+
+Shows where the citizen is in a multi-step flow — the component behind
+"Step 2 of 4" in every application pattern.
+
+<Example>
+  <StepIndicator
+    label="Application progress"
+    steps={['Applicant', 'Details', 'Documents', 'Review']}
+    current={2}
+  />
+</Example>
+
+```tsx
+import { StepIndicator } from '@ethds/react';
+
+<StepIndicator
+  label="Application progress"
+  steps={['Applicant', 'Details', 'Documents', 'Review']}
+  current={2}
+/>
+```
+
+## When to use this component
+
+At the top of each step of a multi-step form (application submission,
+registration) so the citizen knows how far they've come and what's left.
+
+## When not to use this component
+
+Don't use for a single-page form, and don't make the steps clickable
+shortcuts if skipping ahead would break validation.
+
+## Accessibility
+
+- A labelled `<nav>` containing an ordered list — order conveys sequence.
+- The current step carries `aria-current="step"`; completed steps are
+  visually filled with the state also implied by list order.
+- Step numbers are decorative (`aria-hidden`); the announced content is
+  the step names.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `steps` | `string[]` | translated step names, in order |
+| `current` | `number` | 1-based current step |
+| `label` | `string` | required — nav landmark name |

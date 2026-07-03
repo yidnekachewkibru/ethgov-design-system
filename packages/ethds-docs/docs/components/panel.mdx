@@ -1,0 +1,55 @@
+---
+id: panel
+title: Panel
+sidebar_position: 21
+---
+
+import Example from '@site/src/components/Example';
+import { Panel } from '@ethds/react';
+
+# Panel
+
+The confirmation banner shown when a citizen completes a transaction —
+the green "Application complete" box with the reference number.
+
+<Example>
+  <Panel title="Application complete" reference="Your reference: ETH-2026-00412">
+    Keep this reference to track your application.
+  </Panel>
+</Example>
+
+```tsx
+import { Panel } from '@ethds/react';
+
+<Panel title="Application complete" reference="Your reference: ETH-2026-00412">
+  Keep this reference to track your application.
+</Panel>
+```
+
+## When to use this component
+
+Once, at the top of a **confirmation page** — after an application is
+submitted, a payment succeeds, or a booking is made. Pair it with a
+[Summary list](summary-list.mdx) of what happens next.
+
+## When not to use this component
+
+Don't use it for in-page messages ([Alert](alert.mdx)) or for anything
+other than a completed transaction — its weight is the signal that
+something is done.
+
+## Accessibility
+
+- The title renders as the page's `<h1>` — the confirmation *is* the
+  page; move focus to it on arrival.
+- White text on ETHDS success green (`green-700`) is **7.82:1** —
+  comfortably AA.
+- Completion is stated in text; colour is reinforcement.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `title` | `ReactNode` | required — the confirmation headline |
+| `reference` | `ReactNode` | prominent reference line |
+| `children` | `ReactNode` | supporting text |

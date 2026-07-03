@@ -1,0 +1,58 @@
+---
+id: skip-link
+title: Skip link
+sidebar_position: 23
+---
+
+import Example from '@site/src/components/Example';
+import { SkipLink } from '@ethds/react';
+
+# Skip link
+
+Lets keyboard users bypass the repeated header and navigation and jump
+straight to the main content. Visually hidden until focused.
+
+<Example>
+  <div style={{ position: 'relative', minHeight: 60 }}>
+    <SkipLink href="#example-main">Skip to main content</SkipLink>
+    <p style={{ margin: 0 }}>
+      Click inside this box, then press <kbd>Tab</kbd> — the skip link
+      appears when it receives focus.
+    </p>
+  </div>
+</Example>
+
+```tsx
+import { SkipLink } from '@ethds/react';
+
+// First element inside <body>, pointing at your main landmark:
+<SkipLink href="#main">Skip to main content</SkipLink>
+…
+<main id="main">…</main>
+```
+
+## When to use this component
+
+On **every page**, as the very first focusable element — every ETHDS
+template assumes it. Without it, a keyboard user tabs through the whole
+header and nav on every single page.
+
+## When not to use this component
+
+There's no page that shouldn't have one.
+
+## Accessibility
+
+- A real `<a href="#main">` — activating it moves reading/focus position
+  to the main landmark.
+- Visually hidden off-screen until `:focus`, then shown prominently on
+  the Star Blue banner with a high-contrast focus outline.
+- Pass the text translated ("Skip to main content" in the active
+  language).
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `href` | `string` | `'#main'` |
+| `children` | `ReactNode` | required — translated label |

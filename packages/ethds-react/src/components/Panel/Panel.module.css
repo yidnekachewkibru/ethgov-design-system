@@ -1,0 +1,26 @@
+.panel {
+  padding: var(--ethds-space-8) var(--ethds-space-6);
+  text-align: center;
+  background: var(--ethds-green-700); /* white text = 7.82:1 (AA) */
+  color: var(--ethds-white);
+  font-family: var(--ethds-font-sans);
+  border-radius: var(--ethds-radius-md);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--ethds-text-3xl);
+  line-height: var(--ethds-leading-snug);
+  font-weight: var(--ethds-font-bold);
+}
+
+.reference {
+  margin-top: var(--ethds-space-4);
+  font-size: var(--ethds-text-xl);
+  line-height: var(--ethds-leading-normal);
+}
+
+.body {
+  margin-top: var(--ethds-space-3);
+  font-size: var(--ethds-text-base);
+}

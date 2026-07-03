@@ -1,4 +1,6 @@
-// @ethds/react — public API. All 18 core components (Phase 7).
+// @ethds/react — public API. The 18 core components (Phase 7) plus the
+// extended set (ErrorSummary, SummaryList, Panel, Tag, SkipLink,
+// CheckboxGroup, StepIndicator, and tile variants).
 
 export { Button } from './components/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './components/Button';
@@ -58,5 +60,26 @@ export type { HeaderProps, HeaderNavItem } from './components/Header';
 
 export { Footer } from './components/Footer';
 export type { FooterProps, FooterLink, FooterLinkGroup } from './components/Footer';
+
+export { SkipLink } from './components/SkipLink';
+export type { SkipLinkProps } from './components/SkipLink';
+
+export { Tag } from './components/Tag';
+export type { TagProps, TagVariant } from './components/Tag';
+
+export { Panel } from './components/Panel';
+export type { PanelProps } from './components/Panel';
+
+export { StepIndicator } from './components/StepIndicator';
+export type { StepIndicatorProps } from './components/StepIndicator';
+
+export { ErrorSummary } from './components/ErrorSummary';
+export type { ErrorSummaryProps, ErrorSummaryItem } from './components/ErrorSummary';
+
+export { SummaryList } from './components/SummaryList';
+export type { SummaryListProps, SummaryListRow } from './components/SummaryList';
+
+export { CheckboxGroup } from './components/CheckboxGroup';
+export type { CheckboxGroupProps, CheckboxGroupOption } from './components/CheckboxGroup';
 
 export { cx } from './utils/cx';

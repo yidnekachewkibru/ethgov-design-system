@@ -1,0 +1,21 @@
+.skipLink {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: var(--ethds-space-2) var(--ethds-space-4);
+  background: var(--ethds-color-primary);
+  color: var(--ethds-white);
+  font-family: var(--ethds-font-sans);
+  font-size: var(--ethds-text-base);
+  text-decoration: underline;
+  border-radius: 0 0 var(--ethds-radius-md) 0;
+}
+
+/* Becomes visible the moment it receives keyboard focus. */
+.skipLink:focus,
+.skipLink:focus-visible {
+  left: 0;
+  outline: 2px solid var(--ethds-yellow-400);
+  outline-offset: 2px;
+}

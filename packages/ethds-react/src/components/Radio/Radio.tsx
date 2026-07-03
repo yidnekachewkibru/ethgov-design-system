@@ -24,6 +24,8 @@ export interface RadioGroupProps extends Omit<HTMLAttributes<HTMLFieldSetElement
   /** Error message for the whole group. */
   error?: ReactNode;
   required?: boolean;
+  /** Render options as large bordered tiles (USWDS-style). */
+  tile?: boolean;
 }
 
 /**
@@ -33,7 +35,7 @@ export interface RadioGroupProps extends Omit<HTMLAttributes<HTMLFieldSetElement
  * correct roving arrow-key behaviour and screen-reader semantics for free.
  */
 export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(function RadioGroup(
-  { legend, name, options, value, defaultValue, onChange, hint, error, required, className, ...rest },
+  { legend, name, options, value, defaultValue, onChange, hint, error, required, tile = false, className, ...rest },
   ref,
 ) {
   const autoName = useId();
@@ -64,7 +66,7 @@ export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(funct
           const optId = `${groupName}-${opt.value}`;
           const optHintId = `${optId}-hint`;
           return (
-            <div key={opt.value} className={styles.option}>
+            <div key={opt.value} className={cx(styles.option, tile && styles.tile)}>
               <div className={styles.row}>
                 <input
                   type="radio"
