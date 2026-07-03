@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ethds-space-4);
+  font-family: var(--ethds-font-sans);
+  max-width: 30rem;
+}
+
+.registerPrompt {
+  margin: 0;
+  font-size: var(--ethds-text-base);
+  color: var(--ethds-color-text);
+}
