@@ -115,9 +115,10 @@ Usable now:
   site (principles, brand, accessibility), multilingual and themed from
   `@ethds/tokens`, deployable to GitHub Pages.
 - [`@ethds/react`](packages/ethds-react/) — the React component library:
-  all 18 core components (Button, Link, Typography, Icon, form inputs,
-  Alert/Notification, Breadcrumb, Pagination, Table, Header, Footer,
-  LanguageSwitcher, …), accessible (WCAG 2.2 AA, axe-tested) and
+  32 components (Button, Link, Typography, Icon, form inputs incl.
+  Date input and File upload, Alert/Notification, Breadcrumb, Pagination,
+  Table, Header, Footer, LanguageSwitcher, Error summary, Panel, Tag,
+  Cookie/Phase banners, …), accessible (WCAG 2.2 AA, axe-tested) and
   token-driven.
 
 Components, patterns, and templates follow in later phases — watch the

@@ -1,0 +1,23 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ethds-space-1);
+  font-family: var(--ethds-font-sans);
+  font-size: var(--ethds-text-base);
+  font-weight: var(--ethds-font-medium);
+  color: var(--ethds-color-interactive);
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: var(--ethds-color-interactive-hover);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}
+
+.icon {
+  flex-shrink: 0;
+}

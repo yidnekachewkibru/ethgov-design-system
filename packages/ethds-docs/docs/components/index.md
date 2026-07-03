@@ -29,6 +29,9 @@ accessibility behaviour.
 - [Radios](radios.mdx) — one choice from a list (with tile variant)
 - [Select](select.mdx) — one choice from a long list
 - [Search](search.mdx) — a labelled search form
+- [Date input](date-input.mdx) — day/month/year, Ethiopian calendar by default
+- [File upload](file-upload.mdx) — attach a scanned document or photo
+- [Character count](character-count.mdx) — a textarea with a live remaining-character count
 - [Error summary](error-summary.mdx) — focusable summary of form errors
 
 ## Feedback
@@ -37,14 +40,18 @@ accessibility behaviour.
 - [Notification](notification.mdx) — a dismissible live message
 - [Panel](panel.mdx) — the confirmation banner ("Application complete")
 - [Tag](tag.mdx) — small status labels ("Approved", "Pending")
+- [Phase banner](phase-banner.mdx) — flags a service still in alpha or beta
+- [Cookie banner](cookie-banner.mdx) — explicit accept/reject cookie consent
 
 ## Navigation & structure
 
 - [Skip link](skip-link.mdx) — bypass the header, first tab stop on every page
+- [Back link](back-link.mdx) — return to the previous step in a flow
 - [Breadcrumb](breadcrumb.mdx) — where the citizen is in the hierarchy
 - [Step indicator](step-indicator.mdx) — progress through a multi-step flow
 - [Pagination](pagination.mdx) — navigate pages of results
 - [Table](table.mdx) — semantic data tables
+- [Details](details.mdx) — expandable "show more" content
 - [Summary list](summary-list.mdx) — check-your-answers rows with Change links
 - [Header](header.mdx) — government identity and primary navigation
 - [Footer](footer.mdx) — secondary identity and links

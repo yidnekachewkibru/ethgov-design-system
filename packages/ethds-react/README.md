@@ -5,8 +5,8 @@ components, built on [`@ethds/tokens`](../ethds-tokens/) and to the
 [accessibility](../../docs/accessibility/) and
 [localization](../../docs/localization/) standards.
 
-> **Status:** Phase 7 complete — all 18 core components ship, each with
-> types, tests (Testing Library + `vitest-axe`), and a Storybook story.
+> **Status:** 32 components ship, each with types, tests (Testing Library +
+> `vitest-axe`), and a Storybook story.
 
 ## Install
 
@@ -72,6 +72,13 @@ by the consumer — no user-facing strings are baked into the components.
 | `SkipLink` | first tab stop; visually hidden until focused |
 | `StepIndicator` | labelled nav + `aria-current="step"` ("Step 2 of 4") |
 | `CheckboxGroup` | fieldset/legend multi-select; `tile` variant (also on `RadioGroup`) |
+| `DateInput` | day/month/year date entry; Ethiopian calendar by default, Gregorian ISO out |
+| `FileUpload` | labelled native file picker; live-announced chosen file name |
+| `CharacterCount` | textarea with a live remaining-character count |
+| `Details` | native `<details>`/`<summary>` expandable content |
+| `BackLink` | single-step back-navigation link |
+| `PhaseBanner` | alpha/beta service flag, shown under the header |
+| `CookieBanner` | focusable, explicit accept/reject cookie consent |
 
 ## Accessibility
 

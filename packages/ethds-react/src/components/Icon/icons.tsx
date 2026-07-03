@@ -10,6 +10,8 @@ export const CheckIcon: ReactNode = <path d="M20 6 9 17l-5-5" />;
 
 export const ChevronRightIcon: ReactNode = <path d="m9 18 6-6-6-6" />;
 
+export const ChevronLeftIcon: ReactNode = <path d="m15 18-6-6 6-6" />;
+
 export const InfoIcon: ReactNode = (
   <>
     <circle cx="12" cy="12" r="9" />

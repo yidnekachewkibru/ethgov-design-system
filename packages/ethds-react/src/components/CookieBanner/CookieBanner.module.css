@@ -1,0 +1,51 @@
+.banner {
+  padding: var(--ethds-space-4) var(--ethds-space-6);
+  background: var(--ethds-gray-100);
+  border-bottom: 1px solid var(--ethds-color-divider);
+  font-family: var(--ethds-font-sans);
+}
+
+.banner:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: -2px;
+}
+
+.title {
+  margin: 0 0 var(--ethds-space-2);
+  font-size: var(--ethds-text-lg);
+  font-weight: var(--ethds-font-bold);
+  color: var(--ethds-color-text);
+}
+
+.message {
+  margin: 0 0 var(--ethds-space-3);
+  font-size: var(--ethds-text-base);
+  color: var(--ethds-color-text);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ethds-space-3);
+}
+
+.viewLink {
+  padding: 0;
+  font-size: var(--ethds-text-base);
+  font-weight: var(--ethds-font-medium);
+  color: var(--ethds-color-interactive);
+  background: transparent;
+  border: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.viewLink:hover {
+  color: var(--ethds-color-interactive-hover);
+}
+
+.viewLink:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}

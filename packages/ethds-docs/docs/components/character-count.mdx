@@ -1,0 +1,67 @@
+---
+id: character-count
+title: Character count
+sidebar_position: 29
+---
+
+import Example from '@site/src/components/Example';
+import { CharacterCount } from '@ethds/react';
+
+# Character count
+
+A [Textarea](textarea.mdx) with a live remaining-character count — for
+free-text fields with a limit (a complaint description, a note field).
+
+<Example>
+  <CharacterCount
+    label="Describe your complaint"
+    hint="Keep it brief and specific."
+    maxLength={200}
+  />
+</Example>
+
+```tsx
+import { CharacterCount } from '@ethds/react';
+
+<CharacterCount label="Describe your complaint" maxLength={200} />
+```
+
+## Over the limit
+
+<Example>
+  <CharacterCount
+    label="Reason for the request"
+    maxLength={40}
+    defaultValue="This complaint is already past the character limit set for this field"
+  />
+</Example>
+
+## When to use this component
+
+Any free-text field with a length limit enforced downstream (a database
+column, a printed form, an SMS relay) — tell the citizen the limit before
+they hit it, not after.
+
+## When not to use this component
+
+Don't set an artificially low limit "to keep things tidy" — a limit that's
+too tight forces citizens to write unnaturally or drop information government
+staff need. Use a plain [Textarea](textarea.mdx) when there's no real limit.
+
+## Accessibility
+
+- The count is a polite live region (`aria-live="polite"`) — announced
+  without interrupting typing.
+- Once over the limit, the field is marked `aria-invalid` and the message
+  switches to an over-limit count; the message text itself states this
+  (never colour alone).
+- Same label/hint/error wiring as [Textarea](textarea.mdx).
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `label` | `ReactNode` | required |
+| `maxLength` | `number` | required — the character limit |
+| `getCountMessage` | `(remaining: number, limit: number) => string` | translatable; builds the live message |
+| `hint` / `error` / `required` | | |
