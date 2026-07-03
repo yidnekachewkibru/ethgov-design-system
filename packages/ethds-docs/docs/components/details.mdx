@@ -1,0 +1,60 @@
+---
+id: details
+title: Details
+sidebar_position: 30
+---
+
+import Example from '@site/src/components/Example';
+import { Details } from '@ethds/react';
+
+# Details
+
+Expandable "show more" content, built on the native `<details>` /
+`<summary>` elements — for information most citizens don't need, but some
+do.
+
+<Example>
+  <Details summary="Why do we ask for your Fayda ID?">
+    We use your Fayda national ID to confirm your identity and pre-fill your
+    details from the national registry, so you don't have to re-enter them.
+  </Details>
+</Example>
+
+```tsx
+import { Details } from '@ethds/react';
+
+<Details summary="Why do we ask for your Fayda ID?">
+  We use your Fayda national ID to confirm your identity and pre-fill your
+  details from the national registry, so you don't have to re-enter them.
+</Details>
+```
+
+## When to use this component
+
+Supplementary explanation that would clutter the main flow for most
+citizens — why a field is asked for, an edge case, a definition. Keep the
+main content usable without ever opening it.
+
+## When not to use this component
+
+Don't hide anything a citizen needs to complete the task, or use it to
+break up a long page that should instead be split into
+[steps](step-indicator.mdx). Don't nest one Details inside another.
+
+## Accessibility
+
+- Native `<details>`/`<summary>` — toggling, keyboard operability
+  (<kbd>Enter</kbd>/<kbd>Space</kbd> on the summary), and the expanded/
+  collapsed state exposed to assistive technology all come from the
+  browser, with no ARIA or JavaScript state management needed.
+- The summary text is a real, focusable, click target — write it so it
+  makes sense out of context ("Why do we ask for your Fayda ID?", not
+  "More details").
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `summary` | `ReactNode` | required — the always-visible summary text |
+| `open` | `boolean` | expanded by default |
+| `children` | `ReactNode` | required — the collapsible content |

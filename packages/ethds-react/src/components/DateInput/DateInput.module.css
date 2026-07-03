@@ -1,0 +1,80 @@
+.group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--ethds-font-sans);
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: var(--ethds-space-2);
+  font-size: var(--ethds-text-base);
+  font-weight: var(--ethds-font-medium);
+  color: var(--ethds-color-text);
+}
+
+.required {
+  font-weight: var(--ethds-font-regular);
+  color: var(--ethds-color-text-secondary);
+}
+
+.hint {
+  display: block;
+  margin-bottom: var(--ethds-space-2);
+  font-size: var(--ethds-text-sm);
+  color: var(--ethds-color-text-secondary);
+}
+
+.row {
+  display: flex;
+  gap: var(--ethds-space-3);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ethds-space-1);
+}
+
+.fieldLabel {
+  font-size: var(--ethds-text-sm);
+  color: var(--ethds-color-text);
+}
+
+.input {
+  min-height: 44px;
+  padding: var(--ethds-space-2) var(--ethds-space-3);
+  font-family: inherit;
+  font-size: var(--ethds-text-base);
+  color: var(--ethds-color-text);
+  background: var(--ethds-white);
+  border: 1px solid var(--ethds-color-border); /* gray-500, >= 3:1 */
+  border-radius: var(--ethds-radius-md);
+}
+
+.day,
+.month {
+  width: 3.5em;
+}
+
+.year {
+  width: 5em;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 1px;
+  border-color: var(--ethds-color-focus);
+}
+
+.inputError {
+  border-color: var(--ethds-color-error);
+}
+
+.error {
+  display: block;
+  margin-top: var(--ethds-space-2);
+  font-size: var(--ethds-text-sm);
+  font-weight: var(--ethds-font-medium);
+  color: var(--ethds-red-700); /* AA text on white */
+}

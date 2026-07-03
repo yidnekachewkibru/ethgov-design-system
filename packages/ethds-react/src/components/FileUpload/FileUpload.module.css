@@ -1,0 +1,50 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ethds-space-1);
+  font-family: var(--ethds-font-sans);
+}
+
+.label {
+  font-size: var(--ethds-text-base);
+  font-weight: var(--ethds-font-medium);
+  color: var(--ethds-color-text);
+}
+
+.required {
+  font-weight: var(--ethds-font-regular);
+  color: var(--ethds-color-text-secondary);
+}
+
+.hint {
+  font-size: var(--ethds-text-sm);
+  color: var(--ethds-color-text-secondary);
+}
+
+.input {
+  padding: var(--ethds-space-2) 0;
+  font-family: inherit;
+  font-size: var(--ethds-text-base);
+  color: var(--ethds-color-text);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 1px;
+}
+
+.inputError {
+  outline: 2px solid var(--ethds-color-error);
+  outline-offset: 2px;
+}
+
+.status {
+  font-size: var(--ethds-text-sm);
+  color: var(--ethds-color-text-secondary);
+}
+
+.error {
+  font-size: var(--ethds-text-sm);
+  font-weight: var(--ethds-font-medium);
+  color: var(--ethds-red-700); /* AA text on white */
+}

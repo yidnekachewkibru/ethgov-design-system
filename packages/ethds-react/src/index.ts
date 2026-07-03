@@ -1,6 +1,8 @@
-// @ethds/react — public API. The 18 core components (Phase 7) plus the
+// @ethds/react — public API. The 18 core components (Phase 7), the
 // extended set (ErrorSummary, SummaryList, Panel, Tag, SkipLink,
-// CheckboxGroup, StepIndicator, and tile variants).
+// CheckboxGroup, StepIndicator, and tile variants), and the additional
+// batch (DateInput, FileUpload, CharacterCount, Details, BackLink,
+// PhaseBanner, CookieBanner).
 
 export { Button } from './components/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './components/Button';
@@ -81,5 +83,32 @@ export type { SummaryListProps, SummaryListRow } from './components/SummaryList'
 
 export { CheckboxGroup } from './components/CheckboxGroup';
 export type { CheckboxGroupProps, CheckboxGroupOption } from './components/CheckboxGroup';
+
+export { DateInput } from './components/DateInput';
+export type { DateInputProps, DateInputCalendar, CalendarDate } from './components/DateInput';
+export {
+  ethiopianToGregorian,
+  gregorianToEthiopian,
+  ethiopianMonthLength,
+  ETHIOPIAN_MONTHS,
+} from './components/DateInput';
+
+export { FileUpload } from './components/FileUpload';
+export type { FileUploadProps } from './components/FileUpload';
+
+export { CharacterCount } from './components/CharacterCount';
+export type { CharacterCountProps } from './components/CharacterCount';
+
+export { Details } from './components/Details';
+export type { DetailsProps } from './components/Details';
+
+export { BackLink } from './components/BackLink';
+export type { BackLinkProps } from './components/BackLink';
+
+export { PhaseBanner } from './components/PhaseBanner';
+export type { PhaseBannerProps, PhaseBannerPhase } from './components/PhaseBanner';
+
+export { CookieBanner } from './components/CookieBanner';
+export type { CookieBannerProps } from './components/CookieBanner';
 
 export { cx } from './utils/cx';

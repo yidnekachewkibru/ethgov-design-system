@@ -1,0 +1,23 @@
+.banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ethds-space-2);
+  padding: var(--ethds-space-3) 0;
+  border-bottom: 1px solid var(--ethds-color-divider);
+  font-family: var(--ethds-font-sans);
+}
+
+.tag {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.message {
+  margin: 0;
+  font-size: var(--ethds-text-sm);
+  color: var(--ethds-color-text);
+}
+
+.message a {
+  color: var(--ethds-color-interactive);
+}

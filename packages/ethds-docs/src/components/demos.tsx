@@ -4,7 +4,7 @@
  * directly in MDX.
  */
 import { useState } from 'react';
-import { Pagination, LanguageSwitcher, RadioGroup, Notification, Button } from '@ethds/react';
+import { Pagination, LanguageSwitcher, RadioGroup, Notification, Button, CookieBanner } from '@ethds/react';
 
 const PAGE_LABELS = {
   nav: 'Pagination',
@@ -73,5 +73,31 @@ export function NotificationDemo() {
     >
       Your changes have been saved.
     </Notification>
+  );
+}
+
+export function CookieBannerDemo() {
+  const [choice, setChoice] = useState<'accepted' | 'rejected' | null>(null);
+  if (choice) {
+    return (
+      <Button variant="secondary" onClick={() => setChoice(null)}>
+        Show the cookie banner again
+      </Button>
+    );
+  }
+  return (
+    <CookieBanner
+      title="Cookies on this service"
+      acceptLabel="Accept additional cookies"
+      rejectLabel="Reject additional cookies"
+      viewCookiesLabel="View cookies"
+      onAccept={() => setChoice('accepted')}
+      onReject={() => setChoice('rejected')}
+      onViewCookies={() => {}}
+      autoFocus={false}
+    >
+      We use some essential cookies to make this service work. We&apos;d also like to use
+      analytics cookies to understand how you use the service and improve it.
+    </CookieBanner>
   );
 }

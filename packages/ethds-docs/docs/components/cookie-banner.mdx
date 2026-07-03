@@ -1,0 +1,69 @@
+---
+id: cookie-banner
+title: Cookie banner
+sidebar_position: 32
+---
+
+import Example from '@site/src/components/Example';
+import { CookieBannerDemo } from '@site/src/components/demos';
+
+# Cookie banner
+
+A consent banner requiring an explicit accept or reject — shown once,
+before any non-essential cookie is set.
+
+<Example>
+  <CookieBannerDemo />
+</Example>
+
+```tsx
+import { CookieBanner } from '@ethds/react';
+
+<CookieBanner
+  title="Cookies on this service"
+  acceptLabel="Accept additional cookies"
+  rejectLabel="Reject additional cookies"
+  viewCookiesLabel="View cookies"
+  onAccept={() => …}
+  onReject={() => …}
+  onViewCookies={() => …}
+>
+  We use some essential cookies to make this service work. We'd also like to
+  use analytics cookies to understand how you use the service and improve it.
+</CookieBanner>
+```
+
+## When to use this component
+
+Once, at the top of the page, the first time a citizen visits a service
+that sets any non-essential cookie (analytics, preferences). Never
+pre-tick or default to "accept" — consent must be an explicit choice.
+
+## When not to use this component
+
+Don't use it for a service with only strictly-necessary cookies (session,
+security) — those don't require consent. Don't show it again once the
+citizen has made a choice; store their answer.
+
+## Accessibility
+
+- A focusable, labelled `role="region"` — announced and reachable by
+  assistive technology even though it isn't the main content.
+- Receives focus on mount by default (`autoFocus`, on by default) so
+  keyboard and screen-reader users meet the choice first, before anything
+  else on the page — turn it off only where that would conflict with a
+  more urgent focus target (e.g. an [Error summary](error-summary.mdx)).
+- Accept and reject are equally prominent buttons — no dark patterns
+  (no pre-selected "accept", no hidden reject).
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `title` | `ReactNode` | required |
+| `children` | `ReactNode` | required — the explanatory message |
+| `acceptLabel` / `rejectLabel` | `string` | required, translatable |
+| `viewCookiesLabel` | `string` | optional link to the full cookie policy |
+| `onAccept` / `onReject` | `() => void` | required |
+| `onViewCookies` | `() => void` | shown only alongside `viewCookiesLabel` |
+| `autoFocus` | `boolean` | default `true` |

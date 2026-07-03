@@ -1,0 +1,97 @@
+---
+id: date-input
+title: Date input
+sidebar_position: 27
+---
+
+import Example from '@site/src/components/Example';
+import { DateInput } from '@ethds/react';
+
+# Date input
+
+Three labelled fields — day, month, year — for entering a date. Defaults
+to the **Ethiopian calendar** (E.C.), the calendar Ethiopian government
+services and citizens use day to day; pass `calendar="gregorian"` for
+G.C. entry. Designed per
+[RFC 0000](https://github.com/yidnekachewkibru/ethgov-design-system/tree/main/packages/ethds-rfcs/proposals/0000-example.md).
+
+<Example>
+  <DateInput legend="Date of birth" hint="For example, 1 Meskerem 2015" />
+</Example>
+
+```tsx
+import { DateInput } from '@ethds/react';
+
+<DateInput
+  legend="Date of birth"
+  hint="For example, 1 Meskerem 2015"
+  onChange={(isoDate) => …} // "2022-09-11" — ISO 8601, Gregorian
+/>
+```
+
+## Gregorian entry
+
+<Example>
+  <DateInput legend="Date of birth" calendar="gregorian" hint="For example, 11 9 2026" />
+</Example>
+
+```tsx
+<DateInput legend="Date of birth" calendar="gregorian" hint="For example, 11 9 2026" />
+```
+
+## Error state
+
+<Example>
+  <DateInput
+    legend="Date of birth"
+    hint="For example, 1 Meskerem 2015"
+    error="Date of birth must include a day, month and year"
+  />
+</Example>
+
+## When to use this component
+
+Whenever a citizen enters a date they'd naturally think of in day/month/year
+terms — date of birth, a permit issue date, an appointment date. Text entry
+in three small fields is faster and more accessible than a calendar-grid
+picker, especially on a low-end phone or with a screen reader.
+
+## When not to use this component
+
+Don't use it to *display* a date the citizen doesn't need to edit — format
+it with `Intl.DateTimeFormat` per
+[date formatting](https://github.com/yidnekachewkibru/ethgov-design-system/tree/main/docs/localization/date-formatting.md)
+instead.
+
+## Calendars
+
+- **`calendar="ethiopian"` (default):** fields accept an Ethiopian-calendar
+  day/month/year (1–13 for month; Pagume, month 13, has 5 or 6 days).
+- **`calendar="gregorian"`:** fields accept a Gregorian day/month/year.
+- Either way, `onChange` always emits an unambiguous **ISO 8601 Gregorian**
+  date (`"2026-09-11"`) — store and exchange dates in this one format
+  internally, and let this component handle the calendar conversion at the
+  edges. Conversion follows the Amete Mihret era and is verified against
+  Ethiopia's own New Year reference (Meskerem 1, 2019 E.C. = 11 September
+  2026 G.C.).
+
+## Accessibility
+
+- A `<fieldset>` + `<legend>` groups the three fields as one question.
+- Each field (`Day`, `Month`, `Year`) has its own visible `<label>` —
+  translatable via the `dayLabel` / `monthLabel` / `yearLabel` props.
+- `inputMode="numeric"` brings up a numeric keypad on mobile without
+  restricting entry to a native `<input type="number">`'s awkward
+  spinner/scroll behaviour.
+- Group hint/error via `aria-describedby`; error sets `aria-invalid`.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `legend` | `ReactNode` | required — the group question |
+| `calendar` | `'ethiopian' \| 'gregorian'` | default `'ethiopian'` |
+| `value` / `defaultValue` | `string` | ISO 8601 Gregorian date |
+| `onChange` | `(isoDate: string \| undefined) => void` | fires once all three fields parse |
+| `dayLabel` / `monthLabel` / `yearLabel` | `string` | default `'Day'` / `'Month'` / `'Year'` |
+| `hint` / `error` / `required` | | group-level |

@@ -1,0 +1,62 @@
+---
+id: phase-banner
+title: Phase banner
+sidebar_position: 31
+---
+
+import Example from '@site/src/components/Example';
+import { PhaseBanner } from '@ethds/react';
+
+# Phase banner
+
+Flags a service still in **alpha** or **beta** — sits directly under the
+[Header](header.mdx) on every page of the service.
+
+<Example>
+  <PhaseBanner phase="beta" phaseLabel="Beta">
+    This is a new service — your feedback will help us to improve it.
+  </PhaseBanner>
+</Example>
+
+```tsx
+import { PhaseBanner } from '@ethds/react';
+
+<PhaseBanner phase="beta" phaseLabel="Beta">
+  This is a new service — your feedback will help us to improve it.
+</PhaseBanner>
+```
+
+## Alpha
+
+<Example>
+  <PhaseBanner phase="alpha" phaseLabel="Alpha">
+    This is a new service — it hasn't been fully tested and may change or
+    be withdrawn.
+  </PhaseBanner>
+</Example>
+
+## When to use this component
+
+On every page of a service that hasn't reached general availability yet,
+so citizens know what to expect and how to give feedback. Usually the
+message links to a feedback route.
+
+## When not to use this component
+
+Remove it once the service is in general release — a permanent "beta"
+label erodes the trust it's meant to build during rollout.
+
+## Accessibility
+
+- Uses [Tag](tag.mdx) for the phase label, so the phase is carried as
+  text ("Alpha"/"Beta"), not colour alone.
+- Ordinary flow content — no special ARIA needed; it's read in document
+  order right after the header.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `phase` | `'alpha' \| 'beta'` | required — controls the tag's tone |
+| `phaseLabel` | `string` | required — the tag text (translatable) |
+| `children` | `ReactNode` | required — the message, usually with a feedback link |

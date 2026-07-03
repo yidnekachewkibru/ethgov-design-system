@@ -1,0 +1,61 @@
+---
+id: file-upload
+title: File upload
+sidebar_position: 28
+---
+
+import Example from '@site/src/components/Example';
+import { FileUpload } from '@ethds/react';
+
+# File upload
+
+A labelled file picker, for scanned documents and photos citizens attach
+to an application.
+
+<Example>
+  <FileUpload label="Upload your Fayda ID scan" hint="JPG, PNG or PDF, up to 5MB" />
+</Example>
+
+```tsx
+import { FileUpload } from '@ethds/react';
+
+<FileUpload
+  label="Upload your Fayda ID scan"
+  hint="JPG, PNG or PDF, up to 5MB"
+  accept="image/jpeg,image/png,application/pdf"
+/>
+```
+
+## When to use this component
+
+Whenever a service needs a citizen to attach a document — an ID scan, a
+supporting letter, a photo of a permit. State the accepted file types and
+any size limit in the hint.
+
+## When not to use this component
+
+Don't require a file when a citizen could type the same information into
+a text field — a photo of a form is harder for staff to process than
+structured data, and harder for the citizen to produce on a low-end phone
+with a poor camera.
+
+## Accessibility
+
+- A native `<input type="file">` — the device's own file/photo picker
+  opens, which citizens already know how to use, keyboard- and
+  screen-reader-operable for free.
+- The chosen file name is echoed in a polite live region, so
+  screen-reader users get clear confirmation of what was selected.
+- Label, hint, and error are wired via `aria-describedby` / `aria-invalid`,
+  the same pattern as [Text input](text-input.mdx).
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `label` | `ReactNode` | required |
+| `hint` / `error` / `required` | | |
+| `accept` | `string` | native `accept` attribute, e.g. MIME types |
+| `multiple` | `boolean` | allow more than one file |
+| `chosenLabel` | `string` | default `'file chosen'` |
+| `noFileLabel` | `string` | default `'No file chosen'` |

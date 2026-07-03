@@ -1,0 +1,49 @@
+---
+id: back-link
+title: Back link
+sidebar_position: 26
+---
+
+import Example from '@site/src/components/Example';
+import { BackLink } from '@ethds/react';
+
+# Back link
+
+A single-step link back to the previous page in a service flow —
+distinct from the browser's own back button, which can leave a service.
+
+<Example>
+  <BackLink href="#">Back</BackLink>
+</Example>
+
+```tsx
+import { BackLink } from '@ethds/react';
+
+<BackLink href="/application/step-2">Back</BackLink>
+```
+
+## When to use this component
+
+At the top of every step in a multi-step service (alongside a
+[Step indicator](step-indicator.mdx)) so the citizen can return to the
+previous step without losing entered data.
+
+## When not to use this component
+
+Don't use it as the only way to navigate — it complements, not replaces,
+a browser back button and a [Breadcrumb](breadcrumb.mdx) for hierarchy.
+Don't use it on the first step of a flow, where there is nowhere to go
+back to.
+
+## Accessibility
+
+- A native `<a>` — keyboard-operable and screen-reader-friendly for free.
+- The chevron is decorative (`aria-hidden`); the link's accessible name
+  comes entirely from its text ("Back"), which is translatable.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `href` | `string` | required — the previous step's URL |
+| `children` | `ReactNode` | required — the link text (translatable) |
