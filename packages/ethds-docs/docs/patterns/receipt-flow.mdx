@@ -1,0 +1,78 @@
+---
+id: receipt-flow
+title: Receipt Flow
+hide_title: true
+sidebar_position: 10
+---
+
+import Example from '@site/src/components/Example';
+import { Receipt } from '@ethds/patterns';
+
+<Example>
+  <Receipt
+    reference="RCPT-2026-00931"
+    date="Meskerem 9, 2019 EC"
+    method="Telebirr"
+    items={[{ label: 'Business licence renewal fee', santim: 35000 }]}
+    onDownload={() => {}}
+  />
+</Example>
+
+Confirm a completed payment and provide proof of it. Only ever render
+this for a **confirmed, settled** payment — never a pending or failed
+one; that gate is the caller's responsibility, since `Receipt` just
+displays the immutable facts of a completed transaction.
+
+```tsx
+import { Receipt } from '@ethds/patterns';
+
+<Receipt
+  reference="RCPT-2026-00931"
+  date="Meskerem 9, 2019 EC"
+  method="Telebirr"
+  items={[{ label: 'Business licence renewal fee', santim: 35000 }]}
+  onDownload={() => {
+    /* generate/download a PDF or printable version */
+  }}
+/>
+```
+
+## When to use this pattern
+
+Use Receipt Flow immediately after a successful [Payment Flow](payment-flow)
+`onPay` call, or wherever a citizen needs to retrieve proof of a past
+payment (e.g. from the Citizen Dashboard template).
+
+## Validation & error handling
+
+There's no form here — `Receipt` is a display-only component with a
+single `onDownload` action. There is no error state to design for,
+because a receipt should never be shown for anything other than a
+successfully completed payment.
+
+## Accessibility
+
+- Success is conveyed via the `Alert`'s text and labelled icon, never
+  colour alone.
+- The reference, date, and method are a semantic definition list (`<dl>`);
+  the itemisation is a semantic `Table`, matching Payment Flow's own
+  structure so the two feel like one continuous, consistent flow.
+
+## Localization
+
+Amounts are formatted via `formatBirr(santim, locale)`; `date` and
+`method` are passed in already formatted per the citizen's chosen
+language and the
+[Ethiopian calendar](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/docs/localization/date-formatting.md).
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `reference` | `string` | Yes |
+| `date` | `string` | Yes |
+| `method` | `string` | Yes |
+| `items` | `LineItem[]` (`{ label, santim }`) | Yes |
+| `onDownload` | `() => void` | Yes |
+| `locale` | `string` | No |
+| `labels` | `Partial<ReceiptLabels>` | No |

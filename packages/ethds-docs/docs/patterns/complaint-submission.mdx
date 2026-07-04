@@ -1,0 +1,67 @@
+---
+id: complaint-submission
+title: Complaint Submission
+hide_title: true
+sidebar_position: 7
+---
+
+import Example from '@site/src/components/Example';
+import { ComplaintForm } from '@ethds/patterns';
+
+<Example>
+  <ComplaintForm onSubmit={async () => {}} />
+</Example>
+
+Report an issue or grievance about a government service. Toggle
+**Submit anonymously** — the phone field is hidden entirely, not merely
+disabled, since an anonymous complaint shouldn't display a follow-up
+field at all.
+
+```tsx
+import { ComplaintForm } from '@ethds/patterns';
+
+<ComplaintForm
+  onSubmit={async (data) => {
+    /* file the complaint; data: ComplaintData. On success, the caller
+       navigates to a confirmation/receipt — this component has no
+       built-in success state. */
+  }}
+/>
+```
+
+## When to use this pattern
+
+Use Complaint Submission wherever a citizen needs to report a service
+delay, staff conduct issue, or incorrect information — anything that
+isn't a routine [Application Submission](application-submission).
+
+## Validation & error handling
+
+- **Category, description:** required, surfaced in a focusable
+  `ErrorSummary`.
+- **Phone:** required *unless* "Submit anonymously" is checked — toggling
+  it removes the field from the form entirely.
+- A failed submit **never clears the written complaint** — description
+  and all other fields stay exactly as entered so the citizen can retry
+  without retyping a potentially long account of what happened.
+
+## Accessibility
+
+- The category `Select` and description `TextArea` both have visible,
+  associated labels; the optional `FileUpload` for evidence follows the
+  same pattern as [File upload](../components/file-upload).
+- The retry error renders as a live `Alert`, distinct from the
+  field-level `ErrorSummary`.
+
+## Localization
+
+All labels, the category list, and error messages are translatable via
+the `labels`/`categories` props.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `onSubmit` | `(data: ComplaintData) => Promise<void>` | Yes |
+| `categories` | `SelectOption[]` | No — has defaults |
+| `labels` | `Partial<ComplaintFormLabels>` | No |
