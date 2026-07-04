@@ -5,7 +5,7 @@ import {
   SkipLink,
   LanguageSwitcher,
 } from '@ethds/react';
-import type { FooterLinkGroup, LanguageOption } from '@ethds/react';
+import type { FooterLinkGroup, HeaderNavItem, LanguageOption } from '@ethds/react';
 import gridStyles from '../../styles/grid.module.css';
 import styles from './PageChrome.module.css';
 
@@ -13,6 +13,10 @@ export interface PageChromeProps {
   /** Service or organisation name shown in the Header identity (translatable). */
   serviceName: ReactNode;
   homeHref?: string;
+  /** Accessible name for the identity link, e.g. "Government of Ethiopia — home". */
+  homeLabel?: string;
+  /** Primary navigation items (e.g. Home / Services / News / Contact). */
+  nav?: HeaderNavItem[];
   languages: LanguageOption[];
   locale: string;
   onLocale: (code: string) => void;
@@ -36,6 +40,8 @@ export interface PageChromeProps {
 export function PageChrome({
   serviceName,
   homeHref = '/',
+  homeLabel,
+  nav,
   languages,
   locale,
   onLocale,
@@ -52,6 +58,8 @@ export function PageChrome({
       <Header
         serviceName={serviceName}
         homeHref={homeHref}
+        homeLabel={homeLabel}
+        nav={nav}
         actions={
           <LanguageSwitcher
             label={languageSwitcherLabel}

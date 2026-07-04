@@ -9,3 +9,35 @@ export type { ForbiddenPageProps, ForbiddenPageLabels } from './templates/Forbid
 
 export { ServerErrorPage, DEFAULT_SERVER_ERROR_LABELS } from './templates/ServerErrorPage';
 export type { ServerErrorPageProps, ServerErrorPageLabels } from './templates/ServerErrorPage';
+
+export { ServiceLandingPage, DEFAULT_SERVICE_LANDING_LABELS } from './templates/ServiceLandingPage';
+export type { ServiceLandingPageProps, ServiceLandingPageLabels } from './templates/ServiceLandingPage';
+
+export { SearchResultsPage, DEFAULT_SEARCH_RESULTS_LABELS } from './templates/SearchResultsPage';
+export type {
+  SearchResultsPageProps,
+  SearchResultsPageLabels,
+  SearchResult,
+} from './templates/SearchResultsPage';
+
+export {
+  NewsListingPage,
+  DEFAULT_NEWS_LISTING_LABELS,
+  NewsArticlePage,
+  DEFAULT_NEWS_ARTICLE_LABELS,
+} from './templates/NewsPage';
+export type {
+  NewsListingPageProps,
+  NewsListingPageLabels,
+  NewsListItem,
+  NewsArticlePageProps,
+  NewsArticlePageLabels,
+} from './templates/NewsPage';
+
+export { ContactPage, DEFAULT_CONTACT_LABELS } from './templates/ContactPage';
+export type {
+  ContactPageProps,
+  ContactPageLabels,
+  ContactMethod,
+  ContactMessageData,
+} from './templates/ContactPage';

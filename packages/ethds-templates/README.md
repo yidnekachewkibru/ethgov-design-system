@@ -9,11 +9,12 @@ A template is a page-level composition: which components go where, what
 content each region holds, and how the page behaves — accessible and
 multilingual by default.
 
-> **Status:** the three error pages — 404, 403, 500 — ship as a real,
-> tested `@ethds/templates` package (types, `vitest-axe` tests, Storybook
-> stories, CI). The remaining 9 templates are tracked as follow-up PRs;
-> until built, they remain documentation + reference composition code
-> below.
+> **Status:** the three error pages — 404, 403, 500 — and the four
+> content pages — Service Landing, Search Results, News (listing +
+> article), Contact — ship as a real, tested `@ethds/templates` package
+> (types, `vitest-axe` tests, Storybook stories, CI). The remaining 5
+> templates are tracked as follow-up PRs; until built, they remain
+> documentation + reference composition code below.
 
 ## Install
 
@@ -42,12 +43,12 @@ import { NotFoundPage } from '@ethds/templates';
 | [National Portal Homepage](templates/national-portal-homepage.md) | The top-level entry point to government online | 🔵 documented |
 | [Ministry Homepage](templates/ministry-homepage.md) | A ministry's home | 🔵 documented |
 | [Agency Homepage](templates/agency-homepage.md) | An agency's home | 🔵 documented |
-| [Service Landing Page](templates/service-landing-page.md) | Explains a service and starts it | 🔵 documented |
+| [Service Landing Page](templates/service-landing-page.md) | Explains a service and starts it | ✅ `ServiceLandingPage` |
 | [Service Application Page](templates/service-application-page.md) | The multi-step application itself | 🔵 documented |
 | [Citizen Dashboard](templates/citizen-dashboard.md) | A signed-in citizen's home | 🔵 documented |
-| [Search Results Page](templates/search-results-page.md) | Results for a query | 🔵 documented |
-| [News Page](templates/news-page.md) | Announcements and news | 🔵 documented |
-| [Contact Page](templates/contact-page.md) | How to reach the body | 🔵 documented |
+| [Search Results Page](templates/search-results-page.md) | Results for a query | ✅ `SearchResultsPage` |
+| [News Page](templates/news-page.md) | Announcements and news | ✅ `NewsListingPage` / `NewsArticlePage` |
+| [Contact Page](templates/contact-page.md) | How to reach the body | ✅ `ContactPage` |
 | [404 Page](templates/404-page.md) | Page not found | ✅ `NotFoundPage` |
 | [403 Page](templates/403-page.md) | Access denied | ✅ `ForbiddenPage` |
 | [500 Page](templates/500-page.md) | Something went wrong | ✅ `ServerErrorPage` |
