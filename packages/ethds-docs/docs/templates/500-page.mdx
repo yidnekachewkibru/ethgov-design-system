@@ -1,0 +1,70 @@
+---
+id: 500-page
+title: 500 Page
+hide_title: true
+sidebar_position: 13
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { ServerErrorPage } from '@ethds/templates';
+
+<PageExample>
+  <ServerErrorPage
+    serviceName="Government of Ethiopia"
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    onRetry={() => {}}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+Something went wrong on the server — reassures the citizen it isn't their
+fault and offers a retry. Never exposes a stack trace or other technical
+detail; log that server-side instead.
+
+```tsx
+import { ServerErrorPage } from '@ethds/templates';
+
+<ServerErrorPage
+  serviceName="Government of Ethiopia"
+  languages={[{ code: 'en', label: 'English' }]}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  onRetry={() => { /* … */ }}
+/>
+```
+
+## When to use this template
+
+Render this for any unhandled server-side failure. The host application
+is responsible for returning the actual HTTP `500` status; this
+component only renders the page body, and stays lightweight since it may
+render while systems are degraded.
+
+## Accessibility & localization
+
+- One `<h1>`, the standard chrome, and a skip link.
+- **Try again** is a real, primary, keyboard-operable action; a link home
+  and a contact path are both offered as alternatives.
+- All text is a `labels` prop with English defaults, overridable per
+  locale.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `serviceName` | `ReactNode` | Yes |
+| `homeHref` | `string` (default `'/'`) | No |
+| `contactHref` | `string` (default `'/contact'`) | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `onRetry` | `() => void` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<ServerErrorPageLabels>` | No |

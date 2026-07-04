@@ -28,6 +28,11 @@ function renderPage(overrides = {}) {
 }
 
 describe('SearchResultsPage', () => {
+  it('renders one h1, independent of the result count', () => {
+    renderPage();
+    expect(screen.getByRole('heading', { level: 1, name: 'Search results' })).toBeInTheDocument();
+  });
+
   it('keeps the query in the search box and announces the result count', () => {
     renderPage();
     expect(screen.getByLabelText('Search government services')).toHaveValue('passport');

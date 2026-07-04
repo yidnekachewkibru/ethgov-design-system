@@ -15,6 +15,13 @@ const items = [
 ];
 
 describe('Receipt', () => {
+  it('renders one h1, independent of the status Alert', () => {
+    render(
+      <Receipt reference="RCP-2026-004112" date="Meskerem 9, 2019 EC" method="Telebirr" items={items} onDownload={vi.fn()} />,
+    );
+    expect(screen.getByRole('heading', { level: 1, name: 'Payment receipt' })).toBeInTheDocument();
+  });
+
   it('shows a success confirmation and the immutable payment facts', () => {
     render(
       <Receipt reference="RCP-2026-004112" date="Meskerem 9, 2019 EC" method="Telebirr" items={items} onDownload={vi.fn()} />,

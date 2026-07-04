@@ -1,0 +1,87 @@
+---
+id: national-portal-homepage
+title: National Portal Homepage
+hide_title: true
+sidebar_position: 1
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { NationalPortalHomepage } from '@ethds/templates';
+
+<PageExample>
+  <NationalPortalHomepage
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    popularServices={[
+      { href: '/renew-id', label: 'Renew ID' },
+      { href: '/pay-tax', label: 'Pay tax' },
+      { href: '/passport', label: 'Passport' },
+      { href: '/business', label: 'Business licence' },
+    ]}
+    categories={[
+      { href: '/category/identity', label: 'Identity & civil' },
+      { href: '/category/business', label: 'Business & trade' },
+      { href: '/category/health', label: 'Health & education' },
+    ]}
+    news={[
+      { href: '/news/1', label: 'New office hours starting Meskerem' },
+      { href: '/news/2', label: 'Online passport renewal now available' },
+    ]}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+The top-level entry point to government online — leads with search and
+the most-used services (start with citizen needs, not an org chart);
+categories help browsing when a citizen doesn't know the exact service
+name.
+
+```tsx
+import { NationalPortalHomepage } from '@ethds/templates';
+
+<NationalPortalHomepage
+  languages={languages}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  onSearch={(query) => { /* … */ }}
+  popularServices={popularServices} // the genuinely most-used, named in the citizen's own words
+  categories={categories}
+  news={news}
+/>
+```
+
+## When to use this template
+
+Use this as the single national entry point that links out to every
+ministry's and agency's own homepage.
+
+## Accessibility & localization
+
+- One `<h1>`, a search landmark (`role="search"`), and the standard
+  `Header`/`Footer` chrome with a skip link.
+- Popular services render as prominent cards; categories and news render
+  as plain lists — the two shouldn't compete visually.
+- All headings and link labels are a `labels`/data prop, translatable per
+  locale.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `serviceName` | `ReactNode` (default `'Government of Ethiopia'`) | No |
+| `nav` | `HeaderNavItem[]` | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `onSearch` | `(query: string) => void` | No |
+| `popularServices` | `HomepageLinkItem[]` | Yes |
+| `categories` | `HomepageLinkItem[]` | Yes |
+| `news` | `HomepageLinkItem[]` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<NationalPortalHomepageLabels>` | No |

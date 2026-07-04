@@ -1,0 +1,85 @@
+---
+id: service-landing-page
+title: Service Landing Page
+hide_title: true
+sidebar_position: 4
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { ServiceLandingPage } from '@ethds/templates';
+
+<PageExample>
+  <ServiceLandingPage
+    serviceName="Immigration and Citizenship Service"
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    breadcrumb={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services' },
+      { label: 'Apply for a passport' },
+    ]}
+    heading="Apply for a passport"
+    summary="Get a new or renewed Ethiopian passport. Most applications are processed within 10 working days."
+    onStart={() => {}}
+    requirements={['Your Fayda (national ID) number', 'A recent photo', 'Payment of ETB 350.00']}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+Explains a service and starts it — one prominent **Start now** action;
+sets expectations (documents, fees in Birr, timing) up front so the
+citizen isn't surprised mid-flow.
+
+```tsx
+import { ServiceLandingPage } from '@ethds/templates';
+
+<ServiceLandingPage
+  serviceName="Immigration and Citizenship Service"
+  languages={languages}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  breadcrumb={breadcrumb}
+  heading="Apply for a passport"
+  summary="Who this service is for and what it does, in plain language."
+  onStart={() => { /* navigate to the Service Application Page */ }}
+  requirements={['Your Fayda (national ID) number', 'A recent photo', 'Payment of ETB 350.00']}
+/>
+```
+
+## When to use this template
+
+Use this before any [Service Application Page](service-application-page) —
+routing **Start now** to it is the caller's responsibility (via
+`onStart`).
+
+## Accessibility & localization
+
+- One `<h1>` (the service name); the breadcrumb shows where the citizen
+  is in the hierarchy.
+- Requirements render as a real list, not a wall of prose, so a screen
+  reader announces the count and each item.
+- `heading`, `summary`, and every requirement are translated content
+  passed in by the caller.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `serviceName` | `ReactNode` | Yes |
+| `nav` | `HeaderNavItem[]` | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `breadcrumb` | `BreadcrumbItem[]` | Yes |
+| `heading` | `ReactNode` | Yes |
+| `summary` | `ReactNode` | Yes |
+| `onStart` | `() => void` | Yes |
+| `requirements` | `ReactNode[]` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<ServiceLandingPageLabels>` | No |

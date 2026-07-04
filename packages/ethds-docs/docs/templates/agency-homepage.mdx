@@ -1,0 +1,82 @@
+---
+id: agency-homepage
+title: Agency Homepage
+hide_title: true
+sidebar_position: 3
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { AgencyHomepage } from '@ethds/templates';
+
+<PageExample>
+  <AgencyHomepage
+    agencyName="Immigration and Citizenship Service"
+    intro="Issues passports and manages immigration and citizenship matters."
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    primaryTasks={[
+      { href: '/passport/new', label: 'Apply for a passport' },
+      { href: '/passport/renew', label: 'Renew a passport' },
+    ]}
+    services={[{ href: '/visa', label: 'Visa services' }]}
+    notices={[{ href: '/notices/1', label: 'Office closed on public holidays' }]}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+An agency's home — like a Ministry Homepage, but leads with the agency's
+narrow, most-used **primary tasks** as prominent cards, since an agency
+typically has fewer, more specific jobs than a ministry.
+
+```tsx
+import { AgencyHomepage } from '@ethds/templates';
+
+<AgencyHomepage
+  agencyName="Immigration and Citizenship Service"
+  intro="Issues passports and manages immigration and citizenship matters."
+  languages={languages}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  primaryTasks={primaryTasks}
+  services={services}
+  notices={notices}
+/>
+```
+
+## When to use this template
+
+Use this for a narrowly-scoped executive agency's homepage — one that
+performs a small number of very specific citizen-facing tasks (issuing a
+document, running a service), as opposed to a ministry's broader policy
+remit.
+
+## Accessibility & localization
+
+- One `<h1>` (the agency name); primary tasks render as cards, services
+  and notices as plain lists.
+- Same breadcrumb-back-to-portal and scoped-search pattern as
+  [Ministry Homepage](ministry-homepage).
+- `intro`, `primaryTasks`, `services`, and `notices` are all translated
+  content passed in by the caller.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `agencyName` | `ReactNode` | Yes |
+| `intro` | `ReactNode` | Yes |
+| `nav` | `HeaderNavItem[]` | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `primaryTasks` | `HomepageLinkItem[]` | Yes |
+| `services` | `HomepageLinkItem[]` | Yes |
+| `notices` | `HomepageLinkItem[]` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<AgencyHomepageLabels>` | No |
