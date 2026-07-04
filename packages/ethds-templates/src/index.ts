@@ -9,3 +9,11 @@ export type { ForbiddenPageProps, ForbiddenPageLabels } from './templates/Forbid
 
 export { ServerErrorPage, DEFAULT_SERVER_ERROR_LABELS } from './templates/ServerErrorPage';
 export type { ServerErrorPageProps, ServerErrorPageLabels } from './templates/ServerErrorPage';
+
+export { CitizenDashboard, DEFAULT_CITIZEN_DASHBOARD_LABELS } from './templates/CitizenDashboard';
+export type {
+  CitizenDashboardProps,
+  CitizenDashboardLabels,
+  DashboardApplication,
+  DashboardLinkItem,
+} from './templates/CitizenDashboard';

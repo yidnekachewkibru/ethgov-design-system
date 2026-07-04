@@ -9,11 +9,11 @@ A template is a page-level composition: which components go where, what
 content each region holds, and how the page behaves — accessible and
 multilingual by default.
 
-> **Status:** the three error pages — 404, 403, 500 — ship as a real,
-> tested `@ethds/templates` package (types, `vitest-axe` tests, Storybook
-> stories, CI). The remaining 9 templates are tracked as follow-up PRs;
-> until built, they remain documentation + reference composition code
-> below.
+> **Status:** the three error pages — 404, 403, 500 — and the Citizen
+> Dashboard ship as a real, tested `@ethds/templates` package (types,
+> `vitest-axe` tests, Storybook stories, CI). The remaining 8 templates
+> are tracked as follow-up PRs; until built, they remain documentation +
+> reference composition code below.
 
 ## Install
 
@@ -44,7 +44,7 @@ import { NotFoundPage } from '@ethds/templates';
 | [Agency Homepage](templates/agency-homepage.md) | An agency's home | 🔵 documented |
 | [Service Landing Page](templates/service-landing-page.md) | Explains a service and starts it | 🔵 documented |
 | [Service Application Page](templates/service-application-page.md) | The multi-step application itself | 🔵 documented |
-| [Citizen Dashboard](templates/citizen-dashboard.md) | A signed-in citizen's home | 🔵 documented |
+| [Citizen Dashboard](templates/citizen-dashboard.md) | A signed-in citizen's home | ✅ `CitizenDashboard` |
 | [Search Results Page](templates/search-results-page.md) | Results for a query | 🔵 documented |
 | [News Page](templates/news-page.md) | Announcements and news | 🔵 documented |
 | [Contact Page](templates/contact-page.md) | How to reach the body | 🔵 documented |
