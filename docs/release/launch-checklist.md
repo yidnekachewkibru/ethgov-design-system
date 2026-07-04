@@ -3,6 +3,10 @@
 Concrete tasks to reach and announce ETHDS v1.0. Grouped by the
 [readiness report](readiness-report.md) verdict; P0 items block v1.0.
 
+> Re-checked after PRs #14–#16: the accessibility CI gate item is now
+> checked off (it was open at the original audit); everything else below
+> was re-verified against the current repo and is still open.
+
 ## Content & localization (P0)
 
 - [ ] Author English strings for any remaining shipped component text.
@@ -15,14 +19,22 @@ Concrete tasks to reach and announce ETHDS v1.0. Grouped by the
 
 ## Accessibility (P0)
 
+- [x] axe gate on `@ethds/react` components in CI — live in
+      `.github/workflows/react.yml`, runs on every push/PR, blocks merge
+      on a violation (137 cases across 32 components).
+- [ ] Extend the axe gate to patterns/templates once they're built as code
+      (see "Code packages" below).
 - [ ] Playwright keyboard/screen-reader E2E for `@ethds/react` in CI.
-- [ ] axe gate on components (and patterns/templates once built) in CI.
 - [ ] One documented **manual WCAG 2.2 AA audit** (NVDA/VoiceOver/TalkBack,
       zoom, reduced-motion, forced-colors).
 - [ ] Publish the audit result on the docs site's accessibility page.
 
 ## Release engineering (P0)
 
+- [x] Add a docs-build CI check on pull requests — `.github/workflows/docs.yml`
+      now runs `npm run build -w ethds-docs` (all 6 locales) on every
+      push/PR touching the docs, tokens, or react packages, alongside the
+      existing deploy-on-push-to-`main` job.
 - [ ] Changesets → npm publish pipeline configured.
 - [ ] Tag and publish `@ethds/tokens` and `@ethds/react` `1.0.0`.
 - [ ] Verify installs from npm in a fresh project (tokens CSS + components).

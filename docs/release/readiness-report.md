@@ -4,11 +4,13 @@
 
 **ETHDS is a strong release candidate with a complete foundation, but not
 yet a finished v1.0.** The design language, the tested token and component
-libraries, the documentation platform, and the accessibility/localization/
-governance frameworks are real and solid. What remains before declaring
-v1.0 is well-defined and tracked: authored translations, the
-pattern/template/example **code** packages, and the CI accessibility/E2E
-and release gates.
+libraries (now 32 components, 156 tests, a live CI axe gate), the
+documentation platform (now with a full live-rendered Components section),
+and the accessibility/localization/governance frameworks are real and
+solid. What remains before declaring v1.0 is well-defined and tracked:
+authored translations, the pattern/template/example **code** packages, and
+the E2E/manual-audit/release gates — the accessibility CI gate itself is
+already live, which is a step forward from the original audit.
 
 Recommended label today: **v1.0 Release Candidate** (or `0.x` published
 packages), progressing to `1.0.0` as the [P0 items](improvement-recommendations.md)
@@ -21,29 +23,33 @@ Against the [v1.0 success criteria](../foundation/success-metrics.md#v10-readine
 
 | Criterion | Status |
 |---|---|
-| Documentation platform | ✅ Met |
-| Accessibility framework | ✅ Met |
+| Documentation platform | ✅ Met — now incl. live component docs |
+| Accessibility framework | ✅ Met — axe CI gate live |
 | Localization framework | ✅ Met |
 | Design tokens | ✅ Met |
-| Core components | ✅ Met |
+| Core components | ✅ Met — 32 components (was 18) |
 | Government patterns | 🟡 Documented (code package pending) |
 | Templates | 🟡 Documented (code package pending) |
 | Example implementations | 🟡 Documented (runnable apps pending) |
 | Governance framework | ✅ Met |
-| CI/CD operational | 🟡 Partial (build/test/deploy yes; publish + a11y gate pending) |
+| CI/CD operational | 🟡 Partial (build/test/deploy + axe gate yes; docs-PR gate + publish pending) |
 | Contribution process | ✅ Met |
-| WCAG 2.2 AA verified | 🟡 Automated pass; manual audit pending |
+| WCAG 2.2 AA verified | 🟡 Automated axe gate live; manual audit + E2E pending |
 | All languages functional | 🔴 English only; translations pending |
 
-**Score: 8 Met · 4 Partial · 1 Open (of 13).**
+**Score: 8 Met · 4 Partial · 1 Open (of 13).** Unchanged from the original
+count, but two of the "Partial" rows (Core components' docs depth, and
+Accessibility's CI enforcement) moved meaningfully closer to Met within
+this audit cycle.
 
 ## What "done" looks like
 
 v1.0 is reached when the [P0 recommendations](improvement-recommendations.md)
-are complete — translations authored and reviewed, the accessibility CI
-gate and a manual audit in place, and the first `1.0.0` packages published
-— and the partials above flip to Met. The
-[launch checklist](launch-checklist.md) tracks the concrete tasks.
+are complete — translations authored and reviewed, Playwright E2E and a
+manual audit added on top of the now-live axe gate, a docs-build PR check
+added, and the first `1.0.0` packages published — and the partials above
+flip to Met. The [launch checklist](launch-checklist.md) tracks the
+concrete tasks.
 
 ## Why this honest posture matters
 

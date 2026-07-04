@@ -25,6 +25,14 @@ composition code (code packages pending), and the five non-English
 translations are not yet authored — so ETHDS is a **v1.0 release
 candidate** with a documented punch-list, not a false "100% done".
 
+> **Post-audit update:** the component-documentation, missing-components,
+> and additional-components work that followed this phase (`@ethds/react`
+> grew from 18 to 32 components; the docs site gained a full live-rendered
+> Components section; the accessibility axe gate went live in CI; a
+> formal grid system was documented) has been folded back into
+> [`docs/release/`](../release/) — the numbers above are historical to
+> this phase; the release docs reflect current state.
+
 ## Review Scope
 
 - Architecture
