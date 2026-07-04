@@ -9,12 +9,14 @@ A template is a page-level composition: which components go where, what
 content each region holds, and how the page behaves — accessible and
 multilingual by default.
 
-> **Status:** the three error pages — 404, 403, 500 — and the four
-> content pages — Service Landing, Search Results, News (listing +
-> article), Contact — ship as a real, tested `@ethds/templates` package
-> (types, `vitest-axe` tests, Storybook stories, CI). The remaining 5
-> templates are tracked as follow-up PRs; until built, they remain
-> documentation + reference composition code below.
+> **Status:** the three error pages — 404, 403, 500 — the three
+> homepages — National Portal, Ministry, Agency — and the four content
+> pages — Service Landing, Search Results, News (listing + article),
+> Contact — ship as a real, tested `@ethds/templates` package (types,
+> `vitest-axe` tests, Storybook stories, CI). The remaining 2 templates
+> (Service Application Page, Citizen Dashboard) are tracked as follow-up
+> PRs; until built, they remain documentation + reference composition
+> code below.
 
 ## Install
 
@@ -40,9 +42,9 @@ import { NotFoundPage } from '@ethds/templates';
 
 | Template | Purpose | Status |
 |---|---|---|
-| [National Portal Homepage](templates/national-portal-homepage.md) | The top-level entry point to government online | 🔵 documented |
-| [Ministry Homepage](templates/ministry-homepage.md) | A ministry's home | 🔵 documented |
-| [Agency Homepage](templates/agency-homepage.md) | An agency's home | 🔵 documented |
+| [National Portal Homepage](templates/national-portal-homepage.md) | The top-level entry point to government online | ✅ `NationalPortalHomepage` |
+| [Ministry Homepage](templates/ministry-homepage.md) | A ministry's home | ✅ `MinistryHomepage` |
+| [Agency Homepage](templates/agency-homepage.md) | An agency's home | ✅ `AgencyHomepage` |
 | [Service Landing Page](templates/service-landing-page.md) | Explains a service and starts it | ✅ `ServiceLandingPage` |
 | [Service Application Page](templates/service-application-page.md) | The multi-step application itself | 🔵 documented |
 | [Citizen Dashboard](templates/citizen-dashboard.md) | A signed-in citizen's home | 🔵 documented |
@@ -95,7 +97,8 @@ npm run storybook -w @ethds/templates
 
 ```
 src/
-  templates/_internal/  PageChrome — the shared SkipLink/Header/main/Footer shell
+  templates/_internal/  PageChrome (shared SkipLink/Header/main/Footer shell) +
+                        HomepageLayout (shared breadcrumb/hero/search/sections shape)
   templates/<Name>/     Component.tsx + .module.css + .test.tsx + .stories.tsx + index.ts
   styles/               grid.module.css (implements docs/brand/grid.md)
   test/                 vitest setup + axe helper

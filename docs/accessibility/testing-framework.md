@@ -80,4 +80,7 @@ already run today
 
 A green automated suite is necessary but **not** sufficient — the
 [checklist](checklist.md) and manual pass are required to call a change
-accessible.
+accessible. See [Manual Audit — 2026](manual-audit-2026.md) for the
+current state of that manual pass: what's already verified by automated
+tests or code inspection, and exactly what a human tester with real
+assistive technology still needs to check.

@@ -91,9 +91,7 @@ export function useMultiStepForm<TData extends object>({
       const res = await onSubmit(data as TData);
       setResult(res);
     } catch {
-      setSubmitError(
-        'Something went wrong submitting your application. Your answers have been kept — try again.',
-      );
+      setSubmitError('Something went wrong. Your answers have been kept — try again.');
     } finally {
       setSubmitting(false);
     }
