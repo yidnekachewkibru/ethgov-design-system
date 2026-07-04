@@ -87,6 +87,7 @@ const config: Config = {
             { label: 'Patterns', to: '/docs/patterns' },
             { label: 'Templates', to: '/docs/templates' },
             { label: 'Accessibility', to: '/docs/accessibility' },
+            { label: 'Localization', to: '/docs/localization' },
           ],
         },
         {
