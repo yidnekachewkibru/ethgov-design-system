@@ -11,14 +11,9 @@ service — [Reuse Before Building](../../docs/design-principles/07-reuse-before
 A pattern is a composition of components plus the rules (validation,
 messaging, sequencing) that make the flow work for citizens.
 
-> **Status:** the auth flows — Login, Registration, OTP Verification —
-> the multi-step Application Submission and Password Reset flows, and
-> the single-screen service patterns — Status Tracking, Complaint
-> Submission, Appointment Booking — ship as a real, tested
-> `@ethds/patterns` package (types, `vitest-axe` tests, Storybook
-> stories, CI). The remaining 2 patterns (Payment Flow, Receipt Flow)
-> are tracked as follow-up PRs; until built, they remain documentation +
-> reference composition code below.
+> **Status:** `@ethds/patterns` is now publishable (`v0.1.0`) with all
+> 10 documented service patterns shipped as real, tested components
+> (types, `vitest-axe` tests, Storybook stories, CI).
 
 ## Install
 
@@ -52,8 +47,8 @@ import { LoginForm } from '@ethds/patterns';
 | [Status Tracking](patterns/status-tracking.md) | Check the state of a request | ✅ `StatusView` |
 | [Appointment Booking](patterns/appointment-booking.md) | Book a slot at an office | ✅ `BookingForm` |
 | [Complaint Submission](patterns/complaint-submission.md) | Report an issue / grievance | ✅ `ComplaintForm` |
-| [Payment Flow](patterns/payment-flow.md) | Pay a government fee (Birr) | 🔵 documented |
-| [Receipt Flow](patterns/receipt-flow.md) | Confirm and provide proof of payment | 🔵 documented |
+| [Payment Flow](patterns/payment-flow.md) | Pay a government fee (Birr) | ✅ `PaymentReview` |
+| [Receipt Flow](patterns/receipt-flow.md) | Confirm and provide proof of payment | ✅ `Receipt` |
 
 The shared `useMultiStepForm` hook (step position + accumulated draft +
 `onSaveDraft`/`onSubmit` callbacks, no persistence assumptions baked in)

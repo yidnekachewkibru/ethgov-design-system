@@ -82,3 +82,15 @@ export type {
   BookingFormLabels,
   BookingConfirmation,
 } from './patterns/AppointmentBooking';
+
+export {
+  PaymentReview,
+  DEFAULT_PAYMENT_REVIEW_LABELS,
+  DEFAULT_PAYMENT_METHODS,
+} from './patterns/PaymentFlow';
+export type { PaymentReviewProps, PaymentReviewLabels, LineItem } from './patterns/PaymentFlow';
+
+export { Receipt, DEFAULT_RECEIPT_LABELS } from './patterns/ReceiptFlow';
+export type { ReceiptProps, ReceiptLabels } from './patterns/ReceiptFlow';
+
+export { formatBirr } from './utils/currency';
