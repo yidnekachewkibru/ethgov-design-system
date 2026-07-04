@@ -88,6 +88,7 @@ const config: Config = {
             { label: 'Templates', to: '/docs/templates' },
             { label: 'Accessibility', to: '/docs/accessibility' },
             { label: 'Localization', to: '/docs/localization' },
+            { label: 'Governance', to: '/docs/governance' },
           ],
         },
         {
