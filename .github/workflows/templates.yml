@@ -1,0 +1,38 @@
+name: templates
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "packages/ethds-templates/**"
+      - "packages/ethds-react/**"
+      - "packages/ethds-tokens/**"
+      - ".github/workflows/templates.yml"
+  pull_request:
+    paths:
+      - "packages/ethds-templates/**"
+      - "packages/ethds-react/**"
+      - "packages/ethds-tokens/**"
+      - ".github/workflows/templates.yml"
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install
+        run: npm ci
+      - name: Build tokens (dependency)
+        run: npm run build -w @ethds/tokens
+      - name: Build react (dependency)
+        run: npm run build -w @ethds/react
+      - name: Typecheck
+        run: npm run typecheck -w @ethds/templates
+      - name: Test (Vitest + axe)
+        run: npm run test -w @ethds/templates
+      - name: Build library
+        run: npm run build -w @ethds/templates
