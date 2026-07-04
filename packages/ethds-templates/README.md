@@ -9,26 +9,48 @@ A template is a page-level composition: which components go where, what
 content each region holds, and how the page behaves — accessible and
 multilingual by default.
 
-> **Status:** template documentation + reference composition code
-> ([Phase 9](../../docs/phases/phase-9-website-templates.md)). Productionised,
-> tested template components are a follow-up.
+> **Status:** the three error pages — 404, 403, 500 — ship as a real,
+> tested `@ethds/templates` package (types, `vitest-axe` tests, Storybook
+> stories, CI). The remaining 9 templates are tracked as follow-up PRs;
+> until built, they remain documentation + reference composition code
+> below.
+
+## Install
+
+```bash
+npm install @ethds/templates @ethds/react @ethds/tokens react react-dom
+```
+
+```tsx
+import '@ethds/tokens/css';
+import '@ethds/react/styles.css';
+
+import { NotFoundPage } from '@ethds/templates';
+
+<NotFoundPage
+  serviceName="Government of Ethiopia"
+  languages={[{ code: 'en', label: 'English' }]}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+/>
+```
 
 ## Templates
 
-| Template | Purpose |
-|---|---|
-| [National Portal Homepage](templates/national-portal-homepage.md) | The top-level entry point to government online |
-| [Ministry Homepage](templates/ministry-homepage.md) | A ministry's home |
-| [Agency Homepage](templates/agency-homepage.md) | An agency's home |
-| [Service Landing Page](templates/service-landing-page.md) | Explains a service and starts it |
-| [Service Application Page](templates/service-application-page.md) | The multi-step application itself |
-| [Citizen Dashboard](templates/citizen-dashboard.md) | A signed-in citizen's home |
-| [Search Results Page](templates/search-results-page.md) | Results for a query |
-| [News Page](templates/news-page.md) | Announcements and news |
-| [Contact Page](templates/contact-page.md) | How to reach the body |
-| [404 Page](templates/404-page.md) | Page not found |
-| [403 Page](templates/403-page.md) | Access denied |
-| [500 Page](templates/500-page.md) | Something went wrong |
+| Template | Purpose | Status |
+|---|---|---|
+| [National Portal Homepage](templates/national-portal-homepage.md) | The top-level entry point to government online | 🔵 documented |
+| [Ministry Homepage](templates/ministry-homepage.md) | A ministry's home | 🔵 documented |
+| [Agency Homepage](templates/agency-homepage.md) | An agency's home | 🔵 documented |
+| [Service Landing Page](templates/service-landing-page.md) | Explains a service and starts it | 🔵 documented |
+| [Service Application Page](templates/service-application-page.md) | The multi-step application itself | 🔵 documented |
+| [Citizen Dashboard](templates/citizen-dashboard.md) | A signed-in citizen's home | 🔵 documented |
+| [Search Results Page](templates/search-results-page.md) | Results for a query | 🔵 documented |
+| [News Page](templates/news-page.md) | Announcements and news | 🔵 documented |
+| [Contact Page](templates/contact-page.md) | How to reach the body | 🔵 documented |
+| [404 Page](templates/404-page.md) | Page not found | ✅ `NotFoundPage` |
+| [403 Page](templates/403-page.md) | Access denied | ✅ `ForbiddenPage` |
+| [500 Page](templates/500-page.md) | Something went wrong | ✅ `ServerErrorPage` |
 
 ## How every template is documented
 
@@ -55,3 +77,32 @@ Each page follows the same structure:
   [Localization Framework](../../docs/localization/).
 - Mobile-first and [low-bandwidth](../../docs/design-principles/06-design-for-low-bandwidth.md)
   by default.
+
+## Development
+
+```bash
+npm install
+npm run build -w @ethds/tokens     # dependency
+npm run build -w @ethds/react      # dependency
+npm run test  -w @ethds/templates  # Vitest + Testing Library + axe
+npm run typecheck -w @ethds/templates
+npm run build -w @ethds/templates  # Vite library build → dist/
+npm run storybook -w @ethds/templates
+```
+
+### Structure
+
+```
+src/
+  templates/_internal/  PageChrome — the shared SkipLink/Header/main/Footer shell
+  templates/<Name>/     Component.tsx + .module.css + .test.tsx + .stories.tsx + index.ts
+  styles/               grid.module.css (implements docs/brand/grid.md)
+  test/                 vitest setup + axe helper
+  index.ts              public barrel export
+```
+
+Every template is localization-ready: all citizen-facing text is a prop
+(a `labels` object with English defaults, overridable per locale) — no
+strings baked into the component. `PageChrome` renders one `<h1>` per
+page's own content, a `SkipLink`, and the shared `Header`/`Footer` identity
+per [Consistent Government Experience](../../docs/design-principles/09-consistent-government-experience.md).
