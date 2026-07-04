@@ -16,10 +16,10 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      // Do not bundle React, tokens, or @ethds/react. (@ethds/patterns
-      // joins this list in a follow-up PR once a template needs it —
-      // see the Service Application Page template.)
-      external: ['react', 'react-dom', 'react/jsx-runtime', '@ethds/react', '@ethds/tokens'],
+      // Do not bundle React, tokens, @ethds/react, or @ethds/patterns
+      // (the Service Application Page template hosts the Application
+      // Submission pattern).
+      external: ['react', 'react-dom', 'react/jsx-runtime', '@ethds/react', '@ethds/tokens', '@ethds/patterns'],
       output: {
         // The library emits a single stylesheet → dist/ethds-templates.css
         // (see the "./styles.css" export in package.json).

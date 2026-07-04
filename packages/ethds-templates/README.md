@@ -9,19 +9,18 @@ A template is a page-level composition: which components go where, what
 content each region holds, and how the page behaves — accessible and
 multilingual by default.
 
-> **Status:** the three error pages — 404, 403, 500 — the three
-> homepages — National Portal, Ministry, Agency — the four content
-> pages — Service Landing, Search Results, News (listing + article),
-> Contact — and the Citizen Dashboard ship as a real, tested
-> `@ethds/templates` package (types, `vitest-axe` tests, Storybook
-> stories, CI). The remaining template (Service Application Page) is
-> tracked as a follow-up PR; until built, it remains documentation +
-> reference composition code below.
+> **Status:** all 12 documented templates — the three error pages (404,
+> 403, 500), the three homepages (National Portal, Ministry, Agency), the
+> four content pages (Service Landing, Search Results, News listing +
+> article, Contact), the Citizen Dashboard, and the Service Application
+> Page — ship as a real, tested `@ethds/templates` package (types,
+> `vitest-axe` tests, Storybook stories, CI). `@ethds/templates` is now
+> publishable (`v0.1.0`).
 
 ## Install
 
 ```bash
-npm install @ethds/templates @ethds/react @ethds/tokens react react-dom
+npm install @ethds/templates @ethds/patterns @ethds/react @ethds/tokens react react-dom
 ```
 
 ```tsx
@@ -46,7 +45,7 @@ import { NotFoundPage } from '@ethds/templates';
 | [Ministry Homepage](templates/ministry-homepage.md) | A ministry's home | ✅ `MinistryHomepage` |
 | [Agency Homepage](templates/agency-homepage.md) | An agency's home | ✅ `AgencyHomepage` |
 | [Service Landing Page](templates/service-landing-page.md) | Explains a service and starts it | ✅ `ServiceLandingPage` |
-| [Service Application Page](templates/service-application-page.md) | The multi-step application itself | 🔵 documented |
+| [Service Application Page](templates/service-application-page.md) | The multi-step application itself | ✅ `ServiceApplicationPage` |
 | [Citizen Dashboard](templates/citizen-dashboard.md) | A signed-in citizen's home | ✅ `CitizenDashboard` |
 | [Search Results Page](templates/search-results-page.md) | Results for a query | ✅ `SearchResultsPage` |
 | [News Page](templates/news-page.md) | Announcements and news | ✅ `NewsListingPage` / `NewsArticlePage` |
@@ -87,6 +86,7 @@ Each page follows the same structure:
 npm install
 npm run build -w @ethds/tokens     # dependency
 npm run build -w @ethds/react      # dependency
+npm run build -w @ethds/patterns   # dependency (Service Application Page)
 npm run test  -w @ethds/templates  # Vitest + Testing Library + axe
 npm run typecheck -w @ethds/templates
 npm run build -w @ethds/templates  # Vite library build → dist/

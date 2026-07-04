@@ -66,3 +66,6 @@ export type {
   DashboardApplication,
   DashboardLinkItem,
 } from './templates/CitizenDashboard';
+
+export { ServiceApplicationPage } from './templates/ServiceApplicationPage';
+export type { ServiceApplicationPageProps } from './templates/ServiceApplicationPage';
