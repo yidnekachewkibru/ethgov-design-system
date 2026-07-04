@@ -2,4 +2,4 @@
 "@ethds/patterns": minor
 ---
 
-First publishable release of `@ethds/patterns`: tested React compositions for the Login, Registration, OTP Verification, Payment Flow, and Receipt Flow service patterns, plus the shared `useMultiStepForm` hook. More patterns land in follow-up minor releases as their PRs merge.
+First publishable release of `@ethds/patterns`: tested React compositions for all 10 documented service patterns (Login, Registration, OTP Verification, Application Submission, Password Reset, Status Tracking, Complaint Submission, Appointment Booking, Payment Flow, Receipt Flow), plus the shared `useMultiStepForm` hook.

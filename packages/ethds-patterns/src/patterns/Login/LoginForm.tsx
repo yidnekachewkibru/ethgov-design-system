@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
 import { TextInput, Button, Alert, Link } from '@ethds/react';
 import styles from './LoginForm.module.css';
@@ -57,6 +57,15 @@ export function LoginForm({
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
+
+  // The error Alert is a focusable summary announced on submit, per the
+  // pattern's Accessibility Guidance — it mounts fresh each time `error`
+  // goes from null to a message (conditionally rendered below), so this
+  // effect fires exactly when a citizen needs to notice it.
+  useEffect(() => {
+    if (error) errorRef.current?.focus();
+  }, [error]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -72,7 +81,7 @@ export function LoginForm({
     <form onSubmit={handleSubmit} noValidate className={styles.form}>
       <h1>{l.heading}</h1>
       {error && (
-        <Alert variant="error" iconLabel="Error">
+        <Alert ref={errorRef} variant="error" iconLabel="Error" tabIndex={-1}>
           {error}
         </Alert>
       )}
