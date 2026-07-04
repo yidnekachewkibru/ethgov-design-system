@@ -1,0 +1,69 @@
+/*
+ * Layout primitives implementing docs/brand/grid.md (breakpoints,
+ * container widths, 12-column grid, gutters) — that document is the
+ * source of truth for these values; this file exists because
+ * @ethds/tokens does not yet ship grid/breakpoint CSS custom properties
+ * (see docs/release/gap-analysis.md). Gutters/padding still use the real
+ * @ethds/tokens spacing custom properties.
+ */
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--ethds-space-4);
+}
+@media (min-width: 640px) {
+  .container {
+    padding-inline: var(--ethds-space-6);
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    padding-inline: var(--ethds-space-6);
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+    padding-inline: var(--ethds-space-8);
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+    padding-inline: var(--ethds-space-8);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--ethds-space-4);
+}
+@media (min-width: 768px) {
+  .grid {
+    gap: var(--ethds-space-6);
+  }
+}
+
+.colFull {
+  grid-column: span 12;
+}
+
+.colHalf {
+  grid-column: span 12;
+}
+@media (min-width: 768px) {
+  .colHalf {
+    grid-column: span 6;
+  }
+}
+
+/* A row of actions (e.g. Back / Next buttons) — replaces one-off inline
+   styles in multi-step flows. */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ethds-space-4);
+}

@@ -1,0 +1,35 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ethds-space-4);
+  font-family: var(--ethds-font-sans);
+  max-width: 30rem;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ethds-space-4);
+  font-size: var(--ethds-text-sm);
+  color: var(--ethds-color-text-secondary);
+}
+
+.resendLink {
+  padding: 0;
+  font: inherit;
+  font-weight: var(--ethds-font-medium);
+  color: var(--ethds-color-interactive);
+  background: transparent;
+  border: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.resendLink:hover {
+  color: var(--ethds-color-interactive-hover);
+}
+
+.resendLink:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}
