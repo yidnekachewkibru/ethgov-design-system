@@ -68,6 +68,71 @@ what's wrong and how to fix it. Both are announced by screen readers.
 - Use correct `autocomplete`/`inputMode` (`tel`, `email`, `numeric`) so
   autofill and mobile keyboards work.
 
+## Plain HTML
+
+The label/hint/error wiring below is the pattern every ETHDS form field
+follows — the same `for`/`id` and `aria-describedby` convention appears
+on Textarea, Select, Checkbox, Radio, and every other field, so it's
+described in full once here rather than repeated on each of their pages.
+
+```html
+<div class="ethds-field">
+  <label for="phone" class="ethds-label">Phone number</label>
+  <span id="phone-hint" class="ethds-hint">Format: 09xx xxx xxx</span>
+  <input
+    id="phone"
+    name="phone"
+    type="tel"
+    inputmode="tel"
+    autocomplete="tel"
+    class="ethds-input"
+    aria-describedby="phone-hint"
+    required
+  />
+</div>
+
+<!-- With an error: aria-describedby lists BOTH ids (space-separated)
+     when a hint and an error are both present, and aria-invalid is set. -->
+<div class="ethds-field">
+  <label for="email" class="ethds-label">Email</label>
+  <input
+    id="email"
+    name="email"
+    type="email"
+    class="ethds-input ethds-input--error"
+    aria-describedby="email-error"
+    aria-invalid="true"
+  />
+  <span id="email-error" class="ethds-error">Enter a valid email address</span>
+</div>
+```
+
+```css
+.ethds-field { display: flex; flex-direction: column; gap: var(--ethds-space-1); }
+.ethds-label { font: var(--ethds-font-medium) var(--ethds-text-base) var(--ethds-font-sans); }
+.ethds-hint { font-size: var(--ethds-text-sm); color: var(--ethds-color-text-secondary); }
+.ethds-input {
+  min-height: 44px;
+  padding: var(--ethds-space-2) var(--ethds-space-3);
+  border: 1px solid var(--ethds-color-border);
+  border-radius: var(--ethds-radius-md);
+}
+.ethds-input:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  border-color: var(--ethds-color-focus);
+}
+.ethds-input--error { border-color: var(--ethds-color-error); }
+.ethds-error {
+  font-size: var(--ethds-text-sm);
+  font-weight: var(--ethds-font-medium);
+  color: var(--ethds-red-700);
+}
+```
+
+No JavaScript is needed for the field itself. Server-side, re-render the
+same markup with the error span and `aria-invalid` present when
+validation fails — the field never loses the citizen's entered value.
+
 ## Props
 
 | Prop | Type | Notes |

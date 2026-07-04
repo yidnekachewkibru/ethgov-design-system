@@ -75,6 +75,66 @@ export function NotFoundPage({ locale, onLocale }: Props) {
 }
 ```
 
+## HTML Example
+
+Templates are mostly composition — chrome plus a couple of the
+components/patterns documented on their own pages. There's no new markup
+here beyond assembling [Header](../../ethds-react/), Search, and Footer,
+each already shown with its own Plain HTML section on the docs site.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Page not found — Government of Ethiopia</title>
+  <link rel="stylesheet" href="path/to/@ethds/tokens/dist/tokens.css" />
+  <link rel="stylesheet" href="path/to/your/ethds-starter.css" />
+</head>
+<body>
+  <a href="#main" class="ethds-skip-link">Skip to main content</a>
+
+  <header class="ethds-header">
+    <div class="ethds-header__bar">
+      <a href="/" class="ethds-header__identity" aria-label="Government of Ethiopia — home">
+        <span class="ethds-header__service-name">Government of Ethiopia</span>
+      </a>
+      <div class="ethds-header__actions">
+        <!-- LanguageSwitcher is a native <select onchange> — see its own docs page -->
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="ethds-container">
+    <h1>Page not found</h1>
+    <p>We couldn't find that page. It may have moved, or the address may be wrong.</p>
+
+    <form role="search" class="ethds-search">
+      <label for="q" class="ethds-visually-hidden">Search government services</label>
+      <input id="q" name="q" type="search" inputmode="search" class="ethds-search__input" />
+      <button type="submit" class="ethds-search__submit">Search</button>
+    </form>
+
+    <h2>Try instead:</h2>
+    <ul>
+      <li><a href="/" class="ethds-link">Government home</a></li>
+      <li><a href="/services" class="ethds-link">All services</a></li>
+    </ul>
+  </main>
+
+  <footer class="ethds-footer" aria-label="Footer">
+    <p>© 2026 Government of Ethiopia.</p>
+  </footer>
+</body>
+</html>
+```
+
+The host application (whatever's serving this page — Django, Flask, PHP,
+a static site generator) is responsible for returning the actual HTTP
+`404` status alongside this markup, exactly as the React version's own
+doc note already says — that responsibility doesn't change with the
+framework.
+
 ## Storybook Story
 
 ```tsx

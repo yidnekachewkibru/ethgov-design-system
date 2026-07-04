@@ -69,6 +69,55 @@ service. Related: [OTP Verification](otp-verification), for a passwordless
 - Correct `autocomplete` (`username`, `current-password`) so browsers and
   assistive tools can fill fields.
 
+## Plain HTML
+
+Not on React? Login is arguably simpler without a client framework — a
+plain `<form method="post">` the server validates and re-renders with the
+same non-revealing error on failure, no client-side state required.
+
+```html
+<form method="post" action="/login" novalidate>
+  <h1>Log in</h1>
+
+  <!-- Only present when the server re-renders after a failed submit. -->
+  <div role="alert" tabindex="-1" class="ethds-alert ethds-alert--error" id="login-error">
+    The phone number/email or password is incorrect.
+  </div>
+
+  <div class="ethds-field">
+    <label for="username" class="ethds-label">Phone number or email</label>
+    <input id="username" name="username" type="text" inputmode="tel"
+           autocomplete="username" class="ethds-input" required />
+  </div>
+
+  <div class="ethds-field">
+    <label for="password" class="ethds-label">Password</label>
+    <input id="password" name="password" type="password"
+           autocomplete="current-password" class="ethds-input" required />
+  </div>
+
+  <a href="/reset" class="ethds-link">Forgot your password?</a>
+  <button type="submit" class="ethds-button ethds-button--primary">Log in</button>
+  <a href="/login/otp" class="ethds-button ethds-button--secondary">Log in with a code</a>
+  <p>New here? <a href="/register" class="ethds-link">Create an account</a></p>
+</form>
+
+<script>
+  // Focus-on-reload replaces the React version's focus-on-submit, since
+  // the server already re-rendered the page with the error in place.
+  document.getElementById('login-error')?.focus();
+</script>
+```
+
+Multi-step patterns ([Application Submission](/docs/patterns/application-submission),
+Password Reset) are built on a client-side hook in React
+(`useMultiStepForm`); without a client framework the natural equivalent
+is **multi-page** — one `<form>` per step, posting to the next step's
+URL, with the draft held in the server session — not a JavaScript port of
+the hook. See the
+[pattern's own HTML Example](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/packages/ethds-patterns/patterns/login.md#html-example)
+for the full write-up.
+
 ## Localization
 
 All labels, buttons, and the error message are translatable via the

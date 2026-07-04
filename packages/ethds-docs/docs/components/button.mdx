@@ -71,6 +71,68 @@ prefer letting the citizen submit and showing clear errors.
 - The accessible name is the button text — pass translated text as
   children. Icon-only buttons must supply an `aria-label`.
 
+## Plain HTML
+
+Not on React? A button is a native `<button>` with `type="button"` (so it
+never submits a form by accident) styled with
+[`@ethds/tokens`](https://github.com/yidnekachewkibru/ethgov-design-system/tree/main/packages/ethds-tokens)
+variables — no JavaScript required. This is a starter you adapt and
+maintain yourself, not a package ETHDS ships and versions for you.
+
+```html
+<link rel="stylesheet" href="path/to/@ethds/tokens/dist/tokens.css" />
+
+<button type="button" class="ethds-button ethds-button--primary">
+  Start now
+</button>
+```
+
+```css
+.ethds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ethds-space-2);
+  min-height: 44px; /* comfortably above the 24px WCAG 2.2 target minimum */
+  padding: var(--ethds-space-3) var(--ethds-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--ethds-radius-md);
+  font: var(--ethds-font-medium) var(--ethds-text-base) var(--ethds-font-sans);
+  cursor: pointer;
+}
+.ethds-button:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}
+.ethds-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ethds-button--primary {
+  background: var(--ethds-color-primary);
+  color: var(--ethds-white);
+}
+.ethds-button--secondary {
+  background: var(--ethds-white);
+  color: var(--ethds-color-primary);
+  border-color: var(--ethds-color-primary);
+}
+.ethds-button--ghost {
+  background: transparent;
+  color: var(--ethds-color-interactive);
+}
+.ethds-button--danger {
+  background: var(--ethds-color-error);
+  color: var(--ethds-white);
+}
+```
+
+The accessible name is whatever text is inside the tag — keep it
+translated per locale, the same as the React version's `children`. For an
+icon-only button, add `aria-label="…"` since there's no visible text to
+name it.
+
 ## Props
 
 | Prop | Type | Default |

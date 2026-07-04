@@ -58,6 +58,57 @@ next to the field on [Text input](text-input)).
   `green-50` = 6.97:1).
 - For form error summaries: move focus to the Alert on submit.
 
+## Plain HTML
+
+`error` gets `role="alert"` (announced immediately, interrupting); every
+other variant gets `role="status"` (announced politely, when the reader
+is idle) — this is the one attribute that actually changes between
+variants, everything else is styling.
+
+```html
+<div role="status" class="ethds-alert ethds-alert--success">
+  <span role="img" aria-label="Success" class="ethds-alert__icon">
+    <!-- your check-mark svg here -->
+  </span>
+  <div class="ethds-alert__body">
+    <p class="ethds-alert__title">Application submitted</p>
+    <p class="ethds-alert__content">
+      Reference: ETH-2026-00412. Keep this number to track your application.
+    </p>
+  </div>
+</div>
+```
+
+The icon wrapper's `aria-label` is the **only** way the severity reaches
+assistive technology beyond the text itself — if you skip the icon
+entirely, that's fine (the text still carries the meaning), but never
+swap the label for `aria-hidden="true"` on a coloured icon and call it
+done, since colour alone isn't a signal for a colour-blind or
+screen-reader user.
+
+```css
+.ethds-alert {
+  display: flex;
+  gap: var(--ethds-space-3);
+  padding: var(--ethds-space-3) var(--ethds-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--ethds-radius-md);
+}
+.ethds-alert__title { margin: 0; font-weight: var(--ethds-font-bold); }
+.ethds-alert__content { margin: 0; }
+
+.ethds-alert--info    { background: var(--ethds-blue-50);   border-color: var(--ethds-blue-200);   color: var(--ethds-blue-700); }
+.ethds-alert--success { background: var(--ethds-green-50);  border-color: var(--ethds-green-600);  color: var(--ethds-green-700); }
+.ethds-alert--warning { background: var(--ethds-yellow-50); border-color: var(--ethds-yellow-400); color: var(--ethds-yellow-700); }
+.ethds-alert--error   { background: var(--ethds-red-50);    border-color: var(--ethds-red-600);    color: var(--ethds-red-700); }
+```
+
+For an error variant, swap `role="status"` for `role="alert"` and move
+focus to the element on the page that renders it (`tabindex="-1"` +
+`element.focus()`, or a server-rendered page that scrolls it into view on
+reload) — the same focus-on-error requirement the
+[Login](/docs/patterns/login) pattern documents.
+
 ## Props
 
 | Prop | Type | Default |

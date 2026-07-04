@@ -161,3 +161,76 @@ export function LoginForm({ onSubmit }: { onSubmit: (id: string, pw: string) => 
   );
 }
 ```
+
+## HTML Example
+
+Not on React? Login is arguably **simpler** without a client framework —
+a plain `<form method="post">` that the server validates and re-renders
+with the same non-revealing error on failure. No client-side state
+management is required for this pattern.
+
+```html
+<form method="post" action="/login" novalidate>
+  <h1>Log in</h1>
+
+  <!-- Only rendered by the server when the previous submission failed.
+       role="alert" + tabindex="-1" + focusing it server-side (e.g. via
+       a small inline script, or by making it the first focusable element
+       after the h1) gets the same "focus the error on submit" behaviour
+       the React version gets from useEffect. -->
+  <div role="alert" tabindex="-1" class="ethds-alert ethds-alert--error" id="login-error">
+    The phone number/email or password is incorrect.
+  </div>
+
+  <div class="ethds-field">
+    <label for="username" class="ethds-label">Phone number or email</label>
+    <input
+      id="username"
+      name="username"
+      type="text"
+      inputmode="tel"
+      autocomplete="username"
+      class="ethds-input"
+      required
+    />
+  </div>
+
+  <div class="ethds-field">
+    <label for="password" class="ethds-label">Password</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      autocomplete="current-password"
+      class="ethds-input"
+      required
+    />
+  </div>
+
+  <a href="/reset" class="ethds-link">Forgot your password?</a>
+
+  <button type="submit" class="ethds-button ethds-button--primary">Log in</button>
+  <a href="/login/otp" class="ethds-button ethds-button--secondary">Log in with a code</a>
+
+  <p>New here? <a href="/register" class="ethds-link">Create an account</a></p>
+</form>
+
+<script>
+  // Focus the error alert on load, same requirement as the React version's
+  // focus-on-submit — here it's focus-on-reload, since the server
+  // re-rendered the page with the error already in the markup.
+  document.getElementById('login-error')?.focus();
+</script>
+```
+
+**On multi-step patterns:** [Application Submission](application-submission.md)
+and [Password Reset](password-reset.md) are built on a client-side
+multi-step hook (`useMultiStepForm`) in the React version. Without a
+client framework, the natural equivalent isn't a JavaScript port of that
+hook — it's **multi-page**: one `<form>` per step, each posting to the
+next step's URL, with the in-progress draft held in the server session
+(exactly how most government paper-to-digital form flows already work).
+This is a different shape, not a harder one — accessibility and
+low-bandwidth behaviour are, if anything, easier to get right this way,
+since each step is a full page load with no client state to lose on a
+dropped connection.
