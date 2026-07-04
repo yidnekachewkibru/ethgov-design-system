@@ -1,0 +1,93 @@
+---
+id: news-listing-page
+title: News Page — Listing
+hide_title: true
+sidebar_position: 8
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { NewsListingPage } from '@ethds/templates';
+
+<PageExample>
+  <NewsListingPage
+    serviceName="Government of Ethiopia"
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    items={[
+      {
+        href: '/news/1',
+        title: 'New office hours starting Meskerem',
+        date: 'Meskerem 1, 2019 EC',
+        summary: 'Government offices will open earlier starting next month.',
+      },
+      {
+        href: '/news/2',
+        title: 'Online passport renewal now available',
+        date: 'Nehase 20, 2018 EC',
+        summary: 'Renew your passport online without visiting an office.',
+      },
+    ]}
+    page={1}
+    totalPages={1}
+    onPage={() => {}}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+The paginated listing half of the News Page template — announcements and
+news at a glance, with each entry's date rendered in a real `<time>`
+element. See also [News Page — Article](news-article-page), the shape
+each listing entry links to.
+
+```tsx
+import { NewsListingPage } from '@ethds/templates';
+
+<NewsListingPage
+  serviceName="Government of Ethiopia"
+  languages={languages}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  items={items} // { href, title, date, summary }[]
+  page={1}
+  totalPages={3}
+  onPage={(page) => { /* fetch that page */ }}
+/>
+```
+
+## When to use this template
+
+Use this as the destination for a "Latest news" link (e.g. from the
+[National Portal Homepage](national-portal-homepage)).
+
+## Accessibility & localization
+
+- One `<h1>`; dates use a real `<time>` element and are passed in already
+  formatted per the
+  [Ethiopian calendar](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/docs/localization/date-formatting.md).
+- Paginated, never infinite-scrolled — predictable and
+  [low-bandwidth](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/docs/design-principles/06-design-for-low-bandwidth.md)
+  friendly.
+- Every item's `title`/`summary` and pagination labels are translated
+  content.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `serviceName` | `ReactNode` | Yes |
+| `nav` | `HeaderNavItem[]` | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `items` | `NewsListItem[]` | Yes |
+| `page` | `number` | Yes |
+| `totalPages` | `number` | Yes |
+| `onPage` | `(page: number) => void` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<NewsListingPageLabels>` | No |

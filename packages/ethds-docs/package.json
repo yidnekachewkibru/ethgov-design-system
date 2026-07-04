@@ -4,7 +4,7 @@
   "private": true,
   "description": "ETHDS documentation platform (Docusaurus).",
   "scripts": {
-    "tokens": "npm run build -w @ethds/tokens && npm run build -w @ethds/react && npm run build -w @ethds/patterns",
+    "tokens": "npm run build -w @ethds/tokens && npm run build -w @ethds/react && npm run build -w @ethds/patterns && npm run build -w @ethds/templates",
     "start": "npm run tokens && docusaurus start",
     "build": "npm run tokens && docusaurus build",
     "serve": "docusaurus serve",
@@ -16,6 +16,7 @@
     "@docusaurus/core": "^3.10.0",
     "@ethds/patterns": "^0.1.0",
     "@ethds/react": "^0.1.0",
+    "@ethds/templates": "^0.1.0",
     "@docusaurus/preset-classic": "^3.10.0",
     "@easyops-cn/docusaurus-search-local": "^0.55.0",
     "@mdx-js/react": "^3.0.0",

@@ -1,0 +1,87 @@
+---
+id: contact-page
+title: Contact Page
+hide_title: true
+sidebar_position: 10
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { ContactPage } from '@ethds/templates';
+
+<PageExample>
+  <ContactPage
+    serviceName="Immigration and Citizenship Service"
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
+    phone={{ href: 'tel:+251111234567', label: '+251 11 123 4567' }}
+    email={{ href: 'mailto:info@example.gov.et', label: 'info@example.gov.et' }}
+    hours="Monday–Friday, 08:30–17:00 EAT"
+    office="Bole Road, Addis Ababa"
+    onSend={async () => {}}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+How to reach the body — real `tel:`/`mailto:` links alongside office
+hours and address, plus a short message form for anything that doesn't
+need a full [Complaint Submission](/docs/patterns/complaint-submission).
+
+```tsx
+import { ContactPage } from '@ethds/templates';
+
+<ContactPage
+  serviceName="Immigration and Citizenship Service"
+  languages={languages}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
+  phone={{ href: 'tel:+251111234567', label: '+251 11 123 4567' }}
+  email={{ href: 'mailto:info@example.gov.et', label: 'info@example.gov.et' }}
+  hours="Monday–Friday, 08:30–17:00 EAT"
+  office="Bole Road, Addis Ababa"
+  onSend={async (data) => {
+    /* send the message; data: ContactMessageData */
+  }}
+/>
+```
+
+## When to use this template
+
+Use this for a body's general contact information, distinct from
+[Complaint Submission](/docs/patterns/complaint-submission), which is for a
+specific grievance that needs tracking.
+
+## Accessibility & localization
+
+- One `<h1>`; phone and email render as real `tel:`/`mailto:` links, not
+  plain text, so they're directly actionable.
+- The message form's errors surface in a focusable `ErrorSummary`, same
+  as every other ETHDS form.
+- `hours` and `office` are passed in as already-formatted, translated
+  content; `office` follows
+  [Ethiopian address conventions](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/docs/localization/address-standards.md).
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `serviceName` | `ReactNode` | Yes |
+| `nav` | `HeaderNavItem[]` | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `breadcrumb` | `BreadcrumbItem[]` | Yes |
+| `phone` | `ContactMethod` (`{ href, label }`) | No |
+| `email` | `ContactMethod` (`{ href, label }`) | No |
+| `hours` | `ReactNode` | No |
+| `office` | `ReactNode` | No |
+| `onSend` | `(data: ContactMessageData) => Promise<void>` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<ContactPageLabels>` | No |

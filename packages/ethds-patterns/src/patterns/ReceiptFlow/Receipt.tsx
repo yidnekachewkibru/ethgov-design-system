@@ -1,9 +1,10 @@
-import { Alert, Table, Button } from '@ethds/react';
+import { Heading, Alert, Table, Button } from '@ethds/react';
 import { formatBirr } from '../../utils/currency';
 import type { LineItem } from '../PaymentFlow';
 import styles from './Receipt.module.css';
 
 export interface ReceiptLabels {
+  heading: string;
   successTitle: string;
   successBody: string;
   referenceLabel: string;
@@ -17,6 +18,7 @@ export interface ReceiptLabels {
 }
 
 export const DEFAULT_RECEIPT_LABELS: ReceiptLabels = {
+  heading: 'Payment receipt',
   successTitle: 'Payment successful',
   successBody: 'Keep this receipt as proof of payment.',
   referenceLabel: 'Receipt no.',
@@ -47,7 +49,8 @@ export interface ReceiptProps {
  * pending/failed one) — that gate is the caller's responsibility, since
  * this component just displays the immutable facts of a completed
  * payment. Success is conveyed by text and a labelled icon (via `Alert`),
- * never colour alone; the itemisation is a semantic `Table`.
+ * never colour alone; the itemisation is a semantic `Table`. Renders one
+ * `<h1>`, independent of the `Alert`'s own status announcement.
  */
 export function Receipt({ reference, date, method, items, onDownload, locale, labels }: ReceiptProps) {
   const l = { ...DEFAULT_RECEIPT_LABELS, ...labels };
@@ -55,6 +58,7 @@ export function Receipt({ reference, date, method, items, onDownload, locale, la
 
   return (
     <section className={styles.section}>
+      <Heading level={1}>{l.heading}</Heading>
       <Alert variant="success" iconLabel="Success" title={l.successTitle}>
         {l.successBody}
       </Alert>

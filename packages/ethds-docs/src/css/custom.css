@@ -9,6 +9,8 @@
 @import '@ethds/react/styles.css';
 /* The compiled pattern styles, so Patterns pages render live flows. */
 @import '@ethds/patterns/styles.css';
+/* The compiled template styles, so Templates pages render live pages. */
+@import '@ethds/templates/styles.css';
 
 :root {
   /* Primary = Ethiopian Star Blue, from @ethds/tokens. */

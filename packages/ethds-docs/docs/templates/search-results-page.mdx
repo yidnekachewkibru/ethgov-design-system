@@ -1,0 +1,86 @@
+---
+id: search-results-page
+title: Search Results Page
+hide_title: true
+sidebar_position: 7
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { SearchResultsPage } from '@ethds/templates';
+
+<PageExample>
+  <SearchResultsPage
+    serviceName="Government of Ethiopia"
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    query="passport"
+    results={[
+      { href: '/passport/new', title: 'Apply for a passport', snippet: 'Get a new Ethiopian passport online.' },
+      { href: '/passport/renew', title: 'Renew a passport', snippet: 'Renew an expiring or expired passport.' },
+    ]}
+    page={1}
+    totalPages={1}
+    onPage={() => {}}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+Results for a query — states the result count in plain language, links
+each result title to the actual service, and paginates rather than
+infinite-scrolling (predictable, low-bandwidth friendly).
+
+```tsx
+import { SearchResultsPage } from '@ethds/templates';
+
+<SearchResultsPage
+  serviceName="Government of Ethiopia"
+  languages={languages}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  query="passport"
+  onSearch={(query) => { /* re-run the search */ }}
+  results={results}
+  page={1}
+  totalPages={3}
+  onPage={(page) => { /* fetch that page */ }}
+/>
+```
+
+## When to use this template
+
+Use this as the destination of any search box across the system,
+including the [National Portal Homepage](national-portal-homepage)'s own
+search.
+
+## Accessibility & localization
+
+- One `<h1>`; the result count renders in a `role="status"` live region
+  so it's announced without moving focus.
+- An empty result set states plainly that there were no matches for the
+  query, rather than showing a blank list.
+- `query`, every result's `title`/`snippet`, and pagination labels are all
+  translated content.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `serviceName` | `ReactNode` | Yes |
+| `nav` | `HeaderNavItem[]` | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `query` | `string` | Yes |
+| `onSearch` | `(query: string) => void` | No |
+| `results` | `SearchResult[]` | Yes |
+| `page` | `number` | Yes |
+| `totalPages` | `number` | Yes |
+| `onPage` | `(page: number) => void` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<SearchResultsPageLabels>` | No |

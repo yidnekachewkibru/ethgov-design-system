@@ -1,0 +1,69 @@
+---
+id: 404-page
+title: 404 Page
+hide_title: true
+sidebar_position: 11
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { NotFoundPage } from '@ethds/templates';
+
+<PageExample>
+  <NotFoundPage
+    serviceName="Government of Ethiopia"
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+Page not found — a plain-language explanation plus a way forward
+(search, links home and to all services), never a dead end and never the
+raw word "404" in citizen-facing text.
+
+```tsx
+import { NotFoundPage } from '@ethds/templates';
+
+<NotFoundPage
+  serviceName="Government of Ethiopia"
+  languages={[{ code: 'en', label: 'English' }]}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  onSearch={(query) => { /* … */ }}
+/>
+```
+
+## When to use this template
+
+Render this for any broken or moved URL. The host application is
+responsible for returning the actual HTTP `404` status; this component
+only renders the page body.
+
+## Accessibility & localization
+
+- One `<h1>`, the standard `Header`/`Footer` chrome, and a skip link, like
+  every ETHDS template.
+- The search field and "try instead" links give the citizen a real next
+  step rather than a dead end.
+- All text is a `labels` prop with English defaults, overridable per
+  locale.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `serviceName` | `ReactNode` | Yes |
+| `homeHref` | `string` (default `'/'`) | No |
+| `servicesHref` | `string` (default `'/services'`) | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `onSearch` | `(query: string) => void` | No |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<NotFoundPageLabels>` | No |

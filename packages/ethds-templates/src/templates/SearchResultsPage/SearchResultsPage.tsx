@@ -12,6 +12,7 @@ export interface SearchResult {
 }
 
 export interface SearchResultsPageLabels {
+  heading: ReactNode;
   searchLabel: string;
   searchSubmitLabel: string;
   /** `{count}` and `{query}` are substituted. */
@@ -21,6 +22,7 @@ export interface SearchResultsPageLabels {
 }
 
 export const DEFAULT_SEARCH_RESULTS_LABELS: SearchResultsPageLabels = {
+  heading: 'Search results',
   searchLabel: 'Search government services',
   searchSubmitLabel: 'Search',
   resultCount: (count, query) => `${count} results for "${query}"`,
@@ -53,6 +55,8 @@ export interface SearchResultsPageProps {
  * count is announced to assistive tech via a polite live region
  * (`role="status"`) when results update. An empty result set gets a
  * helpful `Alert` with alternative suggestions, never a bare "no results".
+ * Renders one `<h1>` (the doc's own Accessibility & Localization
+ * requirement), independent of the result count/query.
  */
 export function SearchResultsPage({
   serviceName,
@@ -81,6 +85,7 @@ export function SearchResultsPage({
       footerGroups={footerGroups}
       copyright={copyright}
     >
+      <Heading level={1}>{l.heading}</Heading>
       <Search label={l.searchLabel} submitLabel={l.searchSubmitLabel} defaultValue={query} onSearch={onSearch} />
       <p role="status">{l.resultCount(results.length, query)}</p>
       {results.length === 0 ? (

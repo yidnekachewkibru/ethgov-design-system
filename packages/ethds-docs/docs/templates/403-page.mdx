@@ -1,0 +1,70 @@
+---
+id: 403-page
+title: 403 Page
+hide_title: true
+sidebar_position: 12
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { ForbiddenPage } from '@ethds/templates';
+
+<PageExample>
+  <ForbiddenPage
+    serviceName="Government of Ethiopia"
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    onLogin={() => {}}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+Access denied — explains the citizen lacks access without revealing
+whether the resource exists or which specific permission is missing
+(prevents information leakage). Leads with **Log in**, since that's the
+most common cause.
+
+```tsx
+import { ForbiddenPage } from '@ethds/templates';
+
+<ForbiddenPage
+  serviceName="Government of Ethiopia"
+  languages={[{ code: 'en', label: 'English' }]}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  onLogin={() => { /* … */ }}
+/>
+```
+
+## When to use this template
+
+Render this whenever a citizen requests a resource they aren't signed in
+for or don't have permission to view. The host application is
+responsible for returning the actual HTTP `403` status; this component
+only renders the page body.
+
+## Accessibility & localization
+
+- One `<h1>`, the standard chrome, and a skip link.
+- The **Log in** button is a real, primary, keyboard-operable action —
+  not just a link buried in prose.
+- All text is a `labels` prop with English defaults, overridable per
+  locale.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `serviceName` | `ReactNode` | Yes |
+| `homeHref` | `string` (default `'/'`) | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `onLogin` | `() => void` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<ForbiddenPageLabels>` | No |

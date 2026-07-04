@@ -1,0 +1,86 @@
+---
+id: citizen-dashboard
+title: Citizen Dashboard
+hide_title: true
+sidebar_position: 6
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { CitizenDashboard } from '@ethds/templates';
+
+<PageExample>
+  <CitizenDashboard
+    name="Abebe"
+    actionNeeded={true}
+    applications={[
+      { id: 'ETH-2026-0041', href: '/apps/ETH-2026-0041', service: 'Passport', status: 'Approved' },
+      { id: 'ETH-2026-0042', href: '/apps/ETH-2026-0042', service: 'Business permit', status: 'Pending' },
+    ]}
+    appointments={[{ href: '/appointments/1', label: 'Bole office, Meskerem 5, 2019 EC' }]}
+    payments={[{ href: '/receipts/1', label: 'ETB 350.00 receipt' }]}
+    onStartNew={() => {}}
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+A signed-in citizen's home — surfaces anything needing the citizen's
+action first (a live-region `Notification`), then their applications,
+appointments, and payments.
+
+```tsx
+import { CitizenDashboard } from '@ethds/templates';
+
+<CitizenDashboard
+  name="Abebe"
+  actionNeeded={true}
+  applications={applications}
+  appointments={appointments}
+  payments={payments}
+  onStartNew={() => { /* navigate to a Service Landing Page */ }}
+  languages={languages}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+/>
+```
+
+## When to use this template
+
+Use this as the landing page after login, linking each application row to
+its [Status Tracking](/docs/patterns/status-tracking) detail.
+
+## Accessibility & localization
+
+- One `<h1>` (the personalised greeting); the action-needed notification
+  is checked and rendered **before** the citizen's records, so assistive
+  technology encounters the most urgent content first.
+- Status is always plain language (e.g. "Approved"), never an internal
+  workflow code — matching [Status Tracking](/docs/patterns/status-tracking)'s
+  own guidance.
+- `name`, every application/appointment/payment label, and all headings
+  are translated content passed in by the caller.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `name` | `ReactNode` | Yes |
+| `actionNeeded` | `boolean` | Yes |
+| `applications` | `DashboardApplication[]` | Yes |
+| `appointments` | `DashboardLinkItem[]` | Yes |
+| `payments` | `DashboardLinkItem[]` | Yes |
+| `onStartNew` | `() => void` | Yes |
+| `serviceName` | `ReactNode` (default `'Government of Ethiopia'`) | No |
+| `nav` | `HeaderNavItem[]` | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<CitizenDashboardLabels>` | No |

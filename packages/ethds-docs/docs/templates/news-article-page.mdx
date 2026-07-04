@@ -1,0 +1,82 @@
+---
+id: news-article-page
+title: News Page — Article
+hide_title: true
+sidebar_position: 9
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { NewsArticlePage } from '@ethds/templates';
+
+<PageExample>
+  <NewsArticlePage
+    serviceName="Government of Ethiopia"
+    languages={[{ code: 'en', label: 'English' }]}
+    locale="en"
+    onLocale={() => {}}
+    breadcrumb={[
+      { label: 'Home', href: '/' },
+      { label: 'News', href: '/news' },
+      { label: 'New office hours starting Meskerem' },
+    ]}
+    title="New office hours starting Meskerem"
+    date="Meskerem 1, 2019 EC"
+    body={<p>Government offices will open at 8:00 AM instead of 8:30 AM starting next month, to reduce queues.</p>}
+    newsHref="/news"
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+The single-article half of the News Page template — one `<h1>` (the
+article title); plain, readable text over heavy media, respecting
+low-bandwidth connections. See also
+[News Page — Listing](news-listing-page), which links to pages like this
+one.
+
+```tsx
+import { NewsArticlePage } from '@ethds/templates';
+
+<NewsArticlePage
+  serviceName="Government of Ethiopia"
+  languages={languages}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  breadcrumb={breadcrumb}
+  title="New office hours starting Meskerem"
+  date="Meskerem 1, 2019 EC" // already formatted per the Ethiopian calendar
+  body={<p>…</p>}
+  newsHref="/news"
+/>
+```
+
+## When to use this template
+
+Use this for each individual announcement, linked from
+[News Page — Listing](news-listing-page).
+
+## Accessibility & localization
+
+- One `<h1>` (the article title); the date renders in a real `<time>`
+  element.
+- The breadcrumb names Home, News, and the article title, so a citizen
+  always knows where they are.
+- `title`, `body`, and the breadcrumb are all translated content.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `serviceName` | `ReactNode` | Yes |
+| `nav` | `HeaderNavItem[]` | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `breadcrumb` | `BreadcrumbItem[]` | Yes |
+| `title` | `ReactNode` | Yes |
+| `date` | `string` | Yes |
+| `body` | `ReactNode` | Yes |
+| `newsHref` | `string` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<NewsArticlePageLabels>` | No |

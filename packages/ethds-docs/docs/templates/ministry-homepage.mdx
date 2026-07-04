@@ -1,0 +1,81 @@
+---
+id: ministry-homepage
+title: Ministry Homepage
+hide_title: true
+sidebar_position: 2
+---
+
+import PageExample from '@site/src/components/PageExample';
+import { MinistryHomepage } from '@ethds/templates';
+
+<PageExample>
+  <MinistryHomepage
+    ministryName="Ministry of Revenue"
+    intro="Collects taxes and administers revenue policy for Ethiopia."
+    languages={[
+      { code: 'en', label: 'English' },
+      { code: 'am', label: 'አማርኛ' },
+    ]}
+    locale="en"
+    onLocale={() => {}}
+    services={[
+      { href: '/file-return', label: 'File a tax return' },
+      { href: '/pay-fee', label: 'Pay a fee' },
+      { href: '/register-business', label: 'Register a business' },
+    ]}
+    news={[
+      { href: '/news/1', label: 'New filing deadline announced' },
+      { href: '/news/2', label: 'Office hours extended for tax season' },
+    ]}
+    footerGroups={[{ title: 'About', links: [{ label: 'Accessibility', href: '/accessibility' }] }]}
+    copyright="© 2026 Government of Ethiopia."
+  />
+</PageExample>
+
+A ministry's home — a breadcrumb back to the [National Portal](national-portal-homepage),
+a plain-language intro, its services, and its own news.
+
+```tsx
+import { MinistryHomepage } from '@ethds/templates';
+
+<MinistryHomepage
+  ministryName="Ministry of Revenue"
+  intro="Collects taxes and administers revenue policy for Ethiopia."
+  languages={languages}
+  locale="en"
+  onLocale={(code) => { /* … */ }}
+  services={services}
+  news={news}
+/>
+```
+
+## When to use this template
+
+Use this for any ministry-level homepage, linked from the
+[National Portal Homepage](national-portal-homepage).
+
+## Accessibility & localization
+
+- The breadcrumb names both "Home" and the ministry, and the ministry
+  name is also the page's one `<h1>`.
+- Search is scoped to the ministry (`aria-label` distinguishes it from
+  the national portal's own search).
+- `intro`, `services`, and `news` are all translated content passed in by
+  the caller.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `ministryName` | `ReactNode` | Yes |
+| `intro` | `ReactNode` | Yes |
+| `nav` | `HeaderNavItem[]` | No |
+| `languages` | `LanguageOption[]` | Yes |
+| `locale` | `string` | Yes |
+| `onLocale` | `(code: string) => void` | Yes |
+| `onSearch` | `(query: string) => void` | No |
+| `services` | `HomepageLinkItem[]` | Yes |
+| `news` | `HomepageLinkItem[]` | Yes |
+| `footerGroups` | `FooterLinkGroup[]` | No |
+| `copyright` | `ReactNode` | No |
+| `labels` | `Partial<MinistryHomepageLabels>` | No |
