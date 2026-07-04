@@ -1,9 +1,9 @@
 # @ethds/e2e
 
-Playwright end-to-end tests for `@ethds/react` — real-browser keyboard,
-focus, and integration-level accessibility checks that complement (not
-replace) the component-level `vitest-axe` gate. **Private; never
-published.**
+Playwright end-to-end tests for `@ethds/react` and `@ethds/patterns` —
+real-browser keyboard, focus, and integration-level accessibility checks
+that complement (not replace) the component-level `vitest-axe` gate.
+**Private; never published.**
 
 ## What this covers vs. the unit test suite
 
@@ -13,8 +13,8 @@ published.**
 - **This package** drives real Storybook stories in a real Chromium: tab
   order and keyboard operability, actual browser focus state,
   `@axe-core/playwright` against fully rendered pages, `prefers-reduced-motion`
-  behaviour, and the automatable slice of reflow at a 320px viewport.
-  See `docs/accessibility/testing-framework.md`.
+  behaviour, the automatable slice of reflow at a 320px viewport, and a
+  full composed-pattern flow (Login). See `docs/accessibility/testing-framework.md`.
 
 ## Running locally
 
@@ -22,12 +22,15 @@ published.**
 npm install
 npm run build -w @ethds/tokens
 npm run build -w @ethds/react
-npm test -w @ethds/e2e         # starts @ethds/react's Storybook automatically
+npm test -w @ethds/e2e         # starts both Storybooks automatically
 npm run test:ui -w @ethds/e2e  # Playwright's interactive UI mode
 ```
 
-The Playwright config starts `@ethds/react`'s Storybook (`webServer`) and
-tests navigate directly to story iframes
+The Playwright config starts two Storybook instances (`webServer`
+entries) — `@ethds/react`'s on port 6006 and `@ethds/patterns`'s on port
+6007 — each with its own `project` (`chromium` / `chromium-patterns`)
+scoped by `testDir`/`testIgnore` so a spec always runs against the right
+app's port. Tests navigate directly to story iframes
 (`/iframe.html?id=<story>&viewMode=story`) rather than a bespoke test
 harness app.
 
@@ -51,4 +54,7 @@ tests/
   axe-smoke.spec.ts     @axe-core/playwright across rendered stories
   reduced-motion.spec.ts  prefers-reduced-motion behaviour
   reflow-320.spec.ts    no page-level horizontal scroll at 320px
+  patterns/
+    login-flow.spec.ts  full keyboard-only Login pattern run, autocomplete
+                         attributes, focusable error alert on failed login
 ```
