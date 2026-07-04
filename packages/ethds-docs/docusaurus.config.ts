@@ -89,6 +89,7 @@ const config: Config = {
             { label: 'Accessibility', to: '/docs/accessibility' },
             { label: 'Localization', to: '/docs/localization' },
             { label: 'Governance', to: '/docs/governance' },
+            { label: 'Foundation', to: '/docs/foundation' },
           ],
         },
         {
