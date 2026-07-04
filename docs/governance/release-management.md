@@ -7,13 +7,29 @@ across the npm-workspaces monorepo) and adds the operational detail.
 ## Versioning recap
 
 - Every publishable package (`@ethds/tokens`, `@ethds/react`,
-  `@ethds/icons`, …) is versioned **independently** with
-  [SemVer](https://semver.org/): major = breaking, minor = additive, patch
-  = fix.
+  `@ethds/patterns`, `@ethds/templates`, `@ethds/icons`, …) is versioned
+  **independently** with [SemVer](https://semver.org/): major = breaking,
+  minor = additive, patch = fix.
 - Version bumps and changelogs are managed with
   [Changesets](https://github.com/changesets/changesets): a PR that changes
   a publishable package includes a changeset describing the change and its
   semver impact.
+
+### Tooling status
+
+The Changesets **tooling is wired**: `.changeset/config.json`
+(`access: "restricted"`, since no package is published yet),
+`.github/workflows/changeset-check.yml` fails a PR that touches a
+publishable package without a changeset, and
+`.github/workflows/release.yml` opens/updates the "Version Packages" PR on
+every push to `main`. Contributors add a changeset with
+`npx changeset` (or `npm run changeset`).
+
+**This is version-PR automation only — it never runs `npm publish` and no
+npm token is configured anywhere in CI.** Publishing stays a deliberate,
+separate maintainer step (`npm publish -w <pkg>` after a green build and
+release sign-off, below) until the project makes an explicit decision to
+wire up automated publishing.
 
 ## Release flow
 
