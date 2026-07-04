@@ -1,0 +1,22 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--ethds-space-6);
+}
+.grid > * {
+  grid-column: span 12;
+}
+@media (min-width: 768px) {
+  .grid > * {
+    grid-column: span 6;
+  }
+}
+
+.list {
+  margin: var(--ethds-space-2) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ethds-space-2);
+}

@@ -10,13 +10,13 @@ content each region holds, and how the page behaves — accessible and
 multilingual by default.
 
 > **Status:** the three error pages — 404, 403, 500 — the three
-> homepages — National Portal, Ministry, Agency — and the four content
+> homepages — National Portal, Ministry, Agency — the four content
 > pages — Service Landing, Search Results, News (listing + article),
-> Contact — ship as a real, tested `@ethds/templates` package (types,
-> `vitest-axe` tests, Storybook stories, CI). The remaining 2 templates
-> (Service Application Page, Citizen Dashboard) are tracked as follow-up
-> PRs; until built, they remain documentation + reference composition
-> code below.
+> Contact — and the Citizen Dashboard ship as a real, tested
+> `@ethds/templates` package (types, `vitest-axe` tests, Storybook
+> stories, CI). The remaining template (Service Application Page) is
+> tracked as a follow-up PR; until built, it remains documentation +
+> reference composition code below.
 
 ## Install
 
@@ -47,7 +47,7 @@ import { NotFoundPage } from '@ethds/templates';
 | [Agency Homepage](templates/agency-homepage.md) | An agency's home | ✅ `AgencyHomepage` |
 | [Service Landing Page](templates/service-landing-page.md) | Explains a service and starts it | ✅ `ServiceLandingPage` |
 | [Service Application Page](templates/service-application-page.md) | The multi-step application itself | 🔵 documented |
-| [Citizen Dashboard](templates/citizen-dashboard.md) | A signed-in citizen's home | 🔵 documented |
+| [Citizen Dashboard](templates/citizen-dashboard.md) | A signed-in citizen's home | ✅ `CitizenDashboard` |
 | [Search Results Page](templates/search-results-page.md) | Results for a query | ✅ `SearchResultsPage` |
 | [News Page](templates/news-page.md) | Announcements and news | ✅ `NewsListingPage` / `NewsArticlePage` |
 | [Contact Page](templates/contact-page.md) | How to reach the body | ✅ `ContactPage` |

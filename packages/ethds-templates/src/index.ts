@@ -58,3 +58,11 @@ export type {
   ContactMethod,
   ContactMessageData,
 } from './templates/ContactPage';
+
+export { CitizenDashboard, DEFAULT_CITIZEN_DASHBOARD_LABELS } from './templates/CitizenDashboard';
+export type {
+  CitizenDashboardProps,
+  CitizenDashboardLabels,
+  DashboardApplication,
+  DashboardLinkItem,
+} from './templates/CitizenDashboard';
