@@ -1,0 +1,12 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ethds-space-4);
+  font-family: var(--ethds-font-sans);
+  max-width: 34rem;
+}
+
+.total {
+  margin: 0;
+  font-size: var(--ethds-text-lg);
+}

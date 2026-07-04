@@ -1,0 +1,22 @@
+.details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--ethds-space-4);
+  row-gap: var(--ethds-space-2);
+  margin: 0;
+}
+
+.details dt {
+  font-weight: 600;
+}
+
+.details dd {
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ethds-space-4);
+  max-width: 30rem;
+}
