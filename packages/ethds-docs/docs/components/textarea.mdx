@@ -46,6 +46,46 @@ for structured data that should be separate fields.
 - Vertically resizable so citizens can see more of their text.
 - Generous line-height for readability, including Ge'ez script.
 
+## Plain HTML
+
+Same `for`/`id` and `aria-describedby` wiring as
+[Text input](text-input#plain-html) — only the field element changes.
+
+```html
+<div class="ethds-field">
+  <label for="details" class="ethds-label">Describe what happened</label>
+  <span id="details-hint" class="ethds-hint">Up to 500 characters</span>
+  <textarea
+    id="details"
+    name="details"
+    rows="4"
+    class="ethds-textarea"
+    aria-describedby="details-hint"
+  ></textarea>
+</div>
+```
+
+```css
+.ethds-textarea {
+  width: 100%;
+  padding: var(--ethds-space-2) var(--ethds-space-3);
+  font: var(--ethds-text-base) var(--ethds-font-sans);
+  line-height: var(--ethds-leading-relaxed);
+  border: 1px solid var(--ethds-color-border);
+  border-radius: var(--ethds-radius-md);
+  resize: vertical;
+}
+.ethds-textarea:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  border-color: var(--ethds-color-focus);
+}
+.ethds-textarea--error { border-color: var(--ethds-color-error); }
+```
+
+On error, add `class="ethds-textarea--error"`, `aria-invalid="true"`, and
+an `id="details-error"` span (added to `aria-describedby`) exactly as
+shown for Text input.
+
 ## Props
 
 | Prop | Type | Notes |

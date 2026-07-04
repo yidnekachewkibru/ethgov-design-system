@@ -48,6 +48,42 @@ Don't use when only **one** option may be chosen — use
 - Hint/error via `aria-describedby`; error sets `aria-invalid`.
 - The label is clickable, giving a large effective target.
 
+## Plain HTML
+
+```html
+<div class="ethds-field">
+  <div class="ethds-checkbox-row">
+    <input id="terms" name="terms" type="checkbox" class="ethds-checkbox" />
+    <label for="terms" class="ethds-label">I accept the terms of service</label>
+  </div>
+</div>
+
+<!-- With a hint, associated the same way as Text input: -->
+<div class="ethds-field">
+  <div class="ethds-checkbox-row">
+    <input id="sms" name="sms" type="checkbox" class="ethds-checkbox" aria-describedby="sms-hint" />
+    <label for="sms" class="ethds-label">Send me SMS updates</label>
+  </div>
+  <span id="sms-hint" class="ethds-hint">You can turn this off at any time.</span>
+</div>
+```
+
+```css
+.ethds-checkbox-row { display: flex; align-items: flex-start; gap: var(--ethds-space-2); }
+.ethds-checkbox { width: 20px; height: 20px; margin: 0; accent-color: var(--ethds-color-primary); }
+.ethds-checkbox:focus-visible { outline: 2px solid var(--ethds-color-focus); outline-offset: 2px; }
+.ethds-label { cursor: pointer; }
+.ethds-hint {
+  padding-left: calc(20px + var(--ethds-space-2));
+  font-size: var(--ethds-text-sm);
+  color: var(--ethds-color-text-secondary);
+}
+```
+
+A native checkbox needs no JavaScript to toggle. On error, add
+`aria-invalid="true"` and an `id`-linked error span, indented to line up
+under the label the same way the hint does.
+
 ## Props
 
 | Prop | Type | Notes |

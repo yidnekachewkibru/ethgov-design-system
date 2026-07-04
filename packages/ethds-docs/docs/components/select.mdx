@@ -72,6 +72,46 @@ and don't rely on a placeholder as the label.
 - In dependent cascades, a child select is `disabled` until its parent is
   chosen — announced, not just greyed out.
 
+## Plain HTML
+
+Same `for`/`id`/`aria-describedby` wiring as
+[Text input](text-input#plain-html); a disabled first `<option>` stands
+in for a placeholder.
+
+```html
+<div class="ethds-field">
+  <label for="region" class="ethds-label">Region</label>
+  <span id="region-hint" class="ethds-hint">Your region of residence</span>
+  <select id="region" name="region" class="ethds-select" aria-describedby="region-hint">
+    <option value="" disabled selected>Choose a region</option>
+    <option value="aa">Afar</option>
+    <option value="am">Amhara</option>
+    <option value="or">Oromia</option>
+    <option value="ti">Tigray</option>
+  </select>
+</div>
+```
+
+```css
+.ethds-select {
+  min-height: 44px;
+  padding: var(--ethds-space-2) var(--ethds-space-3);
+  border: 1px solid var(--ethds-color-border);
+  border-radius: var(--ethds-radius-md);
+}
+.ethds-select:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  border-color: var(--ethds-color-focus);
+}
+.ethds-select--error { border-color: var(--ethds-color-error); }
+```
+
+For a dependent cascade (region → zone → woreda), give the child
+`<select>` the `disabled` attribute until its parent has a value, and
+toggle it with a few lines of JavaScript on the parent's `change` event —
+the `disabled` state itself is what gets announced to screen readers, no
+extra ARIA needed.
+
 ## Props
 
 | Prop | Type | Notes |
