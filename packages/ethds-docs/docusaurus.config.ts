@@ -84,6 +84,7 @@ const config: Config = {
             { label: 'Design Principles', to: '/docs/principles' },
             { label: 'Brand System', to: '/docs/brand' },
             { label: 'Components', to: '/docs/components' },
+            { label: 'Patterns', to: '/docs/patterns' },
             { label: 'Accessibility', to: '/docs/accessibility' },
           ],
         },

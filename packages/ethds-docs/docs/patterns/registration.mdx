@@ -1,0 +1,64 @@
+---
+id: registration
+title: Registration
+hide_title: true
+sidebar_position: 2
+---
+
+import Example from '@site/src/components/Example';
+import { RegisterForm } from '@ethds/patterns';
+
+<Example>
+  <RegisterForm onSubmit={async () => {}} />
+</Example>
+
+Create an account or citizen profile. Try submitting without filling in
+anything: the focusable error summary lists every problem and links
+straight to each field.
+
+```tsx
+import { RegisterForm } from '@ethds/patterns';
+
+<RegisterForm
+  onSubmit={async (data) => {
+    /* create the account; data: RegistrationData */
+  }}
+/>
+```
+
+## When to use this pattern
+
+Use Registration for a citizen's first account creation. It uses the
+given-name/father's-name convention (no surname field) and collects only
+the phone (verified separately via [OTP Verification](otp-verification))
+and password needed to activate the account — address collection is left
+to the consuming service, since not every service needs it at
+registration time (Redundant Entry, WCAG 2.2 SC 3.3.7).
+
+## Validation & error handling
+
+- **Given name, father's name, terms:** required — errors surface in a
+  focusable `ErrorSummary` at the top of the form, each linking to its
+  field.
+- **Grandfather's name:** optional.
+- **Password:** minimum 8 characters (hinted, not just validated
+  silently); paste and password managers are never blocked.
+
+## Accessibility
+
+- `ErrorSummary` receives focus automatically on submit when errors
+  exist, per [focus management](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/docs/accessibility/focus-management.md).
+- Every field has a visible label; the password field uses
+  `autocomplete="new-password"`.
+
+## Localization
+
+All labels, hints, and errors are translatable via the `labels` prop.
+Phone uses `type="tel"` / `inputMode="tel"`.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `onSubmit` | `(data: RegistrationData) => Promise<void>` | Yes |
+| `labels` | `Partial<RegisterFormLabels>` | No |

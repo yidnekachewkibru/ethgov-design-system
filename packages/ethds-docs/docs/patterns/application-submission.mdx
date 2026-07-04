@@ -1,0 +1,77 @@
+---
+id: application-submission
+title: Application Submission
+hide_title: true
+sidebar_position: 5
+---
+
+import Example from '@site/src/components/Example';
+import { ApplicationSubmissionFlow } from '@ethds/patterns';
+
+<Example>
+  <ApplicationSubmissionFlow onSubmit={async () => ({ reference: 'ETH-2026-00412' })} />
+</Example>
+
+A multi-step service application — Applicant → Business details →
+Documents → Review → Confirmation — built on `useMultiStepForm`. Try the
+full flow above: it succeeds and shows a real confirmation reference.
+
+```tsx
+import { ApplicationSubmissionFlow } from '@ethds/patterns';
+
+<ApplicationSubmissionFlow
+  onSubmit={async (data) => {
+    /* submit the application; data: ApplicationData */
+    return { reference: 'ETH-2026-00412' };
+  }}
+  onSaveDraft={async (data) => {
+    /* persist the partial draft after every step, e.g. to a server draft
+       or local storage — low-bandwidth resilience against a dropped
+       connection */
+  }}
+/>
+```
+
+## When to use this pattern
+
+Use Application Submission for any service that needs more than one
+screen's worth of information from a citizen. It's the pattern hosted by
+the [Service Application Page](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/packages/ethds-templates/templates/service-application-page.md)
+template.
+
+## Validation & error handling
+
+- **Input is preserved** across Back/Next on every step, and across a
+  dropped connection when `onSaveDraft` is wired to persistence.
+- The **Review** step lists every answer with a **Change** link back to
+  the exact step that captured it (`SummaryList`), never re-asking for
+  known data (Redundant Entry, WCAG 2.2 SC 3.3.7).
+- A **failed submit keeps the Review step's data intact** and offers
+  retry — a citizen's completed answers are never silently dropped.
+
+## Accessibility
+
+- Focus moves to the top of each new step (`<h1>` immediately follows) on
+  every transition.
+- The step indicator announces progress (`aria-current="step"`); each
+  step's own focusable `ErrorSummary` blocks Next until required fields
+  are filled.
+- **Consistent Help (SC 3.2.6):** help stays in the same place on every
+  step (see the Service Application Page template, linked above).
+
+## Localization
+
+Every step's labels are translatable via the flow's `labels` prop, which
+nests each step's own label type. `regions` and `activities` accept
+translated `SelectOption`/`RadioOption` arrays.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `onSubmit` | `(data: ApplicationData) => Promise<SubmitResult>` | Yes |
+| `onSaveDraft` | `(data: Partial<ApplicationData>) => void \| Promise<void>` | No |
+| `initialData` | `Partial<ApplicationData>` | No |
+| `regions` | `SelectOption[]` | No — has defaults |
+| `activities` | `RadioOption[]` | No — has defaults |
+| `labels` | `Partial<ApplicationSubmissionFlowLabels>` | No |

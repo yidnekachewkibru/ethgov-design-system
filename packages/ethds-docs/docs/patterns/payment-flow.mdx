@@ -1,0 +1,72 @@
+---
+id: payment-flow
+title: Payment Flow
+hide_title: true
+sidebar_position: 9
+---
+
+import Example from '@site/src/components/Example';
+import { PaymentReview } from '@ethds/patterns';
+
+<Example>
+  <PaymentReview
+    items={[{ label: 'Business licence renewal fee', santim: 35000 }]}
+    onPay={async () => {
+      throw new Error('demo');
+    }}
+  />
+</Example>
+
+Pay a government fee, in Birr. Amounts are always passed as an integer
+minor-unit count (**santim**, 1/100 of a Birr) — never a float Birr
+amount — so rounding can never silently lose or gain a santim. Try
+**Pay**: this demo always shows the failure state.
+
+```tsx
+import { PaymentReview } from '@ethds/patterns';
+
+<PaymentReview
+  items={[{ label: 'Business licence renewal fee', santim: 35000 }]}
+  onPay={async (method) => {
+    /* charge via the chosen method */
+  }}
+/>
+```
+
+## When to use this pattern
+
+Use Payment Flow wherever a service charges a fee — it's typically the
+step right before [Receipt Flow](receipt-flow).
+
+## Validation & error handling
+
+- A payment method is required before **Pay** activates.
+- **Failure or cancellation** states plainly that **no amount was
+  charged** and lets the citizen retry or change method — a frequent
+  trust concern for government payments, and a security/privacy
+  requirement, not just a UX nicety.
+
+## Accessibility
+
+- The itemisation is a semantic `Table` with a caption; the total is
+  stated in text immediately below it, never conveyed by table styling
+  alone.
+- The pay button's label states the amount (`Pay ETB 350.00`), so the
+  action is unambiguous when read out of context (e.g. by a screen reader
+  users navigating by buttons).
+
+## Localization
+
+Amounts are formatted via `formatBirr(santim, locale)` — pass `locale` to
+match the citizen's chosen language; see
+[currency formatting](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/docs/localization/currency-formatting.md).
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `items` | `LineItem[]` (`{ label, santim }`) | Yes |
+| `onPay` | `(method: string) => Promise<void>` | Yes |
+| `methods` | `RadioOption[]` | No — defaults to Telebirr/Bank/Card |
+| `locale` | `string` | No |
+| `labels` | `Partial<PaymentReviewLabels>` | No |

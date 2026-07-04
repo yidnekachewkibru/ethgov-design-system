@@ -1,0 +1,86 @@
+---
+id: login
+title: Login
+hide_title: true
+sidebar_position: 1
+---
+
+import Example from '@site/src/components/Example';
+import { LoginForm } from '@ethds/patterns';
+
+<Example>
+  <LoginForm
+    onSubmit={async () => {
+      throw new Error('demo');
+    }}
+    forgotPasswordHref="#"
+    registerHref="#"
+    onOtpLogin={() => {}}
+  />
+</Example>
+
+Authenticate a returning citizen — phone-first (the most common
+identifier in Ethiopia), with paste and password managers allowed
+throughout. Try submitting the form above: this demo always shows the
+failure state, so you can see the generic, non-revealing error and the
+focus move to it.
+
+```tsx
+import { LoginForm } from '@ethds/patterns';
+
+<LoginForm
+  onSubmit={async (identifier, password) => {
+    /* call your auth API; only reject on genuine failure */
+  }}
+  forgotPasswordHref="/reset-password"
+  registerHref="/register"
+  onOtpLogin={() => {
+    /* switch to the OTP Verification pattern */
+  }}
+/>
+```
+
+## When to use this pattern
+
+Use Login whenever a citizen needs to access an existing account or
+service. Related: [OTP Verification](otp-verification), for a passwordless
+"log in with a code" option; [Password Reset](password-reset), linked from
+"Forgot your password?"; [Registration](registration), for new citizens.
+
+## Validation & error handling
+
+- **Identifier:** required — an Ethiopian phone (`09xxxxxxxx` /
+  `+2519xxxxxxxx`) or an email.
+- **Password:** required; no maximum length below 64; paste and password
+  managers are never blocked (WCAG 2.2 SC 3.3.8 Accessible
+  Authentication).
+- **Wrong credentials:** a single generic message — never reveals which
+  part was wrong or whether the account exists, preventing account
+  enumeration.
+- **Rate limiting:** after repeated failures, offer OTP login or password
+  reset rather than a hard dead end.
+
+## Accessibility
+
+- The error is a focusable `Alert` (`role="alert"`) that receives focus
+  the moment it appears, so assistive technology announces it
+  immediately on a failed submit.
+- Every field has a visible, programmatically associated label.
+- Correct `autocomplete` (`username`, `current-password`) so browsers and
+  assistive tools can fill fields.
+
+## Localization
+
+All labels, buttons, and the error message are translatable via the
+`labels` prop. The identifier field uses `inputMode="tel"` so mobile
+keyboards default to numeric entry without blocking email input.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `onSubmit` | `(identifier: string, password: string) => Promise<void>` | Yes |
+| `onOtpLogin` | `() => void` | No — hides the OTP button when omitted |
+| `forgotPasswordHref` | `string` | Yes |
+| `registerHref` | `string` | Yes |
+| `labels` | `Partial<LoginFormLabels>` | No |

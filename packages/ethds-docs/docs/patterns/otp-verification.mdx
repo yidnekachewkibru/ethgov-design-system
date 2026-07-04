@@ -1,0 +1,81 @@
+---
+id: otp-verification
+title: OTP Verification
+hide_title: true
+sidebar_position: 3
+---
+
+import Example from '@site/src/components/Example';
+import { OtpForm } from '@ethds/patterns';
+
+<Example>
+  <OtpForm
+    maskedTo="09•• ••• •67"
+    onVerify={async () => {
+      throw new Error('demo');
+    }}
+    onResend={() => {}}
+    changeNumberHref="#"
+  />
+</Example>
+
+Verify a phone or email via a one-time code — a single labelled field,
+never a one-box-per-digit widget (those break paste, screen readers, and
+OS autofill).
+
+```tsx
+import { OtpForm } from '@ethds/patterns';
+
+<OtpForm
+  maskedTo="09•• ••• •67"
+  onVerify={async (code) => {
+    /* verify with your backend */
+  }}
+  onResend={() => {
+    /* re-send the code */
+  }}
+  resendCooldownSeconds={30}
+  changeNumberHref="/login"
+/>
+```
+
+## When to use this pattern
+
+Use OTP Verification for passwordless login, to confirm a phone/email
+during [Registration](registration), or as the second step of
+[Password Reset](password-reset).
+
+## Validation & error handling
+
+- The code field accepts pasted codes with or without surrounding spaces
+  (trimmed before checking) — no native `maxLength` truncation that would
+  cut off a pasted value first.
+- **Incorrect or expired code:** a single generic message; the citizen can
+  request a new code or change the destination number.
+- `resendCooldownSeconds` renders a live countdown; passing `0` re-enables
+  the resend action.
+
+## Accessibility
+
+- Meets WCAG 2.2 SC 3.3.8 Accessible Authentication: paste and
+  `autocomplete="one-time-code"` autofill both work; no image or puzzle
+  challenge.
+- The resend/cooldown region is `aria-live="polite"` so the countdown and
+  its completion are announced without interrupting the citizen.
+
+## Localization
+
+All labels are translatable, including the `sentTo` and `resendCooldown`
+functions, which interpolate the masked destination and remaining
+seconds respectively.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `maskedTo` | `string` | Yes |
+| `onVerify` | `(code: string) => Promise<void>` | Yes |
+| `onResend` | `() => void` | No |
+| `resendCooldownSeconds` | `number` (default `0`) | No |
+| `changeNumberHref` | `string` | No |
+| `labels` | `Partial<OtpFormLabels>` | No |

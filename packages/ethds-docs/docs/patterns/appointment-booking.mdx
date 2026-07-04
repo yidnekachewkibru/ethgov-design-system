@@ -1,0 +1,83 @@
+---
+id: appointment-booking
+title: Appointment Booking
+hide_title: true
+sidebar_position: 8
+---
+
+import Example from '@site/src/components/Example';
+import { BookingForm } from '@ethds/patterns';
+
+<Example>
+  <BookingForm
+    offices={[
+      { value: 'bole', label: 'Bole office' },
+      { value: 'kirkos', label: 'Kirkos office' },
+    ]}
+    dates={[
+      { value: '2019-01-05', label: 'Meskerem 5, 2019 EC' },
+      { value: '2019-01-06', label: 'Meskerem 6, 2019 EC' },
+    ]}
+    slots={[
+      { value: '09:00', label: '9:00 AM' },
+      { value: '10:00', label: '10:00 AM', disabled: true },
+      { value: '11:00', label: '11:00 AM' },
+    ]}
+    onConfirm={async () => {}}
+  />
+</Example>
+
+Book a slot at a government office. Only available offices, dates, and
+times are ever selectable — the **10:00 AM** slot above is disabled, not
+silently omitted, so the citizen can see what's already taken.
+
+```tsx
+import { BookingForm } from '@ethds/patterns';
+
+<BookingForm
+  offices={offices}
+  dates={dates}
+  slots={slots} // pass unavailable slots with `disabled: true`
+  onConfirm={async (booking) => {
+    /* confirm the booking; booking: BookingConfirmation */
+  }}
+/>
+```
+
+## When to use this pattern
+
+Use Appointment Booking wherever a service requires an in-person visit —
+biometric capture, document collection, an interview.
+
+## Validation & error handling
+
+- Office, date, and time are all required before **Confirm booking**
+  activates.
+- If the chosen slot is taken between selection and confirmation — a real
+  race, since availability isn't re-locked client-side — `onConfirm`
+  rejecting shows a plain-language warning ("That slot was just taken")
+  and lets the citizen pick another time, never a bare error.
+
+## Accessibility
+
+- Times render as a `RadioGroup` (not a `Select`), so every option and its
+  disabled state are visible and announced without an extra interaction.
+- The office and date `Select`s and the time `RadioGroup` all have visible
+  labels; errors surface in a focusable `ErrorSummary`.
+
+## Localization
+
+Office names, dates, and time labels are all passed in already formatted
+— dates should use the
+[Ethiopian calendar](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/docs/localization/date-formatting.md)
+and times the 24-hour or local convention your service uses.
+
+## Props
+
+| Prop | Type | Required |
+|---|---|---|
+| `offices` | `SelectOption[]` | Yes |
+| `dates` | `SelectOption[]` | Yes |
+| `slots` | `RadioOption[]` (pass unavailable slots with `disabled: true`) | Yes |
+| `onConfirm` | `(booking: BookingConfirmation) => Promise<void>` | Yes |
+| `labels` | `Partial<BookingFormLabels>` | No |
