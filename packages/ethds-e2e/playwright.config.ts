@@ -8,6 +8,12 @@ import { defineConfig, devices } from '@playwright/test';
  * harness app — the stories already exist and already render the real,
  * published components.
  *
+ * Two Storybook instances are exercised: `@ethds/react`'s (component-level
+ * flows, port 6006) and `@ethds/patterns`'s (composed-flow tests like
+ * login-flow.spec.ts, port 6007) — each gets its own `webServer` entry and
+ * its own `project`, scoped by `testDir`/`testIgnore` so a spec never runs
+ * against the wrong app's port.
+ *
  * Only Chromium is configured: it's the browser this project provisions
  * (locally and in CI); Firefox/WebKit are not installed and are left out
  * rather than silently failing to launch.
@@ -29,13 +35,27 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
+      testIgnore: '**/patterns/**',
       use: { ...devices['Desktop Chrome'] },
     },
+    {
+      name: 'chromium-patterns',
+      testDir: './tests/patterns',
+      use: { ...devices['Desktop Chrome'], baseURL: 'http://localhost:6007' },
+    },
   ],
-  webServer: {
-    command: 'npm run storybook -w @ethds/react -- --ci',
-    url: 'http://localhost:6006',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-  },
+  webServer: [
+    {
+      command: 'npm run storybook -w @ethds/react -- --ci',
+      url: 'http://localhost:6006',
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
+    },
+    {
+      command: 'npm run storybook -w @ethds/patterns -- --ci',
+      url: 'http://localhost:6007',
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
+    },
+  ],
 });
