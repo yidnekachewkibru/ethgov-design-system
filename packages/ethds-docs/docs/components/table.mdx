@@ -80,6 +80,57 @@ fits better).
   container rather than breaking the page (reflow).
 - Status text in cells is text, not colour-coded chips alone.
 
+## Plain HTML
+
+```html
+<div class="ethds-table-scroll">
+  <table class="ethds-table">
+    <caption class="ethds-table__caption">Your applications</caption>
+    <thead>
+      <tr>
+        <th scope="col" class="ethds-table__th">Reference</th>
+        <th scope="col" class="ethds-table__th">Service</th>
+        <th scope="col" class="ethds-table__th">Status</th>
+        <th scope="col" class="ethds-table__th ethds-table__th--end">Fee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="ethds-table__td">ETH-2026-0041</td>
+        <td class="ethds-table__td">Business licence renewal</td>
+        <td class="ethds-table__td">Approved</td>
+        <td class="ethds-table__td ethds-table__td--end">ETB 350.00</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Empty state: one cell spanning every column, in place of the rows. -->
+<tbody>
+  <tr>
+    <td class="ethds-table__empty" colspan="4">You have no applications yet.</td>
+  </tr>
+</tbody>
+```
+
+```css
+.ethds-table-scroll { overflow-x: auto; }
+.ethds-table { width: 100%; border-collapse: collapse; }
+.ethds-table__caption { padding: var(--ethds-space-2) 0; text-align: start; font-weight: var(--ethds-font-bold); }
+.ethds-table__th {
+  padding: var(--ethds-space-3); text-align: start; font-weight: var(--ethds-font-bold);
+  border-bottom: 2px solid var(--ethds-gray-300); white-space: nowrap;
+}
+.ethds-table__td { padding: var(--ethds-space-3); border-bottom: 1px solid var(--ethds-gray-200); }
+.ethds-table__th--end, .ethds-table__td--end { text-align: end; }
+.ethds-table__empty { padding: var(--ethds-space-6); text-align: center; color: var(--ethds-color-text-secondary); }
+```
+
+If the caption shouldn't be visible (it's still the table's accessible
+name either way), visually hide it with the same clip-based
+`ethds-visually-hidden` class used on [Search](search#plain-html)'s
+label, rather than removing it.
+
 ## Props
 
 | Prop | Type | Notes |
