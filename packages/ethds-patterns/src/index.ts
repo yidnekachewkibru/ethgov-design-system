@@ -22,6 +22,29 @@ export { OtpForm, DEFAULT_OTP_LABELS } from './patterns/OtpVerification';
 export type { OtpFormProps, OtpFormLabels } from './patterns/OtpVerification';
 
 export {
+  ApplicationSubmissionFlow,
+  DEFAULT_APPLICATION_SUBMISSION_LABELS,
+  ApplicantStep,
+  BusinessDetailsStep,
+  DocumentsStep,
+  ReviewStep,
+  ConfirmationPanel,
+} from './patterns/ApplicationSubmission';
+export type {
+  ApplicationSubmissionFlowProps,
+  ApplicationSubmissionFlowLabels,
+  ApplicationData,
+  ApplicantStepProps,
+  ApplicantStepData,
+  BusinessDetailsStepProps,
+  BusinessDetailsStepData,
+  DocumentsStepProps,
+  DocumentsStepData,
+  ReviewStepProps,
+  ConfirmationPanelProps,
+} from './patterns/ApplicationSubmission';
+
+export {
   PasswordResetFlow,
   DEFAULT_PASSWORD_RESET_LABELS,
   DEFAULT_PASSWORD_RESET_CONFIRMATION_LABELS,

@@ -11,11 +11,12 @@ service — [Reuse Before Building](../../docs/design-principles/07-reuse-before
 A pattern is a composition of components plus the rules (validation,
 messaging, sequencing) that make the flow work for citizens.
 
-> **Status:** the auth flows — Login, Registration, OTP Verification,
-> Password Reset — ship as a real, tested `@ethds/patterns` package
-> (types, `vitest-axe` tests, Storybook stories, CI). The remaining 6
-> patterns are tracked as follow-up PRs; until built, they remain
-> documentation + reference composition code below.
+> **Status:** the auth flows — Login, Registration, OTP Verification —
+> and the multi-step Application Submission and Password Reset flows
+> ship as a real, tested `@ethds/patterns` package (types, `vitest-axe`
+> tests, Storybook stories, CI). The remaining 5 patterns are tracked as
+> follow-up PRs; until built, they remain documentation + reference
+> composition code below.
 
 ## Install
 
@@ -45,7 +46,7 @@ import { LoginForm } from '@ethds/patterns';
 | [Registration](patterns/registration.md) | Create an account / citizen profile | ✅ `RegisterForm` |
 | [OTP Verification](patterns/otp-verification.md) | Verify a phone/email via one-time code | ✅ `OtpForm` |
 | [Password Reset](patterns/password-reset.md) | Recover access to an account | ✅ `PasswordResetFlow` |
-| [Application Submission](patterns/application-submission.md) | Multi-step service application | 🔵 documented |
+| [Application Submission](patterns/application-submission.md) | Multi-step service application | ✅ `ApplicationSubmissionFlow` |
 | [Status Tracking](patterns/status-tracking.md) | Check the state of a request | 🔵 documented |
 | [Appointment Booking](patterns/appointment-booking.md) | Book a slot at an office | 🔵 documented |
 | [Complaint Submission](patterns/complaint-submission.md) | Report an issue / grievance | 🔵 documented |
@@ -54,7 +55,7 @@ import { LoginForm } from '@ethds/patterns';
 
 The shared `useMultiStepForm` hook (step position + accumulated draft +
 `onSaveDraft`/`onSubmit` callbacks, no persistence assumptions baked in)
-powers `PasswordResetFlow` and will power Application Submission as it lands.
+powers `ApplicationSubmissionFlow` and `PasswordResetFlow`.
 
 ## How every pattern is documented
 

@@ -6,12 +6,14 @@ on:
     paths:
       - "packages/ethds-react/**"
       - "packages/ethds-tokens/**"
+      - "packages/ethds-patterns/**"
       - "packages/ethds-e2e/**"
       - ".github/workflows/e2e.yml"
   pull_request:
     paths:
       - "packages/ethds-react/**"
       - "packages/ethds-tokens/**"
+      - "packages/ethds-patterns/**"
       - "packages/ethds-e2e/**"
       - ".github/workflows/e2e.yml"
 

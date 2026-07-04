@@ -22,6 +22,7 @@ government teams building on ETHDS inherit by default.
 | [Motion](motion.md) | Reduced motion and animation safety |
 | [Testing Framework](testing-framework.md) | Automated + manual testing and CI gates |
 | [Accessibility Checklist](checklist.md) | The per-change review checklist |
+| [Manual Audit — 2026](manual-audit-2026.md) | The current automated/inspected coverage and what a human tester still needs to check |
 
 ## How this framework is used
 
