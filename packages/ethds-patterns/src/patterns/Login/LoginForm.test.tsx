@@ -42,6 +42,19 @@ describe('LoginForm', () => {
     expect(alert).toHaveTextContent('The phone number/email or password is incorrect.');
   });
 
+  it('moves focus to the error alert so it is announced, per the pattern doc', async () => {
+    const user = userEvent.setup();
+    const onSubmit = vi.fn().mockRejectedValue(new Error('invalid password'));
+    render(<LoginForm {...props} onSubmit={onSubmit} />);
+
+    await user.type(screen.getByLabelText('Phone number or email', { exact: false }), '0911234567');
+    await user.type(screen.getByLabelText('Password', { exact: false }), 'wrong');
+    await user.click(screen.getByRole('button', { name: 'Log in' }));
+
+    const alert = await screen.findByRole('alert');
+    expect(alert).toHaveFocus();
+  });
+
   it('links to the forgot-password and register routes', () => {
     render(<LoginForm {...props} onSubmit={async () => {}} />);
     expect(screen.getByRole('link', { name: 'Forgot your password?' })).toHaveAttribute('href', '/reset');

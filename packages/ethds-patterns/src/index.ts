@@ -21,6 +21,51 @@ export type {
 export { OtpForm, DEFAULT_OTP_LABELS } from './patterns/OtpVerification';
 export type { OtpFormProps, OtpFormLabels } from './patterns/OtpVerification';
 
+export {
+  ApplicationSubmissionFlow,
+  DEFAULT_APPLICATION_SUBMISSION_LABELS,
+  ApplicantStep,
+  BusinessDetailsStep,
+  DocumentsStep,
+  ReviewStep,
+  ConfirmationPanel,
+} from './patterns/ApplicationSubmission';
+export type {
+  ApplicationSubmissionFlowProps,
+  ApplicationSubmissionFlowLabels,
+  ApplicationData,
+  ApplicantStepProps,
+  ApplicantStepData,
+  BusinessDetailsStepProps,
+  BusinessDetailsStepData,
+  DocumentsStepProps,
+  DocumentsStepData,
+  ReviewStepProps,
+  ConfirmationPanelProps,
+} from './patterns/ApplicationSubmission';
+
+export {
+  PasswordResetFlow,
+  DEFAULT_PASSWORD_RESET_LABELS,
+  DEFAULT_PASSWORD_RESET_CONFIRMATION_LABELS,
+  RequestResetStep,
+  DEFAULT_REQUEST_RESET_LABELS,
+  SetNewPasswordStep,
+  DEFAULT_SET_NEW_PASSWORD_LABELS,
+} from './patterns/PasswordReset';
+export type {
+  PasswordResetFlowProps,
+  PasswordResetFlowLabels,
+  PasswordResetConfirmationLabels,
+  PasswordResetData,
+  RequestResetStepProps,
+  RequestResetStepData,
+  RequestResetStepLabels,
+  SetNewPasswordStepProps,
+  SetNewPasswordStepData,
+  SetNewPasswordStepLabels,
+} from './patterns/PasswordReset';
+
 export { StatusView, DEFAULT_STATUS_VIEW_LABELS } from './patterns/StatusTracking';
 export type { StatusViewProps, StatusViewLabels, StatusStep } from './patterns/StatusTracking';
 
