@@ -111,6 +111,10 @@ Usable now:
 
 - [`@ethds/tokens`](packages/ethds-tokens/) — the design-token source of
   truth, built to CSS variables, a typed module, and a Tailwind preset.
+  Framework-agnostic by design; component, pattern, and template docs on
+  the [docs site](https://yidnekachewkibru.github.io/ethgov-design-system/)
+  now include a plain-HTML/CSS(/JS where needed) example built on these
+  same tokens, alongside the React one, for teams on other stacks.
 - [`ethds-docs`](packages/ethds-docs/) — the Docusaurus documentation
   site (principles, brand, accessibility), multilingual and themed from
   `@ethds/tokens`, deployable to GitHub Pages.

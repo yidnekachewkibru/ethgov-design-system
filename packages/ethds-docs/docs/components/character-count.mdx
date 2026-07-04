@@ -57,6 +57,62 @@ staff need. Use a plain [Textarea](textarea.mdx) when there's no real limit.
   (never colour alone).
 - Same label/hint/error wiring as [Textarea](textarea.mdx).
 
+## Plain HTML
+
+This is the component in the MVP slice that genuinely needs a script —
+the count has to update as the citizen types, which a server round-trip
+can't do. The markup, the `data-module` attribute, and the auto-init
+pattern below are the convention every other JS-needing ETHDS component
+(`ErrorSummary`'s focus-on-load, `CookieBanner`'s focus-on-load,
+`DateInput`'s field handling, `FileUpload`'s filename display) would
+follow, once documented.
+
+```html
+<div class="ethds-field" data-module="ethds-character-count" data-maxlength="200">
+  <label for="complaint" class="ethds-label">Describe your complaint</label>
+  <span id="complaint-hint" class="ethds-hint">Keep it brief and specific.</span>
+  <textarea
+    id="complaint"
+    name="complaint"
+    rows="4"
+    class="ethds-textarea"
+    aria-describedby="complaint-hint complaint-count"
+  ></textarea>
+  <span id="complaint-count" class="ethds-count" aria-live="polite">
+    You have 200 characters remaining (limit 200)
+  </span>
+</div>
+```
+
+```js
+// ethds-character-count.js — no dependencies, no build step.
+function initCharacterCount(root) {
+  const textarea = root.querySelector('textarea');
+  const count = root.querySelector('.ethds-count');
+  const limit = Number(root.dataset.maxlength);
+
+  function update() {
+    const remaining = limit - textarea.value.length;
+    const overLimit = remaining < 0;
+    count.textContent = overLimit
+      ? `You have ${Math.abs(remaining)} character${Math.abs(remaining) === 1 ? '' : 's'} too many`
+      : `You have ${remaining} character${remaining === 1 ? '' : 's'} remaining (limit ${limit})`;
+    textarea.classList.toggle('ethds-textarea--error', overLimit);
+    textarea.setAttribute('aria-invalid', overLimit ? 'true' : 'false');
+  }
+
+  textarea.addEventListener('input', update);
+}
+
+document.querySelectorAll('[data-module="ethds-character-count"]').forEach(initCharacterCount);
+```
+
+The live region (`aria-live="polite"`) is what makes the update
+announced without interrupting typing — that part is pure HTML, the
+script only needs to change its `textContent`. Same rule as the React
+version: never key the over-limit state off colour alone, the message
+text itself always says "too many".
+
 ## Props
 
 | Prop | Type | Notes |
