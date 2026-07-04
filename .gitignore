@@ -12,6 +12,9 @@ storybook-static/
 
 # Testing
 coverage/
+test-results/
+playwright-report/
+blob-report/
 
 # Environment
 .env
