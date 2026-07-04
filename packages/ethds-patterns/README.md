@@ -12,11 +12,13 @@ A pattern is a composition of components plus the rules (validation,
 messaging, sequencing) that make the flow work for citizens.
 
 > **Status:** the auth flows — Login, Registration, OTP Verification —
-> and the multi-step Application Submission and Password Reset flows
-> ship as a real, tested `@ethds/patterns` package (types, `vitest-axe`
-> tests, Storybook stories, CI). The remaining 5 patterns are tracked as
-> follow-up PRs; until built, they remain documentation + reference
-> composition code below.
+> the multi-step Application Submission and Password Reset flows, and
+> the single-screen service patterns — Status Tracking, Complaint
+> Submission, Appointment Booking — ship as a real, tested
+> `@ethds/patterns` package (types, `vitest-axe` tests, Storybook
+> stories, CI). The remaining 2 patterns (Payment Flow, Receipt Flow)
+> are tracked as follow-up PRs; until built, they remain documentation +
+> reference composition code below.
 
 ## Install
 
@@ -47,9 +49,9 @@ import { LoginForm } from '@ethds/patterns';
 | [OTP Verification](patterns/otp-verification.md) | Verify a phone/email via one-time code | ✅ `OtpForm` |
 | [Password Reset](patterns/password-reset.md) | Recover access to an account | ✅ `PasswordResetFlow` |
 | [Application Submission](patterns/application-submission.md) | Multi-step service application | ✅ `ApplicationSubmissionFlow` |
-| [Status Tracking](patterns/status-tracking.md) | Check the state of a request | 🔵 documented |
-| [Appointment Booking](patterns/appointment-booking.md) | Book a slot at an office | 🔵 documented |
-| [Complaint Submission](patterns/complaint-submission.md) | Report an issue / grievance | 🔵 documented |
+| [Status Tracking](patterns/status-tracking.md) | Check the state of a request | ✅ `StatusView` |
+| [Appointment Booking](patterns/appointment-booking.md) | Book a slot at an office | ✅ `BookingForm` |
+| [Complaint Submission](patterns/complaint-submission.md) | Report an issue / grievance | ✅ `ComplaintForm` |
 | [Payment Flow](patterns/payment-flow.md) | Pay a government fee (Birr) | 🔵 documented |
 | [Receipt Flow](patterns/receipt-flow.md) | Confirm and provide proof of payment | 🔵 documented |
 
