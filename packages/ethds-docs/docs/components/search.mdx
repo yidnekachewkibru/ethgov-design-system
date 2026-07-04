@@ -50,6 +50,53 @@ navigation with search alone.
 - Submits on <kbd>Enter</kbd> and via the button; `type="search"` gives
   the right mobile keyboard.
 
+## Plain HTML
+
+```html
+<form role="search" action="/search" method="get" class="ethds-search">
+  <label for="q" class="ethds-visually-hidden">Search government services</label>
+  <input
+    id="q"
+    name="q"
+    type="search"
+    inputmode="search"
+    placeholder="e.g. renew driving licence"
+    class="ethds-search__input"
+  />
+  <button type="submit" class="ethds-search__submit">Search</button>
+</form>
+```
+
+```css
+.ethds-search { display: flex; gap: var(--ethds-space-2); }
+.ethds-search__input {
+  flex: 1 1 auto;
+  min-height: 44px;
+  padding: var(--ethds-space-2) var(--ethds-space-3);
+  border: 1px solid var(--ethds-color-border);
+  border-radius: var(--ethds-radius-md);
+}
+.ethds-search__submit {
+  min-height: 44px;
+  padding: var(--ethds-space-2) var(--ethds-space-4);
+  background: var(--ethds-color-primary);
+  color: var(--ethds-white);
+  border: 1px solid transparent;
+  border-radius: var(--ethds-radius-md);
+  font-weight: var(--ethds-font-medium);
+  cursor: pointer;
+}
+.ethds-visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+```
+
+No JavaScript is required — a plain `method="get"` form submits the
+query as a `?q=` parameter the server reads directly. This is the same
+markup already used in the [404 page](/docs/templates/404-page#plain-html)
+template's Plain HTML example.
+
 ## Props
 
 | Prop | Type | Notes |

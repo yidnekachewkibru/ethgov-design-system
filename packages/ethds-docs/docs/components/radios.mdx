@@ -114,6 +114,52 @@ a labelled group.
 - Group hint/error via `aria-describedby`; error sets `aria-invalid` on
   the group; per-option hints are individually associated.
 
+## Plain HTML
+
+A `<fieldset>`/`<legend>` group of native radios sharing one `name` —
+arrow-key navigation and toggling come from the browser for free.
+
+```html
+<fieldset class="ethds-radio-group">
+  <legend class="ethds-legend">Where do you live?</legend>
+
+  <div class="ethds-radio-options">
+    <div class="ethds-radio-row">
+      <input id="region-aa" name="region" type="radio" value="aa" class="ethds-radio" />
+      <label for="region-aa" class="ethds-label">Addis Ababa</label>
+    </div>
+    <div class="ethds-radio-row">
+      <input id="region-or" name="region" type="radio" value="or" class="ethds-radio" />
+      <label for="region-or" class="ethds-label">Oromia</label>
+    </div>
+  </div>
+</fieldset>
+
+<!-- A per-option hint is linked the same way a field hint is: -->
+<div class="ethds-radio-row">
+  <input id="delivery-pickup" name="delivery" type="radio" value="pickup"
+         class="ethds-radio" aria-describedby="delivery-pickup-hint" />
+  <label for="delivery-pickup" class="ethds-label">Pick up</label>
+</div>
+<span id="delivery-pickup-hint" class="ethds-hint">Collect from your kebele office</span>
+```
+
+```css
+.ethds-radio-group { margin: 0; padding: 0; border: 0; }
+.ethds-legend { font: var(--ethds-font-medium) var(--ethds-text-base) var(--ethds-font-sans); margin-bottom: var(--ethds-space-2); }
+.ethds-radio-options { display: flex; flex-direction: column; gap: var(--ethds-space-2); }
+.ethds-radio-row { display: flex; align-items: flex-start; gap: var(--ethds-space-2); }
+.ethds-radio { width: 20px; height: 20px; margin: 0; accent-color: var(--ethds-color-primary); }
+.ethds-radio:focus-visible { outline: 2px solid var(--ethds-color-focus); outline-offset: 2px; }
+```
+
+On error, set `aria-describedby`/`aria-invalid="true"` on the
+`<fieldset>` (not the individual inputs) and add an error span after the
+options — same group-level convention shown in the "Hints, per-option
+hints, and error" example above. The tile variant is a CSS-only
+extension (a bordered box that highlights `:has(.ethds-radio:checked)`)
+and isn't required for a functioning group.
+
 ## Props
 
 | Prop | Type | Notes |
