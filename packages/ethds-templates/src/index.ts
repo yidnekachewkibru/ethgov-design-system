@@ -9,3 +9,20 @@ export type { ForbiddenPageProps, ForbiddenPageLabels } from './templates/Forbid
 
 export { ServerErrorPage, DEFAULT_SERVER_ERROR_LABELS } from './templates/ServerErrorPage';
 export type { ServerErrorPageProps, ServerErrorPageLabels } from './templates/ServerErrorPage';
+
+export {
+  NationalPortalHomepage,
+  DEFAULT_NATIONAL_PORTAL_LABELS,
+} from './templates/NationalPortalHomepage';
+export type {
+  NationalPortalHomepageProps,
+  NationalPortalHomepageLabels,
+} from './templates/NationalPortalHomepage';
+
+export { MinistryHomepage, DEFAULT_MINISTRY_LABELS } from './templates/MinistryHomepage';
+export type { MinistryHomepageProps, MinistryHomepageLabels } from './templates/MinistryHomepage';
+
+export { AgencyHomepage, DEFAULT_AGENCY_LABELS } from './templates/AgencyHomepage';
+export type { AgencyHomepageProps, AgencyHomepageLabels } from './templates/AgencyHomepage';
+
+export type { HomepageLinkItem, HomepageSection, HomepageSearchConfig } from './templates/_internal/HomepageLayout';
