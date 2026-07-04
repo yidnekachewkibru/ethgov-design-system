@@ -1,0 +1,30 @@
+name: changeset-check
+
+# Fails a PR that touches a publishable package without an accompanying
+# changeset, so version bumps aren't silently missed. This check only
+# validates that a changeset file exists — it never runs `npm publish`.
+on:
+  pull_request:
+    paths:
+      - "packages/ethds-tokens/**"
+      - "packages/ethds-react/**"
+      - "packages/ethds-patterns/**"
+      - "packages/ethds-templates/**"
+      - ".changeset/**"
+      - ".github/workflows/changeset-check.yml"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install
+        run: npm ci
+      - name: Require a changeset for publishable-package changes
+        run: npx changeset status --since=origin/main

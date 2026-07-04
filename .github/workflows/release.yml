@@ -1,0 +1,39 @@
+name: release
+
+# Version-PR automation only. This workflow never runs `npm publish` and
+# never references an npm token — it only opens/updates the "Version
+# Packages" PR that Changesets generates from accumulated changesets on
+# `main`. Publishing to npm stays a deliberate, separate maintainer step
+# (see docs/governance/release-management.md) until that is a decision
+# the project makes explicitly.
+on:
+  push:
+    branches: ["main"]
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install
+        run: npm ci
+      - name: Create/update the Version Packages PR
+        uses: changesets/action@v1
+        with:
+          version: npx changeset version
+          # No `publish` input on purpose — see the note above.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
