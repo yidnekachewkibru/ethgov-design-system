@@ -26,3 +26,35 @@ export { AgencyHomepage, DEFAULT_AGENCY_LABELS } from './templates/AgencyHomepag
 export type { AgencyHomepageProps, AgencyHomepageLabels } from './templates/AgencyHomepage';
 
 export type { HomepageLinkItem, HomepageSection, HomepageSearchConfig } from './templates/_internal/HomepageLayout';
+
+export { ServiceLandingPage, DEFAULT_SERVICE_LANDING_LABELS } from './templates/ServiceLandingPage';
+export type { ServiceLandingPageProps, ServiceLandingPageLabels } from './templates/ServiceLandingPage';
+
+export { SearchResultsPage, DEFAULT_SEARCH_RESULTS_LABELS } from './templates/SearchResultsPage';
+export type {
+  SearchResultsPageProps,
+  SearchResultsPageLabels,
+  SearchResult,
+} from './templates/SearchResultsPage';
+
+export {
+  NewsListingPage,
+  DEFAULT_NEWS_LISTING_LABELS,
+  NewsArticlePage,
+  DEFAULT_NEWS_ARTICLE_LABELS,
+} from './templates/NewsPage';
+export type {
+  NewsListingPageProps,
+  NewsListingPageLabels,
+  NewsListItem,
+  NewsArticlePageProps,
+  NewsArticlePageLabels,
+} from './templates/NewsPage';
+
+export { ContactPage, DEFAULT_CONTACT_LABELS } from './templates/ContactPage';
+export type {
+  ContactPageProps,
+  ContactPageLabels,
+  ContactMethod,
+  ContactMessageData,
+} from './templates/ContactPage';
