@@ -5,12 +5,14 @@ on:
     branches: ["**"]
     paths:
       - "packages/ethds-templates/**"
+      - "packages/ethds-patterns/**"
       - "packages/ethds-react/**"
       - "packages/ethds-tokens/**"
       - ".github/workflows/templates.yml"
   pull_request:
     paths:
       - "packages/ethds-templates/**"
+      - "packages/ethds-patterns/**"
       - "packages/ethds-react/**"
       - "packages/ethds-tokens/**"
       - ".github/workflows/templates.yml"
@@ -30,6 +32,8 @@ jobs:
         run: npm run build -w @ethds/tokens
       - name: Build react (dependency)
         run: npm run build -w @ethds/react
+      - name: Build patterns (dependency)
+        run: npm run build -w @ethds/patterns
       - name: Typecheck
         run: npm run typecheck -w @ethds/templates
       - name: Test (Vitest + axe)

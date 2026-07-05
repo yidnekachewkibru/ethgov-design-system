@@ -7,12 +7,16 @@ on:
       - "packages/ethds-docs/**"
       - "packages/ethds-tokens/**"
       - "packages/ethds-react/**"
+      - "packages/ethds-patterns/**"
+      - "packages/ethds-templates/**"
       - ".github/workflows/docs.yml"
   pull_request:
     paths:
       - "packages/ethds-docs/**"
       - "packages/ethds-tokens/**"
       - "packages/ethds-react/**"
+      - "packages/ethds-patterns/**"
+      - "packages/ethds-templates/**"
       - ".github/workflows/docs.yml"
 
 jobs:
@@ -26,6 +30,14 @@ jobs:
           cache: "npm"
       - name: Install
         run: npm ci
+      - name: Build tokens (dependency)
+        run: npm run build -w @ethds/tokens
+      - name: Build react (dependency)
+        run: npm run build -w @ethds/react
+      - name: Build patterns (dependency)
+        run: npm run build -w @ethds/patterns
+      - name: Build templates (dependency)
+        run: npm run build -w @ethds/templates
       - name: Typecheck
         run: npm run typecheck -w ethds-docs
       - name: Build docs (all 6 locales; fails on any broken internal link)
