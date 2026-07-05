@@ -1,13 +1,12 @@
 ---
 id: panel
 title: Panel
+hide_title: true
 sidebar_position: 21
 ---
 
 import Example from '@site/src/components/Example';
 import { Panel } from '@ethds/react';
-
-# Panel
 
 The confirmation banner shown when a citizen completes a transaction —
 the green "Application complete" box with the reference number.
@@ -45,6 +44,39 @@ something is done.
 - White text on ETHDS success green (`green-700`) is **7.82:1** —
   comfortably AA.
 - Completion is stated in text; colour is reinforcement.
+
+## Plain HTML
+
+```html
+<div class="ethds-panel">
+  <h1 class="ethds-panel__title">Application complete</h1>
+  <div class="ethds-panel__reference">Your reference: ETH-2026-00412</div>
+  <div class="ethds-panel__body">Keep this reference to track your application.</div>
+</div>
+```
+
+```css
+.ethds-panel {
+  padding: var(--ethds-space-8) var(--ethds-space-6);
+  text-align: center;
+  background: var(--ethds-green-700);
+  color: var(--ethds-white);
+  border-radius: var(--ethds-radius-md);
+}
+.ethds-panel__title { margin: 0; font-size: var(--ethds-text-3xl); font-weight: var(--ethds-font-bold); }
+.ethds-panel__reference { margin-top: var(--ethds-space-4); font-size: var(--ethds-text-xl); }
+.ethds-panel__body { margin-top: var(--ethds-space-3); }
+```
+
+The `<h1>` here **is** the page's only heading — this is why the live
+demo above hides this doc page's own title (it would otherwise be a
+second, competing `<h1>`, the same reasoning documented on every
+[pattern](/docs/patterns/login#plain-html) page whose form renders its
+own page-level heading). Render this once, at the top of a confirmation
+page, and move focus to it on arrival with a small
+`document.querySelector('.ethds-panel__title').setAttribute('tabindex', '-1'); …focus()`
+if the page was reached via a client-side transition rather than a full
+navigation.
 
 ## Props
 

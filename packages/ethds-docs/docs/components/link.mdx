@@ -57,6 +57,37 @@ saves, deletes), use a [Button](button).
   focus ring.
 - Pass translated text as children — the text is the accessible name.
 
+## Plain HTML
+
+```html
+<a href="/guidance" class="ethds-link">full guidance</a>
+
+<a href="/guidance" class="ethds-link ethds-link--subtle">Subtle link</a>
+
+<a href="https://example.gov.et" class="ethds-link" target="_blank" rel="noopener noreferrer">
+  External link
+  <span class="ethds-visually-hidden">(opens in new tab)</span>
+</a>
+```
+
+```css
+.ethds-link {
+  color: var(--ethds-color-interactive);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ethds-link:hover { color: var(--ethds-color-interactive-hover); }
+.ethds-link:focus-visible { outline: 2px solid var(--ethds-color-focus); outline-offset: 2px; }
+.ethds-link--subtle { color: var(--ethds-color-text); text-decoration: none; }
+.ethds-link--subtle:hover { text-decoration: underline; }
+```
+
+A plain `<a>` — no JavaScript needed. `target="_blank"` always pairs
+with `rel="noopener noreferrer"` (never one without the other), and the
+visually-hidden note ensures screen-reader users hear that the link
+opens a new tab, since the visual icon convention some sites use for
+this doesn't reach them.
+
 ## Props
 
 | Prop | Type | Default |

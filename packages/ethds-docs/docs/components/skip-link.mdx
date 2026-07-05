@@ -50,6 +50,39 @@ There's no page that shouldn't have one.
 - Pass the text translated ("Skip to main content" in the active
   language).
 
+## Plain HTML
+
+The very first thing inside `<body>`, on every page.
+
+```html
+<a href="#main" class="ethds-skip-link">Skip to main content</a>
+…
+<main id="main">…</main>
+```
+
+```css
+.ethds-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: var(--ethds-space-2) var(--ethds-space-4);
+  background: var(--ethds-color-primary);
+  color: var(--ethds-white);
+  text-decoration: underline;
+  border-radius: 0 0 var(--ethds-radius-md) 0;
+}
+.ethds-skip-link:focus {
+  left: 0;
+  outline: 2px solid var(--ethds-yellow-400);
+  outline-offset: 2px;
+}
+```
+
+No JavaScript — a plain in-page anchor link, pushed off-screen until it
+receives keyboard focus. This is the exact markup already used at the
+top of the [404 page](/docs/templates/404-page#plain-html) template.
+
 ## Props
 
 | Prop | Type | Default |

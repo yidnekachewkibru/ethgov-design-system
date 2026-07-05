@@ -63,6 +63,40 @@ from the outline, keep the semantic `level` and set `visualLevel`:
   `system-ui` fallback so text stays legible if web fonts fail on a slow
   connection.
 
+## Plain HTML
+
+Plain semantic elements with an ETHDS class per size — no component
+needed.
+
+```html
+<h1 class="ethds-h1">Apply for a passport</h1>
+<p class="ethds-text ethds-text--lg">Who this service is for and what it does.</p>
+<p class="ethds-text">Standard body copy at the base size.</p>
+<p class="ethds-text ethds-text--secondary">Secondary, de-emphasised text.</p>
+
+<!-- Looks like an h1, still an h3 in the document outline: -->
+<h3 class="ethds-h1">Looks like an h1, still an h3 for screen readers</h3>
+```
+
+```css
+.ethds-h1, .ethds-h2, .ethds-h3, .ethds-h4 {
+  margin: 0; font-family: var(--ethds-font-sans); font-weight: var(--ethds-font-bold);
+}
+.ethds-h1 { font-size: var(--ethds-text-4xl); line-height: var(--ethds-leading-tight); }
+.ethds-h2 { font-size: var(--ethds-text-3xl); line-height: var(--ethds-leading-snug); }
+.ethds-h3 { font-size: var(--ethds-text-2xl); line-height: var(--ethds-leading-snug); }
+.ethds-h4 { font-size: var(--ethds-text-xl); line-height: var(--ethds-leading-normal); }
+.ethds-text { margin: 0; font-family: var(--ethds-font-sans); line-height: var(--ethds-leading-relaxed); }
+.ethds-text--lg { font-size: var(--ethds-text-lg); }
+.ethds-text--secondary { color: var(--ethds-color-text-secondary); }
+```
+
+The class picks the **size**; the tag you choose picks the **document
+outline position**. Keep one `<h1>` per page and don't skip levels — pick
+the tag for where the heading sits in the outline, and the class for how
+big it should look, exactly as the React version's `level` /
+`visualLevel` split does.
+
 ## Props
 
 | Component | Key props |

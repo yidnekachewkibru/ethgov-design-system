@@ -67,6 +67,39 @@ control. Icon-only buttons must have an `aria-label`.
 - A standalone meaningful icon must meet 3:1 non-text contrast.
 - `focusable={false}` so decorative SVGs never catch keyboard focus.
 
+## Plain HTML
+
+```html
+<!-- Decorative — hidden from screen readers, text carries the meaning: -->
+<span>Done
+  <svg class="ethds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+       aria-hidden="true" focusable="false">
+    <path d="M20 6 9 17l-5-5" />
+  </svg>
+</span>
+
+<!-- Meaningful — announced with an accessible name: -->
+<svg class="ethds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+     role="img" aria-label="Success" focusable="false">
+  <path d="M20 6 9 17l-5-5" />
+</svg>
+```
+
+```css
+.ethds-icon { display: inline-block; vertical-align: middle; width: var(--ethds-icon-md); height: var(--ethds-icon-md); color: inherit; }
+.ethds-icon--sm { width: var(--ethds-icon-sm); height: var(--ethds-icon-sm); }
+.ethds-icon--lg { width: var(--ethds-icon-lg); height: var(--ethds-icon-lg); }
+.ethds-icon--xl { width: var(--ethds-icon-xl); height: var(--ethds-icon-xl); }
+```
+
+`stroke="currentColor"` is what makes an icon inherit the surrounding
+text's colour (and therefore its contrast) automatically. The path data
+above is the actual Check icon shipped with `@ethds/react` — copy the
+`<path>` from any icon you need out of
+[`Icon/icons.tsx`](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/packages/ethds-react/src/components/Icon/icons.tsx).
+
 ## Props
 
 | Prop | Type | Default |
