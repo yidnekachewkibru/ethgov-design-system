@@ -48,6 +48,51 @@ shortcuts if skipping ahead would break validation.
 - Step numbers are decorative (`aria-hidden`); the announced content is
   the step names.
 
+## Plain HTML
+
+```html
+<nav aria-label="Application progress" class="ethds-step-indicator">
+  <ol class="ethds-step-indicator__list">
+    <li class="ethds-step-indicator__step ethds-step-indicator__step--complete">
+      <span class="ethds-step-indicator__number" aria-hidden="true">1</span>
+      <span>Applicant</span>
+    </li>
+    <li class="ethds-step-indicator__step ethds-step-indicator__step--current" aria-current="step">
+      <span class="ethds-step-indicator__number" aria-hidden="true">2</span>
+      <span>Details</span>
+    </li>
+    <li class="ethds-step-indicator__step">
+      <span class="ethds-step-indicator__number" aria-hidden="true">3</span>
+      <span>Documents</span>
+    </li>
+    <li class="ethds-step-indicator__step">
+      <span class="ethds-step-indicator__number" aria-hidden="true">4</span>
+      <span>Review</span>
+    </li>
+  </ol>
+</nav>
+```
+
+```css
+.ethds-step-indicator__list { display: flex; flex-wrap: wrap; gap: var(--ethds-space-4); margin: 0; padding: 0; list-style: none; }
+.ethds-step-indicator__step { display: inline-flex; align-items: center; gap: var(--ethds-space-2); font-size: var(--ethds-text-sm); color: var(--ethds-color-text-secondary); }
+.ethds-step-indicator__number {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: var(--ethds-radius-full);
+  border: 2px solid var(--ethds-color-border); background: var(--ethds-white); font-weight: var(--ethds-font-medium);
+}
+.ethds-step-indicator__step--complete .ethds-step-indicator__number,
+.ethds-step-indicator__step--current .ethds-step-indicator__number {
+  border-color: var(--ethds-color-primary);
+}
+.ethds-step-indicator__step--complete .ethds-step-indicator__number { background: var(--ethds-color-primary); color: var(--ethds-white); }
+.ethds-step-indicator__step--current .ethds-step-indicator__number { color: var(--ethds-color-primary); }
+```
+
+Server-rendered per page load — mark the current `<li>` with
+`aria-current="step"` and the `--current`/`--complete` modifier classes
+based on which step the request is actually serving.
+
 ## Props
 
 | Prop | Type | Notes |

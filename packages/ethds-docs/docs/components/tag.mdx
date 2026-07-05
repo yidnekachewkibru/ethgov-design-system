@@ -46,6 +46,36 @@ a "Rejected" tag must say rejected, not just be red.
 - Every tint/text pairing is verified WCAG 2.2 AA (e.g. `green-700` on
   `green-50` = 6.97:1, `red-700` on `red-50` = 7.43:1).
 
+## Plain HTML
+
+```html
+<span class="ethds-tag ethds-tag--neutral">Draft</span>
+<span class="ethds-tag ethds-tag--info">In review</span>
+<span class="ethds-tag ethds-tag--success">Approved</span>
+<span class="ethds-tag ethds-tag--warning">Action needed</span>
+<span class="ethds-tag ethds-tag--error">Rejected</span>
+```
+
+```css
+.ethds-tag {
+  display: inline-block;
+  padding: var(--ethds-space-1) var(--ethds-space-2);
+  font-size: var(--ethds-text-sm);
+  font-weight: var(--ethds-font-medium);
+  border-radius: var(--ethds-radius-sm);
+  white-space: nowrap;
+}
+.ethds-tag--neutral { background: var(--ethds-gray-100); color: var(--ethds-gray-700); }
+.ethds-tag--info { background: var(--ethds-blue-50); color: var(--ethds-blue-700); }
+.ethds-tag--success { background: var(--ethds-green-50); color: var(--ethds-green-700); }
+.ethds-tag--warning { background: var(--ethds-yellow-50); color: var(--ethds-yellow-700); }
+.ethds-tag--error { background: var(--ethds-red-50); color: var(--ethds-red-700); }
+```
+
+A static `<span>` — no JavaScript. The tint is reinforcement only; never
+ship a tag whose only signal is colour, always pair it with the status
+word itself.
+
 ## Props
 
 | Prop | Type | Default |
