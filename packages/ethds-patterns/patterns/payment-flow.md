@@ -141,3 +141,63 @@ export function PaymentReview({
   );
 }
 ```
+
+## HTML Example
+
+```html
+<section>
+  <h1>Pay for: Business licence renewal</h1>
+
+  <!-- Only present after a failed or cancelled payment attempt. -->
+  <div role="alert" class="ethds-alert ethds-alert--error">
+    Payment did not complete. No amount was charged — you can try again.
+  </div>
+
+  <div class="ethds-table-scroll">
+    <table class="ethds-table">
+      <caption class="ethds-table__caption">Charges</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="ethds-table__th">Item</th>
+          <th scope="col" class="ethds-table__th ethds-table__th--end">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ethds-table__td">Business licence renewal fee</td>
+          <td class="ethds-table__td ethds-table__td--end">ETB 350.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Total: ETB 350.00</strong></p>
+
+  <form method="post" action="/pay">
+    <fieldset class="ethds-radio-group">
+      <legend class="ethds-legend">Payment method</legend>
+      <div class="ethds-radio-options">
+        <div class="ethds-radio-row">
+          <input id="method-telebirr" name="method" type="radio" value="telebirr" class="ethds-radio" checked />
+          <label for="method-telebirr" class="ethds-label">Telebirr</label>
+        </div>
+        <div class="ethds-radio-row">
+          <input id="method-bank" name="method" type="radio" value="bank" class="ethds-radio" />
+          <label for="method-bank" class="ethds-label">Bank transfer</label>
+        </div>
+        <div class="ethds-radio-row">
+          <input id="method-card" name="method" type="radio" value="card" class="ethds-radio" />
+          <label for="method-card" class="ethds-label">Card</label>
+        </div>
+      </div>
+    </fieldset>
+    <button type="submit" class="ethds-button ethds-button--primary">Pay ETB 350.00</button>
+  </form>
+</section>
+```
+
+The server computes the total from the item(s) — never trust a client-
+submitted amount. Posting `/pay` redirects to the payment provider (or,
+for Telebirr/bank flows that complete out-of-band, to a "confirming your
+payment" holding page); the provider's own return redirect lands on a
+definite paid/failed [Receipt](receipt-flow.md#html-example) page, never
+back on this form with an ambiguous state.

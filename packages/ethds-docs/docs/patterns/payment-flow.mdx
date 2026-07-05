@@ -55,6 +55,16 @@ step right before [Receipt Flow](receipt-flow).
   action is unambiguous when read out of context (e.g. by a screen reader
   users navigating by buttons).
 
+## Plain HTML
+
+A plain `<form method="post">` reusing
+[Table](/docs/components/table#plain-html) and
+[Radios](/docs/components/radios#plain-html)'s markup — see the
+[pattern's own HTML Example](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/packages/ethds-patterns/patterns/payment-flow.md#html-example)
+for the full markup. The server always computes the total; posting the
+form hands off to the payment provider, whose return redirect lands on a
+definite paid/failed [Receipt](receipt-flow#plain-html) page.
+
 ## Localization
 
 Amounts are formatted via `formatBirr(santim, locale)` — pass `locale` to
