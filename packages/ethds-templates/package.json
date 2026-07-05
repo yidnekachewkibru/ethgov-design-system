@@ -1,6 +1,6 @@
 {
   "name": "@ethds/templates",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "ETHDS website templates — tested React compositions of @ethds/react (and @ethds/patterns, for pages that host a service flow).",
   "license": "MIT",
   "type": "module",
@@ -32,7 +32,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@ethds/patterns": "^0.1.0",
+    "@ethds/patterns": "^0.2.0",
     "@ethds/react": "^0.1.0",
     "@ethds/tokens": "^0.1.0"
   },
