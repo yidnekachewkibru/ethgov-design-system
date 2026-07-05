@@ -51,6 +51,37 @@ break up a long page that should instead be split into
   makes sense out of context ("Why do we ask for your Fayda ID?", not
   "More details").
 
+## Plain HTML
+
+```html
+<details class="ethds-details">
+  <summary class="ethds-details__summary">Why do we ask for your Fayda ID?</summary>
+  <div class="ethds-details__content">
+    We use your Fayda national ID to confirm your identity and pre-fill your
+    details from the national registry, so you don't have to re-enter them.
+  </div>
+</details>
+```
+
+```css
+.ethds-details__summary {
+  padding: var(--ethds-space-1) 0;
+  font-weight: var(--ethds-font-medium);
+  color: var(--ethds-color-interactive);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.ethds-details__summary:focus-visible { outline: 2px solid var(--ethds-color-focus); outline-offset: 2px; }
+.ethds-details__content {
+  padding: var(--ethds-space-3) 0 var(--ethds-space-2) var(--ethds-space-5);
+  border-left: 1px solid var(--ethds-color-border);
+}
+```
+
+No JavaScript at all — `<details>`/`<summary>` are native, interactive
+HTML elements. Add the `open` attribute to `<details>` to start it
+expanded.
+
 ## Props
 
 | Prop | Type | Notes |

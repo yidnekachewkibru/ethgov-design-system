@@ -58,6 +58,48 @@ the citizen has submitted.
   the citizen can jump straight to it.
 - Renders nothing when `errors` is empty — no empty live regions.
 
+## Plain HTML
+
+Only rendered by the server when the previous submission failed — same
+convention as the [Login](/docs/patterns/login#plain-html) pattern's
+error alert.
+
+```html
+<div role="alert" tabindex="-1" class="ethds-error-summary" id="error-summary">
+  <h2 class="ethds-error-summary__title">There is a problem</h2>
+  <ul class="ethds-error-summary__list">
+    <li><a href="#given-name" class="ethds-error-summary__link">Enter your given name</a></li>
+    <li><a href="#region" class="ethds-error-summary__link">Choose a region</a></li>
+  </ul>
+</div>
+```
+
+```css
+.ethds-error-summary {
+  padding: var(--ethds-space-4);
+  border: 2px solid var(--ethds-color-error);
+  border-radius: var(--ethds-radius-md);
+  background: var(--ethds-red-50);
+}
+.ethds-error-summary:focus-visible { outline: 2px solid var(--ethds-color-focus); outline-offset: 2px; }
+.ethds-error-summary__title { margin: 0 0 var(--ethds-space-2); color: var(--ethds-red-700); }
+.ethds-error-summary__list { margin: 0; padding-left: var(--ethds-space-5); }
+.ethds-error-summary__link { color: var(--ethds-red-700); text-decoration: underline; }
+```
+
+The one behaviour that needs a line of JavaScript is the focus-on-render
+(`tabindex="-1"` alone doesn't move focus by itself):
+
+```html
+<script>
+  document.getElementById('error-summary')?.focus();
+</script>
+```
+
+Placed at the end of the body (or in a small deferred script), this
+reproduces the React version's `useEffect`-driven auto-focus without any
+client-side state.
+
 ## Props
 
 | Prop | Type | Default |

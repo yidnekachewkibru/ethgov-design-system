@@ -56,6 +56,53 @@ citizen has made a choice; store their answer.
 - Accept and reject are equally prominent buttons — no dark patterns
   (no pre-selected "accept", no hidden reject).
 
+## Plain HTML
+
+```html
+<div role="region" aria-label="Cookies on this service" tabindex="-1"
+     id="cookie-banner" class="ethds-cookie-banner">
+  <p class="ethds-cookie-banner__title">Cookies on this service</p>
+  <div class="ethds-cookie-banner__message">
+    We use some essential cookies to make this service work. We'd also like to
+    use analytics cookies to understand how you use the service and improve it.
+  </div>
+  <div class="ethds-cookie-banner__actions">
+    <button type="button" class="ethds-button ethds-button--primary" id="cookie-accept">Accept additional cookies</button>
+    <button type="button" class="ethds-button ethds-button--secondary" id="cookie-reject">Reject additional cookies</button>
+    <button type="button" class="ethds-cookie-banner__view-link" id="cookie-view">View cookies</button>
+  </div>
+</div>
+```
+
+```css
+.ethds-cookie-banner { padding: var(--ethds-space-4) var(--ethds-space-6); background: var(--ethds-gray-100); border-bottom: 1px solid var(--ethds-color-divider); }
+.ethds-cookie-banner:focus-visible { outline: 2px solid var(--ethds-color-focus); outline-offset: -2px; }
+.ethds-cookie-banner__title { margin: 0 0 var(--ethds-space-2); font-size: var(--ethds-text-lg); font-weight: var(--ethds-font-bold); }
+.ethds-cookie-banner__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ethds-space-3); }
+.ethds-cookie-banner__view-link { padding: 0; background: transparent; border: 0; color: var(--ethds-color-interactive); text-decoration: underline; cursor: pointer; }
+```
+
+Needs a little JavaScript: focus the banner once on load (only if the
+citizen hasn't already chosen), store the choice, and hide the banner so
+it never shows again on this device.
+
+```js
+const banner = document.getElementById('cookie-banner');
+if (banner && !localStorage.getItem('cookie-consent')) {
+  banner.focus();
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'accepted');
+    banner.remove();
+  });
+  document.getElementById('cookie-reject').addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'rejected');
+    banner.remove();
+  });
+} else {
+  banner?.remove();
+}
+```
+
 ## Props
 
 | Prop | Type | Notes |

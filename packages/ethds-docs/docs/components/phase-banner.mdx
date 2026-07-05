@@ -53,6 +53,28 @@ label erodes the trust it's meant to build during rollout.
 - Ordinary flow content — no special ARIA needed; it's read in document
   order right after the header.
 
+## Plain HTML
+
+```html
+<div class="ethds-phase-banner">
+  <span class="ethds-tag ethds-tag--info">Beta</span>
+  <p class="ethds-phase-banner__message">
+    This is a new service — your
+    <a href="/feedback" class="ethds-link">feedback</a> will help us to improve it.
+  </p>
+</div>
+```
+
+```css
+.ethds-phase-banner { display: flex; align-items: flex-start; gap: var(--ethds-space-2); padding: var(--ethds-space-3) 0; border-bottom: 1px solid var(--ethds-color-divider); }
+.ethds-phase-banner__message { margin: 0; font-size: var(--ethds-text-sm); }
+```
+
+Use the `ethds-tag--warning` variant for "Alpha" and `ethds-tag--info`
+for "Beta" (the same [Tag](tag#plain-html) classes already documented).
+Static markup, no JavaScript — place it directly under the
+[Header](header#plain-html) on every page of the service.
+
 ## Props
 
 | Prop | Type | Notes |

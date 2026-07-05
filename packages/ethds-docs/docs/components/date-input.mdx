@@ -85,6 +85,58 @@ instead.
   spinner/scroll behaviour.
 - Group hint/error via `aria-describedby`; error sets `aria-invalid`.
 
+## Plain HTML
+
+Three plain text fields — no calendar-grid widget or JavaScript
+required. The Ethiopian/Gregorian conversion is the one piece of real
+logic in this component: without a client framework, do that conversion
+**server-side** when the form posts, using the same reference date
+(Meskerem 1, 2019 E.C. = 11 September 2026 G.C.) documented above.
+
+```html
+<fieldset class="ethds-date-input">
+  <legend class="ethds-legend">Date of birth</legend>
+  <span id="dob-hint" class="ethds-hint">For example, 1 Meskerem 2015</span>
+
+  <div class="ethds-date-input__row">
+    <div class="ethds-field">
+      <label for="dob-day" class="ethds-field-label">Day</label>
+      <input id="dob-day" name="dob-day" type="text" inputmode="numeric"
+             autocomplete="off" maxlength="2" class="ethds-input ethds-input--day"
+             aria-describedby="dob-hint" />
+    </div>
+    <div class="ethds-field">
+      <label for="dob-month" class="ethds-field-label">Month</label>
+      <input id="dob-month" name="dob-month" type="text" inputmode="numeric"
+             autocomplete="off" maxlength="2" class="ethds-input ethds-input--month"
+             aria-describedby="dob-hint" />
+    </div>
+    <div class="ethds-field">
+      <label for="dob-year" class="ethds-field-label">Year</label>
+      <input id="dob-year" name="dob-year" type="text" inputmode="numeric"
+             autocomplete="off" maxlength="4" class="ethds-input ethds-input--year"
+             aria-describedby="dob-hint" />
+    </div>
+  </div>
+</fieldset>
+```
+
+```css
+.ethds-date-input { margin: 0; padding: 0; border: 0; }
+.ethds-date-input__row { display: flex; gap: var(--ethds-space-3); }
+.ethds-field { display: flex; flex-direction: column; gap: var(--ethds-space-1); }
+.ethds-field-label { font-size: var(--ethds-text-sm); }
+.ethds-input--day, .ethds-input--month { width: 3.5em; }
+.ethds-input--year { width: 5em; }
+```
+
+Post `dob-day`/`dob-month`/`dob-year` as three plain fields; the server
+parses and converts them (Ethiopian → Gregorian if that's the calendar
+in use) the same way `partsToIso` does in the React version, then
+re-renders with `.ethds-input--error` + a group-level error span on
+failure, following the same `aria-describedby`/`aria-invalid` pattern as
+every other field on this page.
+
 ## Props
 
 | Prop | Type | Notes |

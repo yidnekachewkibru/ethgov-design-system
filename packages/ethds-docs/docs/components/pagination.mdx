@@ -51,6 +51,41 @@ content (hard to reference, hard for assistive tech).
   ("…") are decorative and hidden.
 - All targets are at least 44×44px.
 
+## Plain HTML
+
+Each control is a real link to that page's URL (`?page=N`) — no
+JavaScript, works with the browser's own back/forward and bookmarking.
+
+```html
+<nav aria-label="Pagination" class="ethds-pagination">
+  <ul class="ethds-pagination__list">
+    <li><a href="?page=1" class="ethds-pagination__control" aria-label="Previous">‹ Previous</a></li>
+    <li><a href="?page=1" class="ethds-pagination__page">1</a></li>
+    <li><a href="?page=2" class="ethds-pagination__page ethds-pagination__page--current" aria-current="page" aria-label="Page 2, current page">2</a></li>
+    <li><a href="?page=3" class="ethds-pagination__page">3</a></li>
+    <li class="ethds-pagination__gap" aria-hidden="true">…</li>
+    <li><a href="?page=20" class="ethds-pagination__page">20</a></li>
+    <li><a href="?page=3" class="ethds-pagination__control" aria-label="Next">Next ›</a></li>
+  </ul>
+</nav>
+```
+
+```css
+.ethds-pagination__list { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ethds-space-1); margin: 0; padding: 0; list-style: none; }
+.ethds-pagination__control, .ethds-pagination__page {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; min-height: 44px; padding: var(--ethds-space-2) var(--ethds-space-3);
+  color: var(--ethds-color-interactive); background: var(--ethds-white);
+  border: 1px solid var(--ethds-gray-200); border-radius: var(--ethds-radius-md); text-decoration: none;
+}
+.ethds-pagination__page--current { background: var(--ethds-color-primary); border-color: var(--ethds-color-primary); color: var(--ethds-white); }
+.ethds-pagination__gap { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; color: var(--ethds-color-text-secondary); }
+```
+
+On the last page, simply omit the "Next" `<a>` (or render it as
+non-interactive text) rather than disabling a link with JavaScript — a
+missing link is the natural HTML equivalent of `disabled`.
+
 ## Props
 
 | Prop | Type | Notes |

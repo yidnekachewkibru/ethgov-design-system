@@ -74,6 +74,41 @@ small screens:
 - Tiles are **styling only** — the semantics are identical; the whole
   tile highlights when selected and shows a focus outline.
 
+## Plain HTML
+
+The grouped counterpart of [Checkbox](checkbox#plain-html) — a
+`<fieldset>`/`<legend>` around several independent checkboxes sharing one
+`name` (each posts its own value when checked).
+
+```html
+<fieldset class="ethds-checkbox-group">
+  <legend class="ethds-legend">How should we contact you?</legend>
+  <span id="contact-hint" class="ethds-hint">Select all that apply.</span>
+
+  <div class="ethds-checkbox-group__options">
+    <div class="ethds-checkbox-row">
+      <input id="contact-sms" name="contact" type="checkbox" value="sms" class="ethds-checkbox" />
+      <label for="contact-sms" class="ethds-label">SMS</label>
+    </div>
+    <div class="ethds-checkbox-row">
+      <input id="contact-email" name="contact" type="checkbox" value="email" class="ethds-checkbox" />
+      <label for="contact-email" class="ethds-label">Email</label>
+    </div>
+  </div>
+</fieldset>
+```
+
+```css
+.ethds-checkbox-group { margin: 0; padding: 0; border: 0; }
+.ethds-checkbox-group__options { display: flex; flex-direction: column; gap: var(--ethds-space-2); }
+```
+
+Reuses the `.ethds-checkbox-row`/`.ethds-checkbox`/`.ethds-hint` classes
+already defined on Checkbox's page — only the wrapping `<fieldset>` and
+shared `name` are new. The tile variant is the same CSS-only bordered-box
+extension noted on [Radios](radios#plain-html); it doesn't change the
+markup's semantics.
+
 ## Props
 
 | Prop | Type | Notes |
