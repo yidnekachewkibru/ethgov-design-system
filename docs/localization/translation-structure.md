@@ -6,7 +6,7 @@ ETHDS translations are stored as JSON catalogues, one per locale, with
 message values in **ICU MessageFormat** (the de-facto standard for
 plurals, selection, and interpolation). This is the format used by
 FormatJS / `react-intl`, the recommended i18n runtime for `@ethds/react`
-([Phase 7](../phases/phase-7-core-components.md)). Docusaurus has its own
+([`@ethds/react`](../../packages/ethds-react/)). Docusaurus has its own
 built-in i18n for the documentation site.
 
 > **Why ICU MessageFormat:** it handles plural and gender/selection rules

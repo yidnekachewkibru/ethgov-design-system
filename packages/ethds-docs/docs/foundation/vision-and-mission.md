@@ -41,4 +41,4 @@ exists so that solving these problems once, well, and openly benefits
 every team that builds on it.
 
 This vision is grounded in the [Design Philosophy](design-philosophy.md)
-and made real through the phased [Roadmap](roadmap.md).
+and delivered in full across the repository's packages and documentation.

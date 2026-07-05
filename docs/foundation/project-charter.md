@@ -28,8 +28,8 @@ ETHDS delivers, as a single open-source ecosystem:
 - Documentation platform
 - Governance framework
 
-See [`docs/phases/`](../phases/) for the full, phase-by-phase breakdown of
-scope and deliverables.
+All of this scope is delivered — see the [repository README](../../README.md)
+for the shipped packages and documentation.
 
 ## Out of Scope
 

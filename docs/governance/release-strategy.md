@@ -22,9 +22,9 @@ manage versioning and changelogs across the npm workspaces monorepo:
 1. A PR that changes a publishable package includes a changeset file
    describing the change and its semver impact.
 2. Changesets accumulates these into a "Version Packages" PR.
-3. Merging that PR bumps versions, updates changelogs, and (once CI/CD is
-   wired up in [Phase 3](../phases/phase-3-design-tokens.md) and
-   [Phase 7](../phases/phase-7-core-components.md)) publishes to npm.
+3. Merging that PR bumps versions and updates changelogs. Publishing to
+   npm remains a deliberate, separate maintainer step (see
+   [release management](release-management.md)).
 
 This is selected over manual version bumps or a single repo-wide version
 because it scales cleanly to multiple independently-versioned packages
@@ -33,11 +33,9 @@ hand.
 
 ## Pre-1.0 Releases
 
-Packages without production-ready code yet (everything before its
-owning phase is complete) stay at `0.0.0` and are marked private in
-their `package.json`, as set up in
-[Phase 0](../phases/phase-0-foundation.md). A package is only published
-to npm once its owning phase delivers real, tested code.
+Packages without production-ready code stay at `0.0.0` and are marked
+private in their `package.json`. A package is only published to npm once
+it delivers real, tested code.
 
 ## Release Channels
 
@@ -49,4 +47,4 @@ to npm once its owning phase delivers real, tested code.
 
 Security fixes are released as patch versions outside the normal release
 cadence. The disclosure and response process is formalized in
-[Phase 11 — Open Source Governance](../phases/phase-11-open-source-governance.md).
+[the governance docs](../governance/).

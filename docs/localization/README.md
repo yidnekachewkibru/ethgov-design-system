@@ -46,6 +46,6 @@ All six are left-to-right; two use Ge'ez script, four use Latin script.
   [screen-readers.md](../accessibility/screen-readers.md).
 - **Implemented in components:** the i18n infrastructure and the
   [`LanguageSwitcher`](language-switcher.md) ship in `@ethds/react`
-  ([Phase 7](../phases/phase-7-core-components.md)).
+  ([`@ethds/react`](../../packages/ethds-react/)).
 - **The docs site** already demonstrates the configured-locale model
-  ([Phase 4](../phases/phase-4-documentation-platform.md)).
+  ([`ethds-docs`](../../packages/ethds-docs/)).

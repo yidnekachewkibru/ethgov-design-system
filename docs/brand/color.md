@@ -119,5 +119,5 @@ mapping can evolve centrally:
 
 The concrete values are provided as
 [CSS custom properties](assets/ethds-brand.css) and a
-[Tailwind theme](assets/tailwind.brand.cjs), and become the
-[`@ethds/tokens`](../phases/phase-3-design-tokens.md) source in Phase 3.
+[Tailwind theme](assets/tailwind.brand.cjs), and are the
+[`@ethds/tokens`](../../packages/ethds-tokens/) source.

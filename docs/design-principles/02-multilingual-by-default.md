@@ -37,7 +37,7 @@ than an implementation detail.
   Oromo (Latin script): labels, help text, validation errors, and the
   submit button are all translated, and the layout holds when a label in
   one language is twice as long as in another.
-- The [Language Switcher](../phases/phase-7-core-components.md) is present
+- The [Language Switcher](../../packages/ethds-react/) is present
   and reachable on every page, lets the citizen choose among all six
   languages, and persists that choice across the whole journey — it does
   not reset at each step.
@@ -64,21 +64,21 @@ than an implementation detail.
 
 - Never hardcode citizen-facing text in a component. All strings are
   supplied as translatable content through the
-  [Localization Framework](../phases/phase-6-localization-framework.md),
+  [Localization Framework](../localization/),
   which defines the translation structure, the six-language architecture,
   and script/direction handling.
 - Design and test every layout with the longest expected translation, not
   the English baseline, so nothing truncates or overflows.
 - Localise the *whole* experience: validation, errors, confirmations,
   emails, SMS, and receipts — not only the visible page chrome. The
-  [service patterns](../phases/phase-8-government-service-patterns.md)
+  [service patterns](../../packages/ethds-patterns/)
   treat translated error and status messaging as a requirement.
-- Use the standard [Language Switcher](../phases/phase-7-core-components.md)
+- Use the standard [Language Switcher](../../packages/ethds-react/)
   so language choice is consistent, discoverable, and persistent across
   every ETHDS service.
 - Apply locale-correct date, number, and currency formatting (Ethiopian
   Birr, and Ethiopian calendar where appropriate) per the
-  [Localization Framework](../phases/phase-6-localization-framework.md) —
+  [Localization Framework](../localization/) —
   formatting is part of language support, not separate from it.
 - Treat any component or pattern that works in only some languages as
   incomplete. This is checked in review, per

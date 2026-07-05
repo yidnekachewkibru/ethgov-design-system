@@ -46,7 +46,7 @@ new Intl.DateTimeFormat('en-ET', { dateStyle: 'long' })
 ```
 
 Wrap this in a shared `formatDate(date, { locale, calendar })` utility
-(shipped with `@ethds/react`, [Phase 7](../phases/phase-7-core-components.md))
+(shipped with `@ethds/react`)
 so every service formats dates the same way rather than re-implementing it.
 
 ## Numeric date order

@@ -34,10 +34,9 @@ ETHDS delivers, as a single open-source ecosystem:
 - Documentation platform
 - Governance framework
 
-See the
-[phase-by-phase breakdown](https://github.com/yidnekachewkibru/ethgov-design-system/tree/main/docs/phases)
-of scope and deliverables, and the
-[Roadmap](roadmap.md) for current status.
+All of this scope is delivered — see the
+[repository](https://github.com/yidnekachewkibru/ethgov-design-system)
+for the shipped packages and documentation.
 
 ## Out of Scope
 

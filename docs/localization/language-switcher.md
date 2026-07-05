@@ -4,13 +4,13 @@ The Language Switcher is how a citizen chooses their language. Because it
 is the gateway to the whole multilingual experience, its behaviour is
 standardised so it works identically across every ETHDS service. The
 component ships as `LanguageSwitcher` in `@ethds/react`
-([Phase 7](../phases/phase-7-core-components.md)); this page is its
+([`@ethds/react`](../../packages/ethds-react/)); this page is its
 behavioural specification.
 
 ## Placement & presence
 
 - Present on **every page**, in a consistent location — in the
-  [Header](../phases/phase-7-core-components.md), top-right in LTR layouts.
+  [Header](../../packages/ethds-react/), top-right in LTR layouts.
 - Reachable without scrolling and early in the tab order, so a citizen who
   cannot read the current language can immediately find it.
 

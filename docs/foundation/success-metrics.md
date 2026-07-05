@@ -43,7 +43,6 @@
 ## v1.0 Readiness
 
 Tracked against the criteria in the original ETHDS guide and
-re-stated as the audit scope of
-[Phase 12 — Final Release](../phases/phase-12-final-release.md). A
+re-stated as the scope of the v1.0 release audit. A
 release is not "done" because code exists — it's done when these metrics
 are met and verified.

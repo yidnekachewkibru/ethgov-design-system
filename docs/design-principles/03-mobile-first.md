@@ -59,13 +59,13 @@ everything lean).
 - Default to single-column layouts and one primary action per screen.
   This pairs with [Simple Before Powerful](05-simple-before-powerful.md).
 - Meet the touch-target sizing in the
-  [Accessibility Framework](../phases/phase-5-accessibility-framework.md)
+  [Accessibility Framework](../accessibility/)
   (touch accessibility is an explicit WCAG 2.2 AA concern), so controls
   are reliably tappable.
 - Make all interactions work by tap. Never hide an essential action
   behind hover.
-- Build [ETHDS components](../phases/phase-7-core-components.md) and
-  [templates](../phases/phase-9-website-templates.md) to be responsive by
+- Build [ETHDS components](../../packages/ethds-react/) and
+  [templates](../../packages/ethds-templates/) to be responsive by
   default; teams compose them rather than re-solving responsiveness per
   service.
 - Keep the mobile baseline light — the constrained device is also the

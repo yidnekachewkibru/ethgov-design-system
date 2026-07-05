@@ -2,8 +2,8 @@
  * Layout primitives implementing docs/brand/grid.md (breakpoints,
  * container widths, 12-column grid, gutters) — that document is the
  * source of truth for these values; this file exists because
- * @ethds/tokens does not yet ship grid/breakpoint CSS custom properties
- * (see docs/release/gap-analysis.md). Gutters/padding still use the real
+ * @ethds/tokens does not yet ship grid/breakpoint CSS custom
+ * properties. Gutters/padding still use the real
  * @ethds/tokens spacing custom properties.
  */
 

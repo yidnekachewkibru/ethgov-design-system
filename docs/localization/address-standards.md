@@ -85,7 +85,7 @@ away the very citizens a government service exists to serve — this is the
 [Start with Citizen Needs](../design-principles/01-start-with-citizen-needs.md)
 principle applied to data capture. These conventions are built into the
 registration and application
-[service patterns](../phases/phase-8-government-service-patterns.md).
+[service patterns](../../packages/ethds-patterns/).
 
 ## Checklist
 

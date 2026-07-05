@@ -16,9 +16,8 @@ ETHDS uses a lightweight, RFC-driven model:
   before merging.
 - **Accessibility and localization changes** additionally require
   sign-off from a designated accessibility or localization reviewer (see
-  [Phase 5](../phases/phase-5-accessibility-framework.md) and
-  [Phase 6](../phases/phase-6-localization-framework.md) for the review
-  processes once formalized).
+  the [accessibility review process](accessibility-review-process.md) and
+  [localization review process](localization-review-process.md)).
 
 Disagreements that can't be resolved through discussion are decided by
 maintainer vote, with ties broken by the project's lead maintainer.
@@ -49,7 +48,10 @@ An RFC is required when a change:
 
 ## Scope of This Document
 
-This is the Phase 0 governance baseline. The detailed RFC process,
-component review process, accessibility review process, localization
-review process, and security policy are formalized in
-[Phase 11 — Open Source Governance](../phases/phase-11-open-source-governance.md).
+This is the governance baseline. The detailed
+[RFC process](rfc-process.md),
+[component review process](component-review-process.md),
+[accessibility review process](accessibility-review-process.md),
+[localization review process](localization-review-process.md), and
+[security policy](../../SECURITY.md) are formalized in their own
+documents.

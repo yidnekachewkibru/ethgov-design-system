@@ -34,7 +34,7 @@ but they are exceptions, not the rule.
 ## Examples
 
 - ETHDS itself is [MIT licensed](../../LICENSE), developed on a public
-  repository, with a public [roadmap](../foundation/roadmap.md) and
+  repository, with a public
   [governance model](../governance/governance-model.md) any contributor
   can read and participate in.
 - A significant design decision is proposed and debated as a public

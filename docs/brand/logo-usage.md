@@ -18,7 +18,7 @@ ETHDS services.
 - The government identity (emblem + service/organisation name) sits in the
   **header**, top-left in left-to-right layouts, and is the first thing a
   citizen sees. It is provided by the standard
-  [Header component](../phases/phase-7-core-components.md).
+  [Header component](../../packages/ethds-react/).
 - The header logo links to the service home (or the relevant government
   home), a consistent, expected behaviour.
 - A footer may carry a secondary, smaller identity and links to the wider

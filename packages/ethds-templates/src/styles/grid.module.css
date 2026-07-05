@@ -2,8 +2,8 @@
  * Layout primitives implementing docs/brand/grid.md (breakpoints,
  * container widths, 12-column grid, gutters) — that document is the
  * source of truth for these values; this file exists because
- * @ethds/tokens does not yet ship grid/breakpoint CSS custom properties
- * (see docs/release/gap-analysis.md). Duplicated from
+ * @ethds/tokens does not yet ship grid/breakpoint CSS custom
+ * properties. Duplicated from
  * packages/ethds-patterns/src/styles/grid.module.css — CSS Modules don't
  * cleanly re-export classes across package boundaries — rather than
  * taking a styling dependency on @ethds/patterns.

@@ -1,4 +1,4 @@
-// @ethds/react — public API. The 18 core components (Phase 7), the
+// @ethds/react — public API. The 18 core components, the
 // extended set (ErrorSummary, SummaryList, Panel, Tag, SkipLink,
 // CheckboxGroup, StepIndicator, and tile variants), and the additional
 // batch (DateInput, FileUpload, CharacterCount, Details, BackLink,

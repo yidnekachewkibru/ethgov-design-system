@@ -29,8 +29,7 @@ fixed tenure requirement.
 
 A dedicated public communication channel (chat/forum) will be evaluated
 once the contributor base grows past what GitHub-native tools comfortably
-support; this will be revisited in
-[Phase 11](../phases/phase-11-open-source-governance.md).
+support; this will be revisited as the community grows.
 
 ## Code of Conduct Enforcement
 

@@ -41,7 +41,7 @@ the service/content.
 
 | SC | Level | Requirement | Owned by | Where in ETHDS |
 |---|---|---|---|---|
-| 3.1.1 / 3.1.2 Language of Page/Parts | A/AA | Correct `lang` | C, A | per-locale `lang` ([localization](../phases/phase-6-localization-framework.md)) |
+| 3.1.1 / 3.1.2 Language of Page/Parts | A/AA | Correct `lang` | C, A | per-locale `lang` ([localization](../localization/)) |
 | 3.2.3 Consistent Navigation | AA | Consistent nav across pages | C, Tpl | shared Header/Footer/Breadcrumb |
 | 3.2.4 Consistent Identification | AA | Components identified consistently | C | shared component library |
 | **3.2.6 Consistent Help** | A | Help in consistent location | Tpl, A | help/contact placement in templates — **new in 2.2** |

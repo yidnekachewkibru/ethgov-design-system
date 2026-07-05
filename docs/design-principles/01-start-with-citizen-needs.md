@@ -70,9 +70,9 @@ institution's convenience — is what makes that one chance succeed.
   confirmations — in terms of what the citizen can now do or must do next,
   not what the system did internally. This connects directly to the
   content guidance in the
-  [government service patterns](../phases/phase-8-government-service-patterns.md).
+  [government service patterns](../../packages/ethds-patterns/).
 - Map the real user journey before choosing components. The
-  [service patterns](../phases/phase-8-government-service-patterns.md)
+  [service patterns](../../packages/ethds-patterns/)
   package documents journeys (Application Submission, Status Tracking,
   Payment, etc.) starting from citizen intent — reuse those rather than
   modelling your back-office process.

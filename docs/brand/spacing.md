@@ -32,7 +32,7 @@ user's font-size preference.
 - **Touch targets:** interactive controls must be large enough to tap
   reliably on [mobile](../design-principles/03-mobile-first.md). Combine
   padding from this scale to reach the minimum target size defined in the
-  [Accessibility Framework](../phases/phase-5-accessibility-framework.md)
+  [Accessibility Framework](../accessibility/)
   (WCAG 2.2 target-size guidance) — typically at least `space-3` vertical
   padding on a `text-base` control.
 - **Layout gaps** between fields, cards, and sections should step up the
@@ -43,5 +43,5 @@ user's font-size preference.
   low-quality screens.
 
 Values are encoded in [`assets/ethds-brand.css`](assets/ethds-brand.css)
-and [`assets/tailwind.brand.cjs`](assets/tailwind.brand.cjs), and become
-part of [`@ethds/tokens`](../phases/phase-3-design-tokens.md) in Phase 3.
+and [`assets/tailwind.brand.cjs`](assets/tailwind.brand.cjs), and are
+part of [`@ethds/tokens`](../../packages/ethds-tokens/).

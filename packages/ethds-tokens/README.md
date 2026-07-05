@@ -99,11 +99,11 @@ straightforward if ever needed.
 
 ## Depends On
 
-- [Phase 2 — Brand System](../../docs/phases/phase-2-brand-system.md) for
+- [the brand system](../../docs/brand/) for
   the source values this package encodes.
 
 ## Consumed By
 
-- `@ethds/react` ([Phase 7](../../docs/phases/phase-7-core-components.md))
-- `ethds-docs` ([Phase 4](../../docs/phases/phase-4-documentation-platform.md))
+- [`@ethds/react`](../ethds-react/)
+- [`ethds-docs`](../ethds-docs/)
 - Any government team building outside this monorepo, via npm

@@ -2,5 +2,5 @@
   "name": "ethds-examples",
   "version": "0.0.0",
   "private": true,
-  "description": "ETHDS reference implementations — built in Phase 10 (see README.md)"
+  "description": "ETHDS reference implementations (see README.md)"
 }

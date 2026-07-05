@@ -61,7 +61,7 @@ not an afterthought.
 - **Translators** provide and update locale values.
 - **Localization reviewers** (per language) approve translations and own
   the glossary — formalised in
-  [Phase 11](../phases/phase-11-open-source-governance.md).
+  [the governance docs](../governance/).
 
 ## Tooling
 

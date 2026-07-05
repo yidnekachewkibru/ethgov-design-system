@@ -41,7 +41,7 @@ directly:
 These principles are stated in brief in
 [`docs/foundation/design-philosophy.md`](../foundation/design-philosophy.md)
 and expanded here. Several are operationalised by later work:
-Accessibility by the [Accessibility Framework](../phases/phase-5-accessibility-framework.md),
-Multilingual by Default by the [Localization Framework](../phases/phase-6-localization-framework.md),
+Accessibility by the [Accessibility Framework](../accessibility/),
+Multilingual by Default by the [Localization Framework](../localization/),
 and Low Bandwidth / Reuse by the token, component, and pattern packages.
 Where that is the case, the principle page links to it.

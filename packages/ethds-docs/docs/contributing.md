@@ -25,8 +25,7 @@ government service teams are all welcome.
 This site supports six languages. English is authored; the other five
 fall back to English until translated. Translating the documentation is a
 high-value contribution — the localization workflow is defined in the
-[Localization Framework](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/docs/phases/phase-6-localization-framework.md)
-(Phase 6).
+[Localization Framework](https://github.com/yidnekachewkibru/ethgov-design-system/tree/main/docs/localization).
 
 ## Accessibility & localization are merge requirements
 

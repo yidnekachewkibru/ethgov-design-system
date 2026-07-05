@@ -35,7 +35,7 @@ sign-off where relevant.
 
 ## Release & repository
 
-- [Release Strategy](release-strategy.md) — versioning and Changesets, the Phase 0 baseline
+- [Release Strategy](release-strategy.md) — versioning and Changesets
 - [Release Management](release-management.md) — the operational release flow, cadence, and sign-off
 - [Repository Strategy](repository-strategy.md) — why ETHDS is one monorepo, not eight
 

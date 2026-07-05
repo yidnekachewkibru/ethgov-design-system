@@ -99,8 +99,7 @@ treated as a one-time snapshot.
 
 - ✅ **Semantic HTML before ARIA; no broken/redundant ARIA.** Every
   component in `@ethds/react` is checked with `vitest-axe`
-  (137 tests across 32 components, 33 test files — see
-  [`docs/release/audit.md`](../release/audit.md)); axe flags redundant
+  (137 tests across 32 components, 33 test files); axe flags redundant
   or invalid ARIA. `packages/ethds-e2e/tests/axe-smoke.spec.ts` repeats
   this against fully rendered pages in a real browser.
 - ✅ **Every interactive control has an accessible name.** Asserted
