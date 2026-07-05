@@ -81,6 +81,67 @@ export function NewsListing({ items, page, totalPages, onPage, locale, onLocale 
 }
 ```
 
+## HTML Example
+
+**Listing:**
+
+```html
+<main id="main" class="ethds-container">
+  <h1>News</h1>
+  <ul>
+    <li>
+      <h2><a href="/news/1" class="ethds-link">New office hours starting Meskerem</a></h2>
+      <p><time datetime="2026-09-11">Meskerem 1, 2019 EC</time></p>
+      <p>Government offices will open earlier starting next month.</p>
+    </li>
+    <li>
+      <h2><a href="/news/2" class="ethds-link">Online passport renewal now available</a></h2>
+      <p><time datetime="2026-08-27">Nehase 20, 2018 EC</time></p>
+      <p>Renew your passport online without visiting an office.</p>
+    </li>
+  </ul>
+  <nav aria-label="Pagination" class="ethds-pagination">
+    <!-- see Pagination's own Plain HTML section for the full markup -->
+  </nav>
+</main>
+```
+
+**Article:**
+
+```html
+<main id="main" class="ethds-container">
+  <nav aria-label="Breadcrumb" class="ethds-breadcrumb">
+    <ol class="ethds-breadcrumb__list">
+      <li class="ethds-breadcrumb__item">
+        <a href="/" class="ethds-breadcrumb__link">Home</a>
+        <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+      </li>
+      <li class="ethds-breadcrumb__item">
+        <a href="/news" class="ethds-breadcrumb__link">News</a>
+        <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+      </li>
+      <li class="ethds-breadcrumb__item">
+        <span aria-current="page" class="ethds-breadcrumb__current">New office hours starting Meskerem</span>
+      </li>
+    </ol>
+  </nav>
+
+  <h1>New office hours starting Meskerem</h1>
+  <p><time datetime="2026-09-11">Meskerem 1, 2019 EC</time></p>
+
+  <p>Government offices will open at 8:00 AM instead of 8:30 AM starting next month, to reduce queues.</p>
+
+  <p><a href="/news" class="ethds-link">← Back to news</a></p>
+</main>
+```
+
+Both pages use the `<time datetime="…">` element with the machine-
+readable ISO date in `datetime` and the citizen-facing Ethiopian-calendar
+date as the visible text — the same "store/exchange in one unambiguous
+format, display per the citizen's convention" split [Date input](/docs/components/date-input#plain-html)
+uses. The article's breadcrumb reuses
+[Breadcrumb](/docs/components/breadcrumb#plain-html)'s markup exactly.
+
 ## Storybook Story
 
 ```tsx

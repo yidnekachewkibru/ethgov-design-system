@@ -91,6 +91,50 @@ export function SearchResults({ query, results, page, totalPages, onPage, locale
 }
 ```
 
+## HTML Example
+
+```html
+<main id="main" class="ethds-container">
+  <h1>Search results</h1>
+
+  <form role="search" method="get" action="/search" class="ethds-search">
+    <label for="q" class="ethds-visually-hidden">Search government services</label>
+    <input id="q" name="q" type="search" inputmode="search" value="passport" class="ethds-search__input" />
+    <button type="submit" class="ethds-search__submit">Search</button>
+  </form>
+
+  <p role="status">2 results for "passport"</p>
+
+  <ul>
+    <li>
+      <h2><a href="/passport/new" class="ethds-link">Apply for a passport</a></h2>
+      <p>Get a new Ethiopian passport online.</p>
+    </li>
+    <li>
+      <h2><a href="/passport/renew" class="ethds-link">Renew a passport</a></h2>
+      <p>Renew an expiring or expired passport.</p>
+    </li>
+  </ul>
+
+  <!-- Empty state, in place of the <ul> above: -->
+  <div role="status" class="ethds-alert ethds-alert--info">
+    <span role="img" aria-label="Information" class="ethds-alert__icon">i</span>
+    <div class="ethds-alert__body">No results. Try different words or browse services.</div>
+  </div>
+
+  <nav aria-label="Pagination" class="ethds-pagination">
+    <!-- see Pagination's own Plain HTML section for the full markup -->
+  </nav>
+</main>
+```
+
+A plain `method="get"` form re-submits the page with `?q=` on every
+search, so the result count and list are always server-rendered fresh —
+no client-side re-fetch required. Reuses
+[Search](/docs/components/search#plain-html),
+[Alert](/docs/components/alert#plain-html) (the empty state), and
+[Pagination](/docs/components/pagination#plain-html)'s markup exactly.
+
 ## Storybook Story
 
 ```tsx

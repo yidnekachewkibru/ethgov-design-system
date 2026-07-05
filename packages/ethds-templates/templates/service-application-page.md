@@ -86,6 +86,59 @@ export function ServiceApplicationPage({ locale, onLocale, step, draft, onNext, 
 }
 ```
 
+## HTML Example
+
+This page's whole body **is** the
+[Application Submission pattern](../../ethds-patterns/patterns/application-submission.md#html-example)
+— without a client framework, that pattern's multi-step hook becomes
+multi-page, so "the Service Application Page" isn't one URL but a small
+family of them (`/apply/passport/1`, `/apply/passport/2`, …), each
+wearing this same chrome:
+
+```html
+<header class="ethds-header">
+  <div class="ethds-header__bar">
+    <a href="/" class="ethds-header__identity" aria-label="Immigration Service — home">
+      <span class="ethds-header__service-name">Immigration Service</span>
+    </a>
+    <div class="ethds-header__actions"><!-- LanguageSwitcher --></div>
+  </div>
+</header>
+
+<main id="main" class="ethds-container">
+  <nav aria-label="Breadcrumb" class="ethds-breadcrumb">
+    <ol class="ethds-breadcrumb__list">
+      <li class="ethds-breadcrumb__item">
+        <a href="/" class="ethds-breadcrumb__link">Home</a>
+        <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+      </li>
+      <li class="ethds-breadcrumb__item">
+        <a href="/services" class="ethds-breadcrumb__link">Services</a>
+        <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+      </li>
+      <li class="ethds-breadcrumb__item">
+        <span aria-current="page" class="ethds-breadcrumb__current">Apply for a passport</span>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- The step form itself — see Application Submission's HTML Example
+       for the full step markup (step indicator, error summary, fields,
+       Back/Next). -->
+  <form method="post" action="/apply/passport/2" novalidate>
+    …
+  </form>
+</main>
+
+<footer class="ethds-footer" aria-label="Footer">
+  <p>© 2026 Government of Ethiopia.</p>
+</footer>
+```
+
+Each step's `<h1>` (inside the form markup) is this page's only heading
+— exactly as the React version's own accessibility note says, this
+template adds no competing heading of its own.
+
 ## Storybook Story
 
 ```tsx
