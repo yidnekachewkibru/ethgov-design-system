@@ -51,6 +51,17 @@ registration time (Redundant Entry, WCAG 2.2 SC 3.3.7).
 - Every field has a visible label; the password field uses
   `autocomplete="new-password"`.
 
+## Plain HTML
+
+Not on React? A plain `<form method="post">`, validated server-side and
+re-rendered with the same focusable error summary on failure — see the
+[pattern's own HTML Example](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/packages/ethds-patterns/patterns/registration.md#html-example)
+for the full markup. Every field reuses the label/hint/error convention
+from [Text input](/docs/components/text-input#plain-html) and
+[Checkbox](/docs/components/checkbox#plain-html); the error summary
+reuses [Error summary](/docs/components/error-summary#plain-html)'s
+markup and focus-on-render script.
+
 ## Localization
 
 All labels, hints, and errors are translatable via the `labels` prop.

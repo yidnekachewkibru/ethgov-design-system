@@ -110,3 +110,38 @@ export function StatusView({
   );
 }
 ```
+
+## HTML Example
+
+A display-only page — no form, no client-side state. The server maps the
+internal workflow state to plain, citizen-facing text before rendering.
+
+```html
+<section>
+  <h1>Application ETH-2026-0041</h1>
+
+  <div role="status" class="ethds-alert ethds-alert--success">
+    <span role="img" aria-label="Approved" class="ethds-alert__icon">✓</span>
+    <div class="ethds-alert__body">
+      <p class="ethds-alert__title">Approved — ready for pickup</p>
+      <p class="ethds-alert__content">Your passport is ready for pickup at the Bole office. Bring your original Fayda ID.</p>
+    </div>
+  </div>
+
+  <h2>Timeline</h2>
+  <ol class="ethds-timeline">
+    <li><strong>Submitted</strong> — Meskerem 3, 2019 EC</li>
+    <li><strong>Under review</strong> — Meskerem 5, 2019 EC</li>
+    <li><strong>Approved</strong> — Meskerem 9, 2019 EC</li>
+  </ol>
+</section>
+```
+
+```css
+.ethds-timeline { margin: 0; padding-left: var(--ethds-space-5); display: flex; flex-direction: column; gap: var(--ethds-space-2); }
+```
+
+Reuses the [Alert](/docs/components/alert#plain-html) markup and classes
+documented on the docs site: `role="status"` for a success/info/warning
+outcome, `role="alert"` only for `error` — the status is carried by the
+icon's `aria-label` and the visible text together, never by colour alone.

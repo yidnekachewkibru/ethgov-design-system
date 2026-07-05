@@ -53,6 +53,17 @@ isn't a routine [Application Submission](application-submission).
 - The retry error renders as a live `Alert`, distinct from the
   field-level `ErrorSummary`.
 
+## Plain HTML
+
+Not on React? See the
+[pattern's own HTML Example](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/packages/ethds-patterns/patterns/complaint-submission.md#html-example)
+for the full markup — a plain `<form enctype="multipart/form-data">`
+reusing [Select](/docs/components/select#plain-html),
+[Textarea](/docs/components/textarea#plain-html), and
+[File upload](/docs/components/file-upload#plain-html)'s conventions,
+plus a small script that hides the phone field entirely when "Submit
+anonymously" is checked (the one piece of real client behaviour here).
+
 ## Localization
 
 All labels, the category list, and error messages are translatable via

@@ -125,3 +125,63 @@ export function BookingForm({
   );
 }
 ```
+
+## HTML Example
+
+```html
+<form method="post" action="/appointments" novalidate>
+  <h1>Book an appointment</h1>
+
+  <!-- Only present when the chosen slot was taken between selection and confirmation. -->
+  <div role="alert" class="ethds-alert ethds-alert--warning">
+    That slot was just taken. Please choose another time.
+  </div>
+
+  <div class="ethds-field">
+    <label for="office" class="ethds-label">Office</label>
+    <select id="office" name="office" class="ethds-select" required>
+      <option value="" disabled selected>Choose an office</option>
+      <option value="bole">Bole office</option>
+      <option value="kirkos">Kirkos office</option>
+    </select>
+  </div>
+
+  <div class="ethds-field">
+    <label for="date" class="ethds-label">Date (Ethiopian calendar)</label>
+    <select id="date" name="date" class="ethds-select" required>
+      <option value="" disabled selected>Choose a date</option>
+      <option value="2019-01-05">Meskerem 5, 2019 EC</option>
+      <option value="2019-01-06">Meskerem 6, 2019 EC</option>
+    </select>
+  </div>
+
+  <fieldset class="ethds-radio-group">
+    <legend class="ethds-legend">Time (EAT)</legend>
+    <div class="ethds-radio-options">
+      <div class="ethds-radio-row">
+        <input id="time-0900" name="time" type="radio" value="09:00" class="ethds-radio" required />
+        <label for="time-0900" class="ethds-label">9:00 AM</label>
+      </div>
+      <div class="ethds-radio-row">
+        <input id="time-1000" name="time" type="radio" value="10:00" class="ethds-radio" disabled />
+        <label for="time-1000" class="ethds-label">10:00 AM (fully booked)</label>
+      </div>
+      <div class="ethds-radio-row">
+        <input id="time-1100" name="time" type="radio" value="11:00" class="ethds-radio" />
+        <label for="time-1100" class="ethds-label">11:00 AM</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <button type="submit" class="ethds-button ethds-button--primary">Confirm booking</button>
+</form>
+```
+
+Reuses [Select](/docs/components/select#plain-html) and
+[Radios](/docs/components/radios#plain-html)'s markup exactly — the
+`disabled` radio is the accessible way to show an already-taken slot
+without omitting it, so the citizen sees what's unavailable rather than
+wondering why 10:00 isn't listed. Re-check availability server-side on
+submit regardless (a slot can be taken between page load and submit); on
+that race, re-render the form with the warning alert and the now-updated
+`disabled` state.
