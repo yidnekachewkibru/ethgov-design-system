@@ -56,4 +56,4 @@ keyboard users can bypass repeated navigation and land on `<main>`.
 Focus order, visibility, trapping, and restoration are checked in
 Playwright E2E tests and confirmed in manual keyboard testing — see the
 [testing framework](testing-framework.md). Components document their focus
-behaviour in Storybook ([Phase 7](../phases/phase-7-core-components.md)).
+behaviour in Storybook ([`@ethds/react`](../../packages/ethds-react/)).

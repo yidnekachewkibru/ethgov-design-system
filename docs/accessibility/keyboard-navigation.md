@@ -63,4 +63,4 @@ Keyboard operability is checked in automated E2E tests (Playwright tabbing
 through flows) and in the manual checklist — see the
 [testing framework](testing-framework.md). Components document their
 keyboard behaviour in their Storybook stories
-([Phase 7](../phases/phase-7-core-components.md)).
+([`@ethds/react`](../../packages/ethds-react/)).

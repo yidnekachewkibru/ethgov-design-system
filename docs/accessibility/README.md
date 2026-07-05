@@ -27,9 +27,9 @@ government teams building on ETHDS inherit by default.
 ## How this framework is used
 
 - **Building ETHDS:** every component
-  ([Phase 7](../phases/phase-7-core-components.md)), pattern
-  ([Phase 8](../phases/phase-8-government-service-patterns.md)), and
-  template ([Phase 9](../phases/phase-9-website-templates.md)) is built to
+  ([`@ethds/react`](../../packages/ethds-react/)), pattern
+  ([`@ethds/patterns`](../../packages/ethds-patterns/)), and
+  template ([`@ethds/templates`](../../packages/ethds-templates/)) is built to
   these standards and tested against them before merge.
 - **Reviewing contributions:** the [checklist](checklist.md) is applied to
   every PR that adds or changes UI — accessibility is a **merge
@@ -44,6 +44,6 @@ government teams building on ETHDS inherit by default.
   in [`docs/brand/accessibility-analysis.md`](../brand/accessibility-analysis.md),
   and enforced by the contrast tests in
   [`@ethds/tokens`](../../packages/ethds-tokens/).
-- Accessibility and [localization](../phases/phase-6-localization-framework.md)
+- Accessibility and [localization](../localization/)
   are interdependent: accessible names, error messages, and language
   metadata must be correct in all six supported languages.

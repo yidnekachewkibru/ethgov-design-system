@@ -2,5 +2,5 @@
   "name": "ethds-rfcs",
   "version": "0.0.0",
   "private": true,
-  "description": "ETHDS RFC archive — process formalized in Phase 11 (see README.md)"
+  "description": "ETHDS RFC archive (see README.md)"
 }

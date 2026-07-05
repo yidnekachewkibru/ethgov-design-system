@@ -46,7 +46,7 @@ hears. (WCAG 1.1.1, 1.3.1, 4.1.2, 4.1.3.)
 The document/section `lang` must be correct so the screen reader uses the
 right pronunciation and voice — critical when a page mixes Ge'ez-script
 and Latin-script languages. This is handled by the
-[Localization Framework](../phases/phase-6-localization-framework.md);
+[Localization Framework](../localization/);
 accessible names and error messages must exist in every supported
 language.
 

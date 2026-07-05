@@ -43,7 +43,7 @@ same standard for anything they build beyond the provided components.
   accessibility, per the
   [governance model](../governance/governance-model.md). The review
   process is formalised in
-  [Phase 11](../phases/phase-11-open-source-governance.md).
+  [the governance docs](../governance/).
 - **Maintainers** do not merge UI changes that regress accessibility or
   ship without the required checks.
 

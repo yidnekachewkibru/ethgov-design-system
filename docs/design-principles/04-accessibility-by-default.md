@@ -40,7 +40,7 @@ including the low-literacy and low-bandwidth users ETHDS prioritises.
   fix it, in the citizen's [chosen language](02-multilingual-by-default.md).
 - Text and interface colours meet WCAG 2.2 AA contrast against their
   backgrounds, verified for every colour pairing in the
-  [brand system](../phases/phase-2-brand-system.md).
+  [brand system](../brand/).
 - Animations respect the operating system's reduced-motion setting and do
   not autoplay motion that could cause discomfort or distraction.
 
@@ -63,11 +63,11 @@ including the low-literacy and low-bandwidth users ETHDS prioritises.
 ## Implementation Guidance
 
 - Build to **WCAG 2.2 AA as the minimum**. The
-  [Accessibility Framework](../phases/phase-5-accessibility-framework.md)
+  [Accessibility Framework](../accessibility/)
   defines the concrete standards (keyboard, screen reader, focus
   management, contrast, motion) and the testing process, and provides the
   checklist used in review.
-- Every interactive [component](../phases/phase-7-core-components.md) ships
+- Every interactive [component](../../packages/ethds-react/) ships
   keyboard-operable, with correct roles/labels, a visible focus state, and
   documented accessibility behaviour — accessibility guidance is a
   required part of each component's spec.
@@ -75,10 +75,10 @@ including the low-literacy and low-bandwidth users ETHDS prioritises.
   with text, icons, or other cues.
 - Announce errors and status changes to assistive technology, not just
   visually — see the
-  [service patterns](../phases/phase-8-government-service-patterns.md) for
+  [service patterns](../../packages/ethds-patterns/) for
   error-handling expectations.
 - Respect reduced-motion preferences per the motion standards in the
-  [Accessibility Framework](../phases/phase-5-accessibility-framework.md).
+  [Accessibility Framework](../accessibility/).
 - Meet touch-target and pointer requirements so the principle holds on
   [mobile](03-mobile-first.md), not just desktop.
 - Accessibility is a merge requirement, not review feedback: PRs that add

@@ -82,7 +82,7 @@ Ethiopic font — pair weight with size or colour for emphasis.
 - Reference the type scale tokens, never hardcoded `px` font sizes.
 - Set the document language (`lang` attribute) so the browser selects the
   correct font and rendering for the active language — this is part of the
-  [Localization Framework](../phases/phase-6-localization-framework.md).
+  [Localization Framework](../localization/).
 - Headings follow a logical, sequential structure (`h1` → `h2` → `h3`)
   for screen readers, per
   [Accessibility by Default](../design-principles/04-accessibility-by-default.md).

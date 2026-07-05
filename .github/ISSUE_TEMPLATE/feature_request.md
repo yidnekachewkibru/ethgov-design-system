@@ -15,9 +15,9 @@ labels: enhancement
 
 ## Proposed Solution
 
-## Affected Package(s) / Phase
+## Affected Package(s)
 
-<!-- e.g. packages/ethds-react, or "Phase 8 — Government Service Patterns" -->
+<!-- e.g. packages/ethds-react, or docs/localization -->
 
 ## Accessibility Considerations
 

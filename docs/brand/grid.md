@@ -2,8 +2,8 @@
 
 A shared 12-column, mobile-first layout grid, built entirely from the
 [spacing scale](spacing.md) — no separate set of layout numbers to keep in
-sync. Every [template](../phases/phase-9-website-templates.md) and
-[pattern](../phases/phase-8-government-service-patterns.md) lays out on
+sync. Every [template](../../packages/ethds-templates/) and
+[pattern](../../packages/ethds-patterns/) lays out on
 this grid, so a citizen's eye doesn't have to re-learn the page rhythm
 moving between a ministry site and an agency site — see
 [Consistent Government Experience](../design-principles/09-consistent-government-experience.md).
@@ -122,5 +122,5 @@ available.
   [spacing scale](spacing.md) directly, not from grid columns.
 
 Grid CSS variables (breakpoints and gutters) are shipped alongside the
-rest of [`@ethds/tokens`](../phases/phase-3-design-tokens.md) so services
+rest of [`@ethds/tokens`](../../packages/ethds-tokens/) so services
 consume one source of truth for layout and spacing together.

@@ -1,7 +1,8 @@
 # @ethds/icons
 
-**Status:** Planned — built alongside
-[Phase 7 — Core Components](../../docs/phases/phase-7-core-components.md).
+**Status:** Planned. A starter set (Check, Info, Warning, Error, Search,
+chevrons) ships inside [`@ethds/react`](../ethds-react/); this package is
+the future home of the full government icon set.
 
 ## Purpose
 
@@ -12,7 +13,7 @@ notifications, navigation, status).
 
 ## Depends On
 
-- [Phase 2 — Brand System](../../docs/phases/phase-2-brand-system.md) for
+- [the brand system](../../docs/brand/) for
   iconography guidelines (stroke weight, grid, color usage)
 
 ## Consumed By

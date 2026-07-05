@@ -32,10 +32,10 @@ experience everywhere.
 ## Examples
 
 - A team needs a phone-number field with validation; they use the
-  existing ETHDS [text input](../phases/phase-7-core-components.md) with
+  existing ETHDS [text input](../../packages/ethds-react/) with
   the standard validation rather than writing a bespoke one.
 - A ministry building an application flow composes the existing
-  [Application Submission pattern](../phases/phase-8-government-service-patterns.md)
+  [Application Submission pattern](../../packages/ethds-patterns/)
   instead of designing a new multi-step form from scratch.
 - A team finds the shared component *almost* fits, so they propose an
   improvement to it via [RFC](../../CONTRIBUTING.md#proposing-significant-changes)
@@ -57,17 +57,17 @@ experience everywhere.
 
 ## Implementation Guidance
 
-- Search the existing [components](../phases/phase-7-core-components.md),
-  [patterns](../phases/phase-8-government-service-patterns.md),
-  [templates](../phases/phase-9-website-templates.md), and
-  [tokens](../phases/phase-3-design-tokens.md) before building anything
+- Search the existing [components](../../packages/ethds-react/),
+  [patterns](../../packages/ethds-patterns/),
+  [templates](../../packages/ethds-templates/), and
+  [tokens](../../packages/ethds-tokens/) before building anything
   new. Reuse is the default; building new is the exception that needs a
   reason.
 - When an existing building block is close but not quite right, improve
   the shared block through an
   [RFC](../../CONTRIBUTING.md#proposing-significant-changes) rather than
   forking a private copy — fixes then reach every service.
-- Use design [tokens](../phases/phase-3-design-tokens.md) instead of
+- Use design [tokens](../../packages/ethds-tokens/) instead of
   hardcoded values, so styling stays consistent and centrally
   updatable.
 - Genuinely new shared components and patterns enter ETHDS through review

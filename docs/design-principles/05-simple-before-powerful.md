@@ -36,7 +36,7 @@ it) for an uncertain, narrow one (a few might need the extra capability).
   ready for pickup") prominently, with secondary detail available but not
   competing for attention.
 - A new requirement is met by configuring or composing existing
-  [components](../phases/phase-7-core-components.md) in the obvious way,
+  [components](../../packages/ethds-react/) in the obvious way,
   rather than inventing a new bespoke widget with many options.
 
 ## Anti-patterns
@@ -58,8 +58,8 @@ it) for an uncertain, narrow one (a few might need the extra capability).
   when you do.
 - Reduce required input to the minimum the task honestly needs; fewer
   fields is simpler *and* more private and faster.
-- Prefer composing existing [components](../phases/phase-7-core-components.md)
-  and [patterns](../phases/phase-8-government-service-patterns.md) in
+- Prefer composing existing [components](../../packages/ethds-react/)
+  and [patterns](../../packages/ethds-patterns/) in
   their default form over building configurable new ones, which connects
   to [Reuse Before Building](07-reuse-before-building.md).
 - When a component genuinely needs new flexibility, raise it through an

@@ -33,8 +33,7 @@ Accessibility is built into the building blocks, so teams that compose
 ETHDS correctly inherit an accessible service by default. The standards
 that components are built and tested against — keyboard, screen reader,
 focus management, contrast, and motion — are defined by the
-[Accessibility Framework](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/docs/phases/phase-5-accessibility-framework.md)
-(Phase 5).
+[Accessibility Framework](https://github.com/yidnekachewkibru/ethgov-design-system/tree/main/docs/accessibility).
 
 ## Verified contrast
 

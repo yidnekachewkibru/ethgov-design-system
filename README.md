@@ -1,7 +1,7 @@
 # ETHDS — Ethiopian Government Design System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Phase](https://img.shields.io/badge/status-v1.0%20release%20candidate-blue.svg)](docs/release/readiness-report.md)
+![Version](https://img.shields.io/badge/version-v1.0-blue.svg)
 
 An open-source design system for Ethiopian government digital services —
 inspired by the [GOV.UK Design System](https://design-system.service.gov.uk/),
@@ -18,13 +18,15 @@ solving the same problems from scratch.
 See [`docs/foundation/vision-and-mission.md`](docs/foundation/vision-and-mission.md)
 for the full vision.
 
-## Status
+## What's Included
 
-Phases 0–6 are complete: foundation and governance, the ten design
-principles, the brand system, the `@ethds/tokens` package, the
-documentation site, and the accessibility and localization frameworks.
-Components, patterns, and templates are next. See the
-[roadmap](docs/foundation/roadmap.md) for status and what's planned.
+Everything is shipped and verified: the design tokens (`@ethds/tokens`),
+32 accessible React components (`@ethds/react`), 10 government service
+patterns (`@ethds/patterns`), 12 page templates (`@ethds/templates`),
+four documented reference implementations, the ten design principles,
+the brand system, the accessibility and localization frameworks, and a
+six-language documentation site — with every component, pattern, and
+template documented for React *and* plain HTML/CSS/JS.
 
 ## Language Support
 
@@ -52,18 +54,21 @@ for the full rationale.
 ```
 ethgov-design-system/
 ├── packages/
-│   ├── ethds-tokens/      # @ethds/tokens     — design tokens (Phase 3)
-│   ├── ethds-react/       # @ethds/react      — React components (Phase 7)
-│   ├── ethds-icons/       # @ethds/icons      — icon set (Phase 7)
-│   ├── ethds-patterns/    # @ethds/patterns   — service patterns (Phase 8)
-│   ├── ethds-templates/   # @ethds/templates  — page templates (Phase 9)
-│   ├── ethds-examples/    # ethds-examples    — reference apps (Phase 10)
-│   ├── ethds-docs/        # ethds-docs        — documentation site (Phase 4)
-│   └── ethds-rfcs/        # ethds-rfcs        — RFC archive (Phase 11)
+│   ├── ethds-tokens/      # @ethds/tokens     — design tokens
+│   ├── ethds-react/       # @ethds/react      — React components
+│   ├── ethds-icons/       # @ethds/icons      — icon set
+│   ├── ethds-patterns/    # @ethds/patterns   — service patterns
+│   ├── ethds-templates/   # @ethds/templates  — page templates
+│   ├── ethds-examples/    # ethds-examples    — reference apps
+│   ├── ethds-docs/        # ethds-docs        — documentation site
+│   └── ethds-rfcs/        # ethds-rfcs        — RFC archive
 └── docs/
-    ├── foundation/        # vision, charter, philosophy, metrics, roadmap
-    ├── governance/        # governance, repo strategy, community, release
-    └── phases/            # full scope for every phase, 0 through 12
+    ├── foundation/        # vision, charter, philosophy, metrics
+    ├── design-principles/ # the ten core principles
+    ├── brand/             # colour, typography, iconography, grid, motion
+    ├── accessibility/     # WCAG 2.2 AA standards and testing framework
+    ├── localization/      # six-language architecture and formatting standards
+    └── governance/        # governance, repo strategy, community, release
 ```
 
 ## Core Principles
@@ -107,7 +112,7 @@ npm run test  -w @ethds/tokens
 npm run start -w ethds-docs
 ```
 
-Usable now:
+The packages:
 
 - [`@ethds/tokens`](packages/ethds-tokens/) — the design-token source of
   truth, built to CSS variables, a typed module, and a Tailwind preset.
@@ -125,8 +130,9 @@ Usable now:
   Cookie/Phase banners, …), accessible (WCAG 2.2 AA, axe-tested) and
   token-driven.
 
-Components, patterns, and templates follow in later phases — watch the
-[roadmap](docs/foundation/roadmap.md).
+[`@ethds/patterns`](packages/ethds-patterns/) and
+[`@ethds/templates`](packages/ethds-templates/) build on these components
+with the 10 service patterns and 12 page templates listed above.
 
 ## Contributing
 

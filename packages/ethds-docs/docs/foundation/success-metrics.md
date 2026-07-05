@@ -48,9 +48,6 @@ sidebar_position: 5
 
 ## v1.0 Readiness
 
-Tracked against the criteria originally scoped as the audit target of
-[Phase 12 — Final Release](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/docs/phases/phase-12-final-release.md),
-and re-assessed on an ongoing basis in
-[`docs/release/`](https://github.com/yidnekachewkibru/ethgov-design-system/tree/main/docs/release).
+Tracked as the scope of the v1.0 release audit.
 A release is not "done" because code exists — it's done when these
 metrics are met and verified.

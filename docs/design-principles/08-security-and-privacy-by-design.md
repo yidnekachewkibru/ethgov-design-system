@@ -36,7 +36,7 @@ collected cannot be breached, misused, or leaked.
   provide the service, and explains in plain language, in the citizen's
   [chosen language](02-multilingual-by-default.md), why each sensitive
   item is required.
-- Authentication and [OTP verification](../phases/phase-8-government-service-patterns.md)
+- Authentication and [OTP verification](../../packages/ethds-patterns/)
   follow secure-by-default patterns: clear session handling, sensible
   expiry, no leaking of whether an account exists through error messages.
 - Sensitive data shown back to the citizen is minimised and masked where
@@ -70,10 +70,10 @@ collected cannot be breached, misused, or leaked.
   [own language](02-multilingual-by-default.md), what is collected and
   why, at the point of collection.
 - Use the secure-default authentication, verification, and payment
-  [patterns](../phases/phase-8-government-service-patterns.md) rather than
+  [patterns](../../packages/ethds-patterns/) rather than
   inventing bespoke security flows; the detailed **Security Policy** is
   formalised in
-  [Phase 11 — Open Source Governance](../phases/phase-11-open-source-governance.md).
+  [the governance docs](../governance/).
 - Write error messages that don't leak the existence of accounts or
   records.
 - Mask or partially reveal sensitive identifiers in the UI, mindful that

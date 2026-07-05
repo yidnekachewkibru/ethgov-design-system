@@ -53,8 +53,8 @@ connections get instant pages, slow connections get usable ones.
 ## Implementation Guidance
 
 - Keep pages light. Respect the bundle-size and page-weight budgets set
-  for [design tokens](../phases/phase-3-design-tokens.md) and
-  [components](../phases/phase-7-core-components.md); the lean, mobile
+  for [design tokens](../../packages/ethds-tokens/) and
+  [components](../../packages/ethds-react/); the lean, mobile
   baseline from [Mobile First](03-mobile-first.md) directly supports this.
 - Optimise and right-size all assets; compress images, avoid heavy or
   autoplaying media, and deliver essential information as text, not as an
@@ -62,10 +62,10 @@ connections get instant pages, slow connections get usable ones.
 - Design flows to tolerate interruption — preserve in-progress input
   across steps so a dropped connection doesn't destroy the citizen's
   work. This is reflected in the
-  [service patterns](../phases/phase-8-government-service-patterns.md).
+  [service patterns](../../packages/ethds-patterns/).
 - Provide clear loading and error states so a slow or failed request is
   understandable, not a frozen blank screen.
 - Test under realistic conditions — throttled 2G/3G on a low-end device —
   not just on a fast office connection. The
-  [reference implementations](../phases/phase-10-reference-implementations.md)
+  [reference implementations](../../packages/ethds-examples/)
   are reviewed under simulated low-bandwidth conditions.

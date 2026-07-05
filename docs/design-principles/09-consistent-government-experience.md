@@ -33,10 +33,10 @@ government bodies feel like one coherent, trustworthy government.
 
 - A citizen who has renewed a licence on a regional portal later uses a
   federal revenue service and finds the same header, the same
-  [language switcher](../phases/phase-7-core-components.md), the same form
+  [language switcher](../../packages/ethds-react/), the same form
   and button behaviour, and the same way of showing errors — nothing has
   to be relearned.
-- A common government [header and footer](../phases/phase-7-core-components.md)
+- A common government [header and footer](../../packages/ethds-react/)
   and visual identity make it immediately clear that a service is
   official, helping citizens trust it and spot impersonation.
 - Status, confirmation, and error messages across different ministries
@@ -57,18 +57,18 @@ government bodies feel like one coherent, trustworthy government.
 
 ## Implementation Guidance
 
-- Use the shared [brand system](../phases/phase-2-brand-system.md) and
-  [design tokens](../phases/phase-3-design-tokens.md) for visual identity
+- Use the shared [brand system](../brand/) and
+  [design tokens](../../packages/ethds-tokens/) for visual identity
   rather than per-service styling, so government services look like
   government services.
 - Compose services from the standard
-  [components](../phases/phase-7-core-components.md),
-  [patterns](../phases/phase-8-government-service-patterns.md), and
-  [templates](../phases/phase-9-website-templates.md) so navigation and
+  [components](../../packages/ethds-react/),
+  [patterns](../../packages/ethds-patterns/), and
+  [templates](../../packages/ethds-templates/) so navigation and
   interaction behave consistently everywhere — this is
   [Reuse Before Building](07-reuse-before-building.md) in service of
   consistency.
-- Use the common government [header and footer](../phases/phase-7-core-components.md)
+- Use the common government [header and footer](../../packages/ethds-react/)
   so a service is recognisably official and harder to impersonate.
 - Keep content tone and message structure (status, confirmation, error)
   consistent across services, aligned with the citizen-centred content

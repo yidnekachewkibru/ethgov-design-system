@@ -1,6 +1,6 @@
 # Release Management
 
-How ETHDS ships versions. This builds on the Phase 0
+How ETHDS ships versions. This builds on the
 [release strategy](release-strategy.md) (semantic versioning + Changesets
 across the npm-workspaces monorepo) and adds the operational detail.
 

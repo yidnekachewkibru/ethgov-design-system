@@ -2,7 +2,7 @@
  * ETHDS Brand — CSS Custom Properties
  * Human-readable reference for the ETHDS brand system.
  *
- * As of Phase 3, @ethds/tokens is the canonical generator of this output:
+ * @ethds/tokens is the canonical generator of this output:
  * `npm run build -w @ethds/tokens` produces dist/tokens.css with the same
  * variable names. Import "@ethds/tokens/css" in apps; this file documents
  * the same values for reading.

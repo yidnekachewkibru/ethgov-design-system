@@ -36,5 +36,4 @@ Translate the values (not the keys), commit, and the locale serves
 translated content. Untranslated strings continue to fall back to English.
 
 The overall localization workflow and standards are defined in the
-[Localization Framework](../../../docs/phases/phase-6-localization-framework.md)
-(Phase 6).
+[Localization Framework](../../../docs/localization/).

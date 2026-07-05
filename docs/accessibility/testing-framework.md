@@ -40,7 +40,7 @@ manual testing is required for anything new or non-trivial.
 
 - The **Storybook a11y addon** (axe) surfaces violations per story, and
   stories document each component's keyboard and screen-reader behaviour
-  ([Phase 7](../phases/phase-7-core-components.md)).
+  ([`@ethds/react`](../../packages/ethds-react/)).
 
 ### 5. Manual testing (required for new/changed UI)
 
@@ -55,15 +55,14 @@ materially changed component/pattern/template, a human verifies:
 - **Reduced-motion** and **high-contrast/forced-colors** rendering.
 - A pass in a **non-Latin (Ge'ez) language** to confirm screen-reader
   pronunciation and layout hold (ties to
-  [localization](../phases/phase-6-localization-framework.md)).
+  [localization](../localization/)).
 
 ## CI integration
 
 Lint, component (axe + semantics), and E2E (Playwright + axe) checks run
 on every PR via GitHub Actions and are **required to pass before merge**
-for any change touching UI packages. This is wired into the component
-package CI when `@ethds/react` is built in
-[Phase 7](../phases/phase-7-core-components.md); the token contrast tests
+for any change touching UI packages. This is wired into
+[`@ethds/react`](../../packages/ethds-react/)'s package CI; the token contrast tests
 already run today
 ([`.github/workflows/tokens.yml`](../../.github/workflows/tokens.yml)).
 

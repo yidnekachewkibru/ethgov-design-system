@@ -1,8 +1,8 @@
 /**
  * ETHDS Brand — Tailwind theme
  * Canonical reference Tailwind theme for the ETHDS brand system.
- * Values documented in docs/brand/. In Phase 3 this is generated from the
- * @ethds/tokens JSON source; until then it is directly usable:
+ * Values documented in docs/brand/. The canonical build is generated from
+ * the @ethds/tokens JSON source; this file is directly usable:
  *
  *   // tailwind.config.cjs
  *   const ethds = require('./path/to/tailwind.brand.cjs');

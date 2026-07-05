@@ -12,8 +12,7 @@ multi-step flow. Findings feed back as fixes into earlier phases.
 
 > **Status:** documented reference implementations — architecture,
 > screens, composition code, accessibility/localization reviews, and
-> deployment guidance
-> ([Phase 10](../../docs/phases/phase-10-reference-implementations.md)).
+> deployment guidance.
 > Runnable, deployed example apps are a follow-up.
 
 ## Portals
@@ -27,8 +26,7 @@ multi-step flow. Findings feed back as fixes into earlier phases.
 
 ## How each is documented
 
-Each portal page covers the deliverables from
-[Phase 10](../../docs/phases/phase-10-reference-implementations.md):
+Each portal page covers:
 
 1. **Overview** — what the service does
 2. **Architecture** — structure, routes, data, tech

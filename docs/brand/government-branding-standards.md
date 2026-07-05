@@ -15,7 +15,7 @@ order of priority. This operationalises
 
 - The shared government identity — the [colour system](color.md),
   [typography](typography.md), and common
-  [header/footer](../phases/phase-7-core-components.md) — is the constant
+  [header/footer](../../packages/ethds-react/) — is the constant
   across every service.
 - **Ethiopian Star Blue (`blue-600`)** is the shared primary brand colour
   for all bodies. Individual ministries do not substitute their own

@@ -48,7 +48,7 @@ functionality.
 
 This is a baseline; components may additionally tailor their reduced-motion
 behaviour. See the motion standards in the
-[Accessibility Framework](../phases/phase-5-accessibility-framework.md).
+[Accessibility Framework](../accessibility/).
 
 ## Usage
 

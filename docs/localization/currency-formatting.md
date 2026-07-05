@@ -29,9 +29,9 @@ new Intl.NumberFormat('en-ET', {
 ```
 
 Wrap this in a shared `formatCurrency(amount, { locale })` utility
-(`@ethds/react`, [Phase 7](../phases/phase-7-core-components.md)) so every
+(`@ethds/react`) so every
 service — especially the
-[payment and receipt patterns](../phases/phase-8-government-service-patterns.md)
+[payment and receipt patterns](../../packages/ethds-patterns/)
 — displays money identically.
 
 ## Storage and precision

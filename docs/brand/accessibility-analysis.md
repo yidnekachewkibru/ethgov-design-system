@@ -56,7 +56,7 @@ Used for primary buttons, semantic badges, etc.
 
 ## Semantic Surfaces (tint background + emphasis text)
 
-Used by [Alert / Notification](../phases/phase-7-core-components.md)
+Used by [Alert / Notification](../../packages/ethds-react/)
 patterns.
 
 | Combination | Ratio | Normal text |
@@ -101,6 +101,6 @@ dividers, which are exempt from the 3:1 requirement.
 Ratios use the WCAG 2.2 definition: `(L1 + 0.05) / (L2 + 0.05)`, where `L`
 is relative luminance with the standard sRGB linearisation. The same
 values feed the automated contrast checks that the
-[Accessibility Framework](../phases/phase-5-accessibility-framework.md)
-(Phase 5) runs in CI against components, so the palette and the components
+[Accessibility Framework](../accessibility/)
+runs in CI against components, so the palette and the components
 built on it stay verifiably AA.

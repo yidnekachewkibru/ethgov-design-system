@@ -15,9 +15,9 @@ This document covers how to contribute. For the project's governing rules
 
 - Read the [Code of Conduct](CODE_OF_CONDUCT.md) — participation in this
   project requires following it.
-- Check [`docs/foundation/roadmap.md`](docs/foundation/roadmap.md) and
-  [`docs/phases/`](docs/phases/) to see what phase the project is currently
-  in and what's planned next, so your contribution lands where it's useful.
+- Browse [`docs/foundation/`](docs/foundation/) for what ETHDS is and
+  [`docs/governance/`](docs/governance/) for how it is run, so your
+  contribution lands where it's useful.
 - For anything beyond a small fix (a new component, a new pattern, a
   breaking change to tokens), open an RFC first — see
   [Proposing Significant Changes](#proposing-significant-changes) below.
@@ -33,7 +33,7 @@ for the full rationale and package map.
 ```
 ethgov-design-system/
 ├── packages/        # workspace packages (tokens, react, icons, ...)
-└── docs/            # foundation, governance, and per-phase planning docs
+└── docs/            # foundation, principles, brand, accessibility, localization, governance
 ```
 
 ## Development Setup
@@ -45,8 +45,7 @@ npm install
 ```
 
 `npm install` resolves all `packages/*` workspaces from the repo root —
-there is no per-package install step. As packages gain real build/test
-tooling (starting in later phases), per-package scripts will be runnable
+there is no per-package install step. Per-package scripts are runnable
 via `npm run <script> -w <package-name>`.
 
 ## Making a Change
@@ -54,8 +53,8 @@ via `npm run <script> -w <package-name>`.
 1. Fork the repository and create a branch off `main`.
 2. Make your change within the relevant package or doc.
 3. Follow the coding standards and accessibility requirements documented
-   for the area you're touching (see
-   [`docs/phases/`](docs/phases/) for the phase that owns that area).
+   for the area you're touching (see [`docs/accessibility/`](docs/accessibility/)
+   and the package's own README).
 4. Write or update tests where the package has a test setup.
 5. Open a pull request using the provided
    [PR template](.github/PULL_REQUEST_TEMPLATE.md), describing what
@@ -76,8 +75,7 @@ should go through an RFC before implementation:
 
 The full process is documented in
 [`docs/governance/governance-model.md`](docs/governance/governance-model.md)
-and will be finalized in
-[Phase 11 — Open Source Governance](docs/phases/phase-11-open-source-governance.md).
+and [`docs/governance/rfc-process.md`](docs/governance/rfc-process.md).
 
 ## Accessibility and Localization
 

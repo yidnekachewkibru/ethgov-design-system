@@ -4,9 +4,9 @@ The brand system defines the shared visual identity of Ethiopian
 government digital services — colour, typography, iconography, logo usage,
 spacing, elevation, radius, and motion. These are concrete, decided values,
 not proposals: they are the single source of truth that the
-[design tokens package](../phases/phase-3-design-tokens.md) (`@ethds/tokens`,
-Phase 3) encodes and ships, and that every [component](../phases/phase-7-core-components.md)
-and [template](../phases/phase-9-website-templates.md) consumes.
+[design tokens package](../../packages/ethds-tokens/) (`@ethds/tokens`)
+encodes and ships, and that every [component](../../packages/ethds-react/)
+and [template](../../packages/ethds-templates/) consumes.
 
 A consistent visual identity is what lets a citizen recognise an official
 government service and trust it — see
@@ -35,11 +35,10 @@ The brand values are provided ready to use:
 - **CSS custom properties** — [`assets/ethds-brand.css`](assets/ethds-brand.css)
 - **Tailwind theme** — [`assets/tailwind.brand.cjs`](assets/tailwind.brand.cjs)
 
-These are the canonical reference implementation. In
-[Phase 3](../phases/phase-3-design-tokens.md) the same values are
-restructured into a JSON-source token build pipeline (`@ethds/tokens`)
-that generates these and other formats automatically; until then, these
-files are directly usable.
+These are the canonical reference implementation. The same values are
+encoded in [`@ethds/tokens`](../../packages/ethds-tokens/)'s JSON-source
+token build pipeline, which generates these and other formats
+automatically; the files here remain directly usable.
 
 ## Principles This Embodies
 

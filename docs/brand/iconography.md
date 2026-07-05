@@ -3,8 +3,8 @@
 Icons in ETHDS support comprehension — they help citizens recognise
 actions and categories quickly, across languages and literacy levels.
 They are never the sole carrier of meaning. These guidelines define how
-ETHDS icons look and behave; the icon set itself is built as
-[`@ethds/icons`](../phases/phase-7-core-components.md) (alongside Phase 7).
+ETHDS icons look and behave; the starter icon set ships
+with [`@ethds/react`](../../packages/ethds-react/).
 
 ## Style
 
@@ -52,7 +52,7 @@ neighbouring icons.
   accessible name (e.g. `aria-label`) in the citizen's
   [active language](../design-principles/02-multilingual-by-default.md).
 - Icon-only controls still meet the minimum touch-target size from the
-  [Accessibility Framework](../phases/phase-5-accessibility-framework.md);
+  [Accessibility Framework](../accessibility/);
   the visual icon may be `icon-md` while the tappable target is larger.
 - Never use an icon as the only indicator of state — pair with text, per
   [Accessibility by Default](../design-principles/04-accessibility-by-default.md).
@@ -66,5 +66,5 @@ neighbouring icons.
 - Strip metadata and editor cruft from SVGs; no raster icons for UI.
 
 The `Icon` component contract is defined with the
-[core components](../phases/phase-7-core-components.md); this page governs
+[core components](../../packages/ethds-react/); this page governs
 the visual and accessibility rules the icon set follows.
