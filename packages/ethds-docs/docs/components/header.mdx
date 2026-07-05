@@ -62,6 +62,53 @@ government branding standards.
 - Put the [Language switcher](language-switcher) in `actions` so it's on
   every page, early in the tab order.
 
+## Plain HTML
+
+This is the same header markup already used in the
+[404 page](/docs/templates/404-page#plain-html) template — every ETHDS
+page shares this one structure rather than a per-page rebuild.
+
+```html
+<header class="ethds-header">
+  <div class="ethds-header__bar">
+    <a href="/" class="ethds-header__identity" aria-label="Federal Revenue Service — home">
+      <span class="ethds-header__service-name">Federal Revenue Service</span>
+    </a>
+    <div class="ethds-header__actions">
+      <!-- Language switcher goes here — see its own Plain HTML section. -->
+    </div>
+  </div>
+  <nav aria-label="Primary" class="ethds-header__nav">
+    <ul class="ethds-header__nav-list">
+      <li><a href="/" class="ethds-header__nav-link ethds-header__nav-link--current" aria-current="page">Home</a></li>
+      <li><a href="/services" class="ethds-header__nav-link">Services</a></li>
+      <li><a href="/news" class="ethds-header__nav-link">News</a></li>
+      <li><a href="/contact" class="ethds-header__nav-link">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+```
+
+```css
+.ethds-header { background: var(--ethds-color-primary); color: var(--ethds-white); }
+.ethds-header__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--ethds-space-4); padding: var(--ethds-space-3) var(--ethds-space-4);
+}
+.ethds-header__identity { display: inline-flex; align-items: center; gap: var(--ethds-space-3); color: var(--ethds-white); text-decoration: none; }
+.ethds-header__identity:focus-visible { outline: 2px solid var(--ethds-white); outline-offset: 2px; }
+.ethds-header__service-name { font-size: var(--ethds-text-lg); font-weight: var(--ethds-font-bold); }
+.ethds-header__nav { background: var(--ethds-blue-700); }
+.ethds-header__nav-list { display: flex; flex-wrap: wrap; gap: var(--ethds-space-1); margin: 0; padding: 0 var(--ethds-space-2); list-style: none; }
+.ethds-header__nav-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--ethds-space-3); color: var(--ethds-white); text-decoration: none; border-bottom: 3px solid transparent; }
+.ethds-header__nav-link:focus-visible { outline: 2px solid var(--ethds-white); outline-offset: -2px; }
+.ethds-header__nav-link--current { border-bottom-color: var(--ethds-yellow-400); font-weight: var(--ethds-font-medium); }
+```
+
+No JavaScript needed — mark the current page's `<a>` with
+`aria-current="page"` and the modifier class server-side, based on the
+route being rendered.
+
 ## Props
 
 | Prop | Type | Notes |

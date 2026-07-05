@@ -61,6 +61,47 @@ Per the localization framework's switcher standard:
 - Each `<option>` sets `lang` to its own locale so its autonym is
   pronounced correctly (e.g. አማርኛ announced in Amharic).
 
+## Plain HTML
+
+Belongs in the [Header](header#plain-html)'s `.ethds-header__actions`
+slot, on every page.
+
+```html
+<div class="ethds-language-switcher">
+  <label for="lang" class="ethds-language-switcher__label">Choose language</label>
+  <select id="lang" name="lang" class="ethds-language-switcher__select" onchange="location.href = this.value">
+    <option value="/en" lang="en" selected>English</option>
+    <option value="/am" lang="am">አማርኛ</option>
+    <option value="/om" lang="om">Afaan Oromoo</option>
+    <option value="/ti" lang="ti">ትግርኛ</option>
+    <option value="/so" lang="so">Soomaali</option>
+    <option value="/aa" lang="aa">Qafar</option>
+  </select>
+</div>
+```
+
+```css
+.ethds-language-switcher { display: inline-flex; align-items: center; gap: var(--ethds-space-2); }
+.ethds-language-switcher__label { font-size: var(--ethds-text-sm); color: inherit; }
+.ethds-language-switcher__select {
+  min-height: 40px;
+  padding: var(--ethds-space-1) var(--ethds-space-3);
+  border: 1px solid var(--ethds-color-border);
+  border-radius: var(--ethds-radius-md);
+}
+.ethds-language-switcher__select:focus-visible {
+  outline: 2px solid var(--ethds-color-focus);
+  outline-offset: 2px;
+}
+```
+
+Without a client framework, each `<option>`'s `value` is the URL for
+that language's version of the current page, and a one-line
+`onchange="location.href = this.value"` navigates there — the server
+renders the page in that locale and sets `<html lang>` accordingly,
+satisfying the same three behaviour rules above without any client-side
+state.
+
 ## Props
 
 | Prop | Type | Notes |

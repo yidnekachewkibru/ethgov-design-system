@@ -60,6 +60,51 @@ Don't bury primary tasks in the footer — it's for secondary links.
   by section.
 - Link colours on the dark surface meet AA; focus rings are visible.
 
+## Plain HTML
+
+The [404 page](/docs/templates/404-page#plain-html) template's footer is
+the minimal case (just a copyright line); this is the full version with
+grouped link navs.
+
+```html
+<footer class="ethds-footer" aria-label="Footer">
+  <div class="ethds-footer__groups">
+    <nav aria-label="Services" class="ethds-footer__group">
+      <h2 class="ethds-footer__title">Services</h2>
+      <ul class="ethds-footer__list">
+        <li><a href="/services" class="ethds-footer__link">All services</a></li>
+        <li><a href="/track" class="ethds-footer__link">Track an application</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="About" class="ethds-footer__group">
+      <h2 class="ethds-footer__title">About</h2>
+      <ul class="ethds-footer__list">
+        <li><a href="/contact" class="ethds-footer__link">Contact us</a></li>
+        <li><a href="/accessibility" class="ethds-footer__link">Accessibility statement</a></li>
+        <li><a href="/privacy" class="ethds-footer__link">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="ethds-footer__copyright">© 2026 Government of Ethiopia. Built with ETHDS.</p>
+</footer>
+```
+
+```css
+.ethds-footer { background: var(--ethds-gray-900); color: var(--ethds-white); padding: var(--ethds-space-8) var(--ethds-space-4); }
+.ethds-footer__groups { display: flex; flex-wrap: wrap; gap: var(--ethds-space-8); margin-bottom: var(--ethds-space-6); }
+.ethds-footer__group { min-width: 12rem; }
+.ethds-footer__title { margin: 0 0 var(--ethds-space-3); font-weight: var(--ethds-font-bold); }
+.ethds-footer__list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--ethds-space-2); }
+.ethds-footer__link { color: var(--ethds-gray-200); text-decoration: underline; }
+.ethds-footer__link:hover { color: var(--ethds-white); }
+.ethds-footer__link:focus-visible { outline: 2px solid var(--ethds-white); outline-offset: 2px; }
+.ethds-footer__copyright { margin: 0; padding-top: var(--ethds-space-4); border-top: 1px solid var(--ethds-gray-700); font-size: var(--ethds-text-sm); color: var(--ethds-gray-300); }
+```
+
+Static markup, no JavaScript. Each group's `aria-label` matches its
+visible `<h2>` so a screen reader announces the section by name when
+jumping between the footer's landmarks.
+
 ## Props
 
 | Prop | Type | Notes |

@@ -52,6 +52,43 @@ flow's own Back/step navigation does that job).
   `aria-current="page"`.
 - Separators are decorative icons hidden from assistive tech.
 
+## Plain HTML
+
+```html
+<nav aria-label="Breadcrumb" class="ethds-breadcrumb">
+  <ol class="ethds-breadcrumb__list">
+    <li class="ethds-breadcrumb__item">
+      <a href="/" class="ethds-breadcrumb__link">Home</a>
+      <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+    </li>
+    <li class="ethds-breadcrumb__item">
+      <a href="/services" class="ethds-breadcrumb__link">Services</a>
+      <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+    </li>
+    <li class="ethds-breadcrumb__item">
+      <span aria-current="page" class="ethds-breadcrumb__current">Renew licence</span>
+    </li>
+  </ol>
+</nav>
+```
+
+```css
+.ethds-breadcrumb { font-size: var(--ethds-text-sm); }
+.ethds-breadcrumb__list {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--ethds-space-1);
+  margin: 0; padding: 0; list-style: none;
+}
+.ethds-breadcrumb__item { display: inline-flex; align-items: center; gap: var(--ethds-space-1); }
+.ethds-breadcrumb__link { color: var(--ethds-color-interactive); text-decoration: underline; }
+.ethds-breadcrumb__link:focus-visible { outline: 2px solid var(--ethds-color-focus); outline-offset: 2px; }
+.ethds-breadcrumb__current { color: var(--ethds-color-text-secondary); }
+.ethds-breadcrumb__separator { color: var(--ethds-color-text-disabled); }
+```
+
+Static, server-rendered markup — no JavaScript needed. Only the last
+item omits the `<a>` and carries `aria-current="page"`; every separator
+is `aria-hidden` since the visual `›` is decorative.
+
 ## Props
 
 | Prop | Type | Notes |

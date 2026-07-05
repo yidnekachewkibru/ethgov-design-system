@@ -50,6 +50,55 @@ on.
   severity is carried by text + labelled icon, with the coloured edge as
   reinforcement only.
 
+## Plain HTML
+
+```html
+<div role="status" class="ethds-notification ethds-notification--success">
+  <span class="ethds-notification__icon" role="img" aria-label="Success">✓</span>
+  <div class="ethds-notification__body">
+    <p class="ethds-notification__title">Saved</p>
+    <div>Your changes have been saved.</div>
+  </div>
+  <button type="button" class="ethds-notification__dismiss" aria-label="Dismiss">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
+```
+
+Use `role="alert"` instead of `role="status"` only for the `error`
+variant — everything else about the markup is identical across variants,
+only the modifier class (`--info` / `--success` / `--warning` /
+`--error`) changes which border colour is applied.
+
+```css
+.ethds-notification {
+  display: flex;
+  gap: var(--ethds-space-3);
+  padding: var(--ethds-space-3) var(--ethds-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--ethds-radius-md);
+  box-shadow: var(--ethds-elevation-2);
+  background: var(--ethds-white);
+}
+.ethds-notification--info { border-left: 4px solid var(--ethds-color-info); }
+.ethds-notification--success { border-left: 4px solid var(--ethds-color-success); }
+.ethds-notification--warning { border-left: 4px solid var(--ethds-color-warning); }
+.ethds-notification--error { border-left: 4px solid var(--ethds-color-error); }
+.ethds-notification__title { margin: 0; font-weight: var(--ethds-font-bold); }
+.ethds-notification__dismiss {
+  width: 32px; height: 32px; padding: 0; border: 0; background: transparent;
+  color: var(--ethds-color-text-secondary); cursor: pointer;
+}
+.ethds-notification__dismiss:focus-visible {
+  outline: 2px solid var(--ethds-color-focus); outline-offset: 2px;
+}
+```
+
+To actually dismiss the notification without JavaScript, render it
+server-side only when there's something to announce; with a sprinkle of
+JS, wire the dismiss button to remove its own `.ethds-notification` node
+from the DOM (`event.currentTarget.closest('.ethds-notification').remove()`).
+
 ## Props
 
 | Prop | Type | Default |
