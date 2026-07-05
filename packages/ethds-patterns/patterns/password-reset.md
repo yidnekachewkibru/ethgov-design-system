@@ -108,3 +108,65 @@ export function RequestReset({ onRequest }: { onRequest: (id: string) => Promise
   );
 }
 ```
+
+## HTML Example
+
+Like [Application Submission](application-submission.md#html-example),
+`PasswordResetFlow` is built on the shared client-side
+`useMultiStepForm` hook. Without a client framework the three steps
+become three pages — `/reset`, `/reset/verify`, `/reset/new-password` —
+each a plain `<form method="post">`, with the identifier and verified
+status held in the **server session** between them (never in the URL or
+a hidden field, since either would leak whether a given identifier is
+valid).
+
+```html
+<!-- Step 1 — /reset. Always shows the same confirmation regardless of
+     whether the identifier matches an account. -->
+<form method="post" action="/reset" novalidate>
+  <h1>Reset your password</h1>
+  <div class="ethds-field">
+    <label for="id" class="ethds-label">Phone number or email</label>
+    <input id="id" name="id" type="text" autocomplete="username" class="ethds-input" required />
+  </div>
+  <button type="submit" class="ethds-button ethds-button--primary">Send code</button>
+</form>
+```
+
+The step-1 handler sends a code **only if** the identifier matches an
+account, but redirects to the same `/reset/verify` confirmation page
+either way:
+
+```html
+<!-- Shown after step 1, whether or not an account was actually found. -->
+<div role="status" class="ethds-alert ethds-alert--info">
+  <span role="img" aria-label="Information" class="ethds-alert__icon">i</span>
+  <div class="ethds-alert__body">
+    If an account matches, we've sent a code. Enter it on the next screen.
+  </div>
+</div>
+```
+
+Step 2 is exactly [OTP Verification's HTML Example](otp-verification.md#html-example),
+posting to `/reset/verify`. Step 3 is a single
+[Text input](/docs/components/text-input#plain-html)-style password
+field posting to `/reset/new-password`:
+
+```html
+<form method="post" action="/reset/new-password" novalidate>
+  <h1>Set a new password</h1>
+  <div class="ethds-field">
+    <label for="password" class="ethds-label">New password</label>
+    <span id="password-hint" class="ethds-hint">At least 8 characters.</span>
+    <input id="password" name="password" type="password" autocomplete="new-password"
+           class="ethds-input" aria-describedby="password-hint" minlength="8" required />
+  </div>
+  <button type="submit" class="ethds-button ethds-button--primary">Save password</button>
+</form>
+```
+
+Only after step 3 succeeds does the server clear the reset session,
+invalidate other active sessions for that account, and redirect to a
+confirmation page stating both facts in plain language — the same
+security-relevant disclosure the React version's confirmation panel
+makes.

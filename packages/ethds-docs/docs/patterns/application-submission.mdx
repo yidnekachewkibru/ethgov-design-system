@@ -59,6 +59,19 @@ template.
 - **Consistent Help (SC 3.2.6):** help stays in the same place on every
   step (see the Service Application Page template, linked above).
 
+## Plain HTML
+
+Not on React? `ApplicationSubmissionFlow` is built on a client-side
+multi-step hook (`useMultiStepForm`); the natural non-React equivalent
+isn't a JavaScript port of it — it's **multi-page**, one `<form>` per
+step posting to the next step's URL with the draft held in the server
+session. See the
+[pattern's own HTML Example](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/packages/ethds-patterns/patterns/application-submission.md#html-example)
+for the full write-up and a worked step, reusing
+[Step indicator](/docs/components/step-indicator#plain-html),
+[Error summary](/docs/components/error-summary#plain-html), and
+[Summary list](/docs/components/summary-list#plain-html)'s markup.
+
 ## Localization
 
 Every step's labels are translatable via the flow's `labels` prop, which

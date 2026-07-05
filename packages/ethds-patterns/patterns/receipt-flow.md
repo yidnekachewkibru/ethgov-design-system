@@ -130,3 +130,59 @@ export function Receipt({
   );
 }
 ```
+
+## HTML Example
+
+A display-only page — no form, no client-side state. Reuses
+[Alert](/docs/components/alert#plain-html) and
+[Table](/docs/components/table#plain-html)'s markup, matching
+[Payment Flow](payment-flow.md#html-example)'s structure so the two feel
+like one continuous flow.
+
+```html
+<section>
+  <h1>Payment receipt</h1>
+
+  <div role="status" class="ethds-alert ethds-alert--success">
+    <span role="img" aria-label="Success" class="ethds-alert__icon">✓</span>
+    <div class="ethds-alert__body">
+      <p class="ethds-alert__title">Payment successful</p>
+      <p class="ethds-alert__content">Keep this receipt as proof of payment.</p>
+    </div>
+  </div>
+
+  <dl>
+    <dt>Receipt no.</dt><dd>RCPT-2026-00931</dd>
+    <dt>Date</dt><dd>Meskerem 9, 2019 EC</dd>
+    <dt>Paid via</dt><dd>Telebirr</dd>
+  </dl>
+
+  <div class="ethds-table-scroll">
+    <table class="ethds-table">
+      <caption class="ethds-table__caption">Payment details</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="ethds-table__th">Item</th>
+          <th scope="col" class="ethds-table__th ethds-table__th--end">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ethds-table__td">Business licence renewal fee</td>
+          <td class="ethds-table__td ethds-table__td--end">ETB 350.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Total paid: ETB 350.00</strong></p>
+
+  <a href="/receipts/RCPT-2026-00931.pdf" class="ethds-button ethds-button--secondary">Download receipt</a>
+</section>
+```
+
+"Download receipt" is a plain link to a server-generated file (PDF or
+printable HTML) rather than a client-side download handler — simpler,
+and it degrades to "open in a new tab" if the browser can't trigger a
+download, which matters on the low-end devices this pattern's own
+low-bandwidth guidance calls out. Only ever render this page for a
+confirmed, settled payment — the same rule as the React version.

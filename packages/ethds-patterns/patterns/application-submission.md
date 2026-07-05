@@ -134,3 +134,95 @@ export function BusinessDetailsStep({
   );
 }
 ```
+
+## HTML Example
+
+This is the full write-up [Login's HTML Example](login.md#html-example)
+points to. `ApplicationSubmissionFlow` is built on a client-side
+multi-step hook (`useMultiStepForm`) that holds the whole draft in
+memory and swaps steps without a page load. Without a client framework,
+the natural equivalent isn't a JavaScript port of that hook — it's
+**multi-page**: one `<form>` per step, each posting to the next step's
+URL, with the in-progress draft held in the **server session** (exactly
+how most government paper-to-digital form flows already work). This is a
+different shape, not a harder one — accessibility and low-bandwidth
+behaviour are, if anything, easier to get right this way, since each
+step is a full page load with no client state to lose on a dropped
+connection.
+
+Each step is its own page, at its own URL (`/apply/business-licence/2`,
+etc.), with its own `<h1>` and the step indicator showing progress:
+
+```html
+<form method="post" action="/apply/business-licence/2" novalidate>
+  <h1>Apply for a business licence</h1>
+
+  <nav aria-label="Application progress" class="ethds-step-indicator">
+    <ol class="ethds-step-indicator__list">
+      <li class="ethds-step-indicator__step ethds-step-indicator__step--complete">
+        <span class="ethds-step-indicator__number" aria-hidden="true">1</span>
+        <span>Applicant</span>
+      </li>
+      <li class="ethds-step-indicator__step ethds-step-indicator__step--current" aria-current="step">
+        <span class="ethds-step-indicator__number" aria-hidden="true">2</span>
+        <span>Business details</span>
+      </li>
+      <li class="ethds-step-indicator__step">
+        <span class="ethds-step-indicator__number" aria-hidden="true">3</span>
+        <span>Documents</span>
+      </li>
+      <li class="ethds-step-indicator__step">
+        <span class="ethds-step-indicator__number" aria-hidden="true">4</span>
+        <span>Review</span>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- Only present when this step's own submission failed validation. -->
+  <div role="alert" tabindex="-1" class="ethds-error-summary" id="error-summary">
+    <h2 class="ethds-error-summary__title">There is a problem</h2>
+    <ul class="ethds-error-summary__list">
+      <li><a href="#businessName" class="ethds-error-summary__link">Enter the business name.</a></li>
+    </ul>
+  </div>
+
+  <div class="ethds-field">
+    <label for="businessName" class="ethds-label">Business name</label>
+    <input id="businessName" name="businessName" type="text" class="ethds-input"
+           value="{{ draft.businessName }}" required />
+  </div>
+
+  <div class="ethds-field">
+    <label for="region" class="ethds-label">Region</label>
+    <select id="region" name="region" class="ethds-select" required>
+      <option value="" disabled>Select a region</option>
+      <option value="aa" {{ draft.region == 'aa' ? 'selected' : '' }}>Afar</option>
+      <option value="am" {{ draft.region == 'am' ? 'selected' : '' }}>Amhara</option>
+      <option value="or" {{ draft.region == 'or' ? 'selected' : '' }}>Oromia</option>
+    </select>
+  </div>
+
+  <a href="/apply/business-licence/1" class="ethds-back-link">← Back</a>
+  <button type="submit" class="ethds-button ethds-button--primary">Next</button>
+</form>
+
+<script>
+  document.getElementById('error-summary')?.focus();
+</script>
+```
+
+(The `{{ … }}` placeholders are illustrative of any server templating
+language — Jinja, ERB, Blade, and so on all express the same idea:
+re-populate each field from the session draft so nothing already entered
+is ever lost.)
+
+Each step's POST handler validates that step only, re-renders the same
+page with the error summary on failure, and on success merges the
+posted values into the server-session draft and redirects to the next
+step's URL — a plain, unconditional `303 See Other` redirect, so a
+reload of the resulting page never resubmits the step. The **Review**
+step lists every field from the session draft with a link back to the
+exact step that captured it (the [Summary list](/docs/components/summary-list#plain-html)
+markup), and the final submit clears the session draft only after a
+successful submission — a failed submit leaves the whole draft, review
+included, exactly as it was.
