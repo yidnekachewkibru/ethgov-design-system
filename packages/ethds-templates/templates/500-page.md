@@ -74,6 +74,60 @@ export function ServerErrorPage({ locale, onLocale, onRetry }: Props) {
 }
 ```
 
+## HTML Example
+
+Same chrome as the [404 page](404-page.md#html-example); only the `main`
+content changes.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Something went wrong — Government of Ethiopia</title>
+  <link rel="stylesheet" href="path/to/@ethds/tokens/dist/tokens.css" />
+  <link rel="stylesheet" href="path/to/your/ethds-starter.css" />
+</head>
+<body>
+  <a href="#main" class="ethds-skip-link">Skip to main content</a>
+
+  <header class="ethds-header">
+    <div class="ethds-header__bar">
+      <a href="/" class="ethds-header__identity" aria-label="Government of Ethiopia — home">
+        <span class="ethds-header__service-name">Government of Ethiopia</span>
+      </a>
+      <div class="ethds-header__actions">
+        <!-- LanguageSwitcher is a native <select onchange> — see its own docs page -->
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="ethds-container">
+    <h1>Sorry, something went wrong</h1>
+    <p>This is a problem on our side, not yours. Please try again in a few minutes.</p>
+
+    <a href="/retry" class="ethds-button ethds-button--primary">Try again</a>
+    <p>
+      <a href="/" class="ethds-link">Go to home</a> · If it keeps happening,
+      <a href="/contact" class="ethds-link">contact us</a>.
+    </p>
+  </main>
+
+  <footer class="ethds-footer" aria-label="Footer">
+    <p>© 2026 Government of Ethiopia.</p>
+  </footer>
+</body>
+</html>
+```
+
+The host application is responsible for returning the actual HTTP `500`
+status alongside this markup, and for keeping this page itself
+lightweight and dependency-free — it may need to render while other
+parts of the system are degraded. "Try again" is a plain link back to
+the page that failed (or a `/retry` redirect) rather than a JavaScript
+retry handler; never render a stack trace or other technical detail
+here, log it server-side instead.
+
 ## Storybook Story
 
 ```tsx

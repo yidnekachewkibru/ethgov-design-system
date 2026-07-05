@@ -83,6 +83,57 @@ export function AgencyHome({ locale, onLocale, primaryTasks, services }: Props) 
 }
 ```
 
+## HTML Example
+
+Structurally identical to the
+[Ministry Homepage's HTML Example](ministry-homepage.md#html-example) —
+same [Header](/docs/components/header#plain-html)/[Breadcrumb](/docs/components/breadcrumb#plain-html)/[Footer](/docs/components/footer#plain-html)
+chrome — with primary tasks rendered as cards instead of a plain list.
+
+```html
+<main id="main" class="ethds-container">
+  <nav aria-label="Breadcrumb" class="ethds-breadcrumb">
+    <ol class="ethds-breadcrumb__list">
+      <li class="ethds-breadcrumb__item">
+        <a href="/" class="ethds-breadcrumb__link">Home</a>
+        <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+      </li>
+      <li class="ethds-breadcrumb__item">
+        <span aria-current="page" class="ethds-breadcrumb__current">Immigration and Citizenship Service</span>
+      </li>
+    </ol>
+  </nav>
+
+  <h1>Immigration and Citizenship Service</h1>
+  <p>Issues passports and manages immigration and citizenship matters.</p>
+
+  <ul class="ethds-card-grid">
+    <li><a href="/passport/new" class="ethds-card">Apply for a passport</a></li>
+    <li><a href="/passport/renew" class="ethds-card">Renew a passport</a></li>
+  </ul>
+
+  <div class="ethds-grid">
+    <div class="ethds-col-half">
+      <h2>All services</h2>
+      <ul class="ethds-link-list">
+        <li><a href="/visa" class="ethds-link">Visa services</a></li>
+      </ul>
+    </div>
+    <div class="ethds-col-half">
+      <h2>Notices</h2>
+      <ul class="ethds-link-list">
+        <li><a href="/notices/1" class="ethds-link">Office closed on public holidays</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+```
+
+`.ethds-card-grid`/`.ethds-card` are the same classes shown in the
+[National Portal Homepage's HTML Example](national-portal-homepage.md#html-example)
+— an agency's narrower, more task-focused service set is exactly what
+the card treatment (over a plain list) is for.
+
 ## Storybook Story
 
 ```tsx
