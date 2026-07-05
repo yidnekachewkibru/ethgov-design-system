@@ -91,6 +91,68 @@ export function ContactPage({ locale, onLocale, onSend }: Props) {
 }
 ```
 
+## HTML Example
+
+```html
+<main id="main" class="ethds-container">
+  <nav aria-label="Breadcrumb" class="ethds-breadcrumb">
+    <ol class="ethds-breadcrumb__list">
+      <li class="ethds-breadcrumb__item">
+        <a href="/" class="ethds-breadcrumb__link">Home</a>
+        <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+      </li>
+      <li class="ethds-breadcrumb__item">
+        <span aria-current="page" class="ethds-breadcrumb__current">Contact</span>
+      </li>
+    </ol>
+  </nav>
+
+  <h1>Contact us</h1>
+
+  <dl>
+    <dt>Phone</dt><dd><a href="tel:+251111234567" class="ethds-link">+251 11 123 4567</a></dd>
+    <dt>Email</dt><dd><a href="mailto:info@revenue.gov.et" class="ethds-link">info@revenue.gov.et</a></dd>
+    <dt>Hours</dt><dd>Monday–Friday, 08:30–17:00 EAT</dd>
+    <dt>Office</dt><dd>Bole Road, Addis Ababa</dd>
+  </dl>
+
+  <h2>Send us a message</h2>
+  <form method="post" action="/contact" novalidate>
+    <!-- Only present when the server re-renders after a failed submit. -->
+    <div role="alert" tabindex="-1" class="ethds-error-summary" id="error-summary">
+      <h3 class="ethds-error-summary__title">There is a problem</h3>
+      <ul class="ethds-error-summary__list">
+        <li><a href="#name" class="ethds-error-summary__link">Enter your name.</a></li>
+      </ul>
+    </div>
+
+    <div class="ethds-field">
+      <label for="name" class="ethds-label">Your name</label>
+      <input id="name" name="name" type="text" class="ethds-input" required />
+    </div>
+    <div class="ethds-field">
+      <label for="phone" class="ethds-label">Phone</label>
+      <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" class="ethds-input" />
+    </div>
+    <div class="ethds-field">
+      <label for="message" class="ethds-label">Message</label>
+      <textarea id="message" name="message" rows="5" class="ethds-textarea" required></textarea>
+    </div>
+    <button type="submit" class="ethds-button ethds-button--primary">Send message</button>
+  </form>
+</main>
+
+<script>
+  document.getElementById('error-summary')?.focus();
+</script>
+```
+
+Phone and email are real `tel:`/`mailto:` links, immediately actionable
+on a mobile device — never plain text. The message form follows the same
+[Error summary](/docs/components/error-summary#plain-html)/[Text input](/docs/components/text-input#plain-html)/[Textarea](/docs/components/textarea#plain-html)
+convention as [Complaint Submission](../../ethds-patterns/patterns/complaint-submission.md#html-example),
+for anything that doesn't need a full tracked complaint.
+
 ## Storybook Story
 
 ```tsx

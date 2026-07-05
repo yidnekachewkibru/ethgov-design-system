@@ -97,6 +97,83 @@ export function CitizenDashboard({ name, actionNeeded, applications, locale, onL
 }
 ```
 
+## HTML Example
+
+```html
+<header class="ethds-header">
+  <div class="ethds-header__bar">
+    <a href="/" class="ethds-header__identity" aria-label="Government of Ethiopia — home">
+      <span class="ethds-header__service-name">Government of Ethiopia</span>
+    </a>
+    <div class="ethds-header__actions"><!-- account name, LanguageSwitcher --></div>
+  </div>
+</header>
+
+<main id="main" class="ethds-container">
+  <h1>Welcome back, Abebe</h1>
+
+  <div role="status" class="ethds-notification ethds-notification--warning">
+    <span role="img" aria-label="Action needed" class="ethds-notification__icon">!</span>
+    <div class="ethds-notification__body">You have 1 item that needs your attention.</div>
+  </div>
+
+  <h2>Your applications</h2>
+  <div class="ethds-table-scroll">
+    <table class="ethds-table">
+      <caption class="ethds-table__caption">Your applications</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="ethds-table__th">Reference</th>
+          <th scope="col" class="ethds-table__th">Service</th>
+          <th scope="col" class="ethds-table__th">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ethds-table__td"><a href="/apps/ETH-2026-0041" class="ethds-link">ETH-2026-0041</a></td>
+          <td class="ethds-table__td">Passport</td>
+          <td class="ethds-table__td">Approved</td>
+        </tr>
+        <tr>
+          <td class="ethds-table__td"><a href="/apps/ETH-2026-0042" class="ethds-link">ETH-2026-0042</a></td>
+          <td class="ethds-table__td">Business permit</td>
+          <td class="ethds-table__td">Pending</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ethds-grid">
+    <div class="ethds-col-half">
+      <h2>Upcoming appointments</h2>
+      <ul class="ethds-link-list">
+        <li><a href="/appointments/1" class="ethds-link">Bole office, Meskerem 5, 2019 EC</a></li>
+      </ul>
+    </div>
+    <div class="ethds-col-half">
+      <h2>Recent payments</h2>
+      <ul class="ethds-link-list">
+        <li><a href="/receipts/1" class="ethds-link">ETB 350.00 receipt</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <a href="/services" class="ethds-button ethds-button--primary">Start a new application</a>
+</main>
+
+<footer class="ethds-footer" aria-label="Footer">
+  <p>© 2026 Government of Ethiopia.</p>
+</footer>
+```
+
+The action-needed notification comes first in document order, before any
+of the citizen's records — reusing
+[Notification](/docs/components/notification#plain-html)'s `role="status"`
+markup so it's announced without stealing keyboard focus. The
+applications table reuses [Table](/docs/components/table#plain-html);
+appointments/payments reuse the plain link-list pattern from the
+[homepage templates](national-portal-homepage.md#html-example).
+
 ## Storybook Story
 
 ```tsx

@@ -86,6 +86,59 @@ export function ServiceLanding({ locale, onLocale, onStart }: Props) {
 }
 ```
 
+## HTML Example
+
+```html
+<header class="ethds-header">
+  <div class="ethds-header__bar">
+    <a href="/" class="ethds-header__identity" aria-label="Immigration Service — home">
+      <span class="ethds-header__service-name">Immigration Service</span>
+    </a>
+    <div class="ethds-header__actions"><!-- LanguageSwitcher --></div>
+  </div>
+</header>
+
+<main id="main" class="ethds-container">
+  <nav aria-label="Breadcrumb" class="ethds-breadcrumb">
+    <ol class="ethds-breadcrumb__list">
+      <li class="ethds-breadcrumb__item">
+        <a href="/" class="ethds-breadcrumb__link">Home</a>
+        <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+      </li>
+      <li class="ethds-breadcrumb__item">
+        <a href="/services" class="ethds-breadcrumb__link">Services</a>
+        <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+      </li>
+      <li class="ethds-breadcrumb__item">
+        <span aria-current="page" class="ethds-breadcrumb__current">Apply for a passport</span>
+      </li>
+    </ol>
+  </nav>
+
+  <h1>Apply for a passport</h1>
+  <p>Get a new or renewed Ethiopian passport. Most applications are processed within 10 working days.</p>
+
+  <a href="/apply/passport" class="ethds-button ethds-button--primary">Start now</a>
+
+  <h2>Before you start you'll need</h2>
+  <ul>
+    <li>Your Fayda (national ID) number</li>
+    <li>A recent photo</li>
+    <li>Payment of ETB 350.00</li>
+  </ul>
+</main>
+
+<footer class="ethds-footer" aria-label="Footer">
+  <p>© 2026 Government of Ethiopia.</p>
+</footer>
+```
+
+"Start now" is a plain link to the
+[Service Application Page](service-application-page.md#html-example),
+not a button with an `onClick` handler — the whole point of this
+template is to send the citizen to a new page/URL, which a link already
+does natively.
+
 ## Storybook Story
 
 ```tsx
