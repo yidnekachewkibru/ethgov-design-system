@@ -88,6 +88,84 @@ export function MinistryHome({ locale, onLocale, services }: Props) {
 }
 ```
 
+## HTML Example
+
+Same [Header](/docs/components/header#plain-html)/[Footer](/docs/components/footer#plain-html)
+chrome as the National Portal, plus a
+[Breadcrumb](/docs/components/breadcrumb#plain-html) back to it and a
+scoped [Search](/docs/components/search#plain-html).
+
+```html
+<header class="ethds-header">
+  <div class="ethds-header__bar">
+    <a href="/" class="ethds-header__identity" aria-label="Ministry of Revenue — home">
+      <span class="ethds-header__service-name">Ministry of Revenue</span>
+    </a>
+    <div class="ethds-header__actions"><!-- LanguageSwitcher --></div>
+  </div>
+  <nav aria-label="Primary" class="ethds-header__nav">
+    <ul class="ethds-header__nav-list">
+      <li><a href="/" class="ethds-header__nav-link ethds-header__nav-link--current" aria-current="page">Home</a></li>
+      <li><a href="/services" class="ethds-header__nav-link">Services</a></li>
+      <li><a href="/news" class="ethds-header__nav-link">News</a></li>
+      <li><a href="/about" class="ethds-header__nav-link">About</a></li>
+      <li><a href="/contact" class="ethds-header__nav-link">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" class="ethds-container">
+  <nav aria-label="Breadcrumb" class="ethds-breadcrumb">
+    <ol class="ethds-breadcrumb__list">
+      <li class="ethds-breadcrumb__item">
+        <a href="/" class="ethds-breadcrumb__link">Home</a>
+        <span class="ethds-breadcrumb__separator" aria-hidden="true">›</span>
+      </li>
+      <li class="ethds-breadcrumb__item">
+        <span aria-current="page" class="ethds-breadcrumb__current">Ministry of Revenue</span>
+      </li>
+    </ol>
+  </nav>
+
+  <h1>Ministry of Revenue</h1>
+  <p>Collects taxes and administers revenue policy for Ethiopia.</p>
+
+  <form role="search" class="ethds-search" aria-label="Search this ministry">
+    <label for="q" class="ethds-visually-hidden">Search this ministry</label>
+    <input id="q" name="q" type="search" inputmode="search" class="ethds-search__input" />
+    <button type="submit" class="ethds-search__submit">Search</button>
+  </form>
+
+  <div class="ethds-grid">
+    <div class="ethds-col-half">
+      <h2>Our services</h2>
+      <ul class="ethds-link-list">
+        <li><a href="/file-return" class="ethds-link">File a tax return</a></li>
+        <li><a href="/pay-fee" class="ethds-link">Pay a fee</a></li>
+        <li><a href="/register-business" class="ethds-link">Register a business</a></li>
+      </ul>
+    </div>
+    <div class="ethds-col-half">
+      <h2>Latest from us</h2>
+      <ul class="ethds-link-list">
+        <li><a href="/news/1" class="ethds-link">New filing deadline announced</a></li>
+        <li><a href="/news/2" class="ethds-link">Office hours extended for tax season</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer class="ethds-footer" aria-label="Footer">
+  <p>© 2026 Government of Ethiopia.</p>
+</footer>
+```
+
+The `.ethds-grid`/`.ethds-col-half` utility is the same one shown in the
+[National Portal Homepage's HTML Example](national-portal-homepage.md#html-example).
+The ministry's own `aria-label="Search this ministry"` on the search
+form distinguishes it from the national portal's own site-wide search
+when both exist in the same navigation history.
+
 ## Storybook Story
 
 ```tsx
