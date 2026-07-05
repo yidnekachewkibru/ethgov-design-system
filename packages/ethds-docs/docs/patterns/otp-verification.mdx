@@ -63,6 +63,14 @@ during [Registration](registration), or as the second step of
 - The resend/cooldown region is `aria-live="polite"` so the countdown and
   its completion are announced without interrupting the citizen.
 
+## Plain HTML
+
+A single labelled field (never one-box-per-digit — that breaks paste and
+autofill) plus a short `aria-live="polite"` countdown script for the
+resend cooldown — see the
+[pattern's own HTML Example](https://github.com/yidnekachewkibru/ethgov-design-system/blob/main/packages/ethds-patterns/patterns/otp-verification.md#html-example)
+for the full markup and script.
+
 ## Localization
 
 All labels are translatable, including the `sentTo` and `resendCooldown`

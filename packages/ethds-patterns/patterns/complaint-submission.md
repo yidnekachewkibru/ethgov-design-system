@@ -130,3 +130,73 @@ export function ComplaintForm({ onSubmit }: { onSubmit: (data: FormData) => Prom
   );
 }
 ```
+
+## HTML Example
+
+```html
+<form method="post" action="/complaints" novalidate enctype="multipart/form-data">
+  <h1>Submit a complaint</h1>
+
+  <!-- Only present when the server re-renders after a failed submit. -->
+  <div role="alert" tabindex="-1" class="ethds-error-summary" id="error-summary">
+    <h2 class="ethds-error-summary__title">There is a problem</h2>
+    <ul class="ethds-error-summary__list">
+      <li><a href="#category" class="ethds-error-summary__link">Choose what this is about.</a></li>
+      <li><a href="#description" class="ethds-error-summary__link">Describe what happened.</a></li>
+    </ul>
+  </div>
+
+  <div class="ethds-field">
+    <label for="category" class="ethds-label">What is this about?</label>
+    <select id="category" name="category" class="ethds-select" required>
+      <option value="" disabled selected>Choose a category</option>
+      <option value="delay">Service delay</option>
+      <option value="conduct">Staff conduct</option>
+      <option value="error">Incorrect information</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <div class="ethds-field">
+    <label for="description" class="ethds-label">Describe what happened</label>
+    <textarea id="description" name="description" rows="5" class="ethds-textarea" required></textarea>
+  </div>
+
+  <div class="ethds-field">
+    <label for="attachment" class="ethds-label">Attach evidence (optional)</label>
+    <input id="attachment" name="attachment" type="file" class="ethds-file-input" />
+  </div>
+
+  <div class="ethds-checkbox-row">
+    <input id="anonymous" name="anonymous" type="checkbox" class="ethds-checkbox" />
+    <label for="anonymous" class="ethds-label">Submit anonymously</label>
+  </div>
+
+  <div class="ethds-field" id="phone-field">
+    <label for="phone" class="ethds-label">Phone (so we can follow up)</label>
+    <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" class="ethds-input" />
+  </div>
+
+  <button type="submit" class="ethds-button ethds-button--primary">Submit complaint</button>
+</form>
+
+<script>
+  document.getElementById('error-summary')?.focus();
+
+  const anonymous = document.getElementById('anonymous');
+  const phoneField = document.getElementById('phone-field');
+  anonymous.addEventListener('change', () => {
+    phoneField.hidden = anonymous.checked;
+    phoneField.querySelector('input').required = !anonymous.checked;
+  });
+</script>
+```
+
+The anonymity toggle is the one piece of real client behaviour — hiding
+the phone field entirely (`hidden`, not just visually) when "Submit
+anonymously" is checked, matching the React version's reasoning that an
+anonymous complaint shouldn't display a follow-up field at all. Without
+JavaScript, the equivalent is server-side: submit the form as-is and let
+the server treat a checked `anonymous` value as skipping the phone
+requirement, showing the field either way (a harmless no-op field is an
+acceptable trade-off for a fully no-JS form).

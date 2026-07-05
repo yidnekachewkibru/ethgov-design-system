@@ -151,3 +151,70 @@ export function RegisterForm({ onSubmit }: { onSubmit: (data: FormData) => Promi
   );
 }
 ```
+
+## HTML Example
+
+Server-validated on submit, re-rendering with the same focusable error
+summary and field-level state on failure — the same shape as
+[Login](login.md#html-example).
+
+```html
+<form method="post" action="/register" novalidate>
+  <h1>Create an account</h1>
+
+  <!-- Only present when the server re-renders after a failed submit. -->
+  <div role="alert" tabindex="-1" class="ethds-error-summary" id="error-summary">
+    <h2 class="ethds-error-summary__title">There is a problem</h2>
+    <ul class="ethds-error-summary__list">
+      <li><a href="#givenName" class="ethds-error-summary__link">Enter your given name.</a></li>
+      <li><a href="#fathersName" class="ethds-error-summary__link">Enter your father's name.</a></li>
+    </ul>
+  </div>
+
+  <div class="ethds-field">
+    <label for="givenName" class="ethds-label">Given name</label>
+    <input id="givenName" name="givenName" type="text" autocomplete="given-name" class="ethds-input" required />
+  </div>
+
+  <div class="ethds-field">
+    <label for="fathersName" class="ethds-label">Father's name</label>
+    <input id="fathersName" name="fathersName" type="text" class="ethds-input" required />
+  </div>
+
+  <div class="ethds-field">
+    <label for="grandfathersName" class="ethds-label">Grandfather's name (optional)</label>
+    <input id="grandfathersName" name="grandfathersName" type="text" class="ethds-input" />
+  </div>
+
+  <div class="ethds-field">
+    <label for="phone" class="ethds-label">Phone number</label>
+    <span id="phone-hint" class="ethds-hint">We'll send a code to confirm it.</span>
+    <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+           class="ethds-input" aria-describedby="phone-hint" required />
+  </div>
+
+  <div class="ethds-field">
+    <label for="password" class="ethds-label">Password</label>
+    <span id="password-hint" class="ethds-hint">At least 8 characters.</span>
+    <input id="password" name="password" type="password" autocomplete="new-password"
+           class="ethds-input" aria-describedby="password-hint" minlength="8" required />
+  </div>
+
+  <div class="ethds-checkbox-row">
+    <input id="terms" name="terms" type="checkbox" class="ethds-checkbox" required />
+    <label for="terms" class="ethds-label">I accept the terms of service</label>
+  </div>
+
+  <button type="submit" class="ethds-button ethds-button--primary">Create account</button>
+</form>
+
+<script>
+  document.getElementById('error-summary')?.focus();
+</script>
+```
+
+On success, the server routes to [OTP Verification](otp-verification.md#html-example)
+before activating the account, exactly as the React version's flow does.
+On a duplicate phone number, redirect to log in rather than revealing
+that the account already exists — the same non-enumeration rule
+documented above.

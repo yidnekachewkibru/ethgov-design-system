@@ -135,3 +135,53 @@ export function OtpForm({
   );
 }
 ```
+
+## HTML Example
+
+```html
+<form method="post" action="/verify-otp" novalidate>
+  <h1>Enter the code we sent</h1>
+  <p>We sent a 6-digit code to 09•• ••• •67.</p>
+
+  <!-- Only rendered by the server after a failed verify attempt. -->
+  <div role="alert" class="ethds-alert ethds-alert--error">
+    That code is incorrect or has expired. Check the SMS or request a new code.
+  </div>
+
+  <div class="ethds-field">
+    <label for="code" class="ethds-label">Code</label>
+    <input id="code" name="code" type="text" inputmode="numeric"
+           autocomplete="one-time-code" class="ethds-input" required />
+  </div>
+
+  <button type="submit" class="ethds-button ethds-button--primary">Verify</button>
+
+  <p aria-live="polite" id="resend-status">Didn't get it? Resend in <span id="resend-seconds">30</span>s</p>
+  <a href="/login" class="ethds-link">Wrong number? Change it</a>
+</form>
+```
+
+Trim spaces from the submitted code server-side before checking it — the
+citizen may paste a code copied with surrounding whitespace. The resend
+countdown is the one piece of real client behaviour; without it, resend
+is simply a plain link/button that's disabled server-side until the
+cooldown API allows it. With a small script:
+
+```js
+let seconds = 30;
+const status = document.getElementById('resend-status');
+const secondsEl = document.getElementById('resend-seconds');
+const timer = setInterval(() => {
+  seconds -= 1;
+  secondsEl.textContent = String(seconds);
+  if (seconds <= 0) {
+    clearInterval(timer);
+    status.textContent = '';
+    status.insertAdjacentHTML('beforeend', '<button type="button" class="ethds-button ethds-button--secondary">Resend code</button>');
+  }
+}, 1000);
+```
+
+The `aria-live="polite"` region means the countdown's completion (and
+the "Resend code" button appearing) is announced without interrupting
+whatever the citizen is doing.
