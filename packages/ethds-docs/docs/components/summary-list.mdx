@@ -58,6 +58,48 @@ Don't use for rows of *many* records with the same fields — that's a
 - Rows stack to a single column on small screens (no horizontal
   scrolling).
 
+## Plain HTML
+
+```html
+<dl class="ethds-summary-list">
+  <div class="ethds-summary-list__row">
+    <dt class="ethds-summary-list__key">Given name</dt>
+    <dd class="ethds-summary-list__value">Abebe</dd>
+    <dd class="ethds-summary-list__actions">
+      <a href="/apply/name" class="ethds-summary-list__action">
+        Change <span class="ethds-visually-hidden">given name</span>
+      </a>
+    </dd>
+  </div>
+  <div class="ethds-summary-list__row">
+    <dt class="ethds-summary-list__key">Region</dt>
+    <dd class="ethds-summary-list__value">Oromia</dd>
+    <dd class="ethds-summary-list__actions"></dd>
+  </div>
+</dl>
+```
+
+```css
+.ethds-summary-list__row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr auto;
+  gap: var(--ethds-space-4);
+  padding: var(--ethds-space-3) 0;
+  border-bottom: 1px solid var(--ethds-gray-200);
+}
+@media (max-width: 640px) {
+  .ethds-summary-list__row { grid-template-columns: 1fr; gap: var(--ethds-space-1); }
+}
+.ethds-summary-list__key { font-weight: var(--ethds-font-bold); }
+.ethds-summary-list__value { margin: 0; overflow-wrap: anywhere; }
+.ethds-summary-list__actions { margin: 0; text-align: end; }
+.ethds-summary-list__action { color: var(--ethds-color-interactive); text-decoration: underline; }
+```
+
+Static, server-rendered markup — no JavaScript. Every row without a
+Change link still renders an empty `<dd class="ethds-summary-list__actions">`
+so the three-column grid stays aligned across rows.
+
 ## Props
 
 | Prop | Type | Notes |

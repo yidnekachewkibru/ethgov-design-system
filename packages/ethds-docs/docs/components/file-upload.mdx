@@ -49,6 +49,48 @@ with a poor camera.
 - Label, hint, and error are wired via `aria-describedby` / `aria-invalid`,
   the same pattern as [Text input](text-input.mdx).
 
+## Plain HTML
+
+```html
+<div class="ethds-field">
+  <label for="id-scan" class="ethds-label">Upload your Fayda ID scan</label>
+  <span id="id-scan-hint" class="ethds-hint">JPG, PNG or PDF, up to 5MB</span>
+  <input
+    id="id-scan"
+    name="id-scan"
+    type="file"
+    accept="image/jpeg,image/png,application/pdf"
+    class="ethds-file-input"
+    aria-describedby="id-scan-hint id-scan-status"
+  />
+  <span id="id-scan-status" class="ethds-hint" aria-live="polite">No file chosen</span>
+</div>
+```
+
+```css
+.ethds-file-input { padding: var(--ethds-space-2) 0; }
+.ethds-file-input:focus-visible { outline: 2px solid var(--ethds-color-focus); outline-offset: 1px; }
+```
+
+The browser's own picker already announces the chosen filename in most
+screen readers, but a small script gives every citizen the same explicit
+confirmation the React version does:
+
+```js
+document.querySelectorAll('.ethds-file-input').forEach((input) => {
+  const status = document.getElementById(input.getAttribute('aria-describedby').split(' ')[1]);
+  input.addEventListener('change', () => {
+    status.textContent = input.files.length
+      ? `${Array.from(input.files).map((f) => f.name).join(', ')} — file chosen`
+      : 'No file chosen';
+  });
+});
+```
+
+Form submission (with the file attached) works with a plain
+`<form enctype="multipart/form-data" method="post">` — no client-side
+upload logic required.
+
 ## Props
 
 | Prop | Type | Notes |
